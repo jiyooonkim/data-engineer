@@ -25,12 +25,12 @@ Developers with the ability to create good data in big databases.
 
 
 **todo list** 
- **개발**
-- ai/ml 적용하여 학습 예정(커버리지 늘리기 위해)
-- Flask 로 간단한 API 구성
+ - **개발**
+   - ai/ml 적용하여 학습 예정(커버리지 늘리기 위해)
+   - Flask 로 간단한 API 구성
 
-환경 세팅
-- Local 에서 하둡 운영 방식 정하기 (script 구성 예정)
-- airflow 설치 
-- CI/CD 환경 구축(jenkins)
+ - **환경 세팅**
+    - Local 에서 하둡 운영 방식 정하기 (script 구성 예정)
+    - airflow 설치 
+    - CI/CD 환경 구축(jenkins)
 
