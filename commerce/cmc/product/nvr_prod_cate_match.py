@@ -98,7 +98,7 @@ if __name__ == "__main__":
     get_prod_tkn.coalesce(10).write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/test/prod2/")      # save hdfs
     # get_prod_tkn.write.mode('overwrite').saveAsTable("stag_os.hive_test_3")
 #
-    ## 송장명 토크나이징 ##
+    # # 송장명 토크나이징 ##
     shipping_nm = spark.read.csv("/Users/jy_kim/Documents/private_project/commerce/data/송장명.csv")\
                 .select(
                     F.explode(

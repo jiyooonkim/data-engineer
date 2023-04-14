@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
 ############################
-# title : 연관있는 상품명 찾기 by TF-IDF
-# desc : 연관있는 상품명을 찾아 브랜드, 시리즈, 속성 ,카테고리 등 보기 위함
-# https://yeong-jin-data-blog.tistory.com/entry/TF-IDF-Term-Frequency-Inverse-Document-Frequency
-# pro : -
-# todo: cosine similarity
-# 각 상품명(문서)에 대한 tf-idf 추출 ,
-# todo : 전체 상품명을 한 문서라 생각하고
+# title : 유사한 상품명 찾기 by TF-IDF &
+# desc : 연관있는 상품명을 찾아 브랜드, 시리즈, 속성 ,카테고리 등 보기 위해 (참고문서:https://yeong-jin-data-blog.tistory.com/entry/TF-IDF-Term-Frequency-Inverse-Document-Frequency)
+# pro : - 각 상품명(문서)을 토크나이징 후 비교
+#
 ############################
 from pyspark.sql import SparkSession
 import pyspark.sql.functions as F
