@@ -35,12 +35,6 @@ def get_text_tpye(col):
             type_rlt += 'etc '
             etc_cnt += 1
             # type_rlt.append('etc')
-
-    # rtn_txt = ""
-    # for j in range(0, len(type_rlt)):
-    #     if type_rlt[j] != type_rlt[j-1]:
-    #         rtn_txt += type_rlt[j] + " "
-    #     else:
     return [type_rlt[:-1], int(num_cnt), int(eng_cnt), int(kor_cnt), int(etc_cnt)]
 
 
@@ -60,15 +54,19 @@ if __name__ == "__main__":
         .option('header', True) \
         .csv("/Users/jy_kim/Documents/private_project/commerce/data/송장명.csv")
 
-    shp = ori_shp.select(F.regexp_replace(F.col('_c2'), "[^a-zA-Zㄱ-힝0-9]", ' ').alias("shipping_nm")) \
+    shp = ori_shp\
+        .select(F.regexp_replace(F.col('_c2'), "[^a-zA-Zㄱ-힝0-9]", ' ').alias("shipping_nm")) \
         .withColumn(
-        "shp_nm_token",
-        F.explode(F.split(F.regexp_replace(F.lower(F.col('shipping_nm')), ' ', ','), ","))  # 영,한,숫 이외 제거 및 토큰화 작업
-    ).where(
-        F.col('shp_nm_token') != ""
-    ).repartition(500, F.col('shp_nm_token')) \
+            "shp_nm_token",
+            F.explode(F.split(F.regexp_replace(F.lower(F.col('shipping_nm')), ' ', ','), ","))  # 영,한,숫 이외 제거 및 토큰화 작업
+        ).where(
+            F.col('shp_nm_token') != ""
+        ).repartition(500, F.col('shp_nm_token')) \
         .alias('shp')
-    shp_agg = shp.groupBy(F.col('shp_nm_token')).agg(F.count(F.col('shp_nm_token')).alias('cnt'))
+    shp_agg = shp\
+        .groupBy(F.col('shp_nm_token'))\
+        .agg(F.count(F.col('shp_nm_token'))
+         .alias('cnt'))
 
     # shp_agg.orderBy(F.col('cnt').desc()).show(1000, False)
 
@@ -93,7 +91,7 @@ if __name__ == "__main__":
     # F.collect_list("prod_nm_token").alias('tokens')
     # cate.orderBy(F.col('cate')).show(10000)
 
-    '''(도량형)속성 추출 '''
+    ''' (도량형)속성 추출 '''
     # 추출 대상 : 도량형(숫+영, 숫+한) 숫자/한글/영어 체크후 판별로직,
     # 목표 결과물: 불용어(Stop word)에 사용 => 상품에서 무의미 토큰 추출
     # 제거 대상 : 브랜드

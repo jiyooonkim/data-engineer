@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Develop Basic word dictionary">
+    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="todo list 작성">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/hive_connection.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/test(tf-idf).py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/cosine_similarity.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/tf-idf.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/tf-idf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/word2vec.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/word2vec.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/cmc/product/mapping_shipping_prodnm.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/product/mapping_shipping_prodnm.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commerce/cmc/product/nvr_prod_cate_match.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/product/nvr_prod_cate_match.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +53,7 @@
       <recent name="$PROJECT_DIR$/cmc/product" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.tf-idf (1)">
+  <component name="RunManager" selected="Python.word2vec">
     <configuration name="cosine_similarity" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -90,27 +88,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/cmc/product/mapping_shipping_prodnm.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="mapping_shipping_prodnm" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="test" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../commerce/cmc/product" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../commerce/cmc/product/mapping_shipping_prodnm.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -161,13 +138,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="word2vec" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/cmc/nlp" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/cmc/nlp/word2vec.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.tf-idf (1)" />
-        <item itemvalue="Python.mapping_shipping_prodnm (1)" />
-        <item itemvalue="Python.cosine_similarity" />
+        <item itemvalue="Python.word2vec" />
         <item itemvalue="Python.nvr_prod_cate_match" />
-        <item itemvalue="Python.mapping_shipping_prodnm" />
+        <item itemvalue="Python.mapping_shipping_prodnm (1)" />
+        <item itemvalue="Python.tf-idf (1)" />
+        <item itemvalue="Python.cosine_similarity" />
       </list>
     </recent_temporary>
   </component>
@@ -187,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680614327983</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="todo list 작성">
+      <created>1681484970863</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681484970863</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -204,14 +209,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Develop Basic word dictionary" />
-    <option name="LAST_COMMIT_MESSAGE" value="Develop Basic word dictionary" />
+    <MESSAGE value="todo list 작성" />
+    <option name="LAST_COMMIT_MESSAGE" value="todo list 작성" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/commerce/cmc/product/nvr_prod_cate_match.py</url>
-          <line>111</line>
+          <line>105</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

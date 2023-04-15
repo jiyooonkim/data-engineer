@@ -1,18 +1,14 @@
 # -*- coding: utf-8 -*-
 ########################################################################
 # 목적 : 상품명에 대한 카테고리 매칭 정제
-# 이유 : 같은 상품명에 여러 카테고리, 카테고리 오매칭, 카테고리 범주를 좁히고자(카테고리는 수동으로 생성가능한 영역이라 신뢰성 부족)
-# 생산성 : 브랜드, 시리즈, 모델명, 도량형속성 사전 구축
-#
-#
+# 이유 : 같은 상품명에 여러 카테고리, 카테고리 오매칭, 카테고리 범주를 좁히고자(카테고리는 수동으로 생성가능한 영역이라 신뢰성 부족 -> 해결방안 없음..)
+# 생산성 : 브랜드, 시리즈, 모델명, (도량형)속성 사전 구축
 ########################################################################
 
 from pyspark.sql import SparkSession
 import pyspark.sql.functions as F
 import pyspark.sql.types as T
 import pyspark.sql.window as window
-# BASE_PATH = config.conf['BASE_PATH']
-# input_ctlg = BASE_PATH + ""
 from konlpy.tag import Okt, Kkma
 
 
@@ -92,8 +88,6 @@ if __name__ == "__main__":
     # # # ori_df.where(F.col('prod_nm_token') == '캐주얼').show(100, False)
     # get_prod_tkn.orderBy(F.col('prod_nm')).show(300, False)
     # # get_prod_tkn.select(F.count(F.col('prod_nm'))).show()
-
-    # todo: 형용사, 불용어 제거 작업
 
     get_prod_tkn.coalesce(10).write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/test/prod2/")      # save hdfs
     # get_prod_tkn.write.mode('overwrite').saveAsTable("stag_os.hive_test_3")
