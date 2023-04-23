@@ -9,6 +9,8 @@
 # pro :
  - 속성, 불용어(stopword) 제거
  - 상품명에서 inner keyword 제거 후 남은 것이 Stopword 가 될 가능성은 ??
+ # insight :
+ - skip-gram을 이용해서 연관키워드 도출 가능 함    ex) 히프커버->힙커버, 낚시복, 낚시옷, 낚시용품 ..., 힐링쉴드-> 폰트리, 액정보호필름, 시계보호필름
 # etc :
  - 연관키워드, 연관상품, 추천 상품 ,추천키워드 (해쉬태그....??)
 """
@@ -30,6 +32,7 @@ from pyspark.sql import SparkSession
 from pyspark.ml.feature import Word2Vec
 import pyspark.sql.functions as F
 import pyspark.sql.types as T
+import pyspark.sql.window as window
 
 
 @F.udf(returnType=T.ArrayType(T.ArrayType(T.StringType())))
@@ -41,6 +44,19 @@ def get_embadding_layer(col_lst):
             if i != j:
                 lst.append([i, j])
     return lst
+
+
+@F.udf(returnType=T.StringType())
+def get_txt_type(col):
+    val = ''
+    if col.isalpha():  # eng+kor, kor
+        val = 'kor'
+    if col.encode().isalpha():  # only eng
+        val = 'eng'
+    if col.isdigit():   # 숫자만
+        val = 'num'
+    # isalnum() # 영어/한글 + 숫자
+    return val
 
 
 if __name__ == "__main__":
@@ -65,19 +81,40 @@ if __name__ == "__main__":
         .withColumn("couple_word", get_embadding_layer(F.col('prod_nm_tkns')))\
         .repartition(500)   # .limit(500)
     embd_lble = df.select(
+                            F.col('prod_nm'),
                             F.explode(F.col('couple_word')).alias('embad_layer'),
                             F.col('embad_layer')[0].alias('layer1'),
                             F.col('embad_layer')[1].alias('layer2')
                         ).where(
-                            (F.length(F.col('layer1'))>1) |
-                            (F.length(F.col('layer2'))>1)
+                            (F.length(F.col('layer1')) > 1) &
+                            (F.length(F.col('layer2')) > 1)
                         ).alias('embd_lble')
-    embd_lble.show(10)
-    #
-    # df.select(F.count(F.col('prod_nm_tkns'))).show()
 
-    word2Vec = Word2Vec(vectorSize=4, seed=3, inputCol="prod_nm_tkns", outputCol="model")
-    word2Vec.setMaxIter(10)
+    # 예측값 구하기, 레이블이 1인것만 가능, 0은 불가
+    kor_eng_lble_frq = embd_lble\
+        .withColumn('txt_type', get_txt_type(F.col('layer1')))\
+        .where(F.col('txt_type') == 'kor')\
+        .groupBy(F.col('layer1'), F.col('layer2'))\
+        .agg(F.count(F.col('layer2')).alias('cnt'))
+
+    # layer2 상위 4개까지 리스트형식으로
+    get_candidate = kor_eng_lble_frq.withColumn(
+                                                'lyr2_rnk',
+                                                F.rank().over(
+                                                    window.Window.partitionBy(F.col('layer1')).orderBy(F.col('layer2'))
+                                                )
+                                            ).where(F.col('lyr2_rnk') < 5) #.orderBy(F.col('layer1').desc()).show(1000, False)
+
+    get_candidate.coalesce(20).write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/word2vec/skip_gram/cnadidate")  # save hdfs
+
+    get_candidate_list = get_candidate.groupBy(F.col('layer1')).agg(F.collect_list(F.col('layer2')))
+    get_candidate_list.show(1000, False)
+    get_candidate_list.coalesce(20).write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/word2vec/skip_gram/cnadidate_list")  # save hdfs
+
+
+
+    # word2Vec = Word2Vec(vectorSize=4, seed=3, inputCol="prod_nm_tkns", outputCol="model")
+    # word2Vec.setMaxIter(10)
     # model = word2Vec.fit(df)
     # model.getVectors().show(100, False)
 
