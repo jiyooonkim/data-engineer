@@ -16,11 +16,12 @@
 """
 
 '''
-word2vec
+word2vec(word embedding)
 - word to vector
-- 자주 같이 등장할수록 두 단어는 비슷한 의미를 가진다는 것
-- cbow : 맥락(주변) 중간단어 예측
+- 이론 : 자주 같이 등장할수록 두 단어는 비슷한 의미를 가진다는 것
 - skip-gram : 중간단어로 맥락(주변) 예측
+- cbow : 맥락(주변) 중간단어 예측
+
 -
 format
 상품명      innerkwd
@@ -95,27 +96,30 @@ if __name__ == "__main__":
         .withColumn('txt_type', get_txt_type(F.col('layer1')))\
         .where(F.col('txt_type') == 'kor')\
         .groupBy(F.col('layer1'), F.col('layer2'))\
-        .agg(F.count(F.col('layer2')).alias('cnt'))
+        .agg(F.count(F.col('layer2')).alias('cnt')).where(F.col('cnt') > 10)
 
     # layer2 상위 4개까지 리스트형식으로
-    get_candidate = kor_eng_lble_frq.withColumn(
-                                                'lyr2_rnk',
-                                                F.rank().over(
-                                                    window.Window.partitionBy(F.col('layer1')).orderBy(F.col('layer2'))
-                                                )
-                                            ).where(F.col('lyr2_rnk') < 5) #.orderBy(F.col('layer1').desc()).show(1000, False)
+    get_candidate = kor_eng_lble_frq\
+        .withColumn(
+            'prdt_val',
+            F.round(F.log((F.col('cnt')/kor_eng_lble_frq.count())), 4)
+        ).withColumn(
+            'lyr2_rnk',
+            F.rank().over(window.Window.partitionBy(F.col('layer1')).orderBy(F.col('prdt_val')))
+        ).where(F.col('lyr2_rnk') < 6)
+    # get_candidate.show(100, False)
 
     get_candidate.coalesce(20).write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/word2vec/skip_gram/cnadidate")  # save hdfs
-
+    # todo : 뒷좌석, 뒷자석 -> typo correction
     get_candidate_list = get_candidate.groupBy(F.col('layer1')).agg(F.collect_list(F.col('layer2')))
     get_candidate_list.show(1000, False)
     get_candidate_list.coalesce(20).write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/word2vec/skip_gram/cnadidate_list")  # save hdfs
 
+    # cbow
 
-
-    # word2Vec = Word2Vec(vectorSize=4, seed=3, inputCol="prod_nm_tkns", outputCol="model")
-    # word2Vec.setMaxIter(10)
-    # model = word2Vec.fit(df)
+    word2Vec = Word2Vec(vectorSize=4, seed=3, inputCol="prod_nm_tkns", outputCol="model")
+    word2Vec.setMaxIter(10)
+    model = word2Vec.fit(df)
     # model.getVectors().show(100, False)
 
     # ## step.1 ##
