@@ -91,12 +91,13 @@ if __name__ == "__main__":
                             (F.length(F.col('layer2')) > 1)
                         ).alias('embd_lble')
 
-    # 예측값 구하기, 레이블이 1인것만 가능, 0은 불가
+    # negative sampling : 예측값 구하기, 레이블이 1인것만 가능, 0은 불가(일부만 샘플링하는것인데 일부의 기준 애매해서..)
     kor_eng_lble_frq = embd_lble\
         .withColumn('txt_type', get_txt_type(F.col('layer1')))\
         .where(F.col('txt_type') == 'kor')\
         .groupBy(F.col('layer1'), F.col('layer2'))\
-        .agg(F.count(F.col('layer2')).alias('cnt')).where(F.col('cnt') > 10)
+        .agg(F.count(F.col('layer2')).alias('cnt'))\
+        .where(F.col('cnt') > 10)
 
     # layer2 상위 4개까지 리스트형식으로
     get_candidate = kor_eng_lble_frq\
@@ -119,7 +120,7 @@ if __name__ == "__main__":
 
     word2Vec = Word2Vec(vectorSize=4, seed=3, inputCol="prod_nm_tkns", outputCol="model")
     word2Vec.setMaxIter(10)
-    model = word2Vec.fit(df)
+    # model = word2Vec.fit(df)
     # model.getVectors().show(100, False)
 
     # ## step.1 ##
