@@ -5,6 +5,11 @@
 # pro : - 각 상품명(문서)을 토크나이징 후 비교
 #
 ############################
+"""
+tf vs tf-idf
+tf : 일반적인 텍스트 유사도 계산시
+tf-idf : 검색쿼리 적절성 판단 시
+"""
 from pyspark.sql import SparkSession
 import pyspark.sql.functions as F
 
@@ -26,11 +31,11 @@ if __name__ == "__main__":
 
     df1 = spark.read. \
         option('header', True). \
-        csv("/Users/jy_kim/Documents/private_project/commerce/data/nvr_prod.csv")
+        csv('/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/nvr_prod.csv')
 
     df2 = spark.read. \
         option('header', True). \
-        csv("/Users/jy_kim/Documents/private_project/commerce/data/nvr_prod_2.csv")
+        csv("/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/nvr_prod_2.csv")
 
     df = df1.unionByName(df2, allowMissingColumns=True)
 
@@ -73,7 +78,7 @@ if __name__ == "__main__":
         .alias('tf_d')    # (문서 d 에서 총 단어의 수)
     # tf_d.where(F.col('prod_nm') == 'MAD DOG 매드독 차량용 공기청정기 MAD 350').show(100, False)
     # tf_d.show(10, False)
-    # dd.select(F.count(F.col('prod_nm'))).show()
+    # get_embadding_layer
 
     # tf.where(F.col('token') == '안전').where(F.col('l_cate') == '출산/육아').show(1000, False)
     # tf_t.select(F.count(F.col('prod_nm'))).show()     # 321850
@@ -132,7 +137,8 @@ if __name__ == "__main__":
     tf_t_1 = get_collect_list \
         .groupBy(F.col('l_cate'), F.col('token')) \
         .agg(F.count(F.col('token')).alias('tf_t_cnt')) \
-        .alias('tf_t_1').repartition(500, F.col('token'))  # (문서 d 에서 단어 t 의 출현 빈도)
+        .alias('tf_t_1')\
+        .repartition(500, F.col('token'))  # (문서 d 에서 단어 t 의 출현 빈도)
     # tf_t.where(F.col('prod_nm') == 'MAD DOG 매드독 차량용 공기청정기 MAD 350').show(100, False)
     # tt.select(F.count(F.col('prod_nm'))).show()
 
@@ -153,7 +159,7 @@ if __name__ == "__main__":
                             (F.col('tf_t_cnt')/F.col('tf_d_cnt'))
                         ).alias('tf_1')
 
-    # IDF(t, D) = log(총 문서의 개수 / 단어 t를 포함하는 문서의 개수)
+    # IDF(t, D) = log(총 문서의 개수 / 단어 t를 포함 하는 문서의 개수)
     tt_1 = df.count()  # 총 문서(상품명)의 개수
     DD_1 = ori_df\
         .groupBy(F.col('prod_nm_token')) \

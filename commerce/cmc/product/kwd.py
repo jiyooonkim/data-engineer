@@ -97,13 +97,23 @@ print("lst : ", set(lst))
 #     print("=====================")
 
 
-from konlpy.tag import Okt, Kkma
+# from konlpy.tag import Okt, Kkma
+#
+# okt = Okt()  ## 단어 개별 분석
+# kkma = Kkma()  ## 단어 중복 분석
+# txt = "명사이다"
+# tweet_okt = okt.nouns(str(txt))
+# # tweet_kkma = kkma.nouns(tweet_message)
+# print("tweet_okt : ", tweet_okt)
 
-okt = Okt()  ## 단어 개별 분석
-kkma = Kkma()  ## 단어 중복 분석
-txt = "사고싶다"
-tweet_okt = okt.nouns(str(txt))
-# tweet_kkma = kkma.nouns(tweet_message)
-print("tweet_okt : ", tweet_okt)
 
-
+str1 = '더랄라 케이크망또 여아 데일리 외출복 얼집 유천 등원룩 망토 스카프 모자'
+str2 = '미술놀이 유아미술놀이 유아학습 캐릭터 가위 오리기 등원룩'
+a = set(str1.split())
+b = set(str2.split())
+c = a.intersection(b)
+res = float(len(c)) / (len(a) + len(b) - len(c))
+print("a : ", a, len(a) )
+print("b : ", b, len(b))
+print("c : ", c, len(c))
+print("res : ", res)

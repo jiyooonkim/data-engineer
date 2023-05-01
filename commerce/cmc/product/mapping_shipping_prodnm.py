@@ -52,7 +52,7 @@ if __name__ == "__main__":
 
     ori_shp = spark.read \
         .option('header', True) \
-        .csv("/Users/jy_kim/Documents/private_project/commerce/data/송장명.csv")
+        .csv('/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/송장명.csv')
 
     shp = ori_shp\
         .select(F.regexp_replace(F.col('_c2'), "[^a-zA-Zㄱ-힝0-9]", ' ').alias("shipping_nm")) \
@@ -66,18 +66,18 @@ if __name__ == "__main__":
     shp_agg = shp\
         .groupBy(F.col('shp_nm_token'))\
         .agg(F.count(F.col('shp_nm_token'))
-         .alias('cnt'))
+        .alias('cnt'))
 
     # shp_agg.orderBy(F.col('cnt').desc()).show(1000, False)
 
     # 상품명 df에서 카테고리 추출
     prod_df1 = spark.read. \
         option('header', True). \
-        csv("/Users/jy_kim/Documents/private_project/commerce/data/nvr_prod.csv")
+        csv("/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/nvr_prod.csv")
 
     prod_df2 = spark.read. \
         option('header', True). \
-        csv("/Users/jy_kim/Documents/private_project/commerce/data/nvr_prod_2.csv")
+        csv("/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/nvr_prod_2.csv")
 
     prod = prod_df1.unionByName(prod_df2, allowMissingColumns=True)  # .select(F.col('대분류'), F.col('중분류'), F.col('소분류'), F.col('세분류'))
     l_cate = prod.select(F.explode(F.split(F.regexp_replace(F.lower(F.col('대분류')), '/', ','), ",")).alias('cate'))

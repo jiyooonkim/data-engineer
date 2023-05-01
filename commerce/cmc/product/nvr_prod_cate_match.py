@@ -38,7 +38,7 @@ if __name__ == "__main__":
 
     ori_df = spark.read.\
             option('header', True).\
-            csv("/Users/jy_kim/Documents/private_project/commerce/data/nvr_prod.csv").\
+            csv("/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/nvr_prod.csv").\
             select(
                 F.regexp_replace(F.col('상품명'), "[^a-zA-Zㄱ-힝0-9]", ' ').alias("prod_nm"),
                 # F.col('cate_code'),
@@ -54,10 +54,10 @@ if __name__ == "__main__":
             ).repartition(500, F.col('prod_nm_token'))\
         .alias('ori_df')
 
-    ori_df = ori_df.withColumn(
-                                    "morpheme",
-                                     get_morpheme(('prod_nm_token'))  # 품사구하기
-                                )
+    # ori_df = ori_df.withColumn(
+    #                                 "morpheme",
+    #                                  get_morpheme(('prod_nm_token'))  # 품사구하기
+    #                             )
 
     # ori_df.where(F.col('prod_nm').like('%DIY 만들기%목걸이%')).show(100, False)
     # ori_df.orderBy(F.col('prod_nm')).show(400, False)
@@ -93,7 +93,7 @@ if __name__ == "__main__":
     # get_prod_tkn.write.mode('overwrite').saveAsTable("stag_os.hive_test_3")
 #
     # # 송장명 토크나이징 ##
-    shipping_nm = spark.read.csv("/Users/jy_kim/Documents/private_project/commerce/data/송장명.csv")\
+    shipping_nm = spark.read.csv("/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/송장명.csv")\
                 .select(
                     F.explode(
                         F.split(F.regexp_replace(F.lower(F.col('_c2')), ' ', ','), ",")

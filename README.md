@@ -19,6 +19,7 @@ Developers with the ability to create good data in big databases.
 - 브랜드, 시리즈, 모델명, (도량형)속성 사전 구축
 - 검색 필터 사전
 - cosine similarity
+- Jaccard Similarity
 - tf-idf
 - word2vec
 

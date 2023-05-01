@@ -118,8 +118,8 @@ if __name__ == "__main__":
 
     # cbow
 
-    word2Vec = Word2Vec(vectorSize=4, seed=3, inputCol="prod_nm_tkns", outputCol="model")
-    word2Vec.setMaxIter(10)
+    # word2Vec = Word2Vec(vectorSize=4, seed=3, inputCol="prod_nm_tkns", outputCol="model")
+    # word2Vec.setMaxIter(10)
     # model = word2Vec.fit(df)
     # model.getVectors().show(100, False)
 
