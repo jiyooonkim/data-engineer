@@ -14,6 +14,7 @@ import pyspark.sql.functions as F
 import pyspark.sql.types as T
 import pyspark.sql.window as window
 
+
 @F.udf(returnType=T.DoubleType())
 def get_jaccard_sim(str1, str2):
     # set : 중복성 무시
