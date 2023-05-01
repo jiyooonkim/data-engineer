@@ -5,23 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="dev skip-gram">
-      <change afterPath="$PROJECT_DIR$/commerce/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commerce/.idea/commerce.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commerce/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commerce/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commerce/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commerce/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commerce/cmc/etc/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commerce/cmc/etc/smtp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/cosine_similarity.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/csnsmt_jcd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/tf-idf.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/tf-idf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/word2vec.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/word2vec.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/product/kwd.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/product/kwd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/product/mapping_shipping_prodnm.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/product/mapping_shipping_prodnm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/product/nvr_prod_cate_match.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/product/nvr_prod_cate_match.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +22,26 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "history": [
+    {
+      "state": "CLOSED"
+    }
+  ],
+  "lastFilter": {
+    "state": "CLOSED"
+  }
+}]]></component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="5" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="1944756b-5514-4879-8934-6b4fbafcaef9" />
+        <option name="url" value="https://github.com/jiyooonkim/nlp-engineer.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/commerce/cmc/nlp/word2vec.py" root0="FORCE_HIGHLIGHTING" />
