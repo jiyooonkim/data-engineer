@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="dev skip-gram">
-      <change beforePath="$PROJECT_DIR$/.idea/csv-editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-editor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/csnsmt_jcd.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/csnsmt_jcd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/tf-idf.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/tf-idf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/word2vec.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/word2vec.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/product/nvr_prod_cate_match.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/product/nvr_prod_cate_match.py" afterDir="false" />
-    </list>
+    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="dev skip-gram" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -192,9 +185,9 @@
       <list>
         <item itemvalue="Python.csnsmt_jcd" />
         <item itemvalue="Python.kwd" />
+        <item itemvalue="Python.nvr_prod_cate_match" />
         <item itemvalue="Python.word2vec" />
         <item itemvalue="Python.tf-idf" />
-        <item itemvalue="Python.nvr_prod_cate_match" />
       </list>
     </recent_temporary>
   </component>
