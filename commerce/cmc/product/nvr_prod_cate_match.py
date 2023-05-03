@@ -91,22 +91,22 @@ if __name__ == "__main__":
 
     get_prod_tkn.coalesce(10).write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/test/prod2/")      # save hdfs
     # get_prod_tkn.write.mode('overwrite').saveAsTable("stag_os.hive_test_3")
-#
+
     # # 송장명 토크나이징 ##
     shipping_nm = spark.read.csv("/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/송장명.csv")\
-                .select(
-                    F.explode(
-                        F.split(F.regexp_replace(F.lower(F.col('_c2')), ' ', ','), ",")
-                    ).alias('shipping_nm')
-                ).withColumn(
-                    "shp_tkn",
-                    F.regexp_replace(F.col('shipping_nm'), "[^ㄱ-힝]", '')
-                ).where(
-                    F.length(F.col('shp_tkn')) > 1
-                ).alias('shipping_nm')
+                    .select(
+                        F.explode(
+                            F.split(F.regexp_replace(F.lower(F.col('_c2')), ' ', ','), ",")
+                        ).alias('shipping_nm')
+                    ).withColumn(
+                        "shp_tkn",
+                        F.regexp_replace(F.col('shipping_nm'), "[^ㄱ-힝]", '')
+                    ).where(
+                        F.length(F.col('shp_tkn')) > 1
+                    ).alias("shipping_nm")
 
     shp_tkn_cnt = shipping_nm.groupBy(F.col('shp_tkn')).agg(F.log10(F.count(F.col('shp_tkn'))).alias('shp_cnt')).alias('shp_tkn_cnt')
-    shp_tkn_cnt.orderBy((F.col('shp_cnt')).desc()).show(300, False)
+    # shp_tkn_cnt.orderBy((F.col('shp_cnt')).desc()).show(300, False)
     # 후보들 : cnt 낮은것들이 후보에 가까움
     # noun(명사)만 된것, 1글자 유력
     #

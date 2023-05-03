@@ -107,13 +107,19 @@ print("lst : ", set(lst))
 # print("tweet_okt : ", tweet_okt)
 
 
-str1 = '더랄라 케이크망또 여아 데일리 외출복 얼집 유천 등원룩 망토 스카프 모자'
+str1 = '더랄라 케이크망또 여아 데일리 외출복 얼집 유천 등원룩 망토 스카프 모 더랄라'
 str2 = '미술놀이 유아미술놀이 유아학습 캐릭터 가위 오리기 등원룩'
 a = set(str1.split())
 b = set(str2.split())
 c = a.intersection(b)
 res = float(len(c)) / (len(a) + len(b) - len(c))
-print("a : ", a, len(a) )
+print("a : ", a)
+a_set = []
+for wd in a:
+    if len(wd) > 1:
+        # print("a : ", wd )
+        a_set.append(wd)
+print("a_set : ", set(a_set))
 print("b : ", b, len(b))
 print("c : ", c, len(c))
 print("res : ", res)
