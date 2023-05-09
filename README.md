@@ -41,4 +41,4 @@ Developers with the ability to create good data in big databases.
    
  - **이론 공부**
     - BigData Platform 아키텍처 이해(사용이유, 장/단점, 사용예시)
-    - 
+    -

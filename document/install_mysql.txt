@@ -1,0 +1,9 @@
+brew install mysql
+mysql.server start
+mysql_secure_installation # setting
+mysql -u root -p
+0000    # password
+brew services start mysql   # always running setting
+
+
+
