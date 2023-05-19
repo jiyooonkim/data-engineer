@@ -23,6 +23,13 @@ import pyspark.sql.types as T
 import pyspark.sql.window as window
 
 
+@F.udf(T.MapType(T.StringType(), T.StringType()))
+def create_struct(key, val):
+    print("key : " , key)
+    print("val : " , val)
+    # return {key: val}
+
+
 @F.udf(returnType=T.ArrayType(T.IntegerType()))
 def get_cosine_similarity(val1, val2):
     # val1 type : [2, 5, 3, 7]
@@ -64,8 +71,29 @@ if __name__ == "__main__":
     # ver1. 상품명 vs 상품명
     # todo : 공백 제거
     get_token = prod.withColumn('tkns', F.explode(F.col('prod_nm_tkns')))
-    get_token.show(100, False)
-    # prod.select(F.count(F.col('prod_nm'))).show()
+    get_token_cnt = get_token\
+        .groupby(F.col('prod_nm'), F.col('tkns'))\
+        .agg(F.count(F.col('tkns')).alias('cnt'))\
+
+
+    get_token_cnt = get_token_cnt\
+        .groupby(F.col('prod_nm'))\
+        .agg((F.create_map(F.collect_list(F.col('tkns')), F.collect_list(F.col('cnt')))).alias('map_list'))
+
+    aa = get_token_cnt.where(F.length(F.col('prod_nm')) < 19).alias('df1')\
+        .join(
+            get_token_cnt.alias('df2'),
+            F.col('df1.prod_nm') != F.col('df2.prod_nm'),
+            # 'full'
+        ).select(
+            F.col('df1.prod_nm').alias('prod_nm_1'),
+            F.col('df1.map_list').alias('map_list_1'),
+            F.col('df2.prod_nm').alias('prod_nm_2'),
+            F.col('df2.map_list').alias('map_list_2'),
+        )
+
+    # aa.select(F.count(F.col('prod_nm_1'))).show()   # All cnt : 2139848822
+    aa.show(100, False)
 
 
 

@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="dev skip-gram">
-      <change afterPath="$PROJECT_DIR$/commerce/cmc/nlp/cosine_similarity.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commerce/cmc/nlp/jaccard_similarity.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commerce/cmc/nlp/noise_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/csnsmt_jcd.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/product/mapping_shipping_prodnm.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/product/mapping_shipping_prodnm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/product/nvr_prod_cate_match.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/product/nvr_prod_cate_match.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/install_airflow.txt" beforeDir="false" afterPath="$PROJECT_DIR$/document/install_airflow.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/cosine_similarity.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/cosine_similarity.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +50,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="showPreview" value="true" />
+  </component>
   <component name="ProjectId" id="2LwfIxfcPrRMYXeiGUYmzvTT17c" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -71,7 +67,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/jy_kim/Documents/private/nlp-engineer&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.toDoOptions&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -86,6 +82,13 @@
       <recent name="$PROJECT_DIR$/../commerce/data" />
       <recent name="$PROJECT_DIR$/cmc/product" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="CompoundRunConfigurationType" />
+      </set>
+    </option>
   </component>
   <component name="RunManager" selected="Python.cosine_similarity">
     <configuration name="cosine_similarity" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -261,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683130596457</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="dev skip-gram">
+      <created>1684464418689</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1684464418689</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -298,6 +308,11 @@
           <url>file://$PROJECT_DIR$/commerce/cmc/nlp/jaccard_similarity.py</url>
           <line>109</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/commerce/cmc/nlp/cosine_similarity.py</url>
+          <line>78</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
