@@ -43,6 +43,3 @@ brew install mysql
 - worker : task 실행하는 주체
 - database : schedule 정보 저장하고 관리
 - Dag : Directed Acyclic Grapth, 단방향 노드
--
--
-

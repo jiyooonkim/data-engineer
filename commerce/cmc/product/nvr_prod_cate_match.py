@@ -89,7 +89,7 @@ if __name__ == "__main__":
     # get_prod_tkn.orderBy(F.col('prod_nm')).show(300, False)
     # # get_prod_tkn.select(F.count(F.col('prod_nm'))).show()
 
-    get_prod_tkn.coalesce(10).write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/test/prod2/")      # save hdfs
+    get_prod_tkn.coalesce(20).write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/test/prod2/")      # save hdfs
     # get_prod_tkn.write.mode('overwrite').saveAsTable("stag_os.hive_test_3")
 
     # # 송장명 토크나이징 ##
@@ -111,7 +111,11 @@ if __name__ == "__main__":
     # noun(명사)만 된것, 1글자 유력
     #
 
-    match_shp_prod = get_prod_tkn.join(shp_tkn_cnt, F.col('get_prod_tkn.prod_nm_token') == F.col('shp_tkn_cnt.shp_tkn'), 'left')
+    match_shp_prod = get_prod_tkn.join(
+                                            shp_tkn_cnt,
+                                            F.col('get_prod_tkn.prod_nm_token') == F.col('shp_tkn_cnt.shp_tkn'),
+                                            'left'
+                                        )
 
     # match_shp_prod.orderBy(F.col('prod_nm')).show(300, False)
 

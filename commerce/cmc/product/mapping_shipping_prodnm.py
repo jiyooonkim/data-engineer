@@ -84,7 +84,8 @@ if __name__ == "__main__":
     m_cate = prod.select(F.explode(F.split(F.regexp_replace(F.lower(F.col('중분류')), '/', ','), ",")).alias('cate'))
     s_cate = prod.select(F.explode(F.split(F.regexp_replace(F.lower(F.col('소분류')), '/', ','), ",")).alias('cate'))
     d_cate = prod.select(F.explode(F.split(F.regexp_replace(F.lower(F.col('세분류')), '/', ','), ",")).alias('cate'))
-    cate = (l_cate.unionAll(m_cate).unionAll(s_cate).unionAll(d_cate)).select(F.regexp_replace(F.col('cate'), r"[^ㄱ-ㅣ가-힣\s]", '').alias('cate'))
+    cate = (l_cate.unionAll(m_cate).unionAll(s_cate).unionAll(d_cate))\
+        .select(F.regexp_replace(F.col('cate'), r"[^ㄱ-ㅣ가-힣\s]", '').alias('cate'))
     cate = cate \
         .select(F.explode(F.split(F.regexp_replace(F.col('cate'), ' ', ','), ",")).alias('cate')) \
         .distinct()
@@ -92,9 +93,9 @@ if __name__ == "__main__":
     # cate.orderBy(F.col('cate')).show(10000)
 
     ''' (도량형)속성 추출 '''
-    # 추출 대상 : 도량형(숫+영, 숫+한) 숫자/한글/영어 체크후 판별로직,
+    # 추출 대상 : 도량형(숫+영, 숫+한) 숫자/한글/영어 체크후 판별 로직,
     # 목표 결과물: 불용어(Stop word)에 사용 => 상품에서 무의미 토큰 추출
-    # 제거 대상 : 브랜드
+    # 제거 대상 : 브랜드, 상품명
     get_txt_tp = shp_agg \
         .join(cate, F.col('shp_nm_token') == F.col('cate'), 'leftanti') \
         .orderBy(F.col('cnt').desc()) \
@@ -121,7 +122,7 @@ if __name__ == "__main__":
     msr_attr_2.show(10000, False)
     # msr_attr_2.select(F.count(F.col('shp_nm_token'))).show()
 
-    msr_attr = (msr_attr_1.unionAll(msr_attr_2)).distinct()
+    msr_attr = (msr_attr_1.unionAll(msr_attr_2)).where(F.length(F.col('shp_nm_token')) < 7).distinct()
     msr_attr.select(F.count(F.col('shp_nm_token'))).show()
     msr_attr.coalesce(15).write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/dictionary/measures_attribution/")  # save hdfs
 

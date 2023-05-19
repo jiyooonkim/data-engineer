@@ -20,6 +20,7 @@ Developers with the ability to create good data in big databases.
 - 검색 필터 사전
 - 불용어(stopword) 
 - cosine similarity
+- 유의어, 동의어, 외래어 사전
 - Jaccard Similarity : 추천 키워드, 연관 상품, 연관키워드
 - 오타사전(noise spelling) : 정타<->오타 매핑 사전 
 - tf-idf
