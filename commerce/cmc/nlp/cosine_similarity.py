@@ -22,21 +22,20 @@ import pyspark.sql.functions as F
 import pyspark.sql.types as T
 import pyspark.sql.window as window
 
+# @F.udf(returnType=T.IntegerType())
+@F.udf(returnType=T.MapType(T.StringType(), T.IntegerType()))
+def get_map(key, val):
+    # return val
+    return {key: val}
 
-@F.udf(T.MapType(T.StringType(), T.StringType()))
-def create_struct(key, val):
-    print("key : " , key)
-    print("val : " , val)
-    # return {key: val}
 
-
+# @F.udf(returnType=T.StringType())
 @F.udf(returnType=T.ArrayType(T.IntegerType()))
-def get_cosine_similarity(val1, val2):
-    # val1 type : [2, 5, 3, 7]
-    data1 = sum([i ** 2 for i in range(1, val1 + 1)]) ** (1 / 2)
-    data2 = sum([i ** 2 for i in range(1, val2 + 1)]) ** (1 / 2)
-    val = data1 * data2
-    return val
+def get_cosine_similarity(tkns1, tkns2):
+    # tkns1 type : [2, 5, 3, 7]
+    # data1 = sum([i ** 2 for i in range(1, val1 + 1)]) ** (1 / 2)
+    # val = data1 * data2
+    return array(d.values())
     
     
 if __name__ == "__main__":
@@ -74,26 +73,49 @@ if __name__ == "__main__":
     get_token_cnt = get_token\
         .groupby(F.col('prod_nm'), F.col('tkns'))\
         .agg(F.count(F.col('tkns')).alias('cnt'))\
+        .where(F.length(F.col('tkns')) >= 2)        # 토큰길이 1 인것 제거
+    # get_token_cnt.where(F.col('cnt')>1).show(100, False)
 
 
-    get_token_cnt = get_token_cnt\
-        .groupby(F.col('prod_nm'))\
-        .agg((F.create_map(F.collect_list(F.col('tkns')), F.collect_list(F.col('cnt')))).alias('map_list'))
+    # get_token_cnt.withColumn("get_maps", get_map(F.col('tkns'), F.col('cnt'))).show(100)
 
-    aa = get_token_cnt.where(F.length(F.col('prod_nm')) < 19).alias('df1')\
+    # get_token_cnt = get_token_cnt\
+    #     .groupby(F.col('prod_nm'))\
+    #     .agg(
+    #         F.create_map(
+    #             F.collect_list(F.col('tkns')),
+    #             F.collect_list(F.col('cnt'))
+    #         ).alias('map_list')
+    #     )
+
+    get_token_cnt = get_token_cnt \
+        .groupby(F.col('prod_nm')) \
+        .agg(
+            F.collect_list(F.col('tkns')).alias('tkns_list')
+    )
+
+    self_prod = get_token_cnt\
+        .where(F.length(F.col('prod_nm')) < 25).alias('df1')\
         .join(
             get_token_cnt.alias('df2'),
             F.col('df1.prod_nm') != F.col('df2.prod_nm'),
             # 'full'
         ).select(
             F.col('df1.prod_nm').alias('prod_nm_1'),
-            F.col('df1.map_list').alias('map_list_1'),
+            F.col('df1.tkns_list').alias('tkns_list_1'),
             F.col('df2.prod_nm').alias('prod_nm_2'),
-            F.col('df2.map_list').alias('map_list_2'),
+            F.col('df2.tkns_list').alias('tkns_list_2'),
+        ).where(
+            F.size(F.array_intersect("tkns_list_1","tkns_list_2")) >= 1    # 중복 토큰 일정 이상만 대상, 중복 토큰 없을 경우 cosine similariy '0' 일 수도..
         )
 
+    # todo : 리스트 합치는 것 구현  by spark
+
+
+    self_prod.show(100, False)
+
+
     # aa.select(F.count(F.col('prod_nm_1'))).show()   # All cnt : 2139848822
-    aa.show(100, False)
 
 
 
