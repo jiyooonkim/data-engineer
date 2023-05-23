@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="dev skip-gram">
-      <change afterPath="$PROJECT_DIR$/commerce/cmc/etc/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="dev cosine_similarity algorithm">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/cmc/etc/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/etc/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/cosine_similarity.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/cosine_similarity.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/jaccard_similarity.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/jaccard_similarity.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/noise_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/noise_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/tf-idf.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/tf-idf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/cmc/product/mapping_shipping_prodnm.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/product/get_attribute.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +95,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Python.cosine_similarity">
+  <component name="RunManager" selected="Python.jaccard_similarity">
     <configuration name="cosine_similarity" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -116,7 +117,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="mapping_shipping_prodnm" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="jaccard_similarity" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -124,11 +125,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/cmc/product" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/cmc/nlp" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/cmc/product/mapping_shipping_prodnm.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/cmc/nlp/jaccard_similarity.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -202,11 +203,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.jaccard_similarity" />
         <item itemvalue="Python.cosine_similarity" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.tf-idf" />
         <item itemvalue="Python.nvr_prod_cate_match" />
-        <item itemvalue="Python.mapping_shipping_prodnm" />
       </list>
     </recent_temporary>
   </component>
@@ -275,7 +276,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684464418689</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="dev cosine_similarity algorithm">
+      <created>1684656677559</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1684656677559</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -293,7 +301,8 @@
     <MESSAGE value="Develop Basic word dictionary" />
     <MESSAGE value="todo list 작성" />
     <MESSAGE value="dev skip-gram" />
-    <option name="LAST_COMMIT_MESSAGE" value="dev skip-gram" />
+    <MESSAGE value="dev cosine_similarity algorithm" />
+    <option name="LAST_COMMIT_MESSAGE" value="dev cosine_similarity algorithm" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

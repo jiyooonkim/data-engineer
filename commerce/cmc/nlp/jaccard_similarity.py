@@ -126,7 +126,7 @@ if __name__ == "__main__":
         # F.array_intersect(F.col('prod_nm_tkns'), F.col('shipping_nm_tkns'))
         get_jaccard_sim(F.col('prod_nm_tkns'), F.col('shipping_nm_tkns'))
     ).select(F.col('prod_nm'), F.col('shipping_nm'), F.col('Jaccard_Similarity'))
-    ship_prod.select(F.count(F.col('prod_nm'))).show()
+    # ship_prod.select(F.count(F.col('prod_nm'))).show()
     ship_prod.repartition(600, F.col('prod_nm_tkns')).where(F.col('Jaccard_Similarity') > 0.4).show(100, False)
     # ship_prod.orderBy(F.col('Jaccard_Similarity')).write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/jaccard_similarity_ship_prod")
 

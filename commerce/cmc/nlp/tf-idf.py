@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
-############################
+"""
 # title : 유사한 상품명 찾기 by TF-IDF &
-# desc : 연관있는 상품명을 찾아 브랜드, 시리즈, 속성 ,카테고리 등 보기 위해 (참고문서:https://yeong-jin-data-blog.tistory.com/entry/TF-IDF-Term-Frequency-Inverse-Document-Frequency)
+# desc : 연관있는 상품명을 찾아 브랜드, 시리즈, 속성 ,카테고리 등 보기 위해
+# doc : - https://yeong-jin-data-blog.tistory.com/entry/TF-IDF-Term-Frequency-Inverse-Document-Frequency
 # pro : - 각 상품명(문서)을 토크나이징 후 비교
 #
-############################
-"""
+
 tf vs tf-idf
 tf : 일반적인 텍스트 유사도 계산시
 tf-idf : 검색쿼리 적절성 판단 시

@@ -17,7 +17,7 @@ import pyspark.sql.types as T
 if __name__ == "__main__":
     spark = SparkSession.builder \
         .appName('jy_kim') \
-        .master('local[*]') \
+        .master('local[5]') \
         .config('spark.sql.execution.arrow.pyspark.enabled', True) \
         .config('spark.sql.session.timeZone', 'UTC') \
         .config('spark.driver.memory', '32g') \
