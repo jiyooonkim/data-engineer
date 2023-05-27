@@ -109,7 +109,7 @@ if __name__ == "__main__":
         )
 
     self_prod = get_token_cnt\
-        .where(F.length(F.col('prod_nm')) < 35).alias('df1')\
+        .where(F.length(F.col('prod_nm')) < 28).alias('df1')\
         .join(
             get_token_cnt.alias('df2'),
             F.col('df1.prod_nm') != F.col('df2.prod_nm'),

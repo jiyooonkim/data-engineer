@@ -26,8 +26,8 @@ import pyspark.sql.window as window
 @F.udf(returnType=T.DoubleType())
 def get_jaccard_sim(str1, str2):
     # set 이유 : 중복성 무시
-    a = set(str1)   # set(str1.split())
-    b = set(str2)   # set(str2.split())
+    a = set(str1)  # set(str1.split())
+    b = set(str2)  # set(str2.split())
     a_set = []
     for wd in a:
         if len(wd) > 1:
@@ -43,72 +43,72 @@ def get_jaccard_sim(str1, str2):
 
 if __name__ == "__main__":
     spark = SparkSession.builder \
-            .appName('jy_kim') \
-            .master('local[*]') \
-            .config('spark.sql.execution.arrow.pyspark.enabled', True) \
-            .config('spark.sql.session.timeZone', 'UTC') \
-            .config('spark.driver.memory', '32g') \
-            .config('spark.driver.cores', '8') \
-            .config('spark.executor.memory', '16g') \
-            .config('spark.submit.deployMode', 'client') \
-            .config("spark.driver.bindAddress", "127.0.0.1") \
-            .config("spark.network.timeout", 1000000) \
-            .config('spark.ui.showConsoleProgress', True) \
-            .config('spark.sql.repl.eagerEval.enabled', True) \
-            .getOrCreate()
+        .appName('jy_kim') \
+        .master('local[*]') \
+        .config('spark.sql.execution.arrow.pyspark.enabled', True) \
+        .config('spark.sql.session.timeZone', 'UTC') \
+        .config('spark.driver.memory', '32g') \
+        .config('spark.driver.cores', '8') \
+        .config('spark.executor.memory', '16g') \
+        .config('spark.submit.deployMode', 'client') \
+        .config("spark.driver.bindAddress", "127.0.0.1") \
+        .config("spark.network.timeout", 1000000) \
+        .config('spark.ui.showConsoleProgress', True) \
+        .config('spark.sql.repl.eagerEval.enabled', True) \
+        .getOrCreate()
     prod = spark.read.parquet('hdfs://localhost:9000/test/prod2/') \
         .select(
-            F.trim(
-                F.regexp_replace(
-                    F.regexp_replace(F.lower(F.col('prod_nm')), "[^A-Za-z0-9가-힣]", ' '),
-                    r"\s+", ' '
-                )
-            ).alias('prod_nm'))\
-        .withColumn("prod_nm_tkns", F.split(F.regexp_replace(F.lower(F.col('prod_nm')), ' ', ','), ",")).distinct()\
-        .alias('prod')\
-        .repartition(600)    # cnt : 46271
+        F.trim(
+            F.regexp_replace(
+                F.regexp_replace(F.lower(F.col('prod_nm')), "[^A-Za-z0-9가-힣]", ' '),
+                r"\s+", ' '
+            )
+        ).alias('prod_nm')) \
+        .withColumn("prod_nm_tkns", F.split(F.regexp_replace(F.lower(F.col('prod_nm')), ' ', ','), ",")).distinct() \
+        .alias('prod') \
+        .repartition(600)  # cnt : 46271
 
     # Jaccard similarity
     # ver1. 상품명 vs 상품명
-    self_prod = prod.alias('prod_1').where(F.length(F.col('prod_1.prod_nm')) >= 20)\
+    self_prod = prod.alias('prod_1').where(F.length(F.col('prod_1.prod_nm')) >= 20) \
         .join(
-            prod.alias('prod_2'),
-            F.col('prod_1.prod_nm') != F.col('prod_2.prod_nm'), 'full'
-        ).select(
-            F.col('prod_1.prod_nm').alias('prod_nm_1'),
-            F.col('prod_1.prod_nm_tkns').alias('prod_nm_tkns_1'),
-            F.col('prod_2.prod_nm').alias('prod_nm_2'),
-            F.col('prod_2.prod_nm_tkns').alias('prod_nm_tkns_2')
-        )
+        prod.alias('prod_2'),
+        F.col('prod_1.prod_nm') != F.col('prod_2.prod_nm'), 'full'
+    ).select(
+        F.col('prod_1.prod_nm').alias('prod_nm_1'),
+        F.col('prod_1.prod_nm_tkns').alias('prod_nm_tkns_1'),
+        F.col('prod_2.prod_nm').alias('prod_nm_2'),
+        F.col('prod_2.prod_nm_tkns').alias('prod_nm_tkns_2')
+    )
 
-    self_join_prod = self_prod\
-        .withColumn('Jaccard_Similarity', get_jaccard_sim(F.col('prod_nm_tkns_1'), F.col('prod_nm_tkns_2')))\
-        .where(F.col('Jaccard_Similarity') > 0.22)\
+    self_join_prod = self_prod \
+        .withColumn('Jaccard_Similarity', get_jaccard_sim(F.col('prod_nm_tkns_1'), F.col('prod_nm_tkns_2'))) \
+        .where(F.col('Jaccard_Similarity') > 0.22) \
         # .withColumn(
-        #     '_rnk',
-        #     F.rank().over(window.Window.partitionBy(F.col('prod_nm_1')).orderBy(F.col('Jaccard_Similarity')))
-        # ).where(F.col('_rnk') < 4)
-        # .withColumn("word1", F.explode(F.col('prod_nm_tkns_1')))\
-        # .withColumn("word2", F.explode(F.col('prod_nm_tkns_2')))
+    #     '_rnk',
+    #     F.rank().over(window.Window.partitionBy(F.col('prod_nm_1')).orderBy(F.col('Jaccard_Similarity')))
+    # ).where(F.col('_rnk') < 4)
+    # .withColumn("word1", F.explode(F.col('prod_nm_tkns_1')))\
+    # .withColumn("word2", F.explode(F.col('prod_nm_tkns_2')))
     # self_prod.select(F.col('prod_nm_1'), F.col('prod_nm_2'), F.col('Jaccard_Similarity')).show(1000, False)
     self_join_prod.write.format("parquet").mode("append").save("hdfs://localhost:9000/jaccard_similarity")
 
     # ver2. 상품명 vs 송장명 : 상품명으로 유사한 송장명 유추
     # 송장명 토크 나이징
-    shipping_df = spark.read.csv("/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/송장명.csv")\
+    shipping_df = spark.read.csv("/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/송장명.csv") \
         .select(
-            F.trim(
-                F.regexp_replace(
-                    F.regexp_replace(F.lower(F.col('_c2')), "[^A-Za-z0-9가-힣]", ' '), r"\s+", ' ')
-            ).alias('shipping_nm'),
-        ).where(
-            (F.col('shipping_nm').isNotNull())
-            & (F.length(F.col('shipping_nm')) > 1)
-        ).withColumn(
-            "shipping_nm_tkns",
-            F.split(F.regexp_replace(F.lower(F.col('shipping_nm')), ' ', ','), ",")
-        ).where(F.length(F.col('shipping_nm')) < 20)\
-        .repartition(600)\
+        F.trim(
+            F.regexp_replace(
+                F.regexp_replace(F.lower(F.col('_c2')), "[^A-Za-z0-9가-힣]", ' '), r"\s+", ' ')
+        ).alias('shipping_nm'),
+    ).where(
+        (F.col('shipping_nm').isNotNull())
+        & (F.length(F.col('shipping_nm')) > 1)
+    ).withColumn(
+        "shipping_nm_tkns",
+        F.split(F.regexp_replace(F.lower(F.col('shipping_nm')), ' ', ','), ",")
+    ).where(F.length(F.col('shipping_nm')) < 20) \
+        .repartition(600) \
         .alias('shipping_df')
 
     # shipping_df.orderBy(F.col('shipping_nm')).show(10, False)

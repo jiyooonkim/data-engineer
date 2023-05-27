@@ -35,7 +35,7 @@ cs_val2 = sum([i ** 2 for i in tkns_cnt2])
 
 # 분모(demominator) : 두 벡터의 곱
 demom = (cs_val1 * cs_val2)**(1/2)
-print("cs_val1 : ", cs_val1)
+# print("cs_val1 : ", cs_val1)
 # print("cs_val2 : ", cs_val2)
 # print("demom : ", demom)
 
