@@ -1,9 +1,15 @@
-brew install mysql
-mysql.server start
-mysql_secure_installation # setting
-mysql -u root -p
-0000    # password
-brew services start mysql   # always running setting
+env : macbook pro14 m2(silicon)
+date : 2023-03-04 ~ 2023-03-10
+title : homebrew 이용한 Mysql 설치 방법
+
+
+<Install Flow>
+1. brew install mysql
+2. mysql.server start
+3. mysql_secure_installation # setting
+4. mysql -u root -p
+5. 0000    # password
+6. brew services start mysql   # always running setting
 
 
 

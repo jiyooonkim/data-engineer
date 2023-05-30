@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="dev cosine_similarity algorithm">
-      <change afterPath="$PROJECT_DIR$/commerce/cmc/nlp/noise_data(noise_spell).py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document/install_docker.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="develop Spelling Correction and the&#10;Noisy Channel Algorithm">
       <change beforePath="$PROJECT_DIR$/commerce/cmc/etc/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/etc/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/cosine_similarity.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/cosine_similarity.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/jaccard_similarity.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/jaccard_similarity.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/noise_data.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/install_Elasticsearch.txt" beforeDir="false" afterPath="$PROJECT_DIR$/document/install_ELK.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/noise_data(noise_spell).py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/noise_data(noise_spell).py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/install_airflow.txt" beforeDir="false" afterPath="$PROJECT_DIR$/document/install_airflow.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/install_docker.txt" beforeDir="false" afterPath="$PROJECT_DIR$/document/install_docker.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -292,7 +287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684845636393</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="develop Spelling Correction and the&#10;Noisy Channel Algorithm">
+      <created>1685199798768</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1685199798768</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -311,7 +313,8 @@
     <MESSAGE value="todo list 작성" />
     <MESSAGE value="dev skip-gram" />
     <MESSAGE value="dev cosine_similarity algorithm" />
-    <option name="LAST_COMMIT_MESSAGE" value="dev cosine_similarity algorithm" />
+    <MESSAGE value="develop Spelling Correction and the&#10;Noisy Channel Algorithm" />
+    <option name="LAST_COMMIT_MESSAGE" value="develop Spelling Correction and the&#10;Noisy Channel Algorithm" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

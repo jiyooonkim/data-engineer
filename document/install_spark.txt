@@ -1,0 +1,6 @@
+env : macbook pro14 m2(silicon)
+date : 2023-02-04 ~
+title: spark 설치 방법
+desc :
+
+pyspark
