@@ -48,3 +48,89 @@ for i in range(0, len(tkns_cnt1)):  # 토큰 카운트 리스트 받아옴
 # 최종
 cs = numerator/demom
 # print("cs : ", cs)
+
+
+# step1. 길이 맞추기
+def get_match_length(crr_wd, cndd_wd):
+    if len(crr_wd) > len(cndd_wd):
+        for i in range(0, len(crr_wd) - len(cndd_wd)):
+            cndd_wd.append("nn")
+    else:
+        for i in range(0, len(cndd_wd) - len(crr_wd)):
+            crr_wd.append("nn")
+    return crr_wd , cndd_wd
+
+
+# step2-1. 정타가 기준이 되어 후보 리스트 비교 (deletion)
+crr_wd = ['a', 'c', 't', 'r', 'e', 's', 's']
+cndd_wd = ['a', 'c', 'r', 'e', 's']
+crr_txt = []
+err_txt = []
+posision = []
+if len(crr_wd) > len(cndd_wd):
+    crr_wd, cndd_wd = get_match_length(crr_wd, cndd_wd)
+    for i in range(0, len(crr_wd)):
+        if cndd_wd[i] != crr_wd[i]:
+            crr_txt.append(crr_wd[i])
+            cndd_wd.insert(i, crr_wd[i])
+            posision.append(i)
+
+
+# step2-2. insertion
+crr_wd = ['a', 'c', 'r', 'e', 's', 'e']
+cndd_wd = ['a', 'c', 'c', 'e', 's', 's']
+crr_txt = []
+err_txt = []
+posision = []
+if len(crr_wd) < len(cndd_wd):
+    crr_wd, cndd_wd = get_match_length(crr_wd, cndd_wd)
+    for i in range(0, len(crr_wd)):
+        if cndd_wd[i] != crr_wd[i]:
+            err_txt.append(cndd_wd[i])
+            crr_wd.insert(i, cndd_wd[i])
+            posision.append(i)
+
+# step2-3. transposition, substitution
+else:
+    for i in range(0, len(crr_wd)):
+        # if cndd_wd[i] == crr_wd[i]:
+        #     cndd_wd[i].replace(cndd_wd[i], 'nn')
+        #     crr_wd[i].replace(crr_wd[i], 'nn')
+        if cndd_wd[i] != crr_wd[i]:
+            crr_txt.append(crr_wd[i])
+            err_txt.append(cndd_wd[i])
+            posision.append(i)
+
+print("crr_txt : ", crr_txt)
+print("err_txt : ", err_txt)
+print("posision : ", posision)
+
+
+# if len(crr_wd) > len(cndd_wd):  # 정타가 더 길다면 : deletion
+#     for i in range(0, len(cndd_wd)):
+#         if cndd_wd[i] != crr_wd[i]:
+#             crr_txt.append(crr_wd[i])
+#             cndd_wd.insert(i, crr_wd[i])
+#             posision.append(i)
+#             print(i, "crr_wd : ", crr_wd)
+#             print(i, "cndd_wd : ", cndd_wd)
+#     crr_txt.extend(crr_wd[len(cndd_wd):])
+#     crr_txt.extend(crr_wd[len(cndd_wd):])
+
+            # for i in range(0, len(cndd_wd)):
+    #     if cndd_wd[i] != crr_wd[i]:     # ex) acress(err) -> actress(crr)
+    #         # crr_txt.append(crr_wd[i])
+    #         cndd_wd.insert(i+1, crr_wd[i])
+    #         crr_txt.append(cndd_wd[i])
+    #         # crr_txt.append(crr_wd[i])
+    #         posision.append(i)
+    #         crr_wd.pop(i)
+
+
+
+# elif len(crr_wd) < len(cndd_wd):  # 오타가 더 길다면 :insertion
+#     for i in range(0, len(crr_wd)):
+#         if cndd_wd[:i] != crr_wd[:i]:
+#             # ex) acress(err) -> acres(crr)
+#             err_txt.append(crr_wd[i + 1])
+
