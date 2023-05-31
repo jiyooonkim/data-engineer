@@ -1,0 +1,32 @@
+env : macbook pro14 m2(silicon)
+date : 2023-05-31 ~
+desc : CI/CD (jenkins) 설치 후 github 연동
+
+
+<Install Flow>
+1. brew install jenkins     # 설치 명령어
+2. brew services start jenkins  # 시작
+3. http://localhost:8080/   # UI 접속
+4. cat /Users/jy_kim/.jenkins/secrets/initialAdminPassword  # password 초기화
+5. select plugin    # 플러그인 설치
+6. 계정 정보 입력 후 완료
+http://jenkins:8080/
+
+<jenkins 와 github 연동>
+
+
+
+** 제어 명령어 **
+- 시작 : brew services start jenkins
+- 종료 : brew services stop jenkins
+- 재시작 : brew services restart jenkins
+
+
+
+
+** 용어 정리 **
+- CI
+- CD
+-
+-
+-
