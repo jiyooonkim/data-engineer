@@ -22,7 +22,7 @@ http://jenkins:8080/
 - 재시작 : brew services restart jenkins
 
 
-
+http://localhost:8080/job/publish_github/build?token=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
 
 ** 용어 정리 **
 - CI
