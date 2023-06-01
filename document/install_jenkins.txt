@@ -18,7 +18,7 @@ Jenkins를 로컬에서 실행시, 로컬환경을 인터넷으로 노출
 
 <jenkins 와 github 연동>
 
-
+dddddddd
 
 ** 제어 명령어 **
 - 시작 : brew services start jenkins
