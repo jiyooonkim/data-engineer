@@ -21,10 +21,7 @@ desc : CI/CD (jenkins) 설치 후 github 연동
    b. 터미널 실행 후 "ngrok http 8084"(jenkins 포트번호) 입력
    c. Forwarding 주소 가져와 git repository > setting > webhooks > payloadURL(https://3e9c-121-167-202-158.ngrok-free.app/github-webhook/) 입력
    d.
-
-
-
-
+ dddd
 <jenkins 와 github 연동>
 1.
 2.
