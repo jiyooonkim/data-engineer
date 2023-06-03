@@ -1,6 +1,7 @@
 env : macbook pro14 m2(silicon)
-date : 2023-05-31 ~
-desc : CI/CD (jenkins) 설치 후 github 연동
+date : 2023-05-31 ~ 2023-06-04
+title : CI/CD 구축
+desc : jenkins 설치 github repository 와 연동, jenkins 이용하여 git (add, commit ,push) build 기능
 참고 주소 : https://medium.com/eum-tech-lab/github-webhooks%EC%97%90%EC%84%9C-localhost%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%A0-%EC%88%98-%EC%97%86%EB%8A%94-%EC%9D%B4%EC%9C%A0-9c0d2aecf118
 
 <Install Flow>
@@ -21,7 +22,9 @@ desc : CI/CD (jenkins) 설치 후 github 연동
    b. 터미널 실행 후 "ngrok http 8084"(jenkins 포트번호) 입력
    c. Forwarding 주소 가져와 git repository > setting > webhooks > payloadURL(https://3e9c-121-167-202-158.ngrok-free.app/github-webhook/) 입력
    d.
- dddd
+
+
+
 <jenkins 와 github 연동>
 1.
 2.

@@ -1,6 +1,7 @@
 env : macbook pro14 m2(silicon)
 date : 2023-03-04 ~
-desc : brew cask 이용하여 설치
+title : brew cask 이용하여 설치
+desc : 도커에 jenkins 설치(배포 환경 구축 목표),
 (** home homebrew 설치방법 : /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" )
 
 
