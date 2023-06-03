@@ -14,7 +14,7 @@ desc : jenkins 설치 github repository 와 연동, jenkins 이용하여 git (ad
     6. 계정 정보 입력 후 완료
     7. http://jenkins:8084/ 접속하여 확인
 
-
+dddd
 <Install ngrok>
 - 문제 : GitHub 에 jenkins address( localhost 사용 시) 발생하는 에러
         "There was an error updating your hook: Sorry, the URL host localhost is not supported because it isn't reachable over the public Internet"  발생
