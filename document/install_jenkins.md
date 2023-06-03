@@ -20,26 +20,26 @@ reference : https://medium.com/eum-tech-lab/github-webhooks%EC%97%90%EC%84%9C-lo
 "There was an error updating your hook: Sorry, the URL host localhost is not supported because it isn't reachable over the public Internet"  발생
 - 원인 : gitHub는 나의 private location을  알 수 없음, Jenkins를 로컬에서 실행시, 로컬환경을 인터넷으로 노출
 - ngrok 실행 방법
-a. ngrok 계정 생성 및 토큰 발행
-b. 터미널 실행 후 "ngrok http 8084"(jenkins 포트번호) 입력
-c. Forwarding 주소 가져와 git repository > setting > webhooks > payloadURL( ex> https://3e9c-121-167-202-158.ngrok-free.app/github-webhook/) 입력
+- - a. ngrok 계정 생성 및 토큰 발행
+- - b. 터미널 실행 후 "ngrok http 8084"(jenkins 포트번호) 입력
+- - c. Forwarding 주소 가져와 git repository > setting > webhooks > payloadURL( ex> https://3e9c-121-167-202-158.ngrok-free.app/github-webhook/) 입력
 
 
 **<Jenkins & github 연동>**
 1. github 설정
-a. gitbub repository > setting > webhooks > add webhook (ngrok 에서 발급받은 payload URL(https://eb00-106-101-2-252.ngrok-free.app/github-webhook/) 입력)
-![img_3.png](img_3.png)
-b. github > settings > persional access tokens(classic) > generate new token
-![img_4.png](img_4.png)
-c. check repo, admin:org ... 
-![img_5.png](img_5.png) 
+- - a. gitbub repository > setting > webhooks > add webhook (ngrok 에서 발급받은 payload URL(https://eb00-106-101-2-252.ngrok-free.app/github-webhook/) 입력)
+- - ![img_3.png](img_3.png)
+- - b. github > settings > persional access tokens(classic) > generate new token
+- - ![img_4.png](img_4.png)
+- - c. check repo, admin:org ... 
+- - ![img_5.png](img_5.png) 
 2. Jenkins 설정  
-a. jenkins dashboad 화면 > jenkins 관리 탭 > system  github 정보 입력
-![img_6.png](img_6.png)
-b. Credentials > Add > Jenkins > Username(github ID), Password(github token), ID
-c. +새로운 Item > Enter an item name 입력 > Freestyle project 
-![img_7.png](img_7.png)
-![img_8.png](img_8.png)
+- - a. jenkins dashboad 화면 > jenkins 관리 탭 > system  github 정보 입력
+- - ![img_6.png](img_6.png)
+- - b. Credentials > Add > Jenkins > Username(github ID), Password(github token), ID
+- - c. +새로운 Item > Enter an item name 입력 > Freestyle project 
+- - ![img_7.png](img_7.png)
+- - ![img_8.png](img_8.png)
 
 
 **<Jenkins에서 Github 배포 파이프라인 구성>**
