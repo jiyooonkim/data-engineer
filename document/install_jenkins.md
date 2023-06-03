@@ -3,9 +3,9 @@ date : 2023-05-31 ~ 2023-06-04
 title : CI/CD 구축
 desc : jenkins 설치 github repository 와 연동, jenkins 이용하여 git (add, commit ,push) build 기능
 참고 주소 : https://medium.com/eum-tech-lab/github-webhooks%EC%97%90%EC%84%9C-localhost%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%A0-%EC%88%98-%EC%97%86%EB%8A%94-%EC%9D%B4%EC%9C%A0-9c0d2aecf118
+![img_2.png](img_2.png)
 
-
-<Install Flow>
+**<Install Flow>**
     1. brew install jenkins         # 설치 명령어
     2. brew services start jenkins  # 시작
     3. http://localhost:8080/       # UI 접속
@@ -15,7 +15,7 @@ desc : jenkins 설치 github repository 와 연동, jenkins 이용하여 git (ad
     7. http://jenkins:8084/ 접속 하여 확인
 
 
-<Install ngrok>
+**<Install ngrok>**
     - 문제 : GitHub 에 jenkins address( localhost 사용 시) 발생하는 에러
             "There was an error updating your hook: Sorry, the URL host localhost is not supported because it isn't reachable over the public Internet"  발생
     - 원인 : gitHub는 나의 private location을  알 수 없음, Jenkins를 로컬에서 실행시, 로컬환경을 인터넷으로 노출
@@ -26,15 +26,21 @@ desc : jenkins 설치 github repository 와 연동, jenkins 이용하여 git (ad
        d.
 
 
-<jenkins 와 github 연동>
-    *
-    1. 
+**<Jenkins & github 연동>**
+    1. github 설정
+        a. gitbub repository > setting > webhooks > add webhook (ngrok 에서 발급받은 payload URL(https://eb00-106-101-2-252.ngrok-free.app/github-webhook/) 입력)
+            ![img_3.png](img_3.png)
+        b. github > settings > persional access tokens(classic) > generate new token
+            ![img_4.png](img_4.png)
+        c. check repo, admin:org ... 
+            ![img_5.png](img_5.png) 
+    2. Jenkins 설정  
     2.
     3.
     4.
 
 
-<jenkins에서 Github 배포 파이프라인 구성>
+**<Jenkins에서 Github 배포 파이프라인 구성>**
     * https://itnext.io/jenkins-tutorial-part-10-work-with-git-in-pipeline-b5e42f6d124b
 ![img.png](img.png)
 ![img_1.png](img_1.png)
