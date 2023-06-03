@@ -24,7 +24,7 @@ desc : jenkins 설치 github repository 와 연동, jenkins 이용하여 git (ad
    b. 터미널 실행 후 "ngrok http 8084"(jenkins 포트번호) 입력
    c. Forwarding 주소 가져와 git repository > setting > webhooks > payloadURL( ex> https://3e9c-121-167-202-158.ngrok-free.app/github-webhook/) 입력
    d.
-  
+
 
 <jenkins 와 github 연동>
     * https://itnext.io/jenkins-tutorial-part-10-work-with-git-in-pipeline-b5e42f6d124b
