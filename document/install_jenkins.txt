@@ -4,14 +4,16 @@ title : CI/CD 구축
 desc : jenkins 설치 github repository 와 연동, jenkins 이용하여 git (add, commit ,push) build 기능
 참고 주소 : https://medium.com/eum-tech-lab/github-webhooks%EC%97%90%EC%84%9C-localhost%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%A0-%EC%88%98-%EC%97%86%EB%8A%94-%EC%9D%B4%EC%9C%A0-9c0d2aecf118
 
+
 <Install Flow>
-1. brew install jenkins     # 설치 명령어
-2. brew services start jenkins  # 시작
-3. http://localhost:8080/   # UI 접속
-4. cat /Users/jy_kim/.jenkins/secrets/initialAdminPassword  # password 초기화
-5. select plugin    # 플러그인 설치
-6. 계정 정보 입력 후 완료
-7. http://jenkins:8084/ 접속하여 확인
+    1. brew install jenkins     # 설치 명령어
+    2. brew services start jenkins  # 시작
+    3. http://localhost:8080/   # UI 접속
+    4. cat /Users/jy_kim/.jenkins/secrets/initialAdminPassword  # password 초기화
+    5. select plugin    # 플러그인 설치
+    6. 계정 정보 입력 후 완료
+    7. http://jenkins:8084/ 접속하여 확인
+
 
 <Install ngrok>
 - 문제 : GitHub 에 jenkins address( localhost 사용 시) 발생하는 에러
@@ -20,31 +22,34 @@ desc : jenkins 설치 github repository 와 연동, jenkins 이용하여 git (ad
 - ngrok 실행 방법
    a. ngrok 계정 생성 및 토큰 발행
    b. 터미널 실행 후 "ngrok http 8084"(jenkins 포트번호) 입력
-   c. Forwarding 주소 가져와 git repository > setting > webhooks > payloadURL(https://3e9c-121-167-202-158.ngrok-free.app/github-webhook/) 입력
+   c. Forwarding 주소 가져와 git repository > setting > webhooks > payloadURL( ex> https://3e9c-121-167-202-158.ngrok-free.app/github-webhook/) 입력
    d.
-
-
+ 
 
 <jenkins 와 github 연동>
-1.
-2.
-3.
-4.
+    1.
+    2.
+    3.
+    4.
 
 
-
+<jenkins에서 Github 배포 파이프라인 구성>
+    1.
+    2.
+    3.
+    4.
 
 ** 제어 명령어 **
-- 시작 : brew services start jenkins
-- 종료 : brew services stop jenkins
-- 재시작 : brew services restart jenkins
-- port 변경 : vi /opt/homebrew/Cellar/jenkins/2.407/homebrew.mxcl.jenkins.plist
+    - 시작 : brew services start jenkins
+    - 종료 : brew services stop jenkins
+    - 재시작 : brew services restart jenkins
+    - port 변경 : vi /opt/homebrew/Cellar/jenkins/2.407/homebrew.mxcl.jenkins.plist
 
 
 
 ** 용어 정리 **
-- CI
-- CD
--
--
--
+    - CI
+    - CD
+    -
+    -
+    -
