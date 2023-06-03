@@ -35,6 +35,13 @@ desc : jenkins 설치 github repository 와 연동, jenkins 이용하여 git (ad
         c. check repo, admin:org ... 
             ![img_5.png](img_5.png) 
     2. Jenkins 설정  
+        a. jenkins dashboad 화면 > jenkins 관리 탭 > system  github 정보 입력
+            ![img_6.png](img_6.png)
+        b. Credentials > Add > Jenkins > Username(github ID), Password(github token), ID
+        c. +새로운 Item > Enter an item name 입력 > Freestyle project 
+            ![img_7.png](img_7.png)
+            ![img_8.png](img_8.png)
+        d.
     2.
     3.
     4.
@@ -42,8 +49,8 @@ desc : jenkins 설치 github repository 와 연동, jenkins 이용하여 git (ad
 
 **<Jenkins에서 Github 배포 파이프라인 구성>**
     * https://itnext.io/jenkins-tutorial-part-10-work-with-git-in-pipeline-b5e42f6d124b
-![img.png](img.png)
-![img_1.png](img_1.png)
+        ![img.png](img.png)
+        ![img_1.png](img_1.png)
     1.
     2.
     3.
