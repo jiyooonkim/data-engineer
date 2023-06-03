@@ -2,8 +2,8 @@ env : macbook pro14 m2(silicon)
 date : 2023-05-31 ~ 2023-06-04
 title : CI/CD 구축
 desc : jenkins 설치 github repository 와 연동, jenkins 이용하여 git (add, commit ,push) build 기능
-참고 주소 : https://medium.com/eum-tech-lab/github-webhooks%EC%97%90%EC%84%9C-localhost%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%A0-%EC%88%98-%EC%97%86%EB%8A%94-%EC%9D%B4%EC%9C%A0-9c0d2aecf118
-![img_2.png](img_2.png)
+reference : https://medium.com/eum-tech-lab/github-webhooks%EC%97%90%EC%84%9C-localhost%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%A0-%EC%88%98-%EC%97%86%EB%8A%94-%EC%9D%B4%EC%9C%A0-9c0d2aecf118
+    ![img_2.png](img_2.png)
 
 **<Install Flow>**
     1. brew install jenkins         # 설치 명령어
@@ -23,7 +23,6 @@ desc : jenkins 설치 github repository 와 연동, jenkins 이용하여 git (ad
        a. ngrok 계정 생성 및 토큰 발행
        b. 터미널 실행 후 "ngrok http 8084"(jenkins 포트번호) 입력
        c. Forwarding 주소 가져와 git repository > setting > webhooks > payloadURL( ex> https://3e9c-121-167-202-158.ngrok-free.app/github-webhook/) 입력
-       d.
 
 
 **<Jenkins & github 연동>**
@@ -41,20 +40,15 @@ desc : jenkins 설치 github repository 와 연동, jenkins 이용하여 git (ad
         c. +새로운 Item > Enter an item name 입력 > Freestyle project 
             ![img_7.png](img_7.png)
             ![img_8.png](img_8.png)
-        d.
-    2.
-    3.
-    4.
 
 
 **<Jenkins에서 Github 배포 파이프라인 구성>**
     * https://itnext.io/jenkins-tutorial-part-10-work-with-git-in-pipeline-b5e42f6d124b
+    1. +새로운 Item > Enter an item name 입력 > Pipeline
+    2. GitHub project 에 git url 입력 > Pipeline script 입력  
         ![img.png](img.png)
         ![img_1.png](img_1.png)
-    1.
-    2.
-    3.
-    4. 
+
 
 ** 제어 명령어 **
     - 시작 : brew services start jenkins
@@ -65,8 +59,8 @@ desc : jenkins 설치 github repository 와 연동, jenkins 이용하여 git (ad
 
 
 ** 용어 정리 **
-    - CI
-    - CD
+    - CI : 지속적인 통합(Continuous Integration)
+    - CD : 지속적인 배포Continuous Delivery
     -
     -
     -

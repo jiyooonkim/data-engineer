@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Write documents">
-      <change afterPath="$PROJECT_DIR$/document/img_6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document/img_7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/document/install_jenkins.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/install_jenkins.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
