@@ -4,3 +4,5 @@ title: spark 설치 방법
 desc :
 
 pyspark
+아키텍처 이해(사용이유, 장/단점, 사용예시)
+

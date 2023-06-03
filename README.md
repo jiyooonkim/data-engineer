@@ -43,6 +43,11 @@ Developers with the ability to create good data in big databases.
     - MLOPS
    
  - **이론 공부**
-    - BigData Platform 아키텍처 이해(사용이유, 장/단점, 사용예시)
-    - Kafka
-    - 
+    - BigData
+      - Kafka
+      - spark
+      - hadoop
+      - hive
+      - streaming
+      - sqoop
+      - 
