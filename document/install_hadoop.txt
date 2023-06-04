@@ -1,8 +1,0 @@
-env : macbook pro14 m2(silicon)
-date : 2023-02-04 ~
-title: hadoop 설치 방법
-desc :
-
-hadoop
-hdfs 아키텍처 이해(사용이유, 장/단점, 사용예시)
-

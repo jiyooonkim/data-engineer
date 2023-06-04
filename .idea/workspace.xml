@@ -5,7 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Write documents">
+      <change afterPath="$PROJECT_DIR$/document/img_10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/img_11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/img_12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/img_13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/img_14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/img_9.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/install_hadoop.txt" beforeDir="false" afterPath="$PROJECT_DIR$/document/install_hadoop.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/document/install_jenkins.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/install_jenkins.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/install_spark.txt" beforeDir="false" afterPath="$PROJECT_DIR$/document/install_spark.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
