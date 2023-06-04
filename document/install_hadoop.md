@@ -1,8 +1,7 @@
 ### title: hadoop 설치
 #### env : macbook pro14 m2(silicon)
 #### date : 2023-02-04
-#### desc : hadoop ver. 3.3.4  
-####        jdk ver. 
+#### desc : hadoop ver. 3.3.4, jdk ver. zulu-11.jdk  
 #### reference   
 
 ## Hadoop
@@ -97,15 +96,15 @@
 
 ## Hadoop 제어 명령어  
 - 네임노드 포멧 : hadoop namenode -format ([hadoop java.net.connectexception:연결이 거부됨] 에러 발생시 해결방법)
-
+- jdk 경로 확인 : cd /Library/Java/JavaVirtualMachines  
 
 ### 용어 정리  
 - hdfs : 하둡 분산형 파일 시스템(Hadoop Distributed File System), HDFS는 데이터에 대한 액세스를 제공하는 하둡의 파일 시스템, 하둡의 모듈  
-- hadoop : 데이터를 저장, 처리 및 분석할 수 있는 오픈 소스 프레임워크  
-- datanode :
+- hadoop : 데이터 저장, 처리 및 분석할 수 있는 오픈 소스 프레임워크  
+- datanode : 데이터 처리
 - namenode : 데이터 정보와 속한 블록 크기, 데이터의 이동 위치, 권한(읽기, 쓰기, 제거, 복제) 갖고 있는 노드
-- Secondary NameNode :
-- mapreduce :
+- Secondary NameNode : HDFS 작업을 트랜잭션 로그를 기록하는 역할 
+- mapreduce : map운 (Key, Value) 형태 생성, Reduce는 map 에서 나온 key값으로 데이터 추출하는 역할 ,reduce 과정에서 shuffle 발생 
 - yarn : 
 - Stand alone(Local) :
 - Pseudo-Distributed Mode :
