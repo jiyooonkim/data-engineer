@@ -3,25 +3,25 @@
 #### date : 2023-02-04
 #### desc : hadoop ver. 3.3.4  
 ####        jdk ver. 
-#### reference : https://key4920.github.io/docs/bigdata_platform/Hadoop/hadoop_install_M1/
+#### reference   
 
-## Hadoop??
-- 동작방식
-- 메커니즘
-- 사용이유
+## Hadoop
+- 동작방식  
+- 메커니즘  
+- 사용이유  
 
 
 
 ## Hadoop Install Flow
 1. hadoop 설치 : brew install hadoop    
-    ** homebrew install 명령어 : /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-2. 버전 및 경로확인 : brew info hadoop    
-     <img src = "img_9.png" width = "350" height = "140"/>
-3. jdk 설치
-4. 환경 변수 설정    
+    ** homebrew install 명령어 : /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"  
+2. 버전 및 경로확인 : brew info hadoop      
+     <img src = "img_9.png" width = "350" height = "140"/>  
+3. jdk 설치  
+4. 환경 변수 설정      
    4-1. 환경변수 디렉토리 이동 : cd /opt/homebrew/Cellar/hadoop/3.3.4/libexec/etc/hadoop  
-    <img src = "img_10.png" width = "350" height = "140"/>  
-   4-2. JAVA_HOME 추가 : vi hadoop-env.sh  >  export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home"  
+    <img src = "img_10.png" width = "350" height = "140"/>    
+   4-2. JAVA_HOME 추가 : vi hadoop-env.sh  >  export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home"    
    4-3. 파일설정    
    * vi core-site.xml   
        ```    
@@ -80,19 +80,19 @@
     ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
     cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
     chmod 0600 ~/.ssh/authorized_keys
-    ```
+    ```  
 6. hadoop 실행 명령  
-   - cd /opt/homebrew/Cellar/hadoop/3.3.4/libexec/sbin  
+   - cd /opt/homebrew/Cellar/hadoop/3.3.4/libexec/sbin    
    - 실행 : ./star-all.sh  
-   - 실행 확인 
-     - jps 
-        <img src = "img_12.png" width = "350" height = "140"/>
-     - namenode 확인 : http://localhost:9870/dfshealth.html#tab-overview
-        <img src = "img_13.png" width = "350" height = "140"/>
-     - Secondary NameNode 확인 : http://localhost:9868/status.html
-        <img src = "img_15.png" width = "350" height = "140"/>
-     - 리소스 매니저 확인 : http://localhost:8088/cluster
-        <img src = "img_14.png" width = "350" height = "140"/>
+   - 실행 확인   
+     - jps     
+        <img src = "img_12.png" width = "350" height = "140"/>    
+     - namenode 확인 : http://localhost:9870/dfshealth.html#tab-overview    
+        <img src = "img_13.png" width = "350" height = "140"/>  
+     - Secondary NameNode 확인 : http://localhost:9868/status.html  
+        <img src = "img_15.png" width = "350" height = "140"/>  
+     - 리소스 매니저 확인 : http://localhost:8088/cluster  
+        <img src = "img_14.png" width = "350" height = "140"/>  
       
 
 ## Hadoop 제어 명령어  
