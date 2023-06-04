@@ -37,6 +37,7 @@ Developers with the ability to create good data in big databases.
    - 유의어, 동의어, 외래어 사전
    - 브랜드, 시리즈, 모델명 사전
    - 불용어(stopword) 
+   - ngram
 
 - 환경 세팅(platform)
      - Docker 설치
