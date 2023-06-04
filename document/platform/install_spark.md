@@ -1,8 +1,7 @@
 ### Title: spark 설치
 #### Env : macbook pro14 m2(silicon)
 #### Date : 2023-02-04
-#### Desc : Spark version 3.4.0, Python 3.9.16, Jdk(Zulu11.64)
-#### Reference :     
+#### Desc : Spark version 3.4.0, Python 3.9.16, Jdk(Zulu11.64)  
 
 ## spark
 - 대규모 데이터 처리 통합 분산 엔진  
