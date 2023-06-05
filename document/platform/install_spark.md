@@ -11,14 +11,12 @@
 - RDD(탄력적 뷴산형 데이터셋)
 - 아키텍처
 - 사용이유
+<br/><br/>
 
-
-
-###  <Spark Cluster 개념 (동장방식)>
+###  <Spark Cluster 개념 (동작방식)>
 - Step 1. 자원할당 : spark context -> cluster manager -> executor 할당  
 - Step 2. Task 실행 : spark context -> 실행 파일, 설정을 executor 전달 -> task 실행  
-
-
+<br/><br/>
 
 ### Spark Install Flow(Stand Alone) & Running  
 1. https://spark.apache.org/downloads.html 에 Download Spark > 압축풀기  
@@ -39,10 +37,7 @@
 5. pyspark shell 을 실행시키거나 python file 실행  
     <img src = "img_18.png" width = "470" height = "190" title = "실행화면" />
  
-
-
-
-
+<br/><br/>
 ### 용어 정리/ 개념 설명
 - #### Shuffle
     발생 하는 경우 : 파티션에 데이터 재배치 될 때 발생, 맵리듀스에서 리듀스 단계 중 물리적 데이터 이동시
