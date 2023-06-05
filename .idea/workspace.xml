@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Write documents">
-      <change afterPath="$PROJECT_DIR$/document/platform/img_16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document/platform/img_17.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document/platform/install_spark.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/platform/install_spark.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/platform/install_airflow.txt" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_airflow.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/platform/install_spark.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_spark.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

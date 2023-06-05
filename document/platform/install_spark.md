@@ -44,25 +44,28 @@
 
 
 ### 용어 정리/ 개념 설명
-- Shuffle   
-    발생 하는 경우 :  파티션에 데이터 재배치 될 때 발생, 맵리듀스에서 리듀스 단계 중 물리적 데이터 이동시
-- <파티션의 개념 및 차이점>  
+- #### Shuffle
+    발생 하는 경우 : 파티션에 데이터 재배치 될 때 발생, 맵리듀스에서 리듀스 단계 중 물리적 데이터 이동시
+- #### <파티션의 개념 및 차이점>  
   - partition() : 코어수에 따라 할당
   - paritionby(column) : 디스크 데이터를 분산 할 때 , 속도 향상 , write 함수  
   - repartition(partition count, column)  : 메모리에서 데이터 분산할 때  
   - coalesce: 디폴트는 파티션 수 감소할 때만 사용, numofpartition = true 시에는 파티는 증가도 가능  
                데이터 개수에 따라 다르지만, 분할보다 병합 비용이 더 큼
-- <메모리 설정 팁>  
+- #### <메모리 설정 팁>  
+  - 전체 Executor 개수 설정
+  - Executor 당 Core 개수 와 Memory 크기 설정
   - 셔플 읽기+쓰기 사이즈 < excutor 수  
-- <인메모리(memory, spark) vs 분신병렬(disk, hadoop)>  
-  - 맵리듀스가 메모리 기반인가, 디스크 기반인가 의 차이   
-- <Sql 보다, spark 엔진을 사용해야하는 이유>
-  - Spark 은 다양한 엔진 및 라이브러리를 제공  
+  - (Spark Executor 수) X (Spark Core 수) < (서버 Node 개수) X (서버 Core 개수)
+- #### <인메모리(memory, spark) vs 분신병렬(disk, hadoop)>  
+  맵리듀스가 메모리에서 기반인가, 디스크에서 기반인가 의 차이   
+- #### <Sql 보다, spark 엔진을 사용해야하는 이유>  
+    Spark 은 다양한 엔진 및 라이브러리를 제공  
     python, java, R 등 개발 언어와 함께 사용 할 수 있음  
-    Sql 단순 데이터베이스 조회에 적합-> sql 만 쓰면 그것만 하게 됨 spark 만큼 확장성 없어  
+    Sql 단순 데이터베이스 조회에 적합-> sql 만 쓰면 그것만 하게 됨 spark 만큼 확장성 없어    
+
+
 - Executor : task 들이 수행, 디스크/메모리에 동작하는 곳
 - In-Memory(인메모리) : 메모리 내에서 데이터 저장, 연산 병렬 처리 하는 것, 전력 소모 낮은편
-- MapReduce(맵리듀스) :
-- REPL : Read Eval Print Loop
-- 인스턴스 : 
+- REPL : Read Eval Print Loop 
 - master 인스턴스:
