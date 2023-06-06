@@ -82,7 +82,7 @@
     ```  
 6. hadoop 실행 명령  
    - cd /opt/homebrew/Cellar/hadoop/3.3.4/libexec/sbin    
-   - 실행 : ./star-all.sh  
+   - 실행 : ./start-all.sh  
    - 실행 확인   
      - jps     
         <img src = "img_12.png" width = "350" height = "140"/>    

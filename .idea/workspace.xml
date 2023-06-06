@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Write documents">
-      <change afterPath="$PROJECT_DIR$/document/platform/img_22.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document/platform/img_23.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document/platform/img_24.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document/platform/img_25.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document/platform/img_26.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/platform/install_docker.txt" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_docker.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/noise_data(noise_spell).py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/noise_data(noise_channel).py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/document/platform/install_hadoop.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_hadoop.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,7 +101,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Python.cosine_similarity">
+  <component name="RunManager" selected="Python.noise_data(noise_channel)">
     <configuration name="cosine_similarity" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -169,7 +165,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="noise_data(noise_spell)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="noise_data(noise_channel)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -181,7 +177,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/cmc/nlp/noise_data(noise_spell).py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/cmc/nlp/noise_data(noise_channel).py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -234,11 +230,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.noise_data(noise_channel)" />
         <item itemvalue="Python.cosine_similarity" />
         <item itemvalue="Python.nvr_prod_cate_match" />
-        <item itemvalue="Python.noise_data(noise_spell)" />
-        <item itemvalue="Python.test" />
         <item itemvalue="Python.get_attribute" />
+        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>

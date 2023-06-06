@@ -7,12 +7,11 @@ Developers with the ability to create good data in big databases.
 - version and env : python3.9, pyspark3.3.2, hadoop3.3.4, airflow, jenkins
 
 ### 목적 및 방향성
-- 좋은 기초(학습) 데이터 생성 목적(Only by Data Engineering)
-- 데이터 연관성 및 특징 파악 훈련
-- AI/ML 지식 획득 및 데이터 훈련 
-- 안정적인 플랫폼(Hadoop, python, spark, hive..)구축 및 운영 방법 모색 
-
-
+- 좋은 기초(학습) 데이터 생성 목적(Only by Data Engineering)  
+- NLP 기반으로 가설 수립 후 개발 주도    
+- 데이터 연관성 및 특징 파악 훈련  
+- AI/ML 지식 획득 및 데이터 훈련   
+- 안정적인 플랫폼(Hadoop, python, spark, hive..)구축 및 운영 방법 모색  
 
 ### 구성 및 작업 내용
 - Develop
@@ -24,20 +23,31 @@ Developers with the ability to create good data in big databases.
   - tf-idf
   - word2vec(with skip-gram & cbow)
 
-- Platfrom
+- Platfrom & Doc
   - Hadoop 
   - Spark 
   - CI/CD(Jenkins)
-  - Airflow
+  - Airflow 
+  - Docker
 
-#### todo list  ...ing  
-- 개발
-   - ai/ml 적용하여 학습 예정(커버리지 늘리기 위해)
-   - Flask 로 간단한 API 구성
-   - 유의어, 동의어, 외래어 사전
-   - 브랜드, 시리즈, 모델명 사전
-   - 불용어(stopword) 
-   - ngram
+### todo list & ...ing  
+- 개발  
+  - 사전  
+    - 유의어
+    - 외래어
+    - 동의어
+    - 합성어 
+    - 브랜드 
+    - 시리즈 
+    - 모델명 
+    - 불용어(stopword)
+  - NLP
+    -  ngram 
+  - AI/ML
+    - ai/ml 적용하여 학습 예정(커버리지 늘리기 위해)
+  - 그 외
+    - Flask 로 간단한 API 구성
+           
 
 - 환경 세팅(platform)
      - Docker 설치
@@ -50,9 +60,7 @@ Developers with the ability to create good data in big databases.
  - 이론 공부
     - BigData
       - Kafka
-      - spark
-      - hadoop
       - hive
       - streaming(sparkstreaming, Hudi, Kafka)
       - sqoop
-      - 
+      

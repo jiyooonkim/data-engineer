@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 # title : 불용어 사전(전처리, 정제작업)
-# desc :
+# desc : Spelling Correction and the Noisy Channel
 - 노이즈 데이터 : 의미 없는 글자(특수 문자 등)을 의미하기도 하지만, 분석 목적에 맞지 않는 불필요 단어
 - candidate : 적은 빈도, 짧은 단어, 형용사
 # object :
@@ -120,7 +120,7 @@ if __name__ == "__main__":
         .withColumn('txt_type', F.col('tkns').cast("int").isNotNull()) \
         .where(F.col('txt_type') == False).alias('ship_tkn_agg')  # remove only number value,   cnt : 43987
 
-    attr = spark.read.parquet('hdfs://localhost:9000/dictionary/measures_attribution/') \
+    attr = spark.read.parquet('hdfs://localhost:9000/dictionary/measures_attribution') \
         .select(F.col('shp_nm_token'), F.col('cnt').alias('attr_cnt')).alias('attr')
     # ship_tkn_agg.select(F.count(F.col('tkns'))).show()
     # res = attr.unionAll(ship_tkn_agg.select(F.col('tkns'), F.col('cnt')))
@@ -178,12 +178,22 @@ if __name__ == "__main__":
     # get_word_cnt.select(F.count(F.col('prod_nm'))).show()   # 95873
     # cate.select(F.count(F.col('cate'))).show()  # cnt : 2043
     
-    # todo : 적당한 후보 매핑이 필요함 , 워딩 별로 유사도 매겨서 get_err_type 호출할것 
-    aa = get_word_cnt\
+    ''' 
+    todo : 적당한 후보 매핑이 필요함, 워딩 별로 유사도 매겨서 get_err_type 호출할것 
+    get_close_matches 알아보기!!
+    '''
+    get_word_matric = get_word_cnt\
         .join(F.broadcast(cate))\
         .where(F.col('prod_nm') != F.col('cate'))\
-        # .withColumn('err_tp', get_err_type(F.col('prod_tokens'), F.col('cate_tokens')))
-    aa.show(100, False)
+        .withColumn('err_tp', get_err_type(F.col('prod_tokens'), F.col('cate_tokens')))
+    get_word_matric.withColumn('p_x_w', ).show(100, False)
+
+
+
+
+
+
+
 
     # prod_nm.show(1000, False)
     # prod.select(F.col('상품명')).where(F.col('상품명').like('%블루 %')).show(100, False)
