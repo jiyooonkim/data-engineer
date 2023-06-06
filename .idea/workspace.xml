@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Write documents">
-      <change afterPath="$PROJECT_DIR$/document/platform/img_19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/platform/img_22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/platform/img_23.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/platform/img_24.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/platform/img_25.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/platform/img_26.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/platform/install_airflow.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_airflow.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/platform/install_docker.txt" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_docker.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/platform/install_hadoop.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_hadoop.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,15 +67,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jy_kim/Documents/private/nlp-engineer&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/jy_kim/Documents/private/nlp-engineer/document/platform",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings module-name="test" is-module-sdk="true">
@@ -81,11 +86,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/document/platform" />
       <recent name="$PROJECT_DIR$/commerce/cmc/nlp" />
       <recent name="$PROJECT_DIR$/commerce/cmc/etc" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/../commerce/cmc/nlp" />
-      <recent name="$PROJECT_DIR$/../commerce/cmc/product" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/document/platform" />

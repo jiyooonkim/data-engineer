@@ -68,5 +68,7 @@ airflow scheduler -D
 - schedule : excutor 에게 task 제공 역할
 - excutor : 실행중 task 컨트롤 하는 컴포넌트
 - worker : task 실행하는 주체
-- database : schedule 정보 저장하고 관리
+- database : metadata 정보 저장 관리(airflow.cfg에서 설정)
 - Dag : Directed Acyclic Grapth, 단방향 노드
+
+

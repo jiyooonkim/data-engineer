@@ -3,13 +3,13 @@
 #### date : 2023-02-04
 #### desc : hadoop ver. 3.3.4, jdk ver. zulu-11.jdk  
 #### reference   
+<br/><br/>
 
 ## Hadoop
 - 동작방식  
 - 메커니즘  
 - 사용이유  
-
-
+<br/><br/>
 
 ## Hadoop Install Flow
 1. hadoop 설치 : brew install hadoop    
@@ -92,11 +92,12 @@
         <img src = "img_15.png" width = "350" height = "140"/>  
      - 리소스 매니저 확인 : http://localhost:8088/cluster  
         <img src = "img_14.png" width = "350" height = "140"/>  
-      
+<br/><br/> 
 
 ## Hadoop 제어 명령어  
 - 네임노드 포멧 : hadoop namenode -format ([hadoop java.net.connectexception:연결이 거부됨] 에러 발생시 해결방법)
 - jdk 경로 확인 : cd /Library/Java/JavaVirtualMachines  
+<br/><br/>
 
 ### 용어 정리  
 - hdfs : 하둡 분산형 파일 시스템(Hadoop Distributed File System), HDFS는 데이터에 대한 액세스를 제공하는 하둡의 파일 시스템, 하둡의 모듈  
@@ -110,5 +111,3 @@
 - Pseudo-Distributed Mode :
 - Fully-Distributed Mode :
 - JVM : 
-
-
