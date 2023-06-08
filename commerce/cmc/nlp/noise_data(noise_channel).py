@@ -86,6 +86,21 @@ def get_spelling(word):
     return r_lst
 
 
+# @F.udf(returnType=T.DoubleType())
+# def get_jaccard_sim(str1, str2):
+#     itc = set(str1).intersection(set(str2))
+#     return float(len(itc)) / (len(set(str1)) + len(set(str2)) - len(set(itc)))
+
+@F.udf(returnType=T.DoubleType())
+def get_jaccard_sim(str1, str2):
+    # set 이유 : 중복성 무시
+    a = set(str1)  # set(str1.split())
+    b = set(str2)  # set(str2.split())
+    itc = float(len(set(a).intersection(set(b))))      # 분자
+    union = len(a) + len(b) - itc    # 분모
+    return itc/union
+
+
 if __name__ == "__main__":
     spark = SparkSession.builder \
         .appName('jy_kim') \
@@ -173,7 +188,6 @@ if __name__ == "__main__":
         .agg(F.count(F.col('prod_nm')).alias('count_w'))\
         .withColumn('p_w', F.round(F.col('count_w') / prod_nm.count(), 9))\
         .alias('get_word_cnt')
-    # get_word_cnt.join(cate, F.col('') != F.col(''))
 
     # get_word_cnt.select(F.count(F.col('prod_nm'))).show()   # 95873
     # cate.select(F.count(F.col('cate'))).show()  # cnt : 2043
@@ -182,20 +196,23 @@ if __name__ == "__main__":
     todo : 적당한 후보 매핑이 필요함, 워딩 별로 유사도 매겨서 get_err_type 호출할것 
     get_close_matches 알아보기!!
     '''
+
     get_word_matric = get_word_cnt\
         .join(F.broadcast(cate))\
-        .where(F.col('prod_nm') != F.col('cate'))\
-        .withColumn('err_tp', get_err_type(F.col('prod_tokens'), F.col('cate_tokens')))
-    get_word_matric.withColumn('p_x_w', ).show(100, False)
+        .where(F.col('prod_nm') != F.col('cate')).withColumn('jaccard_sim', get_jaccard_sim(F.col('prod_nm'), F.col('cate')))
+
+    compound_word = get_word_matric.withColumn('jaccard_sim', get_jaccard_sim(F.col('prod_nm'), F.col('cate')))
+    compound_word.write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/compound_word_candidate")     # 합성어
+    compound_word.show(100, False)
+
+    # get_word_matric = get_word_matric.withColumn('err_tp', get_err_type(F.col('prod_tokens'), F.col('cate_tokens')))\
+    #
+    # # get_word_matric.show(100, False)
+    # # get_word_matric.where(F.length(F.col('prod_nm')) == F.length(F.col('cate'))).orderBy(F.col('prod_nm').desc()).show(100, False)
+    # get_word_matric.orderBy(F.col('prod_nm').desc()).show(100, False)
 
 
 
-
-
-
-
-
-    # prod_nm.show(1000, False)
     # prod.select(F.col('상품명')).where(F.col('상품명').like('%블루 %')).show(100, False)
     ''' 
         숫자 + 영어/ 숫자 + 한글 : 도량형 속성

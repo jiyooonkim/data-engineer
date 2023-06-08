@@ -42,7 +42,7 @@ for i in aa:
         txt= txt.replace(i, '')
     # if txt is None:
     #     print("OK")
-    if len(txt) == 0 :
+    if len(txt) == 0:
         print("완료")
     print("txt : ", txt )
     print("=====================")
@@ -56,14 +56,11 @@ for i in aa:
         if create_kwd in kwd:
             lst.append(i)
             lst.append(j)
-print("lst : ", set(lst))
+# print("lst : ", set(lst))
 
 
 
 
-
-
-# print(txt.removeprefix(emt))
 
 # origin_wd = ""
 # tmp = ""
@@ -107,19 +104,22 @@ print("lst : ", set(lst))
 # print("tweet_okt : ", tweet_okt)
 
 
-str1 = '더랄라 케이크망또 여아 데일리 외출복 얼집 유천 등원룩 망토 스카프 모 더랄라'
-str2 = '미술놀이 유아미술놀이 유아학습 캐릭터 가위 오리기 등원룩'
-a = set(str1.split())
-b = set(str2.split())
-c = a.intersection(b)
-res = float(len(c)) / (len(a) + len(b) - len(c))
-print("a : ", a)
-a_set = []
-for wd in a:
-    if len(wd) > 1:
-        # print("a : ", wd )
-        a_set.append(wd)
-print("a_set : ", set(a_set))
-print("b : ", b, len(b))
-print("c : ", c, len(c))
-print("res : ", res)
+# str1 = '더랄라 케이크망또 여아 데일리 외출복 얼집 유천 등원룩 망토 스카프 모 더랄라'
+# str2 = '미술놀이 유아미술놀이 유아학습 캐릭터 가위 오리기 등원룩'
+# a = set(str1.split())
+# b = set(str2.split())
+# c = a.intersection(b)
+# res = float(len(c)) / (len(a) + len(b) - len(c))
+# print("a : ", a)
+# a_set = []
+# for wd in a:
+#     if len(wd) > 1:
+#         # print("a : ", wd )
+#         a_set.append(wd)
+# print("a_set : ", set(a_set))
+# print("b : ", b, len(b))
+# print("c : ", c, len(c))
+# print("res : ", res)
+
+
+print(str('헤어롤').strip('헤어'))
