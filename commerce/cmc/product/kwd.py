@@ -12,51 +12,51 @@
 # txt = "남성반팔티셔츠빅사이즈"
 # lis = ["반팔", "셔츠", "이즈", "남성", "사이즈", "티셔츠"]
 
-txt = "울트라드래곤레고"
-lis = ["울트라", "레고", "드래곤", "라드"]
-res =[]
-for i in range(0, len(lis)):
-    for j in range(i, len(lis)):
-        if (lis[i]) != (lis[j]):
-            if lis[i].__contains__(lis[j]):
-                if len(lis[i]) < len(lis[j]):
-                    res.append(lis[j])
-                elif len(lis[i]) > len(lis[j]):
-                    res.append(lis[i])
-                # print("lis[i] : ", lis[i])
-                # print("lis[j] : ", lis[j])
-                # if len(lis[i]) < len(lis[j]):
-                #     lis.remove(lis[i])
-                #     res.append(lis[j])
-                # else:
-                #     lis.remove(lis[j])
-                #     res.append(lis[i])
+# txt = "울트라드래곤레고"
+# lis = ["울트라", "레고", "드래곤", "라드"]
+# res =[]
+# for i in range(0, len(lis)):
+#     for j in range(i, len(lis)):
+#         if (lis[i]) != (lis[j]):
+#             if lis[i].__contains__(lis[j]):
+#                 if len(lis[i]) < len(lis[j]):
+#                     res.append(lis[j])
+#                 elif len(lis[i]) > len(lis[j]):
+#                     res.append(lis[i])
+#                 # print("lis[i] : ", lis[i])
+#                 # print("lis[j] : ", lis[j])
+#                 # if len(lis[i]) < len(lis[j]):
+#                 #     lis.remove(lis[i])
+#                 #     res.append(lis[j])
+#                 # else:
+#                 #     lis.remove(lis[j])
+#                 #     res.append(lis[i])
+#
+#
+# print("res : ", res)
 
+# aa = list(set(set(lis) - set(res)))
+# for i in aa:
+#     print("i : ", i)
+#     if i in txt:
+#         txt= txt.replace(i, '')
+#     # if txt is None:
+#     #     print("OK")
+#     if len(txt) == 0:
+#         print("완료")
+#     print("txt : ", txt )
+#     print("=====================")
+# print("aa : ", aa)
 
-print("res : ", res)
-
-aa = list(set(set(lis) - set(res)))
-for i in aa:
-    print("i : ", i)
-    if i in txt:
-        txt= txt.replace(i, '')
-    # if txt is None:
-    #     print("OK")
-    if len(txt) == 0:
-        print("완료")
-    print("txt : ", txt )
-    print("=====================")
-print("aa : ", aa)
-
-kwd = "울트라드래곤레고"
-lst = []
-for i in aa:
-    for j in aa:
-        create_kwd = i+j
-        if create_kwd in kwd:
-            lst.append(i)
-            lst.append(j)
-# print("lst : ", set(lst))
+# kwd = "울트라드래곤레고"
+# lst = []
+# for i in aa:
+#     for j in aa:
+#         create_kwd = i+j
+#         if create_kwd in kwd:
+#             lst.append(i)
+#             lst.append(j)
+# # print("lst : ", set(lst))
 
 
 
@@ -122,4 +122,72 @@ for i in aa:
 # print("res : ", res)
 
 
-print(str('헤어롤').strip('헤어'))
+'''
+    선글라스케이스 |케이스 |[케이스, 선글라] |
+홈바테이블세트                |2          |테이블
+|체크올인원패딩                |1          |올인원
+|검도용                        |2          |기타검도용품
+니트스커트                       |1          |니트
+'''
+tokens = []
+crr_wd = '청바지용'
+cndd_wd = '바지'
+if cndd_wd in crr_wd:
+    if len(crr_wd.strip(cndd_wd)) > 1:
+        tokens.append(cndd_wd)
+        tokens.append(crr_wd.strip(cndd_wd))
+if crr_wd in cndd_wd:
+    if len(cndd_wd.strip(crr_wd)) > 1:
+        tokens.append(crr_wd)
+        tokens.append(cndd_wd.strip(crr_wd))
+
+print("tokens : ", tokens)
+# for i in range(0, len(crr_wd)+1):
+
+crr_wd = '청바지용'
+cndd_wd = '바지'
+tokens = []
+if crr_wd.__contains__(cndd_wd):
+    if len(crr_wd.strip(cndd_wd)) > 1:
+        print("2 : ", cndd_wd)
+        print("2 : ", crr_wd.split(cndd_wd))
+        tokens.append(cndd_wd)
+        if len(crr_wd.split(cndd_wd)[0]) > 1 or len(crr_wd.split(cndd_wd)[1]) > 1:
+            tokens.extend(crr_wd.split(cndd_wd))
+        # else:
+        #     tokens.append(crr_wd)
+
+if cndd_wd.__contains__(crr_wd):
+    if len(cndd_wd.strip(crr_wd)) > 1:
+        tokens.append(crr_wd)
+        if len(cndd_wd.split(crr_wd)[0]) > 1 or len(cndd_wd.split(crr_wd)[1]) > 1:
+            tokens.extend(cndd_wd.split(crr_wd))
+        # else:
+        #     tokens.append(crr_wd)
+
+print("ver2 : ", tokens)
+
+'''
+|케이          |아이스스케이트    |[케이, 아이스스, 트]       |[케이, 아이스스트] 
+|word1       |word2         |tkns1                  |tkns2 
+'''
+word1 = '손수건'
+word2 = '가제손수건8장'
+tkns1 = ['케이', '아이스스', '트']
+tkns2 = ['케이', '아이스스트']
+# def check_token_correction(tkns1, tkns2, word1, word2):
+word = ''
+
+if len(word1) < len(word2):
+    word = word2
+else:
+    word = word1
+def aa(word, tkns):
+    for j in tkns:
+        word = word.replace(j, ' ')
+    return len(word.replace(" ", ""))
+
+print('wrod22 : ', word)
+print(aa(word, tkns1))
+print("ddd", set(([['pc', '받침대'], ['침대', 'pc받'], ['받침대', 'pc']])) )
+
