@@ -188,6 +188,5 @@ def aa(word, tkns):
     return len(word.replace(" ", ""))
 
 print('wrod22 : ', word)
-print(aa(word, tkns1))
-print("ddd", set(([['pc', '받침대'], ['침대', 'pc받'], ['받침대', 'pc']])) )
+print(aa(word, tkns1)) 
 

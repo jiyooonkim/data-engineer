@@ -119,11 +119,12 @@ if __name__ == "__main__":
         .where(((F.col('num_cnt') > 0) &(F.col('eng_cnt') > 0)) | ((F.col('kor_cnt') > 0) & (F.col('num_cnt') > 0)))\
         .where(~(F.col('shp_nm_token').like("%원")))\
         .where((F.col('txt_tps').like("%num kor kor")) | (F.col('txt_tps').like("%num eng eng")))
-    msr_attr_2.show(10000, False)
+    # msr_attr_2.show(10000, False)
     # msr_attr_2.select(F.count(F.col('shp_nm_token'))).show()
 
     msr_attr = (msr_attr_1.unionAll(msr_attr_2)).where(F.length(F.col('shp_nm_token')) < 7).distinct()
     msr_attr.select(F.count(F.col('shp_nm_token'))).show()
-    msr_attr.coalesce(15).write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/dictionary/measures_attribution/")  # save hdfs
+    # msr_attr.coalesce(15).write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/dictionary/measures_attribution/")  # save hdfs
+    msr_attr.write.format("parquet").mode("overwrite").save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/measures_attribution/")  # save hdfs
 
     exit(0)

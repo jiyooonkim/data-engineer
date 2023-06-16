@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Write documents">
-      <change afterPath="$PROJECT_DIR$/commerce/cmc/nlp/compound_word.py" afterDir="false" />
+    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="develop compound word">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/compound_word.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/compound_word.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/noise_data(noise_channel).py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/noise_data(noise_channel).py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/cmc/product/get_attribute.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/product/get_attribute.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commerce/cmc/product/kwd.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/product/kwd.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/cmc/product/nvr_prod_cate_match.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/product/nvr_prod_cate_match.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +70,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/jy_kim/Documents/private/nlp-engineer/document/platform",
+    "last_opened_file_path": "/Users/jy_kim/Documents/private/nlp-engineer",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
@@ -123,7 +125,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="cosine_similarity" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="get_attribute" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -131,11 +133,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/cmc/nlp" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/cmc/product" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/cmc/nlp/cosine_similarity.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/cmc/product/get_attribute.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -233,7 +235,7 @@
         <item itemvalue="Python.compound_word" />
         <item itemvalue="Python.kwd" />
         <item itemvalue="Python.noise_data(noise_channel)" />
-        <item itemvalue="Python.cosine_similarity" />
+        <item itemvalue="Python.get_attribute" />
         <item itemvalue="Python.nvr_prod_cate_match" />
       </list>
     </recent_temporary>
@@ -345,7 +347,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685546484222</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="develop typo correction, compound word">
+      <created>1686230156248</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1686230156248</updated>
+    </task>
+    <task id="LOCAL-00016" summary="develop compound word">
+      <created>1686408438373</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1686408438373</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -366,14 +382,16 @@
     <MESSAGE value="dev cosine_similarity algorithm" />
     <MESSAGE value="develop Spelling Correction and the&#10;Noisy Channel Algorithm" />
     <MESSAGE value="Write documents" />
-    <option name="LAST_COMMIT_MESSAGE" value="Write documents" />
+    <MESSAGE value="develop typo correction, compound word" />
+    <MESSAGE value="develop compound word" />
+    <option name="LAST_COMMIT_MESSAGE" value="develop compound word" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/commerce/cmc/product/nvr_prod_cate_match.py</url>
-          <line>105</line>
+          <line>106</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
