@@ -22,7 +22,7 @@ def get_match_length(crr_wd, cndd_wd):
     else:
         for i in range(0, len(cndd_wd) - len(crr_wd)):
             crr_wd.append("nn")
-    return crr_wd , cndd_wd
+    return crr_wd, cndd_wd
 
 
 @F.udf(returnType=T.ArrayType(T.StringType()))
@@ -80,9 +80,9 @@ def get_spelling(word):
             # 중성은 총 28가지 종류
             ch2 = ((ord(w) - ord('가')) - (588 * ch1)) // 28
             ch3 = (ord(w) - ord('가')) - (588 * ch1) - 28 * ch2
-            r_lst.extend([chosung_list[ch1], jungsung_list[ch2], jongsung_list[ch3]])
+            r_lst.extend([str(chosung_list[ch1]), str(jungsung_list[ch2]), str(jongsung_list[ch3])])
         else:
-            r_lst.extend(w)
+            r_lst.extend(str(w))
     return r_lst
 
 
@@ -193,18 +193,19 @@ if __name__ == "__main__":
     # cate.select(F.count(F.col('cate'))).show()  # cnt : 2043
     
     ''' 
-    todo : 적당한 후보 매핑이 필요함, 워딩 별로 유사도 매겨서 get_err_type 호출할것 
-    get_close_matches 알아보기!!
+        todo : 적당한 후보 매핑이 필요함, 워딩 별로 유사도 매겨서 get_err_type 호출할것 
+        get_close_matches 알아보기!!
     '''
 
     get_word_matric = get_word_cnt\
         .join(F.broadcast(cate))\
-        .where(F.col('prod_nm') != F.col('cate')).withColumn('jaccard_sim', get_jaccard_sim(F.col('prod_nm'), F.col('cate')))
+        .where(F.col('prod_nm') != F.col('cate'))\
+        .withColumn('jaccard_sim', get_jaccard_sim(F.col('prod_nm'), F.col('cate')))
 
     compound_word = get_word_matric.withColumn('jaccard_sim', get_jaccard_sim(F.col('prod_nm'), F.col('cate')))
     # compound_word.write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/compound_word_candidate")     # 합성어
     compound_word.write.format("parquet").mode("overwrite").save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/compound_word_candidate/")     # 합성어
-    compound_word.show(100, False)
+    compound_word.where(F.col('jaccard_sim')>0.9).show(100, False)
 
     # get_word_matric = get_word_matric.withColumn('err_tp', get_err_type(F.col('prod_tokens'), F.col('cate_tokens')))\
     #

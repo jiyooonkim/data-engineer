@@ -187,6 +187,9 @@ def aa(word, tkns):
         word = word.replace(j, ' ')
     return len(word.replace(" ", ""))
 
-print('wrod22 : ', word)
-print(aa(word, tkns1)) 
+# print('wrod22 : ', word)
+# print(aa(word, tkns1))
 
+lists = [ㄱ, ㅏ, ㄱ]
+
+print(lists.replace(', ', ''))
