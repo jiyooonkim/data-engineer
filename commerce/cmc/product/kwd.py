@@ -192,4 +192,4 @@ def aa(word, tkns):
 
 lists = [ㄱ, ㅏ, ㄱ]
 
-print(lists.replace(', ', ''))
+print(lists.type())

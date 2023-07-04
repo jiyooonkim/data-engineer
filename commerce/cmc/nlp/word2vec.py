@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 """
 # title : 상품명에 적합한 inner keyword 후보 추출 위해
 # desc :
@@ -62,7 +61,7 @@ def get_txt_type(col):
 
 if __name__ == "__main__":
     spark = SparkSession.builder \
-        .appName('jy_kim') \
+        .appName('Word 2 vector Job') \
         .master('local[4]') \
         .config("spark.driver.bindAddress", "127.0.0.1") \
         .config('spark.executor.extraJavaOptions', 'Ddev.ludovic.netlib.blas.nativeLib=libopenblas.so') \

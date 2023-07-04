@@ -79,7 +79,7 @@ def check_token_correction(tkns1, tkns2, word):
 
 if __name__ == "__main__":
     spark = SparkSession.builder \
-        .appName('jy_kim') \
+        .appName('Compound word Job') \
         .master('local[*]') \
         .config('spark.sql.execution.arrow.pyspark.enabled', True) \
         .config('spark.sql.session.timeZone', 'UTC') \
