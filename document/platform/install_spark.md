@@ -20,7 +20,7 @@
 
 ### Spark Install Flow(Stand Alone) & Running  
 1. https://spark.apache.org/downloads.html 에 Download Spark > 압축풀기  
-![img_16.png](img_16.png)  
+![img/img_16.png](img_16.png)  
 2. 설치파일 경로 이동 : cd /Users/jy_kim/Downloads/spark-3.4.0-bin-hadoop3  
 3. spark-env.sh 파일설정   
      - cd /Users/jy_kim/Downloads/spark-3.4.0-bin-hadoop3/conf  
@@ -33,9 +33,9 @@
 4. worker 실행  : cd /Users/jy_kim/Downloads/spark-3.4.0-bin-hadoop3/sbin  
      4-1. 마스터 실행 : ./start-master.sh 후 http://localhost:8080/ 접속     
      4-2. 메모리 & 코어수 지정 : ./start-slave.sh spark://jy-kimui-MacBookPro.local:7077  -m 256M -c 2  
-        <img src = "img_17.png" width = "470" height = "190" title = "SPARK_WORKER_INSTANCES 개수만큼 worker 생성" />
+        <img src = "img/img_17.png" width = "470" height = "190" title = "SPARK_WORKER_INSTANCES 개수만큼 worker 생성" />
 5. pyspark shell 을 실행시키거나 python file 실행  
-    <img src = "img_18.png" width = "470" height = "190" title = "실행화면" />
+    <img src = "img/img_18.png" width = "470" height = "190" title = "실행화면" />
  
 <br/><br/>
 ### 용어 정리/ 개념 설명

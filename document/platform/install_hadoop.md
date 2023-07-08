@@ -15,11 +15,11 @@
 1. hadoop 설치 : brew install hadoop    
     ** homebrew install 명령어 : /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"  
 2. 버전 및 경로확인 : brew info hadoop      
-     <img src = "img_9.png" width = "350" height = "140"/>  
+     <img src = "img/img_9.png" width = "350" height = "140"/>  
 3. jdk 설치  
 4. 환경 변수 설정      
    4-1. 환경변수 디렉토리 이동 : cd /opt/homebrew/Cellar/hadoop/3.3.4/libexec/etc/hadoop  
-    <img src = "img_10.png" width = "350" height = "140"/>    
+    <img src = "img/img_10.png" width = "350" height = "140"/>    
    4-2. JAVA_HOME 추가 : vi hadoop-env.sh  >  export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home"    
    4-3. 파일설정    
    * vi core-site.xml   
@@ -72,7 +72,7 @@
      ```    
 5. ssh 확인 및 실행  
     5-1.   
-        <img src = "img_11.png" width = "350" height = "40"/>    
+        <img src = "img/img_11.png" width = "350" height = "40"/>    
     5-2. mac 에서 5-1 이 실행안된다면 : 환경설정 > 공유 > 원격로그인 활성   
     5-3. ssh keygen 발급  
     ```   
@@ -85,13 +85,13 @@
    - 실행 : ./start-all.sh  
    - 실행 확인   
      - jps     
-        <img src = "img_12.png" width = "350" height = "140"/>    
+        <img src = "img/img_12.png" width = "350" height = "140"/>    
      - namenode 확인 : http://localhost:9870/dfshealth.html#tab-overview    
-        <img src = "img_13.png" width = "350" height = "140"/>  
+        <img src = "img/img_13.png" width = "350" height = "140"/>  
      - Secondary NameNode 확인 : http://localhost:9868/status.html  
-        <img src = "img_15.png" width = "350" height = "140"/>  
+        <img src = "img/img_15.png" width = "350" height = "140"/>  
      - 리소스 매니저 확인 : http://localhost:8088/cluster  
-        <img src = "img_14.png" width = "350" height = "140"/>  
+        <img src = "img/img_14.png" width = "350" height = "140"/>  
 <br/><br/> 
 
 ## Hadoop 제어 명령어  

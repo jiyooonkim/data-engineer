@@ -31,7 +31,7 @@
    cd ~/airflow  
    ls -al    
    ```      
-    <img src = "img_19.png" width = "350" height = "140"/>      
+    <img src = "img/img_19.png" width = "350" height = "140"/>      
 
    2-6. airflow 계정 생성        
    ```airflow users create --role Admin --username admin --password admin --email admin@example.com --firstname foo --lastname bar  ```      
@@ -44,11 +44,11 @@
    ```airflow scheduler -D```  
    2-9. Airflow 시작    
    ```http://localhost:8080```  
-     <img src = "img_20.png" width = "350" height = "140"/>  
+     <img src = "img/img_20.png" width = "350" height = "140"/>  
 3. Airflow dag project 설정 , airflow.cfg 파일에 dags_folder 에 디렉토리 지정  
    ```vi airflow/airflow.cfg```  
    ```dags_folder = /Users/jy_kim/airflow/dags ```   
-     <img src = "img_21.png" width = "350" height = "140"/>  
+     <img src = "img/img_21.png" width = "350" height = "140"/>  
 
 
 

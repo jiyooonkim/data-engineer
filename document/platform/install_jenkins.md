@@ -3,7 +3,7 @@
 #### date : 2023-05-31 ~ 2023-06-04
 #### desc : jenkins 설치 github repository 와 연동, jenkins 이용하여 git (add, commit ,push) build 기능
 #### reference : https://medium.com/eum-tech-lab/github-webhooks%EC%97%90%EC%84%9C-localhost%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%A0-%EC%88%98-%EC%97%86%EB%8A%94-%EC%9D%B4%EC%9C%A0-9c0d2aecf118
-<img src = "img_2.png" width = "450" height = "280"/>  
+<img src = "img/img_2.png" width = "450" height = "280"/>  
 
 
 ## Jenkins Install Flow
@@ -29,26 +29,26 @@
 ## Jenkins & github 연동
 1. github 설정  
    a. gitbub repository > setting > webhooks > add webhook (ngrok 에서 발급받은 payload URL(https://eb00-106-101-2-252.ngrok-free.app/github-webhook/) 입력)  
-        <img src = "img_3.png" width = "450" height = "280"/>    
+        <img src = "img/img_3.png" width = "450" height = "280"/>    
    b. github > settings > persional access tokens(classic) > generate new token  
-        <img src = "img_4.png" width = "450" height = "280"/>  
+        <img src = "img/img_4.png" width = "450" height = "280"/>  
    c. check repo, admin:org ...   
-        <img src = "img_5.png" width = "450" height = "280"/>
+        <img src = "img/img_5.png" width = "450" height = "280"/>
 2. Jenkins 설정  
    a. jenkins dashboad 화면 > jenkins 관리 탭 > system  github 정보 입력
-       <img src = "img_6.png" width = "450" height = "280"/>   
+       <img src = "img/img_6.png" width = "450" height = "280"/>   
    b. Credentials > Add > Jenkins > Username(github ID), Password(github token), ID
    c. +새로운 Item > Enter an item name 입력 > Freestyle project 
-       <img src = "img_7.png" width = "450" height = "280"/>   
-       <img src = "img_8.png" width = "450" height = "280"/>     
+       <img src = "img/img_7.png" width = "450" height = "280"/>   
+       <img src = "img/img_8.png" width = "450" height = "280"/>     
 
 
 ## Jenkins에서 Github 배포 파이프라인 구성  
 refer : https://itnext.io/jenkins-tutorial-part-10-work-with-git-in-pipeline-b5e42f6d124b
 1. +새로운 Item > Enter an item name 입력 > Pipeline    
 2. GitHub project 에 git url 입력 > Pipeline script 입력      
-    <img src = "img.png" width = "450" height = "280"/>    
-    <img src = "img_1.png" width = "450" height = "280"/>    
+    <img src = "img/img.png" width = "450" height = "280"/>    
+    <img src = "img/img_1.png" width = "450" height = "280"/>    
 
 
 ## Jenkins 제어 명령어  
@@ -62,6 +62,3 @@ refer : https://itnext.io/jenkins-tutorial-part-10-work-with-git-in-pipeline-b5e
 ###  용어 정리
 - CI : 지속적인 통합(Continuous Integration)
 - CD : 지속적인 배포Continuous Delivery
--
--
--
