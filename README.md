@@ -55,14 +55,13 @@ Developers with the ability to create good data in big databases.
      - Local 에서 하둡 운영 방식 정하기 (script 구성 해보기)
      - ElasticSearch 설치
      - Kibana 설치
-     - Docker 설치 및 기본기 이해
      - MLOPS
    
  - 이론 공부
     - BigData
       - Kafka
       - hive
-      - streaming(sparkstreaming, Hudi, Kafka)
+      - streaming(spark streaming, Hudi, Kafka)
       - sqoop
       - devops
       
