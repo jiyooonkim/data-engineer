@@ -89,45 +89,86 @@ if __name__ == "__main__":
     ).distinct().alias('prod_token')
 
     attr = spark.read.parquet('/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/measures_attribution').alias('attr')
-    get_token_info = prod_token\
-        .join(
-            attr,
-            F.col('prod_token.token') == F.col('attr.shp_nm_token'),
-            'leftanti'
-        ).withColumn(
-            'tps',
-            get_spelling_type(F.col('token'))[0]
-        ).withColumn(
-            'word_tp',
-            get_text_tpye_count(get_spelling_type(F.col('token'))[1])[0]
-        ).withColumn(
-            'num_cnt',
-            get_text_tpye_count(get_spelling_type(F.col('token'))[1])[1]
-        ).withColumn(
-            'eng_cnt',
-            get_text_tpye_count(get_spelling_type(F.col('token'))[1])[2]
-        ).withColumn(
-            'kor_cnt',
-            get_text_tpye_count(get_spelling_type(F.col('token'))[1])[3]
-        ).withColumn(
-            'etc_cnt',
-            get_text_tpye_count(get_spelling_type(F.col('token'))[1])[4]
-        )
+    get_token_info = prod_token.join(
+                                        attr,
+                                        F.col('prod_token.token') == F.col('attr.shp_nm_token'),
+                                        'leftanti'
+                                    ).withColumn(
+                                        'tps',
+                                        get_spelling_type(F.col('token'))[0]
+                                    ).withColumn(
+                                        'word_tp',
+                                        get_text_tpye_count(get_spelling_type(F.col('token'))[1])[0]
+                                    ).withColumn(
+                                        'num_cnt',
+                                        get_text_tpye_count(get_spelling_type(F.col('token'))[1])[1]
+                                    ).withColumn(
+                                        'eng_cnt',
+                                        get_text_tpye_count(get_spelling_type(F.col('token'))[1])[2]
+                                    ).withColumn(
+                                        'kor_cnt',
+                                        get_text_tpye_count(get_spelling_type(F.col('token'))[1])[3]
+                                    ).withColumn(
+                                        'etc_cnt',
+                                        get_text_tpye_count(get_spelling_type(F.col('token'))[1])[4]
+                                    ).alias('get_token_info')
 
-    model_nm_cndd_1 = get_token_info.where((F.col('word_tp').like('eng %')) & (F.col('num_cnt') > 2) & (F.col('eng_cnt') > 2)).select(F.col('_c1').alias('prod_nm'), F.col('token').alias('model_nm'))
+    model_nm_cndd_1 = get_token_info.where(
+                                                (F.col('word_tp').like('eng %')) &
+                                                (F.col('num_cnt') > 2) &
+                                                (F.col('eng_cnt') > 2)
+                                            ).select(
+                                                F.col('_c1').alias('prod_nm'),
+                                                F.col('token').alias('model_nm')
+                                            ).alias('model_nm_cndd_1')
     model_nm_cndd_2 = get_token_info.where(
-        (~(F.col('word_tp').like('% eng'))) & ~(F.col('word_tp').like('num %')) & (F.col('num_cnt') > 2) & (
-                    F.col('eng_cnt') > 1)).where((F.col('eng_cnt') > 1)).select(F.col('_c1').alias('prod_nm'),
-                                                                                F.col('token').alias(
-                                                                                    'model_nm'))    # todo : 첫글자, 마지막글자 -(dash) 인것 삭제
+                                                ~(F.col('word_tp').like('% eng')) &
+                                                ~(F.col('word_tp').like('num %')) &
+                                                (F.col('num_cnt') > 2) &
+                                                (F.col('eng_cnt') > 1) &
+                                                (F.col('eng_cnt') > 1)
+                                            ).select(
+                                                F.col('_c1').alias('prod_nm'),
+                                                F.col('token').alias('model_nm')
+                                            ).alias('model_nm_cndd_2')    # todo : 첫글자, 마지막글자 -(dash) 인것 삭제
+    model_nm = (model_nm_cndd_1.union(model_nm_cndd_2)).distinct()
+    model_nm.write.format("parquet").mode("overwrite").save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/model_name/")
 
-    # 번외 : 도량형 속성 추출 : eng , num 개수로 판별 하기
-    get_attr = get_token_info.where((~(F.col('word_tp').like('% eng'))) & ~(F.col('word_tp').like('num %')) & (F.col('num_cnt') > 2) & (F.col('eng_cnt') > 1)).where((F.col('eng_cnt')>1)).select(F.col('_c1').alias('prod_nm'), F.col('token').alias('model_nm')).sample(0.5)
-    get_attr.show(1000, False)
+    # 번외 : 속성 추출 : eng , num 개수로 판별 하기
+    get_attr = get_token_info\
+        .where(
+            (F.col('word_tp').like('% eng')) &
+            (F.col('word_tp').like('num %')) &
+            (F.col('eng_cnt') < 3) &
+            ~(F.col('word_tp').like('%etc%'))
+        ).select(
+            F.col('token')
+        ).alias('get_attr')
 
+    msr_cndd = get_attr\
+        .groupby(F.regexp_replace((F.col('token')), "[^a-z]", '').alias('msr'))\
+        .agg(F.count(F.col('token')).alias('cnt'))\
+        .where(
+            (F.col('cnt') > 4) &
+            (F.length(F.col('msr')) == 2) &
+            (F.col('msr') != 'vv') &
+            (F.col('msr') != 'ti') &
+            (F.col('msr') != 'va') &
+            (F.col('msr') != 'ea') &
+            (F.col('msr') != 'xm')
+        ).alias('msr_cndd')
+    # msr_cndd.distinct().orderBy(F.col('cnt').desc()).show(10000, False)
+    msr_attr = msr_cndd.join(get_attr, F.col('token').contains(F.col('msr'))).select(F.col('get_attr.token')).distinct()
+    msr_attr.write.format("parquet").mode("overwrite").save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/measures_attribution_ver2/")
+
+    # get_attr = get_attr.sample(0.5)
+    # get_attr.show(10, False)
 
     '''
         todo : 숫자로만 이루어진 토큰으로 ngram
         조건 : 공백 전 후로만 
-    '''  
+        영어로만 된것 -> 브랜드 가능성
+        숫자로만 된것 -> 모델 번호
+        숫자+ 영어로 끝나는 -> 속성 
+    '''
     exit(0)

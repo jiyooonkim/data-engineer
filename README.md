@@ -23,6 +23,10 @@ Developers with the ability to create good data in big databases.
   - tf-idf
   - word2vec(with skip-gram & cbow)
 
+- nlp
+  - 합성어
+  - 모델명
+  
 - Platfrom & Doc
   - Hadoop 
   - Spark 
@@ -36,10 +40,8 @@ Developers with the ability to create good data in big databases.
     - 유의어
     - 외래어
     - 동의어
-    - 합성어 
     - 브랜드 
-    - 시리즈 
-    - 모델명 
+    - 시리즈
     - 불용어(stopword)
   - NLP
     -  ngram 
@@ -47,11 +49,10 @@ Developers with the ability to create good data in big databases.
     - ai/ml 적용하여 학습 예정(커버리지 늘리기 위해)
   - 그 외
     - Flask 로 간단한 API 구성
-           
 
 - 환경 세팅(platform)
-     - Docker 설치
-     - Local 에서 하둡 운영 방식 정하기 (script 구성 예정)
+     - Docker 공부
+     - Local 에서 하둡 운영 방식 정하기 (script 구성 해보기)
      - ElasticSearch 설치
      - Kibana 설치
      - Docker 설치 및 기본기 이해
@@ -63,4 +64,5 @@ Developers with the ability to create good data in big databases.
       - hive
       - streaming(sparkstreaming, Hudi, Kafka)
       - sqoop
+      - devops
       
