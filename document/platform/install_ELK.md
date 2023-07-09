@@ -1,7 +1,7 @@
 ### Title: EKL 설치
 #### Env : macbook pro14 m2(silicon)
 #### Date : 2023-07-09
-#### Desc :   
+#### Refer : https://esbook.kimjmin.net/
 
 ## EKL 
 - ELK : ElasticSearch(분석, 저장), Logstash(수집기능), Kibana(시각화)
@@ -26,24 +26,34 @@
   3. 확인 : docker ps
   <img src = "img/img_27.png" width = "1150" height = "30"/>
   4. 접속 url : http://0.0.0.0:5601/app/home#/  or http://localhost:5601/app/home#/
-
+<img src = "img/img_30.png" width = "350" height = "140"/>
 
 ## Elasticsearch 사용법
    * CRUD(입력, 조회, 수정, 삭제)
-     * 
+     * Create = put
+     * Read = get
+     <img src = "img/img_28.png" width = "350" height = "140"/>   
+     * update = post
+     * <img src = "img/img_29.png" width = "350" height = "140"/>
+     * delete = delete
+   * 인덱스 전체 목록 : GET [인덱스명]/_search
 
 
 
 
-### 용어 정리
+### 용어/개념정리
+- 노드 구성방식은 어떻게 되나요?
+
 - 정형데이터(Structured Data) : 정해진 구조에 따라 저장된 데이터    예시) 엑셀, csv, rdbms 등
 - 반정형데이터(Semi-Structured Data) : 구조 안에 대한 설명이 존재하는 데이터    예시) json, HTML,XML
 - 비정형데이터(Unstructured Data) : 정해진 구조 없는 데이터   ex) 텍스트, 이미지, 영상, 워드, PDF   
 - 도큐먼트(Document)
 - 인덱스(index)
+- 역인덱스(inverted index)
 - 인디시스(indices)
 - 색인
 - 프라이머리 샤드(Primary Shard)
 - 복제본(Replica)
 - 마스터 노드(master node)
 - 데이터 노드(data node)
+
