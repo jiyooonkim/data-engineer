@@ -10,6 +10,3 @@ title : homebrew 이용한 Mysql 설치 방법
 4. mysql -u root -p
 5. 0000    # password
 6. brew services start mysql   # always running setting
-
-
-
