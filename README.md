@@ -36,6 +36,7 @@ Developers with the ability to create good data in big databases.
   - sqoop
   - Elasticsearch
   - kibana
+  - shell
 
 ### todo list & ...ing  
 - 개발  
@@ -57,9 +58,11 @@ Developers with the ability to create good data in big databases.
      - MLOPS
    
  - 이론 공부
+
     - BigData
       - Kafka
       - hive
       - streaming(spark streaming, Hudi, Kafka)
       - devops
+    
       
