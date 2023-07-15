@@ -15,9 +15,9 @@ import pyspark.sql.window as window
 
 @F.udf(returnType=T.ArrayType(T.StringType()))
 def get_token_ver1(crr_wd, cndd_wd):
-    '''
-    선글라스케이스 |케이스 |[케이스, 선글라] |
-    '''
+    """
+        선글라스케이스 |케이스 |[케이스, 선글라] |
+    """
     tokens = []
     if cndd_wd in crr_wd:
         if len(crr_wd.strip(cndd_wd)) > 1:
@@ -32,9 +32,9 @@ def get_token_ver1(crr_wd, cndd_wd):
 
 @F.udf(returnType=T.ArrayType(T.StringType()))
 def get_token_ver2(crr_wd, cndd_wd):
-    '''
+    """
     문제 : 선글라스케이스 |케이스 |[케이스, 선글라] |
-    '''
+    """
     tokens = []
     if crr_wd.__contains__(cndd_wd):
         if len(crr_wd.strip(cndd_wd)) > 1:
@@ -54,7 +54,7 @@ def get_token_ver2(crr_wd, cndd_wd):
     return list(filter(None, tokens))
 
 
-def rmove_txt(word, tkns):
+def remove_txt(word, tkns):
     for j in tkns:
         word = word.replace(j, ' ')
     return len(word.replace(" ", ""))
@@ -71,11 +71,11 @@ def get_log_txt(word1, word2):
 
 @F.udf(returnType=T.BooleanType())
 def check_token_correction(tkns1, tkns2, word):
-    if (rmove_txt(word, tkns1) == 0) & (rmove_txt(word, tkns2) == 0):
+    if (remove_txt(word, tkns1) == 0) & (remove_txt(word, tkns2) == 0):
         return True
     else:
         return False
- 
+
 
 if __name__ == "__main__":
     spark = SparkSession.builder \
@@ -94,49 +94,47 @@ if __name__ == "__main__":
         .getOrCreate()
 
     # setp1 . 자카드 유사도 이용해 토근 후보들 추출 - 단어의 유사성 이용하여 seed 생성
-    compound_word_candidate = spark.read.parquet("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/compound_word_candidate")\
+    compound_word_candidate = spark.read.parquet(
+        "/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/compound_word_candidate") \
         .select(
-            F.regexp_replace(F.lower(F.col('prod_nm')), ' ', '').alias('prod_nm'),
-            F.col('count_w').alias('prod_nm_cnt'),
-            F.regexp_replace(F.lower(F.col('cate')), ' ', '').alias('cate'),
-        ).where(F.col('jaccard_sim') > 0.4)\
-        .withColumn('compound_word_v2', get_token_ver2(F.col('prod_nm'), F.col('cate')))\
-        .withColumn('compound_word_v1', get_token_ver1(F.col('prod_nm'), F.col('cate')))\
-        .withColumn('target_word', get_log_txt(F.col('prod_nm'), F.col('cate')))\
-        .withColumn('check_correction', check_token_correction(F.col('compound_word_v2'), F.col('compound_word_v1'), F.col('target_word')))
-    # compound_word_candidate.where(F.col('prod_nm').like('케이트')).where(F.size(F.col('compound_word_v2')) > 1).show(100, False)
+        F.regexp_replace(F.lower(F.col('prod_nm')), ' ', '').alias('prod_nm'),
+        F.col('count_w').alias('prod_nm_cnt'),
+        F.regexp_replace(F.lower(F.col('cate')), ' ', '').alias('cate'),
+    ).where(F.col('jaccard_sim') > 0.4) \
+        .withColumn('compound_word_v2', get_token_ver2(F.col('prod_nm'), F.col('cate'))) \
+        .withColumn('compound_word_v1', get_token_ver1(F.col('prod_nm'), F.col('cate'))) \
+        .withColumn('target_word', get_log_txt(F.col('prod_nm'), F.col('cate'))) \
+        .withColumn('check_correction',
+                    check_token_correction(F.col('compound_word_v2'), F.col('compound_word_v1'), F.col('target_word')))
 
-    # setp2 . 자카드 유사도 확률, 2가지 방식 토크나이징 이용하여 조건
-    condition = compound_word_candidate\
-        .where(F.size(F.col('compound_word_v1')) > 1)\
-        .where(F.length(F.col('cate'))>1)\
-        .select(F.col('target_word'), F.col('compound_word_v2'), F.col('compound_word_v1'), F.col('check_correction'))\
+    # step2. 자카드 유사도 확률, 2가지 방식 토크나이징 사용하여 조건
+    condition = compound_word_candidate \
+        .where(F.size(F.col('compound_word_v1')) > 1) \
+        .where(F.length(F.col('cate')) > 1) \
+        .select(F.col('target_word'), F.col('compound_word_v2'), F.col('compound_word_v1'), F.col('check_correction')) \
         .where(F.col('check_correction') == True)
     # condition.where(F.col('target_word')=='아이스스케이트').orderBy(F.col('target_word')).show(1000, False)
 
     # 토큰들의 빈도수로 필터링 : 아이스스케이트= 아이스스 +케이트 가 True -> 아이스스 토큰은 없을 것이라 가정
-    a = condition.select(F.col('target_word'), F.col('compound_word_v2'), F.explode(F.col('compound_word_v2')).alias('tkns'))
-    b = spark.read.parquet("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/compound_word_candidate")\
+    a = condition.select(F.col('target_word'), F.col('compound_word_v2'),
+                         F.explode(F.col('compound_word_v2')).alias('tkns'))
+    b = spark.read.parquet("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/compound_word_candidate") \
         .select(F.col('prod_nm'), F.col('count_w')).distinct()
-    c = a.join(b, F.col('tkns') == F.col('prod_nm'), 'left')\
-        .select(F.col('target_word'), F.col('compound_word_v2'), F.col('tkns'), F.coalesce(F.col('count_w'), F.lit(0)).alias('freq'))
-    d = c.groupby(F.col('target_word'), F.col('compound_word_v2'))\
-        .agg(F.sum(F.col('freq')).alias('freq'))\
-        .distinct()\
+    c = a.join(b, F.col('tkns') == F.col('prod_nm'), 'left') \
+        .select(F.col('target_word'), F.col('compound_word_v2'), F.col('tkns'),
+                F.coalesce(F.col('count_w'), F.lit(0)).alias('freq'))
+    d = c.groupby(F.col('target_word'), F.col('compound_word_v2')) \
+        .agg(F.sum(F.col('freq')).alias('freq')) \
+        .distinct() \
         .withColumn(
-            "rnk",
-            F.rank().over(window.Window.partitionBy(F.col('target_word')).orderBy(F.col('freq').desc()))
-        ).where(F.col('rnk') == 1).dropDuplicates(['target_word'])
-    d.write.format("parquet").mode("overwrite").save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/compound/")
+        "rnk",
+        F.rank().over(window.Window.partitionBy(F.col('target_word')).orderBy(F.col('freq').desc()))
+    ).where(F.col('rnk') == 1).dropDuplicates(['target_word'])
+    d.write.format("parquet").mode("overwrite").save(
+        "/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/compound/")
     d.show(1000, False)
 
     '''
     todo : python 에 hash ??? 값 ? 장/단점은 ?
     '''
-
-
-
-
-
-
     exit(0)

@@ -16,7 +16,7 @@
   5. Reduce 방식으로 hdfs에 적재
 
   
-- Export(hdfs -> Rdb)
+- Export(hdfs -> RDB)
   1. Client로 부터 sqoop client 요청 
   2. 최종 rdbms로 부터 select * from *** 를 통해 메타데이터 및 건수 확보
   3. MapReduce 실행 

@@ -17,20 +17,24 @@
 - Image 가져오기 : docker pull [이미지이름]     ex> docker pull hello-world
 - Image 실행 : docker run [이미지이름]     ex> docker run hello-world
 - Image/Containor 삭제 : docker rmi [이미지 이름 or id]
-- 이미지 목록 : docker image list
-- 컨테이너 목록 : docker ps -a
-- 컨테이너 종료 : docker stop [컨테이너 이름]
-- 컨테이너 삭제 : docker rm [컨테이너 id]
-     <img src = "img/img_26.png" width = "450" height = "180"/>
+- 이미지 목록 : docker image list   
+- 컨테이너 목록 : docker ps -a     
+- 컨테이너 종료 : docker stop [컨테이너 이름]         
+- 컨테이너 삭제 : docker rm [컨테이너 id]    
+<img src = "img/img_26.png" width = "450" height = "180"/>    
 
 
+## Docker compose
+- 
+- 위치 : docker-compose.yaml 파일의 위치와 docker-compose up -d 커맨드 위치와 동일    
+- <img src = "img/img_33.png" width = "450" height = "180"/>   
 
 
 ## Image 생성/실행
 1. Image 가져오기 : docker pull [이미지이름]     ex> docker pull hello-world
 2. Image 실행 : docker run [이미지이름]     ex> docker run hello-world  
-     <img src = "img/img_23.png" width = "450" height = "180"/>
-     <img src = "img/img_24.png" width = "450" height = "180"/>
+     <img src = "img/img_23.png" width = "450" height = "180"/>       
+     <img src = "img/img_24.png" width = "450" height = "180"/>      
 
 
 <br/><br/>

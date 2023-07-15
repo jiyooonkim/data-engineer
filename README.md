@@ -33,6 +33,9 @@ Developers with the ability to create good data in big databases.
   - CI/CD(Jenkins)
   - Airflow 
   - Docker
+  - sqoop
+  - Elasticsearch
+  - kibana
 
 ### todo list & ...ing  
 - 개발  
@@ -44,17 +47,13 @@ Developers with the ability to create good data in big databases.
     - 시리즈
     - 불용어(stopword)
   - NLP
-    -  ngram 
+    - ngram 
   - AI/ML
     - ai/ml 적용하여 학습 예정(커버리지 늘리기 위해)
   - 그 외
     - Flask 로 간단한 API 구성
 
 - 환경 세팅(platform)
-     - Docker 공부
-     - Local 에서 하둡 운영 방식 정하기 (script 구성 해보기)
-     - ElasticSearch 설치
-     - Kibana 설치
      - MLOPS
    
  - 이론 공부
@@ -62,6 +61,5 @@ Developers with the ability to create good data in big databases.
       - Kafka
       - hive
       - streaming(spark streaming, Hudi, Kafka)
-      - sqoop
       - devops
       

@@ -199,7 +199,7 @@ if __name__ == "__main__":
     # cate.select(F.count(F.col('cate'))).show()  # cnt : 2043
     
     ''' 
-        todo : 적당한 후보 매핑이 필요함, 워딩 별로 유사도 매겨서 get_err_type 호출할것 
+        todo : 적당한 후보 매핑이 필요함, 워딩 별로 유사도 매겨서 get_err_type 호출\ 
         get_close_matches 알아보기!!
     '''
 
@@ -222,9 +222,4 @@ if __name__ == "__main__":
 
 
     # prod.select(F.col('상품명')).where(F.col('상품명').like('%블루 %')).show(100, False)
-    ''' 
-        숫자 + 영어/ 숫자 + 한글 : 도량형 속성
-        영어 + 숫자/ 숫자+영어 : 상품번호
-    '''
-
-    # todo : 2개 토큰씩 묶어서 카운트 해보기
+  

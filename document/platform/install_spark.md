@@ -20,7 +20,7 @@
 
 ### Spark Install Flow(Stand Alone) & Running  
 1. https://spark.apache.org/downloads.html 에 Download Spark > 압축풀기  
-![img/img_16.png](img_16.png)  
+![img/img_16.png](img/img_16.png)  
 2. 설치파일 경로 이동 : cd /Users/jy_kim/Downloads/spark-3.4.0-bin-hadoop3  
 3. spark-env.sh 파일설정   
      - cd /Users/jy_kim/Downloads/spark-3.4.0-bin-hadoop3/conf  
