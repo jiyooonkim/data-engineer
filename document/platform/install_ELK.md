@@ -20,7 +20,8 @@
   3. 실행확인 : docker ps
      * 이미지 id 확인 명령어 : docker image list
   4. ES 설정확인 : docker exec -i -t elasticsearch7 cat /usr/share/elasticsearch/config/elasticsearch.yml
-  5. 접속 url : http://0.0.0.0:5601/app/dev_tools#/console
+  5. 접속 url : http://0.0.0.0:5601/app/dev_tools#/console  
+  <img src = "img/img_34.png" width = "350" height = "140"/>  
 
 - docker 에 Kibana 설치
   1. 설치 : docker pull docker.elastic.co/kibana/kibana:7.9.1
