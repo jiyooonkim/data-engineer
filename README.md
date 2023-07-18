@@ -38,11 +38,11 @@ Developers with the ability to create good data in big databases.
   - kibana
   - shell
 
-### todo list & ...ing  
+### Todo list & ...ing  
 - 개발  
-  - 사전  
+  - Dictionary      
     - 유의어
-    - 외래어
+    - 외래어(loanword)
     - 동의어
     - 브랜드 
     - 시리즈
@@ -56,9 +56,11 @@ Developers with the ability to create good data in big databases.
 
 - 환경 세팅(platform)
      - MLOPS
-   
- - 이론 공부
+- 언어    
+  - Java
+  - Scala
 
+ - 이론 공부
     - BigData
       - Kafka
       - hive

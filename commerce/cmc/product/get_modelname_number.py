@@ -86,7 +86,8 @@ if __name__ == "__main__":
             ).alias('token')
     ).where(
         (F.length(F.col('token')) > 4)        # over 4 length
-    ).distinct().alias('prod_token')
+    ).distinct()\
+    .alias('prod_token')
 
     attr = spark.read.parquet('/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/measures_attribution').alias('attr')
     get_token_info = prod_token.join(
