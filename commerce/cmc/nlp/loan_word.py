@@ -19,7 +19,7 @@ if __name__ == "__main__":
         .config('spark.driver.cores', '8') \
         .config('spark.executor.memory', '16g') \
         .config("spark.driver.bindAddress", "127.0.0.1") \
-        .config("spark.network.timeout", 1000000) \
+        .config("spark.network.timeout", 10000) \
         .config('spark.ui.showConsoleProgress', True) \
         .config('spark.sql.repl.eagerEval.enabled', True) \
         .getOrCreate()
@@ -155,6 +155,8 @@ if __name__ == "__main__":
     # get_cndd_kor.where(F.col('prod_nm_token_cndd') == '나이키').orderBy(F.col('cnt').desc()).show(100, False)
 
     # todo : JOIN step1 and step2
+    dfad
+    adsf
 
 
 

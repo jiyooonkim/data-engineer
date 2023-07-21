@@ -52,8 +52,8 @@
   - Executor 당 Core 개수 와 Memory 크기 설정
   - 셔플 읽기+쓰기 사이즈 < excutor 수  
   - (Spark Executor 수) X (Spark Core 수) < (서버 Node 개수) X (서버 Core 개수)
-- #### <인메모리(memory, spark) vs 분신병렬(disk, hadoop)>  
-  맵리듀스가 메모리에서 기반인가, 디스크에서 기반인가 의 차이   
+- #### <인메모리(memory, spark) vs 분산병렬(disk, hadoop)>  
+  맵리듀스가 메모리에서 기반인가?, 디스크에서 기반인가? 의 차이   
 - #### <Sql 보다, spark 엔진을 사용해야하는 이유>  
     Spark 은 다양한 엔진 및 라이브러리를 제공  
     python, java, R 등 개발 언어와 함께 사용 할 수 있음  
