@@ -101,9 +101,9 @@ else:
             err_txt.append(cndd_wd[i])
             posision.append(i)
 
-print("crr_txt : ", crr_txt)
-print("err_txt : ", err_txt)
-print("posision : ", posision)
+# print("crr_txt : ", crr_txt)
+# print("err_txt : ", err_txt)
+# print("posision : ", posision)
 
 
 # if len(crr_wd) > len(cndd_wd):  # 정타가 더 길다면 : deletion
@@ -134,3 +134,85 @@ print("posision : ", posision)
 #             # ex) acress(err) -> acres(crr)
 #             err_txt.append(crr_wd[i + 1])
 
+
+def get_konglish(kor_txt):
+    ja = {'ㄱ': 'K', 'ㅋ': 'K','ㅆ': 'SS', 'ㄲ': 'G', 'ㄴ': 'N', 'ㄷ': 'D', 'ㄸ': 'D', 'ㄹ': 'L', 'ㄹ': 'R', 'ㅁ': 'M', 'ㅂ': 'B',
+              'ㅃ': 'B', 'ㅅ': 'S', 'ㅈ': 'J', 'ㅉ': 'J', 'ㅊ': 'C',  'ㅌ': 'T', 'ㅍ': 'P', 'ㅎ': 'H'}
+    mo = {'ㅑ' : 'Y', 'ㅕ':'Y', 'ㅛ':'Y', 'ㅠ':'Y', 'ㅖ':'Y',
+          'ㅝ':'W', 'ㅘ':'W', 'ㅙ':'W', 'ㅚ':'W', 'ㅜ':'W', 'ㅞ':'W', 'ㅟ':'W',
+          'ㅔ':'E', 'ㅡ':'E', 'ㅢ':'E', 'ㅏ':'A', 'ㅐ':'A', 'ㅓ':'U', 'ㅗ': 'O', 'ㅣ': 'I'
+          }
+    r_lst = []
+    # todo : 'ㅋ': 'k',??
+    for i, w in enumerate(kor_txt):
+        lst = []
+        # print(" i : ", i)
+        # print(" w : ", w)
+        if w[0] in ja.keys():   # 초성
+            lst.append(ja[w[0]])
+        else:
+            lst.append(' ')
+        if w[1] in mo.keys():     # 중성
+            # lst.append(mo.keys())
+            lst.append(mo[w[1]])
+        else:
+            lst.append(' ')
+        if w[2] in ja.keys():     # 종성
+            # lst.append(ja.keys())
+            lst.append(ja[w[2]])
+        else:
+            lst.append(' ')
+        r_lst.append(lst)
+
+            # if w[1] in ['ㅑ', 'ㅕ', 'ㅛ', 'ㅠ', 'ㅖ']:
+            #     r_lst.append('Y')
+            # elif w[1] in ['ㅝ', 'ㅘ', 'ㅙ', 'ㅚ', 'ㅜ', 'ㅞ', 'ㅟ']:
+            #     r_lst.append('W')
+            # elif w[1] in ['ㅔ', 'ㅡ', 'ㅢ']:
+            #     r_lst.append('E')
+            # elif w[1] in ['ㅏ', 'ㅐ']:
+            #     r_lst.append('A')
+            # elif w[1] in ['ㅓ']:
+            #     r_lst.append('U')
+            # elif w[1] in ['ㅗ']:
+            #     r_lst.append('O')
+            # elif w[1] in ['ㅣ']:
+            #     if i == 0:
+            #         r_lst.append('L')
+            #     else:
+            #         r_lst.append('I')
+            # else:
+            #     return 'not applica'
+    return r_lst
+
+
+def get_sim(kong, eng):
+    # 초,중,종성 유사도 구하기 => 순서 보장하는 cosine similiarity
+    kong = list(kong) if type(kong) == list else list(kong)  # 2차원 리스트
+    eng = list(eng) if type(eng) == list else list(eng)
+    cndd = []
+    for k in range(0, len(eng)):
+        for i in range(0, len(kong)):
+            for j in range(0, len(kong[i])):
+                if kong[i][j].lower() == eng[k]:
+                    cndd.append(kong[i][j])
+                    eng[k] = "-"
+        print("eng cc : ", eng)
+    return cndd
+
+
+                    # print("kong[i][j] : ", kong[i][j])
+
+    # for i in range(len())
+    # itc = float(len(set(a).intersection(set(b))))      # 분자
+    # union = len(a) + len(b) - itc    # 분모
+    # return 0 if union == 0 else itc/union
+
+eng ="treksta"
+kor_txt = [['ㅌ', 'ㅡ', ' '], ['ㄹ', 'ㅐ', 'ㄱ'], ['ㅅ', 'ㅡ', ' '], ['ㅌ', 'ㅏ', ' ']]   # 마일드
+# kor_txt = [['ㄴ', 'ㅏ', ' '], ['ㅇ', 'ㅣ', ' '], ['ㅋ', 'ㅣ', ' ']]   # 스포츠기타
+# kor_txt = [['ㅅ', 'ㅡ', ' '], ['ㅍ', 'ㅗ', ' '], ['ㅊ', 'ㅡ', ' '], ['ㄱ', 'ㅣ', ' '], ['ㅌ','ㅏ', ' ']]   # 스포츠기타
+kor = get_konglish(kor_txt)
+sim = get_sim(kor, eng)
+print("get_konglish : ", kor)
+print("sim : ", sim)

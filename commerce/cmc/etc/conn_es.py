@@ -23,13 +23,14 @@ def searchAPI(query):
     return res
 
 
-es = Elasticsearch('http://127.0.0.1:9200')
-es.info()
-data = es.cat.indices()
-print(data)
-query={'match':{'target_word':'0t장판'}}
-
-results = es.search(index='compound', query=query)
-print( results)
-for result in results['hits']['hits']:
-    print('score:', result)
+if __name__ == "__main__":
+    es = Elasticsearch('http://127.0.0.1:9200')
+    es.info()
+    data = es.cat.indices()
+    print(data)
+    query={'match':{'target_word':'0t장판'}}
+    
+    results = es.search(index='compound', query=query)
+    print( results)
+    for result in results['hits']['hits']:
+        print('score:', result)
