@@ -105,9 +105,14 @@
 - datanode : 데이터 처리
 - namenode : 데이터 정보와 속한 블록 크기, 데이터의 이동 위치, 권한(읽기, 쓰기, 제거, 복제) 갖고 있는 노드
 - Secondary NameNode : HDFS 작업을 트랜잭션 로그를 기록하는 역할 
-- mapreduce : map운 (Key, Value) 형태 생성, Reduce는 map 에서 나온 key값으로 데이터 추출하는 역할 ,reduce 과정에서 shuffle 발생 
+- mapreduce : 수천대 기계에서 병렬 처리 위한 프레임워크, 배치지향성, map운 (Key, Value) 형태 생성, Reduce는 map 에서 나온 key값으로 데이터 추출하는 역할 ,reduce 과정에서 shuffle 발생 
 - yarn : 
 - Stand alone(Local) :
 - Pseudo-Distributed Mode :
 - Fully-Distributed Mode :
 - JVM : 
+- tez : excution engine 
+- yarn :
+- hive on mr : I/O 과정에서 write 발생
+- hive on tez : I/O 과정에서 write 미발생, 속도향상
+     <img src = "img/img_35.png" width = "350" height = "140"/>

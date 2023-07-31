@@ -13,27 +13,36 @@ import pyspark.sql.window as window
 
 @F.udf(returnType=T.ArrayType(T.StringType()))
 def get_konglish(kor_txt):
-    ja = {'ㄱ': 'K', 'ㄲ': 'G', 'ㄴ': 'N', 'ㄷ': 'D', 'ㄸ': 'D', 'ㄹ': 'R', 'ㅁ': 'M', 'ㅂ': 'B',
-          'ㅃ': 'B', 'ㅅ': 'S', 'ㅈ': 'J', 'ㅉ': 'J', 'ㅊ': 'C', 'ㅌ': 'T', 'ㅍ': 'P', 'ㅎ': 'H',
-          'ㅋ': 'K', 'ㅋ': 'C', }
-    mo = {'ㅑ': 'Y', 'ㅕ': 'Y', 'ㅛ': 'Y', 'ㅠ': 'Y', 'ㅖ': 'Y',
+    ja = {'ㄱ': ['K','G'], 'ㄲ': ['KK','GG'], 'ㄴ': 'N', 'ㄷ': 'D', 'ㄸ': 'D', 'ㄹ': 'R', 'ㅁ': 'M', 'ㅂ': 'B',
+          'ㅃ': 'B', 'ㅅ': ['S', 'TH'], 'ㅆ': 'SS', 'ㅈ': 'J', 'ㅉ': 'J', 'ㅊ': 'C', 'ㅌ': 'T', 'ㅍ': 'P', 'ㅎ': ['H', 'WH'],
+          'ㅋ': ['C','K', 'CH']}
+    mo = {'ㅑ': 'Y', 'ㅕ': ['Y', 'TI'], 'ㅛ': 'Y', 'ㅠ': ["Y", "U"], 'ㅖ': 'Y',
           'ㅝ': 'W', 'ㅘ': 'W', 'ㅙ': 'W', 'ㅚ': 'W', 'ㅜ': 'W', 'ㅞ': 'W', 'ㅟ': 'W',
           'ㅔ': 'E', 'ㅡ': 'E', 'ㅢ': 'E',
-          'ㅏ': 'A', 'ㅐ': 'A', 'ㅓ': 'U', 'ㅗ': 'O', 'ㅣ': 'I',  'ㅠ': 'U'}
+          'ㅏ': 'A', 'ㅐ': 'A', 'ㅓ': 'U', 'ㅗ': 'O', 'ㅣ': 'I'}
     r_lst = []
     for i, w in enumerate(kor_txt):
         lst = []
         # print(" i : ", i)
         # print(" w : ", w)
         if w[0] in ja.keys():   # 초성
-            lst.append(ja[w[0]])
+            if list(ja.keys()):
+                lst.extend(ja[w[0]])
+            else:
+                lst.append(ja[w[0]])
         else:
             lst.append(' ')
+
         if w[1] in mo.keys():     # 중성
-            # lst.append(mo.keys())
-            lst.append(mo[w[1]])
+            if list(mo.keys()):
+                lst.extend(mo[w[1]])
+            else:
+                lst.append(mo[w[1]])
         else:
-            lst.append(' ')
+            if list(ja.keys()):
+                lst.extend(ja[w[0]])
+            else:
+                lst.append(' ')
         if w[2] in ja.keys():     # 종성
             # lst.append(ja.keys())
             lst.append(ja[w[2]])
@@ -78,9 +87,10 @@ def get_jaso(txt):
 @F.udf(returnType=T.StringType())
 def convert_kor_to_initial(kor_txt):
     w_to_k = {'ㄱ': 'K', 'ㄲ': 'G', 'ㄴ': 'N', 'ㄷ': 'D', 'ㄸ': 'D', 'ㄹ': 'R', 'ㅁ': 'M', 'ㅂ': 'B', 'ㅂ': 'V',
-              'ㅃ': 'B', 'ㅅ': 'S', 'ㅅ': 'TH', 'ㅆ': 'SS', 'ㅈ': 'J', 'ㅉ': 'JJ', 'ㅊ': 'C', 'ㅋ': 'KC', 'ㅌ': 'T', 'ㅍ': 'P', 'ㅎ': 'H'}
+              'ㅃ': 'B', 'ㅅ': 'S', 'ㅅ': 'TH', 'ㅆ': 'SS', 'ㅈ': 'J', 'ㅉ': 'JJ', 'ㅊ': 'C', 'ㅋ': 'K',
+              'ㅋ': 'C', 'ㅌ': 'T', 'ㅍ': 'P', 'ㅎ': 'H'}
     r_lst = []
-    # todo : 'ㅋ' : K or C ???   => kc....
+    # todo : 'ㅋ' : K or C ???   => kc....?
 
     for i, w in enumerate(kor_txt):
         if w[0] in w_to_k.keys():
@@ -311,7 +321,8 @@ if __name__ == "__main__":
         .withColumn("jaso", get_jaso(F.col("prod_nm_token_cndd")))\
         .withColumn("initial", convert_kor_to_initial(F.col("jaso")))\
         .withColumn("konglish", get_konglish(F.col("jaso")))\
-        .withColumn("jcd_sim", get_jaccard_sim(F.col("initial"), F.col("prod_nm_token")))
+        .withColumn("initianl_jcd_sim", get_jaccard_sim(F.col("initial"), F.col("prod_nm_token")))\
+        .withColumn("intersection_word", get_intersection_word(F.col("konglish"), F.col("prod_nm_token")))
 
     b = except_cate\
         .withColumn("jaso", get_jaso(F.col("prod_nm_token")))\
@@ -329,9 +340,11 @@ if __name__ == "__main__":
         .where(F.col("initianl_jcd_sim") < 0.6) \
         .where(F.col("prod_nm_token_cndd").substr(0, 1) == F.col("initial").substr(0, 1)) \
         # .orderBy(F.col("prod_nm_token").desc())
-    result_2.orderBy(F.col("prod_nm_token").desc()).show(1000, False)
-    result_1.orderBy(F.col("prod_nm_token").desc()).show(1000, False)
-    b.where(F.col("prod_nm_token") == "나이키").show(1000, False)
+    # result_2.orderBy(F.col("prod_nm_token").desc()).show(1000, False)
+    # b.where(F.col("prod_nm_token") == "나이키").orderBy(F.col("initianl_jcd_sim").desc()).show(1000, False)
+    a.where(F.col("prod_nm_token").substr(0, 1) == F.col("initial").substr(0, 1)).orderBy(F.col("initianl_jcd_sim").desc()).show(100, False)
+
+
     # todo : 코닥, 모닝, 화이트, 헬시
 
 
