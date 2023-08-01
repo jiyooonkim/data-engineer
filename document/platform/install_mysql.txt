@@ -10,3 +10,8 @@ title : homebrew 이용한 Mysql 설치 방법
 4. mysql -u root -p
 5. 0000    # password
 6. brew services start mysql   # always running setting
+
+- idex(인덱스) : 주로 검색(SELECT) 쿼리의 수행 속도를 높이기 위해 데이터베이스의 데이터 위치 (조건 검색, Order by 속도향상)
+인덱스를 남발하면 되려 역효과가 생기기 때문에 인덱스는 조건문에 자주 사용되는 컬럼에 생성하고 최대한 중복이 사용 할 것,  변경이 빈번하게 발생하는 테이블 자제
+
+

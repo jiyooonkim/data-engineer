@@ -47,6 +47,16 @@
   - repartition(partition count, column)  : 메모리에서 데이터 분산할 때  
   - coalesce: 디폴트는 파티션 수 감소할 때만 사용, numofpartition = true 시에는 파티는 증가도 가능  
                데이터 개수에 따라 다르지만, 분할보다 병합 비용이 더 큼
+
+- #### <transformation vs action>  
+  - transformation : query plan만 만들고 실제로 메모리에 올리지는 않음   
+    ex) map, filter, distinct, union, reprtition, group by, intersection
+  - action : 메모리 올려서 동작, Transformation을 실행, action의 return타입은 RDD에서 다른 타입   
+    ex) collection, count, reduce, agg(regation)
+
+- #### <spark vs mr>  
+  - mr : data 처리 엔진, hdfs에 write 하는 오픈소스 프레임워크, 속도느림, 프로그램 속도느림
+  - spark : 분석 프레임워크, mr 보다 빠름, 프로그램 용이
 - #### <메모리 설정 팁>  
   - 전체 Executor 개수 설정
   - Executor 당 Core 개수 와 Memory 크기 설정

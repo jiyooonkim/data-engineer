@@ -4,23 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Develop load word">
-      <change afterPath="$PROJECT_DIR$/data/parquet/loan_word_cndd_eng/.part-00000-33258d58-c3e6-40b1-872f-b2dda71e25a1-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/loan_word_cndd_eng/part-00000-33258d58-c3e6-40b1-872f-b2dda71e25a1-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/loan_word_cndd_kor/.part-00000-573134c3-da26-4111-90de-8f7ff905218e-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/loan_word_cndd_kor/part-00000-573134c3-da26-4111-90de-8f7ff905218e-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document/nlp/텍스트전처리.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document/platform/img/img_35.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document/platform/install_jupyter.txt" afterDir="false" />
+    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Study hadoop">
+      <change afterPath="$PROJECT_DIR$/document/doc/network.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/etc/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/etc/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/loan_word.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/loan_word.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_word_cndd_eng/.part-00000-e156dc93-71dc-4f06-855f-46ee1f07cfbd-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_word_cndd_eng/part-00000-e156dc93-71dc-4f06-855f-46ee1f07cfbd-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_word_cndd_kor/.part-00000-2e31956a-9630-4c8a-be5f-69b6d113a6db-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_word_cndd_kor/part-00000-2e31956a-9630-4c8a-be5f-69b6d113a6db-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/nlp/자연어처리개요_1.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/nlp/자연어처리개요_1.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/doc/hive.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/hive.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/document/platform/install_hadoop.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_hadoop.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/platform/install_mysql.txt" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_mysql.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/platform/install_spark.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_spark.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,16 +65,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jy_kim/Documents/private/nlp-engineer/document/platform&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/jy_kim/Documents/private/nlp-engineer",
+    "settings.editor.selected.configurable": "preferences.fileTypes"
   }
-}</component>
+}]]></component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings module-name="test" is-module-sdk="true">
@@ -502,7 +492,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690687458913</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Study hadoop">
+      <option name="closed" value="true" />
+      <created>1690798061100</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1690798061100</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -531,7 +529,8 @@
     <MESSAGE value="Study ELK" />
     <MESSAGE value="Study shell" />
     <MESSAGE value="Develop load word" />
-    <option name="LAST_COMMIT_MESSAGE" value="Develop load word" />
+    <MESSAGE value="Study hadoop" />
+    <option name="LAST_COMMIT_MESSAGE" value="Study hadoop" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
