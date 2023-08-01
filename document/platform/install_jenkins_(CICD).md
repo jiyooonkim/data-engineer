@@ -5,8 +5,17 @@
 #### reference : https://medium.com/eum-tech-lab/github-webhooks%EC%97%90%EC%84%9C-localhost%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%A0-%EC%88%98-%EC%97%86%EB%8A%94-%EC%9D%B4%EC%9C%A0-9c0d2aecf118
 <img src = "img/img_2.png" width = "450" height = "280"/>  
 
+## CI/CD
+- 소스 배포 통합하기 위한 오픈소스 자동화 도구 
+- 기능 : 빌드, 문서화, 테스트, 패키지, 배포
+- master, slave로 구성 가능
+  - master : 
+  - slave : 
+- #### CI/CD Flow
+- <img src = "img/img_36.png" width = "450" height = "180"/>
 
-## Jenkins Install Flow
+
+## Install Jenkins 
  1. brew install jenkins         # 설치 명령어  
  2. brew services start jenkins  # 시작  
  3. http://localhost:8080/       # UI 접속  
