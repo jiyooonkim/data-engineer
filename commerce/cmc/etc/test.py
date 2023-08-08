@@ -195,3 +195,5 @@ kor_txt = [['D', 'A',' '], [' ', 'I', 'R'], ['C', 'W','R'], ['K', 'G', 'O', ' ']
 initianl_jcd_sim = get_intersection_word(kor_txt, eng)
 print("initianl_jcd_sim : ", initianl_jcd_sim)
 print("get_jaccard_sim : ", get_jaccard_sim(initianl_jcd_sim, kor_txt))
+import numpy as np
+print(np.log((4+1) / (1+1)) + 1)

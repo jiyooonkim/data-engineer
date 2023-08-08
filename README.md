@@ -63,7 +63,7 @@ Developers with the ability to create good data in big databases.
  - 이론 공부
     - BigData
       - Kafka
-      - hive
+      - Hive
       - streaming(spark streaming, Hudi, Kafka)
       - devops
     

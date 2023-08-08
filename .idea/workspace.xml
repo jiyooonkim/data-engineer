@@ -4,12 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Study hadoop">
-      <change afterPath="$PROJECT_DIR$/document/doc/network.md" afterDir="false" />
+    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Study CICD">
+      <change afterPath="$PROJECT_DIR$/commerce/cmc/ml/mllib.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commerce/cmc/nlp/tf-idf_func.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/doc/data_structure.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/doc/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/doc/tez.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/platform/img/img_37.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/platform/img/img_38.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/platform/img/img_39.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/platform/img/img_40.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/platform/img/img_41.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/platform/img/img_42.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/platform/img/img_43.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/platform/img/img_44.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/platform/img/img_45.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/cmc/etc/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/etc/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/tf-idf.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/tf-idf.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/document/doc/hive.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/hive.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/doc/network.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/network.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/doc/sqoop.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/sqoop.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/document/platform/install_hadoop.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_hadoop.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/platform/install_mysql.txt" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_mysql.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/document/platform/install_spark.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_spark.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,8 +88,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/jy_kim/Documents/private/nlp-engineer",
-    "settings.editor.selected.configurable": "preferences.fileTypes"
+    "last_opened_file_path": "/Users/jy_kim/Documents/private/nlp-engineer/commerce/cmc/nlp",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="PyConsoleOptionsProvider">
@@ -85,11 +102,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/commerce/cmc/nlp" />
       <recent name="$PROJECT_DIR$/document/platform" />
       <recent name="$PROJECT_DIR$/document/nlp" />
       <recent name="$PROJECT_DIR$/document/doc" />
       <recent name="$PROJECT_DIR$/document/platform/img" />
-      <recent name="$PROJECT_DIR$/commerce/cmc/product" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/document/platform/img" />
@@ -105,7 +122,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Python.loan_word">
+  <component name="RunManager" selected="Python.tf-idf">
     <configuration name="compound_word" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -119,48 +136,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/cmc/nlp/compound_word.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="conn_es" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="test" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/cmc/etc" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/cmc/etc/conn_es.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="export_es_spark_ver" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="test" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/cmc/etc" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/cmc/etc/export_es_spark_ver.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -232,13 +207,55 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="tf-idf" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/cmc/nlp" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/cmc/nlp/tf-idf.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tf-idf_func" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/cmc/nlp" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/cmc/nlp/tf-idf_func.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.loan_word" />
+        <item itemvalue="Python.tf-idf" />
         <item itemvalue="Python.test" />
+        <item itemvalue="Python.tf-idf_func" />
+        <item itemvalue="Python.loan_word" />
         <item itemvalue="Python.compound_word" />
-        <item itemvalue="Python.conn_es" />
-        <item itemvalue="Python.export_es_spark_ver" />
       </list>
     </recent_temporary>
   </component>
@@ -500,7 +517,23 @@
       <option name="project" value="LOCAL" />
       <updated>1690798061100</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Study spark, hadoop">
+      <option name="closed" value="true" />
+      <created>1690895124418</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1690895124418</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Study CICD">
+      <option name="closed" value="true" />
+      <created>1690896057644</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1690896057644</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -530,7 +563,9 @@
     <MESSAGE value="Study shell" />
     <MESSAGE value="Develop load word" />
     <MESSAGE value="Study hadoop" />
-    <option name="LAST_COMMIT_MESSAGE" value="Study hadoop" />
+    <MESSAGE value="Study spark, hadoop" />
+    <MESSAGE value="Study CICD" />
+    <option name="LAST_COMMIT_MESSAGE" value="Study CICD" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -549,6 +584,11 @@
           <url>file://$PROJECT_DIR$/commerce/cmc/nlp/jaccard_similarity.py</url>
           <line>109</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/commerce/cmc/nlp/tf-idf_func.py</url>
+          <line>4</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

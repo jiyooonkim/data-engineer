@@ -1,4 +1,4 @@
-### title: hadoop 설치
+### title: Apache hadoop 설치
 #### env : macbook pro14 m2(silicon)
 #### date : 2023-02-04
 #### desc : hadoop ver. 3.3.4, jdk ver. zulu-11.jdk  
@@ -107,13 +107,13 @@
 - Secondary NameNode : HDFS 작업을 트랜잭션 로그를 기록하는 역할 
 - tez : 비동기 사이클 그래프 프레임 워크, excution engine 
 - mapreduce : 수천대 기계에서 병렬 처리 위한 프레임워크, 배치지향성, map운 (Key, Value) 형태 생성, Reduce는 map 에서 나온 key값으로 데이터 추출하는 역할 ,reduce 과정에서 shuffle 발생 
-- yarn : 
-- Stand alone(Local) :
-- Pseudo-Distributed Mode :
-- Fully-Distributed Mode :
-- JVM : 
-
-- yarn :
-- hive on mr : I/O 과정에서 reduce 과정에서 write 발생
-- hive on tez : I/O 과정에서 write 미발생, 속도향상
+- yarn : Task들을 관리 및 스케쥴링하고 각각의 작업에 사용될 자원을 적절히 분산하여 관리해주는 기능
+yarn의 구성은 Resource Manager, Node Manager, Timeline Server
+- Stand alone(Local) : 독립실행모드, 단일 시스템에만 설치한다는 의미이기도, 가장 빠르게 작동, 
+- Pseudo-Distributed Mode : 독립실행모드, 단일 노드 클러스터, 클러스터가 시뮬레이션됨, Namenode와 Resource Manager는 Master로 사용하고 Datanode와 Node Manager는 Slave로 사용
+- Fully-Distributed Mode : 완전분산모드   
+- JVM :  자바 가상 머신,  자바 프로그램 실행환경을 만들어 주는 소프트웨어     
+- yarn : yarn 메뉴들 설명/역할           
+- hive on mr : I/O 과정에서 reduce 과정에서 write 발생        
+- hive on tez : I/O 과정에서 write 미발생, 속도향상   
      <img src = "img/img_35.png" width = "350" height = "140"/>
