@@ -14,7 +14,7 @@
    * Dag : Direct Acyclic Graph
 
 
-## Install Flow  
+## Install(Local)
 ** mac silicon 칩은 가상환경 설치만 가능 (2023.05.01 기준)
 1. ```brew install conda```  
 2. ```pip3 install apache-airflow```  
@@ -50,7 +50,30 @@
    ```dags_folder = /Users/jy_kim/airflow/dags ```   
      <img src = "img/img_21.png" width = "350" height = "140"/>  
 
-
+## Install(Docker)
+* 참고 : https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html (Airflow Version: 2.6.3) 
+1. docker yaml 가져오기    
+```curl -LfO 'https://airflow.apache.org/docs/apache-airflow/2.6.3/docker-compose.yaml'```  
+yaml 구성요소 
+- airflow-scheduler- 스케줄러는 모든 작업과 DAG를 모니터링한 다음 종속성이 완료되면 작업 인스턴스를 트리거합니다.  
+- airflow-webserver- 웹서버는 에서 사용할 수 있습니다 http://localhost:8080.
+- airflow-worker- 스케줄러가 부여한 작업을 수행하는 작업자.  
+- airflow-triggerer- 트리거러는 연기 가능한 작업에 대한 이벤트 루프를 실행
+- airflow-init- 초기화 서비스.
+- postgres- 데이터베이스.  
+- redis- Redis - 스케줄러에서 작업자로 메시지를 전달하는 브로커.
+2. ```  
+   mkdir -p ./dags ./logs ./plugins ./config
+    echo -e "AIRFLOW_UID=$(id -u)" > .env 
+    ```    
+3. ```docker compose up airflow-init```    
+4. docker 실행 스크립트 생성 
+    ```  
+    curl -LfO 'https://airflow.apache.org/docs/apache-airflow/2.6.3/airflow.sh'
+    chmod +x airflow.sh
+   ```   
+5. docker 에서 airflow (compose 사용하여) 실행 명렁어    계정정보(ID/PW) : airflow/airflow     
+  ``` docker compose up```   
 
 #### Airflow 동작방법  
 - 처음 설치하면 예시 airflow 나오는데 제거 하고 싶을 때  
@@ -62,6 +85,15 @@ airflow scheduler -D
 ```  
 - mysql 설치  
 ```brew install mysql```
+
+#### docker compose 란??
+- 여러 개의 컨테이너(container)로 구성된 애플리케이션을 관리하기 위한 간단한 오케스트레이션(Orchestration) 도구    
+##### 명령어 
+- docker-compose up -d : 모든 서비스 컨테이너를 한 번에 생성/실행하기 위해서 사용 (-d : working background )
+- docker-compose down : 모든 서비스 컨테이너를 한 번에 종료
+- docker-compose start [특정 서비스이름] : 특정 서비스 컨테이너를 올리기 위해 
+- docker-compose stop [특정 서비스이름] : 특정 서비스 컨테이너를 종료하기 위해 
+
 
 #### 용어 정리  
 - webserver : 웹 UI 제공 역할

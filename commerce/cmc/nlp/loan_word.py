@@ -84,6 +84,33 @@ def get_jaso(txt):
     return r_lst
 
 
+@F.udf(returnType=T.DoubleType())
+def get_location_jaccard_sim(eng_cndd, konglish):
+    # 위치 반영한 intersection 구하기
+    res = []
+    for k in eng_cndd:
+        for i in konglish:
+            for j in i:
+                if k.lower() == j.lower():
+                    res.append(k.lower())
+                    k = "0"
+                    j = "0"
+    itc = float(len(set(res).intersection(set(eng_cndd))))  # 분자
+    union = len(res) + len(konglish) - itc  # 분모
+    return 0 if union == 0 else itc / union
+
+
+@F.udf(returnType=T.DoubleType())
+def get_jaccard_sim(str1, str2):
+    # set 이유 : 중복성 무시
+    a = set(str2)
+    b = set(str1)
+    itc = float(len(set(a).intersection(set(b))))      # 분자
+    union = len(a) + len(b) - itc    # 분모
+    return 0 if union == 0 else itc/union
+
+
+
 @F.udf(returnType=T.StringType())
 def convert_kor_to_initial(kor_txt):
     w_to_k = {'ㄱ': 'K', 'ㄲ': 'G', 'ㄴ': 'N', 'ㄷ': 'D', 'ㄸ': 'D', 'ㄹ': 'R', 'ㅁ': 'M', 'ㅂ': 'B', 'ㅂ': 'V',
@@ -116,16 +143,6 @@ def convert_kor_to_initial(kor_txt):
             else:
                 return 'not applica'
     return ''.join(r_lst).lower()
-
-
-@F.udf(returnType=T.DoubleType())
-def get_jaccard_sim(str1, str2):
-    # set 이유 : 중복성 무시
-    a = set(str2)
-    b = set(str1)
-    itc = float(len(set(a).intersection(set(b))))      # 분자
-    union = len(a) + len(b) - itc    # 분모
-    return 0 if union == 0 else itc/union
 
 
 # @F.udf(returnType=T.ArrayType(T.StringType()))
@@ -340,18 +357,66 @@ if __name__ == "__main__":
         .where(F.col("initianl_jcd_sim") < 0.6) \
         .where(F.col("prod_nm_token_cndd").substr(0, 1) == F.col("initial").substr(0, 1)) \
         # .orderBy(F.col("prod_nm_token").desc())
-    # result_2.orderBy(F.col("prod_nm_token").desc()).show(1000, False)
+    result_2.orderBy(F.col("prod_nm_token").desc()).show(1000, False)
     # b.where(F.col("prod_nm_token") == "나이키").orderBy(F.col("initianl_jcd_sim").desc()).show(1000, False)
-    a.where(F.col("prod_nm_token").substr(0, 1) == F.col("initial").substr(0, 1)).orderBy(F.col("initianl_jcd_sim").desc()).show(100, False)
+    # a.where(F.col("prod_nm_token").substr(0, 1) == F.col("initial").substr(0, 1)).orderBy(F.col("initianl_jcd_sim").desc()).show(100, False)
+
+    # todoL tf-idf 결과로 token(한국어) - prod_nm(영어만 남기기) df 생성후 이니셜 포함 확률 구해보기
+    # 코닥, 모닝, 화이트, 헬시
+    tf_idf = spark.read.parquet("nlp-engineer/data/parquet/tfidf/")\
+        .select(
+            F.trim(
+                F.regexp_replace(
+                F.regexp_replace(F.lower(F.col('token')), "[^가-힣]", ' '), r"\s+", ' '
+                )
+            ).alias("token"),
+            F.explode(
+                F.split(
+                    F.trim(
+                        F.regexp_replace(
+                            F.regexp_replace(F.lower(F.col('prod_nm')), "[^A-Za-z]", ' '), r"\s+", ' '
+                        )
+                    ), ' '
+                )
+            ).alias('eng_cndd'),
+            F.col("tf-idf")
+        ).where((F.length(F.col("eng_cndd")) > 2) & (F.length(F.col("token")) > 1)).where(~F.col("token").isin(" ")).distinct()\
+        .alias("tf_idf")
+
+    tf_idf = tf_idf.join(get_cate, F.col('token').contains(F.col('col')), 'leftanti').alias("tf_idf")
+
+    get_nitl = tf_idf.withColumn("jaso", get_jaso(F.regexp_replace(F.col("token"), " ", ""))) \
+        .withColumn("initial", convert_kor_to_initial(F.col("jaso"))) \
+        .withColumn("konglish", get_konglish(F.col("jaso"))) \
+        .withColumn("intersection_word", get_intersection_word(F.col("konglish"), F.col("eng_cndd")))\
+        .withColumn("initianl_jcd_sim", get_location_jaccard_sim(F.col("eng_cndd"), F.col("konglish")))
+
+    # tf_idf.groupby(F.col("token")).agg(F.count(F.col("eng_cndd")).alias("cnt")).where(F.col("cnt") < 3).show(1000, False)
+    # get_nitl.where(F.col('token') == "아디다스").orderBy(F.col("initianl_jcd_sim").desc()).show(1000, False)
+    # a = get_nitl.where(F.col('token') == "화이트").where(F.length(F.col("eng_cndd")) >= F.length(F.col("token"))).where(F.length(F.col("eng_cndd"))>3).orderBy(F.col("initianl_jcd_sim").desc())
+    a = get_nitl.where(F.length(F.col("intersection_word")) > 2)\
+        .where(F.length(F.col("eng_cndd")) >= F.length(F.col("intersection_word")))\
+        .where(F.length(F.col("eng_cndd")) > 2) \
+        .withColumn(
+            'rank',
+            F.rank().over(
+                window.Window.partitionBy(
+                    F.col('token')
+        ).orderBy(F.col('initianl_jcd_sim').desc())))
+
+    a.where(F.col("eng_cndd") == "nike").orderBy(F.col("token")).show(10, False)
+    # get_nitl.where(F.col('eng_cndd') == "color").groupby(F.col("token"), F.col("eng_cndd")).agg(F.count(F.col("eng_cndd")).alias("cnt")).orderBy(F.col("cnt").desc()).show(100, False)
+    ''' 
+           중심 : 한국어 토큰 group 
+           ver1 : prod_nm에 영어 토큰만 남기고 남은 것과 이니셜이랑 가장 유사한 토큰만 보기  
+           ver2 : prod_nm에 영어 토큰만 남긴 것중 가장 많이 등장한 영어 토큰 보기 
+   '''
+
+    ''' 
+        todo : 한국어 토큰중 외래어 인것만 어떻게 뽑아낼것인가 ?
+        영어 기준 tfidf 실행후 한글 토큰 기준이랑 join 해보기 => x
+        영어 -> 한글 컨버터 개발 후 중복 문자 비교
+    '''
 
 
-    # todo : 코닥, 모닝, 화이트, 헬시
-
-
-
-    # a.where(F.col("prod_nm_token_cndd") == "나이키").orderBy(F.col("initial").desc()).show(100, False)
-    #     .select(F.col("prod_nm_token"), F.col("prod_nm_token_cndd"), F.col("konglish"), F.col("intersection_word"),)\
-    #     .orderBy(F.col("cnt").desc()).show(1000, False)
-#
-
-exit(0)
+    exit(0)

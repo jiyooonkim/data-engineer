@@ -56,6 +56,7 @@ Developers with the ability to create good data in big databases.
 
 - 환경 세팅(platform)
      - MLOPS
+     - Mongodb
 - 언어    
   - Java
   - Scala

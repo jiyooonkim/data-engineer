@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-# title : 유사한 상품명 찾기 by TF-IDF &
-# desc : 연관있는 상품명을 찾아 브랜드, 시리즈, 속성 ,카테고리 등 보기 위해
+# title :  TF-IDF
+# desc : 문서 전체에 단어 중요도 구하고자
 # doc : - https://yeong-jin-data-blog.tistory.com/entry/TF-IDF-Term-Frequency-Inverse-Document-Frequency
 # pro : -
 tf vs tf-idf
@@ -29,22 +29,18 @@ if __name__ == "__main__":
 
     df1 = spark.read. \
         option('header', True). \
-        csv('/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/nvr_prod.csv')
-
+        csv('/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/nvr_prod.csv')\
+        .select(F.col("상품명")).distinct()
     df2 = spark.read. \
         option('header', True). \
-        csv("/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/nvr_prod_2.csv")
-
-    total_df = (df1.unionByName(df2, allowMissingColumns=True)).distinct().alias("total_df")
-
+        csv("/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/nvr_prod_2.csv")\
+        .select(F.col("상품명")).distinct()
+    shipping_df = spark.read.csv("/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/송장명.csv")\
+        .select(F.col("_c2").alias("상품명")).distinct()
+    total_df = (df1.unionByName(df2, allowMissingColumns=True).unionByName(shipping_df, allowMissingColumns=True)).distinct().alias("total_df") 
     ori_df = total_df.\
         select(
             F.regexp_replace(F.col('상품명'), "[^a-zA-Zㄱ-힝0-9]", ' ').alias("prod_nm"),
-            # F.col('cate_code'),
-            F.col('대분류').alias('l_cate'),
-            # F.col('중분류').alias('m_cate'),
-            # F.col('소분류').alias('s_cate'),
-            # F.col('세분류').alias('d_cate'),
         ).distinct()\
         .withColumn(
             "prod_nm_token",
@@ -58,17 +54,17 @@ if __name__ == "__main__":
 
     # 토큰 리스트 생성 및 토큰 매핑
     get_collect_list = ori_df\
-        .groupBy(F.col('prod_nm'), F.col('l_cate'))\
+        .groupBy(F.col('prod_nm'))\
         .agg(F.collect_list("prod_nm_token").alias('tokens'))\
         .withColumn('token', F.explode(F.col('tokens')))\
         .alias('get_collect_list')
 
     ''' tf(d,t) : 특정 문서 d에서의 특정 단어 t의 등장 횟수 '''
     tf_df = get_collect_list \
-        .groupBy(F.col('prod_nm'), F.col('l_cate'), F.col('token')) \
+        .groupBy(F.col('prod_nm'), F.col('token')) \
         .agg(F.count(F.col('token')).alias('tf')) \
         .alias('tf_t').repartition(500, F.col('token')).alias("tf_df")  # (문서 d 에서 단어 t 의 출현 빈도)
-    tf_df.where(F.col('prod_nm') == 'MAD DOG 매드독 차량용 공기청정기 MAD 350').show(100, False)
+    # tf_df.where(F.col('prod_nm') == 'MAD DOG 매드독 차량용 공기청정기 MAD 350').show(100, False)
 
     ''' df(t) : 특정 단어 t가 등장한 문서의 수 '''
     df_df = ori_df.groupBy(F.col("prod_nm_token")).agg(F.count(F.col("prod_nm")).alias("df_cnt")).alias("df_df")
@@ -77,13 +73,19 @@ if __name__ == "__main__":
 
     D = ori_df.count()  # 총 문서의 개수
     idf = df_df.withColumn("idf", (F.log(D + 1 / F.col("df_cnt") + 1)) + 1).alias("idf")
-    idf.where(F.col("prod_nm_token") == "mad").orderBy(F.col("prod_nm_token").desc()).show(100, False)
+    # idf.where(F.col("prod_nm_token") == "mad").orderBy(F.col("prod_nm_token").desc()).show(100, False)
 
     tf_idf = tf_df\
         .join(idf, F.col("tf_df.token") == F.col("idf.prod_nm_token"), "left")\
         .select(tf_df["*"], F.col("idf.idf"))\
         .withColumn("tf-idf", F.col("tf_df.tf") * F.col("idf.idf"))\
         .alias("tf_idf")
-    tf_idf.where(F.col('prod_nm').like('%나이키%티셔츠%')).orderBy(F.col("tf-idf").desc()).show(100, )
-    d.write.format("parquet").mode("overwrite").save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/compound/")
+    # tf_idf.groupBy(F.col('token')).agg(F.count(F.col('prod_nm')).alias("cnt")).orderBy(F.col("cnt").desc()).show(1000, False)
+    tf_idf.where(F.col("token").like("nike")).distinct().orderBy(F.col("tf-idf").desc()).show(1000, False)
+    # tf_idf.orderBy(F.col("tf-idf").desc()).show(1000, False)
+    tf_idf.write.format("parquet").mode("overwrite").save("nlp-engineer/data/parquet/tfidf/")
+    #  코닥, 모닝, 화이트, 헬시
+
+
+
     exit(0)

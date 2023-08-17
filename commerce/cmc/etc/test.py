@@ -190,10 +190,25 @@ def get_jaccard_sim(str1, str2):
     # return 0 if union == 0 else itc/union
 
 
-eng ="deck" # 헬시온
-kor_txt = [['D', 'A',' '], [' ', 'I', 'R'], ['C', 'W','R'], ['K', 'G', 'O', ' ']]
-initianl_jcd_sim = get_intersection_word(kor_txt, eng)
-print("initianl_jcd_sim : ", initianl_jcd_sim)
-print("get_jaccard_sim : ", get_jaccard_sim(initianl_jcd_sim, kor_txt))
-import numpy as np
-print(np.log((4+1) / (1+1)) + 1)
+eng_cndd = "gold" # 골드
+konglish = [['K','G', 'O','R'], ['D', 'E', ' ']]
+res = []
+for k in eng_cndd:
+    for i in konglish:
+        for j in i:
+            if k == j.lower():
+                res.append(k)
+                k = "0"
+                j = "0"리
+itc = float(len(set(res).intersection(set(eng_cndd))))  # 분자
+union = len(res) + len(konglish) - itc  # 분모
+print("itc : ", itc)
+
+
+
+# initianl_jcd_sim = get_intersection_word(kor_txt, eng)
+# print("initianl_jcd_sim : ", initianl_jcd_sim)
+# print("get_jaccard_sim : ", get_jaccard_sim(initianl_jcd_sim, kor_txt))
+# import numpy as np
+# print(np.log((4+1) / (1+1)) + 1)
+
