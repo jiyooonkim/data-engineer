@@ -3,7 +3,7 @@
 ### Good basic data brings good results!!
 Developers with the ability to create good data in big databases.
 
-- skill : hadoop, pyspark, python
+- skill : hadoop, pyspark, python, shell, hive
 - version and env : python3.9, pyspark3.3.2, hadoop3.3.4, airflow, jenkins
 
 ### 목적 및 방향성
@@ -49,8 +49,8 @@ Developers with the ability to create good data in big databases.
     - 불용어(stopword)
   - NLP
     - ngram 
-  - AI/ML
-    - ai/ml 적용하여 학습 예정(커버리지 늘리기 위해)
+  - ML
+    - ML 적용하여 학습 예정(커버리지 늘리기 위해)
   - 그 외
     - Flask 로 간단한 API 구성
 
@@ -67,5 +67,6 @@ Developers with the ability to create good data in big databases.
       - Hive
       - streaming(spark streaming, Hudi, Kafka)
       - devops
+ - Data Engineer로서 겪은 고뇌의 시간들(Q&A)
     
       

@@ -1,12 +1,20 @@
-### Title: Apache Tez
+### Apache Tez
 #### Date : 2023-08-03
-
 ## Tez
-- Apache Tez는 MapReduce 엔진을 대신하는 실행 엔진
++ MapReduce 기술을 기반으로 하는 빅 데이터 처리를 위한 오픈 소스 프레임워크
++ Hive & PIG의 실행 엔진
++ YARN 위에서 실행
++  낮은 대기 시간, 높은 처리량 성능 및 사용 편의성
 
-
-- 동작방식  
-
++ 동작방식
++ Tez on hive, Spark
+  +  Pig 나 Hive 같은 application 은 TEZ 와 Spark 위에서 동작 가능   
++ Tez VS MR   
+  + MapReduce 및 Tez는 대규모 데이터 처리를 위해 Apache Hive에서 널리 사용되는 두 가지 실행 엔진
+  + tez는 intermediate map task 없다
+  + Tez : Map -> Memory(결과저장) -> Reduce -> Reduce(최종 결과 저장)
+  + MR : Mape -> Reduce ->hdfs(결과저장) -> Map -> Reduce(최종 결과 저장)
+  <img height="440" src="img/img_47.png" width="350"/>
 
 ### Map Reduce 대신 Apache Tez 사용이유
 - MapReduce 엔진에서 단일 작업으로 DAG(방향성 비순환 그래프)를 실행    
@@ -19,6 +27,6 @@
 - 연속 최적화 기술
 
 ### Hive에 적합한 파일 형식 
-- ORC/Parquet: 성능에 가장 적합, 
+- ORC/Parquet: 성능에 가장 적합 
 - 텍스트: 기본 파일 형식, 
 - Avro: 상호 운용성 시나리오에 대해 적합

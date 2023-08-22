@@ -199,13 +199,35 @@ for k in eng_cndd:
             if k == j.lower():
                 res.append(k)
                 k = "0"
-                j = "0"리
+                j = "0"
 itc = float(len(set(res).intersection(set(eng_cndd))))  # 분자
 union = len(res) + len(konglish) - itc  # 분모
 print("itc : ", itc)
 
 
 
+
+def convert_eng_to_kor(eng_txt):
+    w_to_k = {'K': 'ㄱ', 'G': 'ㄲ', 'N': 'ㄴ', 'D': 'ㄷ', 'D':'ㄸ' , 'R': 'ㄹ', 'M': 'ㅁ', 'B': 'ㅂ', 'V': 'ㅂ',
+              'BB': 'ㅃ', 'S': 'ㅅ', 'TH': 'ㅅ', 'SS': 'ㅆ', 'J': 'ㅈ', 'JJ': 'ㅉ', 'C': 'ㅊ', 'K': 'ㅋ',
+              'C': 'ㅋ', 'T': 'ㅌ', 'P': 'ㅍ', 'H': 'ㅎ',
+              # mo
+              'Y': 'ㅑ', 'Y': 'ㅕ', 'TI': 'ㅕ', 'Y': 'ㅛ', "Y": 'ㅠ', "U": 'ㅠ','Y' : 'ㅖ',
+              'W': 'ㅝ', 'W': 'ㅘ', 'W': 'ㅙ', 'W': 'ㅚ', 'W': 'ㅜ', 'W': 'ㅞ', 'W': 'ㅟ',
+              'E': 'ㅔ', 'E': 'ㅡ', 'E': 'ㅢ',
+              'A': 'ㅏ', 'A': 'ㅐ', 'U': 'ㅓ', 'ㅗ': 'O', 'ㅣ': 'I'
+
+              }
+    r_lst = []
+    eng_txt = list(eng_txt.upper())
+    for i in eng_txt:
+        print("i : ", i)
+        if i in w_to_k.keys():
+            r_lst.append(w_to_k[i])
+    return ''.join(r_lst)
+
+eng_txt = "camac"
+print("convert_eng_to_kor : ", convert_eng_to_kor(eng_txt))
 # initianl_jcd_sim = get_intersection_word(kor_txt, eng)
 # print("initianl_jcd_sim : ", initianl_jcd_sim)
 # print("get_jaccard_sim : ", get_jaccard_sim(initianl_jcd_sim, kor_txt))

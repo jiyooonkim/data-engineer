@@ -13,7 +13,7 @@ import pyspark.sql.window as window
 
 @F.udf(returnType=T.ArrayType(T.StringType()))
 def get_konglish(kor_txt):
-    ja = {'ㄱ': ['K','G'], 'ㄲ': ['KK','GG'], 'ㄴ': 'N', 'ㄷ': 'D', 'ㄸ': 'D', 'ㄹ': 'R', 'ㅁ': 'M', 'ㅂ': 'B',
+    ja = {'ㄱ': ['K','G'], 'ㄲ': ['KK','GG'], 'ㄴ': 'N', 'ㄷ': 'D', 'ㄸ': 'D', 'ㄹ': ['R', 'L'], 'ㅁ': 'M', 'ㅂ': 'B',
           'ㅃ': 'B', 'ㅅ': ['S', 'TH'], 'ㅆ': 'SS', 'ㅈ': 'J', 'ㅉ': 'J', 'ㅊ': 'C', 'ㅌ': 'T', 'ㅍ': 'P', 'ㅎ': ['H', 'WH'],
           'ㅋ': ['C','K', 'CH']}
     mo = {'ㅑ': 'Y', 'ㅕ': ['Y', 'TI'], 'ㅛ': 'Y', 'ㅠ': ["Y", "U"], 'ㅖ': 'Y',
@@ -21,6 +21,7 @@ def get_konglish(kor_txt):
           'ㅔ': 'E', 'ㅡ': 'E', 'ㅢ': 'E',
           'ㅏ': 'A', 'ㅐ': 'A', 'ㅓ': 'U', 'ㅗ': 'O', 'ㅣ': 'I'}
     r_lst = []
+
     for i, w in enumerate(kor_txt):
         lst = []
         # print(" i : ", i)
@@ -31,7 +32,7 @@ def get_konglish(kor_txt):
             else:
                 lst.append(ja[w[0]])
         else:
-            lst.append(' ')
+            lst.append('0')
 
         if w[1] in mo.keys():     # 중성
             if list(mo.keys()):
@@ -42,14 +43,15 @@ def get_konglish(kor_txt):
             if list(ja.keys()):
                 lst.extend(ja[w[0]])
             else:
-                lst.append(' ')
+                lst.append('0')
         if w[2] in ja.keys():     # 종성
             # lst.append(ja.keys())
             lst.append(ja[w[2]])
         else:
-            lst.append(' ')
+            lst.append('0')
         r_lst.append(lst)
-    # for i, w in enumerate(kor_txt):
+
+        # for i, w in enumerate(kor_txt):
     #     if w[0] in ja.keys():  # 초성
     #         r_lst.append(ja[w[0]])
     #     if w[1] in mo.keys():  # 중성
@@ -109,6 +111,24 @@ def get_jaccard_sim(str1, str2):
     union = len(a) + len(b) - itc    # 분모
     return 0 if union == 0 else itc/union
 
+
+@F.udf(returnType=T.StringType())
+def convert_eng_to_kor(eng_txt):
+    w_to_k = {'K': 'ㄱ', 'G': 'ㄲ', 'N': 'ㄴ', 'D': 'ㄷ', 'D':'ㄸ' , 'R': 'ㄹ', 'L': 'ㄹ', 'M': 'ㅁ', 'B': 'ㅂ', 'V': 'ㅂ',
+              'BB': 'ㅃ', 'S': 'ㅅ', 'TH': 'ㅅ', 'SS': 'ㅆ', 'J': 'ㅈ', 'JJ': 'ㅉ', 'C': 'ㅊ', 'K': 'ㅋ',
+              'C': 'ㅋ', 'T': 'ㅌ', 'P': 'ㅍ', 'H': 'ㅎ',
+
+              'Y': 'ㅑ', 'Y': 'ㅕ', 'TI': 'ㅕ', 'Y': 'ㅛ', "Y": 'ㅠ', "U": 'ㅠ', 'Y': 'ㅖ',
+              'W': 'ㅝ', 'W': 'ㅘ', 'W': 'ㅙ', 'W': 'ㅚ', 'W': 'ㅜ', 'W': 'ㅞ', 'W': 'ㅟ',
+              'E': 'ㅔ', 'E': 'ㅡ', 'E': 'ㅢ',
+              'A': 'ㅏ', 'A': 'ㅐ', 'U': 'ㅓ', 'ㅗ': 'O', 'ㅣ': 'I'
+              }
+    r_lst = []
+    eng_txt = list(eng_txt.upper())
+    for i in eng_txt:
+        if i in w_to_k.keys():
+            r_lst.append(w_to_k[i])
+    return ''.join(r_lst)
 
 
 @F.udf(returnType=T.StringType())
@@ -391,7 +411,7 @@ if __name__ == "__main__":
         .withColumn("intersection_word", get_intersection_word(F.col("konglish"), F.col("eng_cndd")))\
         .withColumn("initianl_jcd_sim", get_location_jaccard_sim(F.col("eng_cndd"), F.col("konglish")))
 
-    # tf_idf.groupby(F.col("token")).agg(F.count(F.col("eng_cndd")).alias("cnt")).where(F.col("cnt") < 3).show(1000, False)
+         # tf_idf.groupby(F.col("token")).agg(F.count(F.col("eng_cndd")).alias("cnt")).where(F.col("cnt") < 3).show(1000, False)
     # get_nitl.where(F.col('token') == "아디다스").orderBy(F.col("initianl_jcd_sim").desc()).show(1000, False)
     # a = get_nitl.where(F.col('token') == "화이트").where(F.length(F.col("eng_cndd")) >= F.length(F.col("token"))).where(F.length(F.col("eng_cndd"))>3).orderBy(F.col("initianl_jcd_sim").desc())
     a = get_nitl.where(F.length(F.col("intersection_word")) > 2)\
@@ -403,20 +423,53 @@ if __name__ == "__main__":
                 window.Window.partitionBy(
                     F.col('token')
         ).orderBy(F.col('initianl_jcd_sim').desc())))
+    b = a.withColumn("ja", convert_eng_to_kor(F.col("eng_cndd")))\
+        .withColumn("jaso_jcd_sim", get_location_jaccard_sim(F.col("ja"), F.col("jaso"))) \
+        .where(F.length(F.col("initianl_jcd_sim")) >= 0.5).where(F.col("jaso_jcd_sim") >= 0.2)\
+        .where(F.length(F.col("token")) < F.length(F.col("eng_cndd"))) \
+        .where(F.lower(F.col("konglish")[0].substr(2, 4)).contains((F.col("eng_cndd").substr(0, 1)))).alias("b")  \
+        # .where(F.col("token") == "크리스마스") \
+        # .orderBy(F.col("rank").asc())\
+        # .orderBy(F.col("jaso_jcd_sim").desc())\
+        # .orderBy(F.col("token").desc()) \
+        # .show(1000, False)
 
-    a.where(F.col("eng_cndd") == "nike").orderBy(F.col("token")).show(10, False)
-    # get_nitl.where(F.col('eng_cndd') == "color").groupby(F.col("token"), F.col("eng_cndd")).agg(F.count(F.col("eng_cndd")).alias("cnt")).orderBy(F.col("cnt").desc()).show(100, False)
-    ''' 
-           중심 : 한국어 토큰 group 
-           ver1 : prod_nm에 영어 토큰만 남기고 남은 것과 이니셜이랑 가장 유사한 토큰만 보기  
-           ver2 : prod_nm에 영어 토큰만 남긴 것중 가장 많이 등장한 영어 토큰 보기 
+    c = b.groupby(F.col("token"), F.col("eng_cndd")).agg(F.count(F.col("eng_cndd")).alias("eng_cndd_cnt")).alias("c")   # 빈도수
+    b.where(F.col("token") == "차콜").show(200, False)
+    # c.show()
+    d = b.join(c, [F.col("b.token") == F.col("b.token"), F.col("b.eng_cndd") == F.col("b.eng_cndd")], 'left')\
+        .select(F.col("b.token"), F.col("b.eng_cndd"), (F.col("b.tf-idf")*F.col('c.eng_cndd_cnt')*F.col("initianl_jcd_sim")).alias("tfidf"))\
+    .withColumn("rnk", F.rank().over(window.Window.partitionBy(F.col('b.token')).orderBy(F.col('tfidf').desc())))\
+        # .where(F.col("rnk") < 3)
+    # d.orderBy(F.col("token")).show(1000, False)
+
+    d.groupby(F.col("eng_cndd"),F.col("token"))\
+        .agg(F.count("token").alias("cnts"))\
+        .withColumn("rnks", F.rank().over(window.Window.partitionBy(F.col('token')).orderBy(F.col('cnts').desc())))\
+        .where(F.col("token") == "아디다스").distinct().show(1000, False)
+
+    '''
+    빈도수 * tf-idf 결과로 보면 ???
+       중심 : 한국어 토큰 group
+       ver1 : prod_nm에 영어 토큰만 남기고 남은 것과 이니셜이랑 가장 유사한 토큰만 보기
+       ver2 : prod_nm에 영어 토큰만 남긴 것중 가장 많이 등장한 영어 토큰 보기
    '''
 
-    ''' 
+    '''
         todo : 한국어 토큰중 외래어 인것만 어떻게 뽑아낼것인가 ?
         영어 기준 tfidf 실행후 한글 토큰 기준이랑 join 해보기 => x
-        영어 -> 한글 컨버터 개발 후 중복 문자 비교
+        영어 -> 한글 컨버터 개발 -> 자소 분리결과 & 영어 토큰 중복 문자 비교
+        token 의 초성과 ja Jaccad Similarity 구하기
     '''
 
-
+    '''
+        나이키, 코닥, 모닝, 화이트, 헬시.  옵션,오렌지, 악세서리, 남성, 여성 
+        화이트
+        블랙
+        레드
+        크리스마스
+        아디다스
+        디올
+    사이즈, 키즈, 닌텐도
+    '''
     exit(0)
