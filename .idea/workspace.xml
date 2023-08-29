@@ -4,27 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Develop load word">
-      <change afterPath="$PROJECT_DIR$/commerce/cmc/nlp/spark_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commerce/cmc/nlp/stopword.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/loan_word_cndd/._SUCCESS.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/loan_word_cndd/.part-00000-1de78fc5-fa7a-4ecc-a25e-80cbdec55448-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/loan_word_cndd/_SUCCESS" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/loan_word_cndd/part-00000-1de78fc5-fa7a-4ecc-a25e-80cbdec55448-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/loan_word_cndd_eng/.part-00000-8d7bd901-20fd-4061-b0dd-69ffe3fd5f9b-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/loan_word_cndd_eng/part-00000-8d7bd901-20fd-4061-b0dd-69ffe3fd5f9b-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/loan_word_cndd_kor/.part-00000-9aca9222-5fc2-4fdb-9360-4178f16444f2-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/loan_word_cndd_kor/part-00000-9aca9222-5fc2-4fdb-9360-4178f16444f2-c000.snappy.parquet" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/etc/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/etc/test.py" afterDir="false" />
+    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/loan_word.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/loan_word.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_word_cndd_eng/.part-00000-c5cf0836-d791-484f-96ce-74cdd8ca27e2-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_word_cndd_eng/part-00000-c5cf0836-d791-484f-96ce-74cdd8ca27e2-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_word_cndd_kor/.part-00000-d4e0d808-b60d-4a28-8d06-ec893ed87eed-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_word_cndd_kor/part-00000-d4e0d808-b60d-4a28-8d06-ec893ed87eed-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/Q&amp;A.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/Q&amp;A.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -554,7 +535,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692704432793</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Develop load word">
+      <option name="closed" value="true" />
+      <created>1693318560096</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1693318560096</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
