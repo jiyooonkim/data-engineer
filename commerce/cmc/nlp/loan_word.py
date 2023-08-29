@@ -11,24 +11,24 @@ import pyspark.sql.types as T
 import pyspark.sql.window as window
 
 
-@F.udf(returnType=T.ArrayType(T.StringType()))
+@F.udf(returnType=T.ArrayType(T.ArrayType(T.StringType())))
 def get_konglish(kor_txt):
-    ja = {'ㄱ': ['K','G'], 'ㄲ': ['KK','GG'], 'ㄴ': 'N', 'ㄷ': 'D', 'ㄸ': 'D', 'ㄹ': ['R', 'L'], 'ㅁ': 'M', 'ㅂ': 'B',
-          'ㅃ': 'B', 'ㅅ': ['S', 'TH'], 'ㅆ': 'SS', 'ㅈ': 'J', 'ㅉ': 'J', 'ㅊ': 'C', 'ㅌ': 'T', 'ㅍ': 'P', 'ㅎ': ['H', 'WH'],
-          'ㅋ': ['C','K', 'CH']}
+    ja = {'ㄱ': ['K','G', 'CK'], 'ㄲ': ['KK','GG'], 'ㄴ': 'N', 'ㄷ': 'D', 'ㄸ': ['D', 'TT'], 'ㄹ': ['R', 'L'], 'ㅁ': 'M', 'ㅂ': 'B',
+          'ㅃ': 'B', 'ㅅ': ['S', 'TH'], 'ㅆ': 'SS', 'ㅈ': ['J', 'Z'], 'ㅉ': 'J', 'ㅊ': ['C', 'CH'], 'ㅌ': 'T', 'ㅍ': 'P',
+          'ㅋ': ['C','K', 'CH'], 'ㅎ': ['H', 'WH'],
+          'ㅇ': ['NG','E'],  # todo : 팔로잉, 스카잉일땐 ng 필요한데..  묵음 처리 어떻게 ?? ex ) 구스다운,
+          }
     mo = {'ㅑ': 'Y', 'ㅕ': ['Y', 'TI'], 'ㅛ': 'Y', 'ㅠ': ["Y", "U"], 'ㅖ': 'Y',
           'ㅝ': 'W', 'ㅘ': 'W', 'ㅙ': 'W', 'ㅚ': 'W', 'ㅜ': 'W', 'ㅞ': 'W', 'ㅟ': 'W',
           'ㅔ': 'E', 'ㅡ': 'E', 'ㅢ': 'E',
-          'ㅏ': 'A', 'ㅐ': 'A', 'ㅓ': 'U', 'ㅗ': 'O', 'ㅣ': 'I'}
+          'ㅏ': 'A', 'ㅐ': 'A', 'ㅓ': ['U', 'ER'], 'ㅗ': 'O', 'ㅣ': ['I', 'Y', 'E']}
     r_lst = []
 
     for i, w in enumerate(kor_txt):
         lst = []
-        # print(" i : ", i)
-        # print(" w : ", w)
         if w[0] in ja.keys():   # 초성
             if list(ja.keys()):
-                lst.extend(ja[w[0]])
+                lst.append(ja[w[0]])
             else:
                 lst.append(ja[w[0]])
         else:
@@ -36,12 +36,12 @@ def get_konglish(kor_txt):
 
         if w[1] in mo.keys():     # 중성
             if list(mo.keys()):
-                lst.extend(mo[w[1]])
+                lst.append(mo[w[1]])
             else:
                 lst.append(mo[w[1]])
         else:
             if list(ja.keys()):
-                lst.extend(ja[w[0]])
+                lst.append(ja[w[0]])
             else:
                 lst.append('0')
         if w[2] in ja.keys():     # 종성
@@ -50,16 +50,6 @@ def get_konglish(kor_txt):
         else:
             lst.append('0')
         r_lst.append(lst)
-
-        # for i, w in enumerate(kor_txt):
-    #     if w[0] in ja.keys():  # 초성
-    #         r_lst.append(ja[w[0]])
-    #     if w[1] in mo.keys():  # 중성
-    #         r_lst.append(mo[w[1]])
-    #     if w[2] in ja.keys():  # 종성
-    #         r_lst.append(ja[w[2]])
-    #     else:
-    #         r_lst.append(' ')
     return r_lst
 
 
@@ -111,6 +101,81 @@ def get_jaccard_sim(str1, str2):
     union = len(a) + len(b) - itc    # 분모
     return 0 if union == 0 else itc/union
 
+
+# @F.udf(returnType=T.ArrayType(T.StringType()))
+@F.udf(returnType=T.BooleanType())
+def get_chosung_contain_word(lst, txt):
+    # desc : 포함되는 글자 찾기
+    # ex) lst[0][0] : [NG, E]       str: nike
+    if lst[0] == '0':  # 종성이 없을 경우 중성 대체
+        lst1 = lst[1]
+    else:
+        lst1 = lst[0]
+    lst1 = lst1.replace('[', '').replace(']', '').split(', ')
+    txt = list(txt) if type(txt) == list else list(txt)
+    rst = []
+    for word in lst1:
+        if word.lower() == txt[0].lower():
+            rst.append(rst)
+
+    # 초성 없을시 중성비교  ex) 아,야,어,여
+    if len(rst) == 0:
+        lst1 = lst[1]
+        for word in lst1:
+            if word.lower() == txt[0].lower():
+                rst.append(rst)
+
+    if len(rst) == 0:
+        return False
+    else:
+        return True
+
+@F.udf(returnType=T.BooleanType())
+def reverse_compare(lst, txt):
+    # 종성 비교     ex) lst : ['N', '[U, ER]', '0']   str: nike
+    if lst[-1] == '0':  # 종성이 없을 경우 중성 대체
+        lst1 = lst[-2]
+    else:
+        lst1 = lst[-1]
+    lst1 = lst1[::-1].replace('[', '').replace(']', '').split(' ,')  # list(lst) if type(lst) == list else list(lst)
+    txt = txt[::-1].lower()
+    rst = []
+    for j in lst1:
+        # for i in txt:
+        if txt[0].lower() == j.lower():
+            rst.append(txt[0].lower())
+            break
+
+    # 중성 compare 결과 없을 경우
+    if len(rst) == 0:
+        lst1 = lst[-3]
+        for j in lst1:
+            # for i in txt:
+            if txt[0].lower() == j.lower():
+                rst.append(txt[0].lower())
+                break
+    if len(rst) == 0:
+        return False
+    else:
+        return True
+
+
+
+# @F.udf(returnType=T.BooleanType())
+# def get_jongsung_contain(lst, txt):
+#     # 종성 비교     ex) lst : ['N', '[U, ER]', '0']   str: nike
+#     if lst[-1] == '0':  # 종성이 없을 경우 중성 대체
+#         lst = lst[-2]
+#     else:
+#         lst = lst[-1]
+#     lst1 = lst.replace('[', '').replace(']', '').split(', ')  # list(lst) if type(lst) == list else list(lst)
+#     txt = list(txt) if type(txt) == list else list(txt)
+#
+#     for word in lst1:
+#         if word.lower() == (txt[-1].lower()):
+#             return True
+#     else:
+#         return False
 
 @F.udf(returnType=T.StringType())
 def convert_eng_to_kor(eng_txt):
@@ -277,27 +342,26 @@ if __name__ == "__main__":
     ).distinct().alias('get_cate')
 
     except_cate = get_cndd_eng.join(get_cate, F.col('prod_nm_token') == F.col('col'), 'leftanti').alias("except_cate")
-    # except_cate.show(1000, False)
 
     '''
         step2. 상품명 토크나이징 후 하위 dataframe 생성 (step1 과 반대)
         대상1     |   후보들
         eng      |   kor
     '''
-    get_eng_tkn = prod_nm \
+    get_eng_tkn = prod_nm\
         .where(F.col('only_eng') == True) \
         .groupby(
-        F.col('prod_nm_token'),
-        F.col('only_eng')
-    ).agg(
-        F.collect_list(F.col('prod_nm')).alias('prod_nms')
-    ).where(
-        (F.size(F.col('prod_nms')) > 1)
-    ).select(
-        F.col('prod_nm_token'),
-        F.col('only_eng'),
-        F.explode(F.col('prod_nms')).alias('prod_nm')
-    ).alias('get_eng_tkn')
+            F.col('prod_nm_token'),
+            F.col('only_eng')
+        ).agg(
+            F.collect_list(F.col('prod_nm')).alias('prod_nms')
+        ).where(
+            (F.size(F.col('prod_nms')) > 1)
+        ).select(
+            F.col('prod_nm_token'),
+            F.col('only_eng'),
+            F.explode(F.col('prod_nms')).alias('prod_nm')
+        ).alias('get_eng_tkn')
 
     ca = get_eng_tkn.select(
         F.col('prod_nm'),
@@ -346,7 +410,6 @@ if __name__ == "__main__":
             F.col('except_cate.cnt').alias("cnt_2"),
         ).withColumn("rnk", F.rank().over(window.Window.partitionBy(F.col('prod_nm_token_cndd_2')).orderBy(F.col('cnt_2').desc())))\
         .where(F.col('rnk') < 3)
-    # .where(F.col("prod_nm_token_cndd_1") != F.col("prod_nm_token_2"))
 
     '''
         ver2. 
@@ -377,7 +440,6 @@ if __name__ == "__main__":
         .where(F.col("initianl_jcd_sim") < 0.6) \
         .where(F.col("prod_nm_token_cndd").substr(0, 1) == F.col("initial").substr(0, 1)) \
         # .orderBy(F.col("prod_nm_token").desc())
-    result_2.orderBy(F.col("prod_nm_token").desc()).show(1000, False)
     # b.where(F.col("prod_nm_token") == "나이키").orderBy(F.col("initianl_jcd_sim").desc()).show(1000, False)
     # a.where(F.col("prod_nm_token").substr(0, 1) == F.col("initial").substr(0, 1)).orderBy(F.col("initianl_jcd_sim").desc()).show(100, False)
 
@@ -414,7 +476,7 @@ if __name__ == "__main__":
          # tf_idf.groupby(F.col("token")).agg(F.count(F.col("eng_cndd")).alias("cnt")).where(F.col("cnt") < 3).show(1000, False)
     # get_nitl.where(F.col('token') == "아디다스").orderBy(F.col("initianl_jcd_sim").desc()).show(1000, False)
     # a = get_nitl.where(F.col('token') == "화이트").where(F.length(F.col("eng_cndd")) >= F.length(F.col("token"))).where(F.length(F.col("eng_cndd"))>3).orderBy(F.col("initianl_jcd_sim").desc())
-    a = get_nitl.where(F.length(F.col("intersection_word")) > 2)\
+    a = get_nitl.where(F.length(F.col("intersection_word")) >= 1)\
         .where(F.length(F.col("eng_cndd")) >= F.length(F.col("intersection_word")))\
         .where(F.length(F.col("eng_cndd")) > 2) \
         .withColumn(
@@ -422,34 +484,46 @@ if __name__ == "__main__":
             F.rank().over(
                 window.Window.partitionBy(
                     F.col('token')
-        ).orderBy(F.col('initianl_jcd_sim').desc())))
+                ).orderBy(F.col('initianl_jcd_sim').desc())
+            )
+        )
     b = a.withColumn("ja", convert_eng_to_kor(F.col("eng_cndd")))\
         .withColumn("jaso_jcd_sim", get_location_jaccard_sim(F.col("ja"), F.col("jaso"))) \
-        .where(F.length(F.col("initianl_jcd_sim")) >= 0.5).where(F.col("jaso_jcd_sim") >= 0.2)\
-        .where(F.length(F.col("token")) < F.length(F.col("eng_cndd"))) \
-        .where(F.lower(F.col("konglish")[0].substr(2, 4)).contains((F.col("eng_cndd").substr(0, 1)))).alias("b")  \
-        # .where(F.col("token") == "크리스마스") \
-        # .orderBy(F.col("rank").asc())\
-        # .orderBy(F.col("jaso_jcd_sim").desc())\
-        # .orderBy(F.col("token").desc()) \
-        # .show(1000, False)
+        .where(F.length(F.col("token"))< F.length(F.col("eng_cndd")))\
+        .withColumn("contaion_wd", get_chosung_contain_word(F.col('konglish')[0], F.col('eng_cndd')))\
+        .where(F.col('contaion_wd') == True)\
+        .distinct()
+    '''
+        Reverse, middle Compare
+        - eng_cndd, intersection_word 
+        - eng_cndd, konglish
+        # todo : 마지막 글자 vs 초/중/종?
+    '''
 
-    c = b.groupby(F.col("token"), F.col("eng_cndd")).agg(F.count(F.col("eng_cndd")).alias("eng_cndd_cnt")).alias("c")   # 빈도수
-    b.where(F.col("token") == "차콜").show(200, False)
-    # c.show()
-    d = b.join(c, [F.col("b.token") == F.col("b.token"), F.col("b.eng_cndd") == F.col("b.eng_cndd")], 'left')\
-        .select(F.col("b.token"), F.col("b.eng_cndd"), (F.col("b.tf-idf")*F.col('c.eng_cndd_cnt')*F.col("initianl_jcd_sim")).alias("tfidf"))\
-    .withColumn("rnk", F.rank().over(window.Window.partitionBy(F.col('b.token')).orderBy(F.col('tfidf').desc())))\
-        # .where(F.col("rnk") < 3)
-    # d.orderBy(F.col("token")).show(1000, False)
+    c = b.select(F.col('contaion_wd'), F.col('token'), F.col('eng_cndd'), F.col('konglish'),
+              reverse_compare(F.element_at(F.col('konglish'), -1), F.col('eng_cndd')).alias("doing")
+             )\
+        .where(F.col('doing') == True).orderBy(F.col('token'))
+    # c.show(2000, False)
+    # testcase : 피스타치오, 크롭, 허브, 펀칭, 랜덤, 애플티비, 연말, 안경, 파워, 스팅어
 
-    d.groupby(F.col("eng_cndd"),F.col("token"))\
-        .agg(F.count("token").alias("cnts"))\
-        .withColumn("rnks", F.rank().over(window.Window.partitionBy(F.col('token')).orderBy(F.col('cnts').desc())))\
-        .where(F.col("token") == "아디다스").distinct().show(1000, False)
+    d = c.groupby(F.col("token"), F.col("eng_cndd")).agg(F.count(F.col("eng_cndd")).alias("eng_cndd_cnt"))    # 빈도수
+    d.orderBy(F.col("token").desc()).show(2000, False)
+
+    d.coalesce(15).write.format("parquet").mode("overwrite") \
+        .save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/loan_word_cndd/")
+
+    # b.where(F.col("token") == '닌텐도').distinct().orderBy(F.col("tf-idf").desc()).show(2000, False)
+    '''
+        나이키, 코닥, 모닝, 화이트, 헬시.  옵션, 오렌지, 악세서리, 캘린더,  사이즈, 키즈, 닌텐도, 블랙,  레드,  크리스마스, 아디다스,  디올 
+        화이트, 퍼플, 오브엠, 플룻, 오피스, 핫트랙스, 브러쉬, 쿠폰, 밴드, 크리스탈, 패스, 멜란지, 뷰티, 베이비, 삼성, 코어
+        
+        제거 대상 : 남성, 여성, 출력향상, 흡연, 한글숫자, 기능성, 무료배송, 새제품, 생일판, 수동, 긴팔, 태양필터, 크롭에, 발이따뜻, 
+                    부분배송, 상품은, 남성겨울, 본상품선택, 색상랜덤, 부착용, 반사, 선택안함, 마이클코어스, 세대, 방송
+    '''
 
     '''
-    빈도수 * tf-idf 결과로 보면 ???
+        빈도수 * tf-idf 결과로 보면 ??? 안나오네 ...
        중심 : 한국어 토큰 group
        ver1 : prod_nm에 영어 토큰만 남기고 남은 것과 이니셜이랑 가장 유사한 토큰만 보기
        ver2 : prod_nm에 영어 토큰만 남긴 것중 가장 많이 등장한 영어 토큰 보기
@@ -462,14 +536,4 @@ if __name__ == "__main__":
         token 의 초성과 ja Jaccad Similarity 구하기
     '''
 
-    '''
-        나이키, 코닥, 모닝, 화이트, 헬시.  옵션,오렌지, 악세서리, 남성, 여성 
-        화이트
-        블랙
-        레드
-        크리스마스
-        아디다스
-        디올
-    사이즈, 키즈, 닌텐도
-    '''
     exit(0)

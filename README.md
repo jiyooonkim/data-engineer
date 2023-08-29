@@ -37,6 +37,7 @@ Developers with the ability to create good data in big databases.
   - Elasticsearch
   - kibana
   - shell
+  - Hive
 
 ### Todo list & ...ing  
 - 개발  
@@ -51,6 +52,11 @@ Developers with the ability to create good data in big databases.
     - ngram 
   - ML
     - ML 적용하여 학습 예정(커버리지 늘리기 위해)
+  - Search
+    - Elasticsearch 검색엔진 구축 및 이해 
+    - 상품 검색 Inner Keyword 매핑
+    - 오타교정
+    - 형태소 분석기 
   - 그 외
     - Flask 로 간단한 API 구성
 
@@ -59,14 +65,14 @@ Developers with the ability to create good data in big databases.
      - Mongodb
 - 언어    
   - Java
-  - Scala
 
  - 이론 공부
     - BigData
       - Kafka
-      - Hive
       - streaming(spark streaming, Hudi, Kafka)
       - devops
- - Data Engineer로서 겪은 고뇌의 시간들(Q&A)
+ 
+##### 번외      
+ - Data Engineer로서 겪은 고뇌의 Moment and Future(Q&A)  
     
       
