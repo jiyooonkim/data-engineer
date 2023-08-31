@@ -83,7 +83,7 @@ if __name__ == "__main__":
     # tf_idf.groupBy(F.col('token')).agg(F.count(F.col('prod_nm')).alias("cnt")).orderBy(F.col("cnt").desc()).show(1000, False)
     tf_idf.where(F.col("token").like("nike")).distinct().orderBy(F.col("tf-idf").desc()).show(1000, False)
     # tf_idf.orderBy(F.col("tf-idf").desc()).show(1000, False)
-    tf_idf.write.format("parquet").mode("overwrite").save("nlp-engineer/data/parquet/tfidf/")
+    tf_idf.write.format("parquet").mode("overwrite").save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/tfidf/")
     #  코닥, 모닝, 화이트, 헬시
 
 

@@ -312,4 +312,15 @@ def reverse_compare(lst, txt):
 lst = ['[S, TH]', '[I, Y, E]', '0']
 str = 'ktown'
 # print(get_contain_word(lst, str))
-print(reverse_compare(lst, str))
+# print(reverse_compare(lst, str))
+
+
+def ngram(token, n):
+    lst = []
+    for i in range(0, len(token)-n):
+        lst.append(token[i:i+n])
+    print( "lst : ", lst)
+
+token = ['nusskati', '크런치', '땅콩버터', '350g', '9팩', '땅콩버터', '땅콩잼']
+n = 3
+print(ngram(token, n))

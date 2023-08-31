@@ -14,7 +14,7 @@ Developers with the ability to create good data in big databases.
 - 안정적인 플랫폼(Hadoop, python, spark, hive..)구축 및 운영 방법 모색  
 
 ### 구성 및 작업 내용
-- Develop
+- NLP
   - (도량형)속성 사전 구축
   - 검색 내부 키워드(inner keyword)
   - cosine similarity
@@ -23,9 +23,11 @@ Developers with the ability to create good data in big databases.
   - tf-idf
   - word2vec(with skip-gram & cbow)
 
-- nlp
-  - 합성어
-  - 모델명
+- Develop
+  - Dictionary     
+    - 합성어
+    - 모델명
+    - 외래어 
   
 - Platfrom & Doc
   - Hadoop 
@@ -40,16 +42,16 @@ Developers with the ability to create good data in big databases.
   - Hive
 
 ### Todo list & ...ing  
-- 개발  
+- Develop  
   - Dictionary      
     - 유의어
-    - 외래어(loanword)
     - 동의어
     - 브랜드 
     - 시리즈
     - 불용어(stopword)
   - NLP
     - ngram 
+    - Negative Sampling
   - ML
     - ML 적용하여 학습 예정(커버리지 늘리기 위해)
   - Search
@@ -63,7 +65,7 @@ Developers with the ability to create good data in big databases.
 - 환경 세팅(platform)
      - MLOPS
      - Mongodb
-- 언어    
+- Language    
   - Java
 
  - 이론 공부

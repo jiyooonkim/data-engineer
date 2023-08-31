@@ -504,7 +504,7 @@ if __name__ == "__main__":
               reverse_compare(F.element_at(F.col('konglish'), -1), F.col('eng_cndd')).alias("doing")
              )\
         .where(F.col('doing') == True).orderBy(F.col('token'))
-    # c.show(2000, False)
+    c.show(2000, False)
     # testcase : 피스타치오, 크롭, 허브, 펀칭, 랜덤, 애플티비, 연말, 안경, 파워, 스팅어
 
     d = c.groupby(F.col("token"), F.col("eng_cndd")).agg(F.count(F.col("eng_cndd")).alias("eng_cndd_cnt"))    # 빈도수
