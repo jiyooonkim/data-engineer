@@ -50,7 +50,7 @@ Developers with the ability to create good data in big databases.
     - 시리즈
     - 불용어(stopword)
   - NLP
-    - ngram 
+    - Ngram (with Liked Prediction) 
     - Negative Sampling
   - ML
     - ML 적용하여 학습 예정(커버리지 늘리기 위해)
