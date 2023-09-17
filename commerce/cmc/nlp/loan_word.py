@@ -243,7 +243,7 @@ def get_intersection_word(kong, eng):
                     cndd.append(kong[i][j])
                     eng[k] = "-"
 
-    return "".join(cndd).lower() #cndd
+    return "".join(cndd).lower()    # cndd
 
 
 if __name__ == "__main__":
@@ -299,16 +299,20 @@ if __name__ == "__main__":
     get_kor_tkn = prod_nm \
         .where(F.col('only_kor') == True) \
         .groupby(
-        F.col('prod_nm_token'),
-        F.col('only_kor')
-    ).agg(
-        F.collect_list(F.col('prod_nm')).alias('prod_nms')
-    ).where(
-        (F.size(F.col('prod_nms')) > 1)
-    ).alias('get_kor_tkn')
+            F.col('prod_nm_token'),
+            F.col('only_kor')
+        ).agg(
+            F.collect_list(F.col('prod_nm')).alias('prod_nms')
+        ).where(
+            (F.size(F.col('prod_nms')) > 1)
+        ).alias('get_kor_tkn')
 
-    get_kor_tkn = get_kor_tkn.select(F.col('prod_nm_token'), F.col('only_kor'),
-                                     F.explode(F.col('prod_nms')).alias('prod_nm')).alias('get_kor_tkn')
+    get_kor_tkn = get_kor_tkn\
+        .select(
+            F.col('prod_nm_token'),
+            F.col('only_kor'),
+            F.explode(F.col('prod_nms')).alias('prod_nm')
+        ).alias('get_kor_tkn')
     c = get_kor_tkn.select(
         F.col('prod_nm'),
         F.col('prod_nm_token'),
@@ -336,10 +340,11 @@ if __name__ == "__main__":
 
     # 카테고리성 키워드 제거
     get_cate = (
-        (prod.select(F.explode(F.split(F.col('대분류'), "/")))). \
-            union(prod.select(F.explode(F.split(F.col('중분류'), "/")))). \
-            union(prod.select(F.explode(F.split(F.col('소분류'), "/"))))
-    ).distinct().alias('get_cate')
+            (prod.select(F.explode(F.split(F.col('대분류'), "/"))))
+            .union(prod.select(F.explode(F.split(F.col('중분류'), "/"))))
+            .union(prod.select(F.explode(F.split(F.col('소분류'), "/"))))
+        ).distinct()\
+        .alias('get_cate')
 
     except_cate = get_cndd_eng.join(get_cate, F.col('prod_nm_token') == F.col('col'), 'leftanti').alias("except_cate")
 
@@ -399,8 +404,10 @@ if __name__ == "__main__":
         "/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/loan_word_cndd_eng/")
 
     aa = get_cndd_kor \
-        .join(except_cate, [F.col('get_cndd_kor.prod_nm_token') == F.col("except_cate.prod_nm_token_cndd"),
-                            F.col('get_cndd_kor.prod_nm_token_cndd') == F.col("except_cate.prod_nm_token")], 'inner') \
+        .join(except_cate,
+              [F.col('get_cndd_kor.prod_nm_token') == F.col("except_cate.prod_nm_token_cndd"),
+               F.col('get_cndd_kor.prod_nm_token_cndd') == F.col("except_cate.prod_nm_token")],
+              'inner') \
         .select(
             F.col('get_cndd_kor.prod_nm_token').alias("prod_nm_token_1"),
             F.col('get_cndd_kor.prod_nm_token_cndd').alias("prod_nm_token_cndd_1"),
@@ -445,11 +452,11 @@ if __name__ == "__main__":
 
     # todoL tf-idf 결과로 token(한국어) - prod_nm(영어만 남기기) df 생성후 이니셜 포함 확률 구해보기
     # 코닥, 모닝, 화이트, 헬시
-    tf_idf = spark.read.parquet("nlp-engineer/data/parquet/tfidf/")\
+    tf_idf = spark.read.parquet("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/tfidf/")\
         .select(
             F.trim(
-                F.regexp_replace(
-                F.regexp_replace(F.lower(F.col('token')), "[^가-힣]", ' '), r"\s+", ' '
+                    F.regexp_replace(
+                    F.regexp_replace(F.lower(F.col('token')), "[^가-힣]", ' '), r"\s+", ' '
                 )
             ).alias("token"),
             F.explode(
@@ -462,7 +469,9 @@ if __name__ == "__main__":
                 )
             ).alias('eng_cndd'),
             F.col("tf-idf")
-        ).where((F.length(F.col("eng_cndd")) > 2) & (F.length(F.col("token")) > 1)).where(~F.col("token").isin(" ")).distinct()\
+        ).where((F.length(F.col("eng_cndd")) > 2) & (F.length(F.col("token")) > 1))\
+        .where(~F.col("token").isin(" "))\
+        .distinct()\
         .alias("tf_idf")
 
     tf_idf = tf_idf.join(get_cate, F.col('token').contains(F.col('col')), 'leftanti').alias("tf_idf")
@@ -489,7 +498,7 @@ if __name__ == "__main__":
         )
     b = a.withColumn("ja", convert_eng_to_kor(F.col("eng_cndd")))\
         .withColumn("jaso_jcd_sim", get_location_jaccard_sim(F.col("ja"), F.col("jaso"))) \
-        .where(F.length(F.col("token"))< F.length(F.col("eng_cndd")))\
+        .where(F.length(F.col("token")) < F.length(F.col("eng_cndd")))\
         .withColumn("contaion_wd", get_chosung_contain_word(F.col('konglish')[0], F.col('eng_cndd')))\
         .where(F.col('contaion_wd') == True)\
         .distinct()
@@ -504,11 +513,10 @@ if __name__ == "__main__":
               reverse_compare(F.element_at(F.col('konglish'), -1), F.col('eng_cndd')).alias("doing")
              )\
         .where(F.col('doing') == True).orderBy(F.col('token'))
-    c.show(2000, False)
     # testcase : 피스타치오, 크롭, 허브, 펀칭, 랜덤, 애플티비, 연말, 안경, 파워, 스팅어
 
     d = c.groupby(F.col("token"), F.col("eng_cndd")).agg(F.count(F.col("eng_cndd")).alias("eng_cndd_cnt"))    # 빈도수
-    d.orderBy(F.col("token").desc()).show(2000, False)
+    # d.orderBy(F.col("token").desc()).show(2000, False)
 
     d.coalesce(15).write.format("parquet").mode("overwrite") \
         .save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/loan_word_cndd/")
@@ -535,5 +543,27 @@ if __name__ == "__main__":
         영어 -> 한글 컨버터 개발 -> 자소 분리결과 & 영어 토큰 중복 문자 비교
         token 의 초성과 ja Jaccad Similarity 구하기
     '''
+
+    ''' Ver2 - By ngram candidate '''
+    loan_wd_cndd1_by_ngram = spark.read.parquet('/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/loan_wd_cndd1_by_ngram')\
+        .select(F.col('toks')[0].alias('eng_tkn'), F.col('toks')[1].alias('kor_tkn'))\
+        .alias('loan_wd_cndd1_by_ngram')
+    a = loan_wd_cndd1_by_ngram\
+        .groupby(F.col('kor_tkn'),F.col('eng_tkn'))\
+        .agg(F.count(F.col('eng_tkn')).alias('cnt'))\
+        .withColumn(
+            'rnk',
+            F.rank().over(window.Window.partitionBy(F.col('kor_tkn')).orderBy(F.col('cnt').desc()))
+        ).where(F.length(F.col('kor_tkn')) > 1).where(F.col('rnk') < 2)
+
+
+    b = a.withColumn("jaso", get_jaso(F.regexp_replace(F.col('kor_tkn'), "[^가-힣]", ''))) \
+        .withColumn("initial", convert_kor_to_initial(F.col("jaso"))) \
+        .withColumn("konglish", get_konglish(F.col("jaso"))) \
+        # .withColumn("initianl_jcd_sim", get_jaccard_sim(F.col("initial"), F.col("prod_nm_token"))) \
+        # .withColumn("intersection_word", get_intersection_word(F.col("konglish"), F.col("prod_nm_token")))
+    b.where(F.col('eng_tkn').substr(0, 1) == F.col('initial').substr(0, 1))\
+        .orderBy(F.col('kor_tkn'))\
+        .show(1000, False)
 
     exit(0)

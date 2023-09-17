@@ -58,7 +58,7 @@ if __name__ == "__main__":
         .select(F.regexp_replace(F.col('_c2'), "[^a-zA-Zㄱ-힝0-9]", ' ').alias("shipping_nm")) \
         .withColumn(
             "shp_nm_token",
-            F.explode(F.split(F.regexp_replace(F.lower(F.col('shipping_nm')), ' ', ','), ","))  # 영,한,숫 이외 제거 및 토큰화 작업
+            F.explode(F.split(F.regexp_replace(F.lower(F.trim(F.col('shipping_nm'))), ' ', ','), ","))  # 영,한,숫 이외 제거 및 토큰화 작업
         ).where(
             F.col('shp_nm_token') != ""
         ).repartition(500, F.col('shp_nm_token')) \
@@ -116,7 +116,7 @@ if __name__ == "__main__":
         .where((F.col('num_cnt') >= F.col('eng_cnt')) | (F.col('num_cnt') >= F.col('kor_cnt')))\
         .where((F.col('num_cnt') >= 1) & (F.col('eng_cnt') < 3))\
         .where((F.col('num_cnt') >= 1) & (F.col('kor_cnt') < 3))\
-        .where(((F.col('num_cnt') > 0) &(F.col('eng_cnt') > 0)) | ((F.col('kor_cnt') > 0) & (F.col('num_cnt') > 0)))\
+        .where(((F.col('num_cnt') > 0) & (F.col('eng_cnt') > 0)) | ((F.col('kor_cnt') > 0) & (F.col('num_cnt') > 0)))\
         .where(~(F.col('shp_nm_token').like("%원")))\
         .where((F.col('txt_tps').like("%num kor kor")) | (F.col('txt_tps').like("%num eng eng")))
     # msr_attr_2.show(10000, False)
@@ -125,6 +125,7 @@ if __name__ == "__main__":
     msr_attr = (msr_attr_1.unionAll(msr_attr_2)).where(F.length(F.col('shp_nm_token')) < 7).distinct()
     msr_attr.select(F.count(F.col('shp_nm_token'))).show()
     # msr_attr.coalesce(15).write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/dictionary/measures_attribution/")  # save hdfs
-    msr_attr.write.format("parquet").mode("overwrite").save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/measures_attribution/")  # save hdfs
+    msr_attr.write.format("parquet").mode("overwrite")\
+        .save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/measures_attribution/")  # save hdfs
 
     exit(0)

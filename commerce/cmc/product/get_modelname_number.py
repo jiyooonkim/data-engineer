@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 '''
-title : 모델명 추출
-desc : - 영+숫 타입 추출
-모델번호 != 상품번호 != 모델명
-only number : 모델번호
+    title : 모델명 추출
+    desc : - 영+숫 타입 추출
+    모델번호 != 상품번호 != 모델명
+    only number : 모델번호
 '''
 
 from pyspark.sql import SparkSession
@@ -133,7 +133,8 @@ if __name__ == "__main__":
                                                 F.col('token').alias('model_nm')
                                             ).alias('model_nm_cndd_2')    # todo : 첫글자, 마지막글자 -(dash) 인것 삭제
     model_nm = (model_nm_cndd_1.union(model_nm_cndd_2)).distinct()
-    model_nm.write.format("parquet").mode("overwrite").save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/model_name/")
+    model_nm.write.format("parquet").mode("overwrite")\
+        .save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/model_name/")
 
     # 번외 : 속성 추출 : eng , num 개수로 판별 하기
     get_attr = get_token_info\
@@ -160,7 +161,8 @@ if __name__ == "__main__":
         ).alias('msr_cndd')
     # msr_cndd.distinct().orderBy(F.col('cnt').desc()).show(10000, False)
     msr_attr = msr_cndd.join(get_attr, F.col('token').contains(F.col('msr'))).select(F.col('get_attr.token')).distinct()
-    msr_attr.write.format("parquet").mode("overwrite").save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/measures_attribution_ver2/")
+    msr_attr.write.format("parquet").mode("overwrite")\
+        .save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/measures_attribution_ver2/")
 
     # get_attr = get_attr.sample(0.5)
     # get_attr.show(10, False)

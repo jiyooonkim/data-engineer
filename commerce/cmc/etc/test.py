@@ -324,3 +324,23 @@ def ngram(token, n):
 token = ['nusskati', '크런치', '땅콩버터', '350g', '9팩', '땅콩버터', '땅콩잼']
 n = 3
 print(ngram(token, n))
+
+
+
+
+def get_kor(wd):
+    import re
+    reg = re.compile(r'[가-힣a-zA-Z]')
+    hangul = re.compile(u'[^a-z]+')
+    res = hangul.sub(u'', wd)
+    res = reg.sub(u'', res)
+    print("res  : ", res)
+    if res: # kor+ eng
+
+        return True
+    else:   # only kor
+        return False
+
+# hangul = re.compile(u'[^a-z]+')
+wd = '透明투명'
+print(get_kor(wd))

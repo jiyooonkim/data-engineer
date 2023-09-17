@@ -52,27 +52,30 @@ Developers with the ability to create good data in big databases.
   - NLP
     - Ngram (with Liked Prediction) 
     - Negative Sampling
-  - ML
-    - ML 적용하여 학습 예정(커버리지 늘리기 위해)
+  - ML(적용하여 학습 예정(커버리지 늘리기 위해)) 
+    - RNN
+    - TenserFlow
+    - keras
+    - Scikit-Learn
   - Search
-    - Elasticsearch 검색엔진 구축 및 이해 
+    - Elasticsearch 검색 엔진 구축 및 이해 
     - 상품 검색 Inner Keyword 매핑
-    - 오타교정
+    - 오타 교정
     - 형태소 분석기 
   - 그 외
     - Flask 로 간단한 API 구성
 
-- 환경 세팅(platform)
-     - MLOPS
+- 환경 세팅(Platform)
+     - MLops
      - Mongodb
 - Language    
   - Java
 
- - 이론 공부
-    - BigData
-      - Kafka
-      - streaming(spark streaming, Hudi, Kafka)
-      - devops
+- 이론 공부
+   - BigData
+     - Kafka
+     - streaming(spark streaming, Hudi, Kafka)
+     - devops
  
 ##### 번외      
  - Data Engineer로서 겪은 고뇌의 Moment and Future(Q&A)  

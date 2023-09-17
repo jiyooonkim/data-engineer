@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-# title : pyspark 에서 제공하는 MLlib 사용
+# title : pyspark 에서 제공하는 MLlib 테스트
 # doc :  https://spark.apache.org/docs/1.4.1/mllib-feature-extraction.html#word2vec
 # Date : 2023-02-04
 # desc :

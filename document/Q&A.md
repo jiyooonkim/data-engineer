@@ -10,7 +10,7 @@
         (Airflow Rest API 와 Flask를 이용하여 Airflow 웹 컨트롤러?는 해볼만 하다 생각합니다. )    
   </br>
   * Q. 서버에 접속하지 않고, 직접 개발 하지 않고 Airflow UI에서 마우스 클릭으로만 작업을 하고 싶습니다. 가능한가요?   
-    A. 참... 글쎄요.. 저도 그런게 있으면 좋겠습니다. 위 기능을 만드신 분이 있다면 저도 공유부탁드립니다.    
+    A. 참... 글쎄요.. 저도 그런게 있으면 좋겠습니다. 위 기능을 만드신 분이 있다면 저도 공유 부탁드립니다.    
     </br>
   * Q. 운영에 있어 Data pipeline 및 Airflow 쉬운 관리 방법이 있을까요?    
     A. 현재 상황은 하나의 Dag 안에 많은 task 과정들이 있습니다.     
@@ -32,10 +32,15 @@
   * Q.      
     A. 
     </br>
-  
+
   * Airflow 는 단순 스케줄링 툴입니다. 내부에 어떤 작업이 어떻게 돌아가고 있는지가 중요합니다.     
     이상입니다.   
 
+
+**Hive**
+  * Q. hdfs put은 overwrite 가 되는데, hivewarehouse에 hdfs로 파일 이동시 append parquet file을 하고 싶습니다.
+    A. copyFromLocal 을 사용해보세요.
+  </br>
 
 
 

@@ -16,7 +16,7 @@
         - 희소(sparsity) : N개의 단어를 연속적으로 갖는 문장자체가 드물다
         - 상충(trade-off) : N값의 크기(너무 크거나작거나), N=5를 권장, 희소문제 연관성
         -
-
+# todo : 외래어 후보 (2개 타입) 구한것 다시 해보기
 """
 
 from pyspark.sql import SparkSession
@@ -32,6 +32,61 @@ def get_gram(token, n):
         if len(token[i:i+n]) == n:
             lst.append(token[i:i+n])
     return lst
+
+
+@F.udf(returnType=T.StringType())
+def get_token_type(col):
+    val = ''
+    if col.encode().isalpha():  # only eng
+        val = 'eng'
+    if col.isalpha():  # eng+kor, kor
+        val = 'kor'
+    if col.isdigit():   # 숫자만
+        val = 'num'
+    # isalnum() # 영어/한글 + 숫자
+    return val
+
+
+@F.udf(returnType=T.ArrayType(T.ArrayType(T.StringType())))
+def get_txt_type(col):  # txt type in list
+    lst = []
+    for sub_lst in col:
+        s_lst = []
+        sub_lst = str(sub_lst).replace('[', '').replace(']', '').replace("'", "").split(', ')
+        for wd in sub_lst:
+            if wd.encode().isalpha():  # only eng
+                s_lst.append('eng')
+            elif wd.isalpha():  # eng+kor, kor
+                import re
+                # reg = re.compile(r'[가-힣a-zA-Z]')
+                res = re.compile(u'[^a-z]+').sub(u'', wd)
+                # res = re.compile(r'[가-힣a-zA-Z]').sub(u'', res)
+                # res = reg.sub(u'', res)
+                if res:     # kor + eng
+                    s_lst.append('engkor')
+                else:       # only kor
+                    s_lst.append('kor')
+
+            elif wd.isdigit():   # 숫자만
+                s_lst.append('num')
+            elif wd.isalnum():   # 영어/한글 + 숫자
+                s_lst.append('txtnum')
+            else:
+                s_lst.append('etc')
+        lst.append(s_lst)
+    return lst
+
+
+@F.udf(returnType=T.ArrayType(T.ArrayType(T.StringType())))
+def find_kwd_set(token, lst):
+    # 토큰이 포함된 ngram set 찾기
+    # input ex=> token::나이키    lst::[[런닝화, 1개], [1개, 나이키], [나이키, 다운시프터12], [다운시프터12, 런닝화], [런닝화, dd9293]]
+    rtn_lst = []
+    for i in lst:
+        for kwd in i:
+            if kwd == token:
+                rtn_lst.append(i)
+    return rtn_lst
 
 
 if __name__ == "__main__":
@@ -63,8 +118,7 @@ if __name__ == "__main__":
     prod = (prod_1.union(prod_2))\
         .select(F.col('상품명').alias('prod_nm'), F.split(F.lower(F.col('prod_nm')), " ").alias("prod_nm_tkns"))\
         .withColumn("bi_gram", get_gram(F.col("prod_nm_tkns"), F.lit("2").cast(T.IntegerType())))\
-        .withColumn("tri_gram", get_gram(F.col("prod_nm_tkns"), F.lit("3").cast(T.IntegerType())))\
-        .withColumn("4_gram", get_gram(F.col("prod_nm_tkns"), F.lit("4").cast(T.IntegerType())))
+        .withColumn("tri_gram", get_gram(F.col("prod_nm_tkns"), F.lit("3").cast(T.IntegerType())))
 
     '''
         <Linked prediction단어 예측>
@@ -73,7 +127,8 @@ if __name__ == "__main__":
             - 불용어 제거
             - 구둣점, 특수문자 제거 
          - scalability
-            - 오타교정 : 철자 단위 앞뒤로 어떤 문자들이 많이 왔는가 -> 정타 사전 구축 가능 할듯 , 가지고 있는 오타가 많이 없으니
+            - 오타교정 : 철자 단위 ngram한다면, 앞뒤로 어떤 문자들이 많이 왔는가 -> 정타 사전 구축 가능 할듯 , 가지고 있는 오타가 많이 없으니
+            - Loan word : [English, Korean, English ..] 형 
     '''
     '''
         step1. 상품 유사도 구한걸로 linked precition 해보기 
@@ -81,7 +136,38 @@ if __name__ == "__main__":
         ex)
             [여성,나이키], [운동화,여성]      예측결과물:  [나이키,운동화] 
     '''
-    a = prod.select(F.explode(F.col("bi_gram")))
-    a.show(50, False)
+
+    b = spark.read.parquet('/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/tfidf/')\
+        .withColumn("prod_nm_tkns", F.split(F.lower(F.trim(F.regexp_replace(F.col('prod_nm'), r" +", ' '))), " "))\
+        .where(F.length(F.col('token')) > 1)\
+        .withColumn("bi_gram", get_gram(F.col("prod_nm_tkns"), F.lit("2").cast(T.IntegerType())))\
+        .withColumn("find_tkn", find_kwd_set(F.col('token'), F.col('bi_gram')))
+
+    # .withColumn("txt_tp", get_txt_type(F.col("bi_gram"))) \
+    # b.where(F.col('token').like('나이키')).select(F.col('token'), F.col('tf-idf'), F.col('bi_gram'),F.col('find_tkn'))\
+    #     .orderBy(F.col('tf-idf')).show(100, False)
+
+    # b.where(F.col('token') == '프리미엄').select(F.col('prod_nm'), F.col('token'), F.col('tf-idf'), F.explode(F.col('find_tkn')).alias('ngram_set')).orderBy(F.col('tf-idf')).show(100, False)
+    # b.groupby(F.col('token')).agg(F.count(F.col('token')).alias('cnt')).orderBy(F.col('cnt').desc()).show(1000, False)
+    '''
+        가설 : 한글,영어 or 영어,한글 형식이면 
+        todo : loan word 확률 ?? 얼마나??  
+    '''
+    # b.withColumn("aaaaaa", get_txt_type(F.col("find_tkn"))).show(100, False)
+    get_loan_wd_target = b.select(F.explode(F.col('find_tkn')).alias('toks')).withColumn('tp', get_txt_type(F.col("toks")))
+
+    loan_wd_cndd1 = get_loan_wd_target.where(F.col('tp')[1][0] == 'kor').where(F.col('tp')[0][0] == 'eng')\
+        .where(F.length(F.col('toks')[1]) < F.length(F.col("toks")[0]))
+    loan_wd_cndd1.show()
+    loan_wd_cndd1.write.format("parquet").mode("overwrite").save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/loan_wd_cndd1_by_ngram/")
+
+    loan_wd_cndd2 = get_loan_wd_target.where(F.col('tp')[1][0] == 'eng').where(F.col('tp')[0][0] == 'kor') \
+        .where(F.length(F.col('toks')[1]) > F.length(F.col("toks")[0]))
+    loan_wd_cndd2.write.format("parquet").mode("overwrite").save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/loan_wd_cndd2_by_ngram/")
+
+    b\
+        .select(F.col("token"), F.col("find_tkn"), F.col('tf-idf'), get_txt_type(F.col("find_tkn")).alias('tkn_tp'))\
+        .where(F.size(F.col('find_tkn')) > 1).where(F.col('tkn_tp')[0][1] == 'kor').where(F.col('tkn_tp')[1][1] != 'num')\
+        .show(1000, False)
 
     exit(0)

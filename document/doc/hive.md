@@ -54,6 +54,8 @@
   + WHERE 조건에서 함수 피하기
   + OR 조건 피하기
 </br></br>  
+
+
 ##### Solved Problem
 + 문제 :데이터 건수는 8만건정돈데 vertex error 가 발생 한다.  
 + 특징 : 총 column 개수는 20개, row는 8만, 특정 column value 전부 null 값   
@@ -65,6 +67,21 @@
   + 전부 null value 로만 된 컬럼 찾아 case when으로 공백 처리   
   ![img_37.png](..%2Fplatform%2Fimg%2Fimg_37.png)
 
++ 문제 : hive external table에는 partitionby 존재, hivewarehouse에는 파티션단위 파일이 아닐경우 데이터가 dbeaver에서 보이지 않는다.
++ 환경 : hdfs, hive   
++ 해결방법 
+  + 1. DDL에 partitionby를 제외
+  + 2. hivewarehouse에 파티션단위(디렉토리)단위 적재
+
+
+##### Managed table & External table
++ Managed table
+  + hive.metastore.warehouse.dir 경로에 존재, 해당 디렉터리 하위에 테이블의 데이터가 저장
+  + 해당 경로에 테이블이 만들어지고 테이블을 삭제하는 경우 hdfs 경로에 있는 데이터 역시 함께 삭제
++ External table
+  + hive.metastore.warehouse.dir 경로에 생성되지 않음
+  + 테이블 생성시 Location을 지정
+  + hive 테이블 제거해도 실제 hdfs상에 있는 데이터는 지워지지 않고 그대로 유지
 
 ##### Manage Metaster 
 
