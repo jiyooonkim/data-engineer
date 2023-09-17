@@ -15,7 +15,10 @@
         - 정확도 : N개 연속된 단어만 고려하기 떄문에 문장의 맥락이 안맞을 수 있음
         - 희소(sparsity) : N개의 단어를 연속적으로 갖는 문장자체가 드물다
         - 상충(trade-off) : N값의 크기(너무 크거나작거나), N=5를 권장, 희소문제 연관성
-        -
+# available :
+    - Inner keyword 후보로 사용(상품명에 없는 키워드라도 관련 있는 키워드는 사용가능)
+        ex) "삼성 도어락" 질의시, Ngram&Linked prediction 결과로 매핑된 후보 키워드들로 노출 가능
+            ['삼성', ' 도어락']['삼성', 'SHP-DR700']['도어락', 'SHP-DR700']
 # todo : 외래어 후보 (2개 타입) 구한것 다시 해보기
 """
 
@@ -158,16 +161,17 @@ if __name__ == "__main__":
 
     loan_wd_cndd1 = get_loan_wd_target.where(F.col('tp')[1][0] == 'kor').where(F.col('tp')[0][0] == 'eng')\
         .where(F.length(F.col('toks')[1]) < F.length(F.col("toks")[0]))
-    loan_wd_cndd1.show()
     loan_wd_cndd1.write.format("parquet").mode("overwrite").save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/loan_wd_cndd1_by_ngram/")
 
     loan_wd_cndd2 = get_loan_wd_target.where(F.col('tp')[1][0] == 'eng').where(F.col('tp')[0][0] == 'kor') \
         .where(F.length(F.col('toks')[1]) > F.length(F.col("toks")[0]))
     loan_wd_cndd2.write.format("parquet").mode("overwrite").save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/loan_wd_cndd2_by_ngram/")
 
-    b\
+    c = b.where((F.col('token') == '골프화') | (F.col('token') == '나이키'))\
         .select(F.col("token"), F.col("find_tkn"), F.col('tf-idf'), get_txt_type(F.col("find_tkn")).alias('tkn_tp'))\
         .where(F.size(F.col('find_tkn')) > 1).where(F.col('tkn_tp')[0][1] == 'kor').where(F.col('tkn_tp')[1][1] != 'num')\
         .show(1000, False)
+
+
 
     exit(0)
