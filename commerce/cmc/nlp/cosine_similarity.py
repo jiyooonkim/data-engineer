@@ -80,7 +80,7 @@ if __name__ == "__main__":
             .config('spark.sql.repl.eagerEval.enabled', True) \
             .getOrCreate()
 
-    prod = spark.read.parquet('hdfs://localhost:9000/test/prod2/') \
+    prod = spark.read.parquet('/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/prod2/') \
         .select(
             F.trim(
                 F.regexp_replace(
@@ -140,7 +140,7 @@ if __name__ == "__main__":
             F.rank().over(window.Window.partitionBy(F.col('prod_nm_1')).orderBy(F.col('cosine_similarity')))
         ).where(F.col('rnk') < 5)   # 가장 유사한 상위 5개만
     # get_vector.orderBy(F.col('prod_nm_1').desc(), F.col('cosine_similarity').desc()).show(100, False)
-
-    get_vector.write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/cosine_similarity")
+    get_vector.show(100, False)
+    # get_vector.write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/cosine_similarity")
 
     exit(0)

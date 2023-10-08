@@ -343,4 +343,6 @@ def get_kor(wd):
 
 # hangul = re.compile(u'[^a-z]+')
 wd = '透明투명'
-print(get_kor(wd))
+# print(get_kor(wd))
+
+print("abdaeㅁㄴㅇrae".encode().isalpha())

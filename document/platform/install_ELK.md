@@ -48,7 +48,7 @@
   <img src = "img/img_31.png" width = "350" height = "140"/>        
 
 
-## Elasticsearch 사용법/명령
+## Elasticsearch 사용법/명령모음
    * CRUD(입력, 조회, 수정, 삭제)
      * Create = put    
      * Read = get       

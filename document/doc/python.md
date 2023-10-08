@@ -32,3 +32,11 @@
 + Jython : Java로 구현한 python, JVM 에서 실행할 수 있음
 + pypy : python 으로 구현한 python
  
+
+#### python string prefix 
++ prefix :
+  + r : raw 
+  + b : bytes 의미, 
+  + u :
+  + f : format 사용시       
+    ex ) name = "JY" print(f"My name is {name})

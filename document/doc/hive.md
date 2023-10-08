@@ -79,8 +79,8 @@
   + hive.metastore.warehouse.dir 경로에 존재, 해당 디렉터리 하위에 테이블의 데이터가 저장
   + 해당 경로에 테이블이 만들어지고 테이블을 삭제하는 경우 hdfs 경로에 있는 데이터 역시 함께 삭제
 + External table
-  + hive.metastore.warehouse.dir 경로에 생성되지 않음
-  + 테이블 생성시 Location을 지정
+  + hive.metastore.warehouse.dir 경로에 생성되지 않음   
+  + 테이블 생성시 Location을 지정   
   + hive 테이블 제거해도 실제 hdfs상에 있는 데이터는 지워지지 않고 그대로 유지
 
 ##### Manage Metaster 

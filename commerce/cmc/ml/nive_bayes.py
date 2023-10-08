@@ -9,6 +9,9 @@
         - BernoulliNB : 베르누이분포
         - MultinomialNB : 다항분포
 
+    # Refer :
+        - https://bkshin.tistory.com/entry/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D-1%EB%82%98%EC%9D%B4%EB%B8%8C-%EB%B2%A0%EC%9D%B4%EC%A6%88-%EB%B6%84%EB%A5%98-Naive-Bayes-Classification
+
 '''
 
 from pyspark.sql import SparkSession
@@ -37,4 +40,17 @@ if __name__ == "__main__":
         option('header', True). \
         csv("/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/nvr_prod.csv") \
         .select(F.col('상품명'), F.col('대분류'), F.col('중분류'), F.col('소분류'))
+
+    prod_1.show()
+    prod_1.select(F.count(F.col('상품명'))).show()
+    '''
+        - 사건 B가 일어난 후 사건 A가 일어날 확률
+        1. 전제: 두 사건 A, B가 있고, 사건 B가 발생한 이후에 사건 A가 발생한다고 가정한다.
+        2. 정의: 사건 B가 일어난 후 사건 A가 일어날 확률이다.
+        3. P(A): 사건 A가 일어날 확률
+        4. P(B): 사건 B가 일어날 확률 = 사건 A가 발생하기 전 사건 B가 일어날 확률 = 사전확률
+        5. P(A¦B): 사건 B가 일어난 후 사건 A가 일어날 확률 = 조건부 확률
+        6. P(B¦A): 사건 A가 일어났을 때 사건 B가 앞서 일어났을 확률 = 사후확률
+    '''
+    #
 
