@@ -79,7 +79,6 @@ def find_kwd_set(token, lst):
     return rtn_lst
 
 
-
 if __name__ == "__main__":
     spark = SparkSession.builder \
         .appName('Compound word Job') \
@@ -106,7 +105,7 @@ if __name__ == "__main__":
         .where(F.length(F.col('token')) > 1)\
         .withColumn("bi_gram", get_gram(F.col("prod_nm_tkns"), F.lit("2").cast(T.IntegerType())))\
         .withColumn("find_tkn", find_kwd_set(F.col('token'), F.col('bi_gram')))
-    b.where(F.col("prod_nm").like("%도어락%")).show(100, False)
+    # b.where(F.col("prod_nm").like("%도어락%")).show(100, False)
     # .withColumn("txt_tp", get_txt_type(F.col("bi_gram"))) \
     # b.where(F.col('token').like('나이키')).select(F.col('token'), F.col('tf-idf'), F.col('bi_gram'),F.col('find_tkn'))\
     #     .orderBy(F.col('tf-idf')).show(100, False)
@@ -145,7 +144,7 @@ if __name__ == "__main__":
     c = b\
         .select(F.col("token"), F.col("find_tkn"), F.col('tf-idf'), get_txt_type(F.col("find_tkn")).alias('tkn_tp'))\
         # .where(F.size(F.col('find_tkn')) > 1).where(F.col('tkn_tp')[1][1] != 'num')#.sample(0.5)
-    c.where(F.col("token") == '혜강씨큐리티').show(1000, False)
+    # c.where(F.col("token") == '혜강씨큐리티').show(1000, False)
     '''
         todo : ['삼성', ' 도어락'] + ['삼성', 'SHP-DR700'] = ['도어락', 'SHP-DR700'] 형태 만들기!!
     '''
@@ -163,23 +162,27 @@ if __name__ == "__main__":
                                         )
                                 )
                         ).select(F.col('token'), F.col('find_tkn'), F.col('fst_end_1')).distinct()
-    # c.write.format("parquet").mode("overwrite").save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/test/")
+    c.write.format("parquet").mode("overwrite").save("data/parquet/test/")
 
     d = spark.read.parquet("data/parquet/test/")
-    # d.select(F.count(F.col('fst_end_1'))).show(10, False)
-    d.where(F.col("token") =='나이키').show(1000, False)
+    d.where(F.col('token') == '삼성스마트도어록').show(1000, False)
     '''
         <결과>
             - 연속된 단어들로만 보기때문에 정확도, 희소 문제 발생 
             - 중첩되는 토큰 중심으로 매핑되는 단어 찾기 힘듦 
-            todo : 토크나이징 후 2개 토큰 묶음 생성      
-                ex) 혜강씨큐리티 싱크 디지털도어락 SB500 => [혜강씨큐리티, 싱크], [혜강씨큐리티, 디지털도어락], [혜강씨큐리티, SB500], [싱크, 디지털도어락] .....
+            todo : 토크나이징 후 3개 토큰 묶음 생성      
+                ex) 혜강씨큐리티 싱크 디지털도어락 SB500 => [혜강씨큐리티, 싱크, 디지털도어락], [혜강씨큐리티, 디지털도어락, SB500] .....
         <Linked prediction 기반 단어 예측>
-         - Cosideration 
+         todo : 
             - N Size 
             - 불용어 제거
             - 구둣점, 특수문자 제거 
         
     '''
+    b.show()
 
     exit(0)
+    """
+        todo :
+         모델명에 대한 상품 정보/특징 매핑 해보기 (색상, 상품명, 상품번호, 브랜드, 성별, 카테고리 등...)
+    """

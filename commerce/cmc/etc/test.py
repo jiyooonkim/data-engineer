@@ -342,7 +342,11 @@ def get_kor(wd):
         return False
 
 
-
-import os
-os.chdir('../../')
-print(os.getcwd())
+def get_triple_token(tks):
+    total=[]
+    for i in range(0, len(tks)):
+        for j in range(i, len(tks)):
+            for k in range(j, len(tks)):
+                total.append([tks[i], tks[j], tks[k]])
+tks = []
+print(get_triple_token(tks))
