@@ -10,7 +10,8 @@ tf-idf : 검색쿼리 적절성 판단 시
 """
 from pyspark.sql import SparkSession
 import pyspark.sql.functions as F
-
+import os
+os.chdir('../../../')
 
 if __name__ == "__main__":
     spark = SparkSession.builder \
@@ -29,15 +30,19 @@ if __name__ == "__main__":
 
     df1 = spark.read. \
         option('header', True). \
-        csv('/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/nvr_prod.csv')\
+        csv('commerce/data/nvr_prod.csv')\
         .select(F.col("상품명")).distinct()
     df2 = spark.read. \
         option('header', True). \
-        csv("/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/nvr_prod_2.csv")\
+        csv("commerce/data/nvr_prod_2.csv")\
         .select(F.col("상품명")).distinct()
-    shipping_df = spark.read.csv("/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/송장명.csv")\
+    shipping_df = spark.read.csv("commerce/data/송장명.csv")\
         .select(F.col("_c2").alias("상품명")).distinct()
-    total_df = (df1.unionByName(df2, allowMissingColumns=True).unionByName(shipping_df, allowMissingColumns=True)).distinct().alias("total_df") 
+    total_df = (
+                    df1
+                    .unionByName(df2, allowMissingColumns=True)
+                    .unionByName(shipping_df, allowMissingColumns=True)
+                ).distinct().alias("total_df")
     ori_df = total_df.\
         select(
             F.regexp_replace(F.col('상품명'), "[^a-zA-Zㄱ-힝0-9]", ' ').alias("prod_nm"),
@@ -83,7 +88,7 @@ if __name__ == "__main__":
     # tf_idf.groupBy(F.col('token')).agg(F.count(F.col('prod_nm')).alias("cnt")).orderBy(F.col("cnt").desc()).show(1000, False)
     tf_idf.where(F.col("token").like("nike")).distinct().orderBy(F.col("tf-idf").desc()).show(1000, False)
     # tf_idf.orderBy(F.col("tf-idf").desc()).show(1000, False)
-    tf_idf.write.format("parquet").mode("overwrite").save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/tfidf/")
+    tf_idf.write.format("parquet").mode("overwrite").save("data/parquet/tfidf/")
     #  코닥, 모닝, 화이트, 헬시
 
 

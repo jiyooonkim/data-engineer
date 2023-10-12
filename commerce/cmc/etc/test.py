@@ -341,8 +341,8 @@ def get_kor(wd):
     else:   # only kor
         return False
 
-# hangul = re.compile(u'[^a-z]+')
-wd = '透明투명'
-# print(get_kor(wd))
 
-print("abdaeㅁㄴㅇrae".encode().isalpha())
+
+import os
+os.chdir('../../')
+print(os.getcwd())

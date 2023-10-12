@@ -24,7 +24,8 @@
 
     - 오타교정 : 철자 단위 ngram한다면, 앞뒤로 어떤 문자들이 많이 왔는가 -> 정타 사전 구축 가능 할듯 , 가지고 있는 오타가 많이 없으니
 """
-
+import os
+os.chdir('../../../')
 from pyspark.sql import SparkSession
 import pyspark.sql.functions as F
 import pyspark.sql.types as T
@@ -100,7 +101,7 @@ if __name__ == "__main__":
         ex)
             [여성,나이키], [운동화,여성]      예측결과물:  [나이키,운동화] 
     '''
-    b = spark.read.parquet('/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/tfidf/')\
+    b = spark.read.parquet('data/parquet/tfidf/')\
         .withColumn("prod_nm_tkns", F.split(F.lower(F.trim(F.regexp_replace(F.col('prod_nm'), r" +", ' '))), " "))\
         .where(F.length(F.col('token')) > 1)\
         .withColumn("bi_gram", get_gram(F.col("prod_nm_tkns"), F.lit("2").cast(T.IntegerType())))\
@@ -164,7 +165,7 @@ if __name__ == "__main__":
                         ).select(F.col('token'), F.col('find_tkn'), F.col('fst_end_1')).distinct()
     # c.write.format("parquet").mode("overwrite").save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/test/")
 
-    d = spark.read.parquet("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/test/")
+    d = spark.read.parquet("data/parquet/test/")
     # d.select(F.count(F.col('fst_end_1'))).show(10, False)
     d.where(F.col("token") =='나이키').show(1000, False)
     '''
