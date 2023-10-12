@@ -350,3 +350,5 @@ def get_triple_token(tks):
                 total.append([tks[i], tks[j], tks[k]])
 tks = []
 print(get_triple_token(tks))
+# todo :
+# Note

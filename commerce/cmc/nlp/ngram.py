@@ -152,20 +152,18 @@ if __name__ == "__main__":
         .withColumn("fst_end_1", F.array(F.col('find_tkn')[0][0], F.col('find_tkn')[1][1])).distinct().alias("get_couple_tokn")
     get_fst_end = get_couple_tokn.select(F.explode(F.col('find_tkn')).alias('fst_end_2')).distinct().alias("get_fst_end")
 
-    c = get_couple_tokn.join(
-                                get_fst_end,
-                                (
-                                        (F.col("get_couple_tokn.fst_end_1") == F.col("get_fst_end.fst_end_2")) |
-                                        (
-                                            (F.col("get_couple_tokn.fst_end_1")[0] == F.col("get_fst_end.fst_end_2")[1])
-                                            & (F.col("get_couple_tokn.fst_end_1")[1] == F.col("get_fst_end.fst_end_2")[0])
-                                        )
-                                )
-                        ).select(F.col('token'), F.col('find_tkn'), F.col('fst_end_1')).distinct()
-    c.write.format("parquet").mode("overwrite").save("data/parquet/test/")
+    # c = get_couple_tokn.join(
+    #                             get_fst_end,
+    #                             (
+    #                                     (F.col("get_couple_tokn.fst_end_1") == F.col("get_fst_end.fst_end_2")) |
+    #                                     (
+    #                                         (F.col("get_couple_tokn.fst_end_1")[0] == F.col("get_fst_end.fst_end_2")[1])
+    #                                         & (F.col("get_couple_tokn.fst_end_1")[1] == F.col("get_fst_end.fst_end_2")[0])
+    #                                     )
+    #                             )
+    #                     ).select(F.col('token'), F.col('find_tkn'), F.col('fst_end_1')).distinct()
+    # c.write.format("parquet").mode("overwrite").save("data/parquet/test/")
 
-    d = spark.read.parquet("data/parquet/test/")
-    d.where(F.col('token') == '삼성스마트도어록').show(1000, False)
     '''
         <결과>
             - 연속된 단어들로만 보기때문에 정확도, 희소 문제 발생 
@@ -179,10 +177,11 @@ if __name__ == "__main__":
             - 구둣점, 특수문자 제거 
         
     '''
-    b.show()
+    b.show(10, False)
 
     exit(0)
+    """TODO: """
     """
-        todo :
+        
          모델명에 대한 상품 정보/특징 매핑 해보기 (색상, 상품명, 상품번호, 브랜드, 성별, 카테고리 등...)
     """
