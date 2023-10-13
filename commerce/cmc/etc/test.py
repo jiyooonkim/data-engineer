@@ -319,7 +319,7 @@ def ngram(token, n):
     lst = []
     for i in range(0, len(token)-n):
         lst.append(token[i:i+n])
-    print( "lst : ", lst)
+    # print( "lst : ", lst)
 
 token = ['nusskati', '크런치', '땅콩버터', '350g', '9팩', '땅콩버터', '땅콩잼']
 n = 3
@@ -343,12 +343,13 @@ def get_kor(wd):
 
 
 def get_triple_token(tks):
-    total=[]
+    output_total = []
     for i in range(0, len(tks)):
         for j in range(i, len(tks)):
             for k in range(j, len(tks)):
-                total.append([tks[i], tks[j], tks[k]])
-tks = []
-print(get_triple_token(tks))
-# todo :
-# Note
+                if (tks[i].__ne__(tks[j])) & (tks[j].__ne__(tks[k])) & (tks[k].__ne__(tks[i])):
+                    output_total.append(([tks[i], tks[j], tks[k]]))
+    return output_total
+
+tks = ['ph', '내열', '높은', '2칸', '일회용도시락', '10개입', '1개']
+# print("tks : ", get_triple_token(tks))

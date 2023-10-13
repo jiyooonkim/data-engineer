@@ -78,6 +78,16 @@ def find_kwd_set(token, lst):
                 rtn_lst.append(i)
     return rtn_lst
 
+@F.udf(returnType=T.ArrayType(T.ArrayType(T.StringType())))
+def get_triple_token(tks):
+    output_total = []
+    for i in range(0, len(tks)):
+        for j in range(i, len(tks)):
+            for k in range(j, len(tks)):
+                if (tks[i].__ne__(tks[j])) & (tks[j].__ne__(tks[k])) & (tks[k].__ne__(tks[i])):
+                    output_total.append(([tks[i], tks[j], tks[k]]))
+    return output_total
+
 
 if __name__ == "__main__":
     spark = SparkSession.builder \
@@ -174,14 +184,15 @@ if __name__ == "__main__":
          todo : 
             - N Size 
             - 불용어 제거
-            - 구둣점, 특수문자 제거 
-        
+            - 구둣점, 특수문자 제거
     '''
-    b.show(10, False)
+    b = b.select(F.col('prod_nm'), F.col('prod_nm_tkns'), F.col('token'))\
+        .where(F.length(F.col("token")) > 2).where(F.col("token") == '나이키')\
+        .withColumn("linked", F.explode(get_triple_token(F.col("prod_nm_tkns"))))
+    b.groupby(F.col('linked')).agg(F.count(F.col('linked')).alias('linked_cnt'))\
+        .orderBy(F.col('linked_cnt').desc()).show(1000, False)
 
     exit(0)
-    """TODO: """
     """
-        
          모델명에 대한 상품 정보/특징 매핑 해보기 (색상, 상품명, 상품번호, 브랜드, 성별, 카테고리 등...)
     """
