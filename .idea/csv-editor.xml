@@ -24,6 +24,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/commerce/data/nike_data.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/commerce/data/nvr_prod.csv">
           <value>
             <Attribute>

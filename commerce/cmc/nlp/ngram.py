@@ -187,13 +187,15 @@ if __name__ == "__main__":
             - 불용어 제거
             - 구둣점, 특수문자 제거
     '''
-    # b.show()
+
     color_att = spark.read.parquet('data/parquet/color_attribution/').alias('color_att')
-    # color_att.show()
-    b.join(color_att, F.col('token') == F.col('color'), 'leftanti').show()
+    msr_att = spark.read.parquet('data/parquet/measures_attribution/').alias('msr_att')
 
+    except_att_tagt = b.join(color_att, F.col('token') == F.col('color'), 'leftanti')\
+        .join(msr_att, F.col('shp_nm_token') == F.col('token'), 'leftanti')\
+        .withColumn('triple_tkn', get_triple_token(F.col('prod_nm_tkns')))
 
-
+    except_att_tagt.show(10, False)
 
 
     exit(0)

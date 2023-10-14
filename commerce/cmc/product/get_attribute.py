@@ -145,4 +145,6 @@ if __name__ == "__main__":
     color_attr.write.format("parquet").mode("overwrite").save("data/parquet/color_attribution/")
     color_attr.orderBy(F.col('cnt').desc()).show(1000, False)
 
+    # todo : b = spark.read.parquet('data/parquet/tfidf/') 로 도량형 속성 구해보기
+
     exit(0)
