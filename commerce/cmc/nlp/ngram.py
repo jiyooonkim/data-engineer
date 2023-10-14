@@ -78,6 +78,7 @@ def find_kwd_set(token, lst):
                 rtn_lst.append(i)
     return rtn_lst
 
+
 @F.udf(returnType=T.ArrayType(T.ArrayType(T.StringType())))
 def get_triple_token(tks):
     output_total = []
@@ -186,11 +187,14 @@ if __name__ == "__main__":
             - 불용어 제거
             - 구둣점, 특수문자 제거
     '''
-    b = b.select(F.col('prod_nm'), F.col('prod_nm_tkns'), F.col('token'))\
-        .where(F.length(F.col("token")) > 2).where(F.col("token") == '나이키')\
-        .withColumn("linked", F.explode(get_triple_token(F.col("prod_nm_tkns"))))
-    b.groupby(F.col('linked')).agg(F.count(F.col('linked')).alias('linked_cnt'))\
-        .orderBy(F.col('linked_cnt').desc()).show(1000, False)
+    # b.show()
+    color_att = spark.read.parquet('data/parquet/color_attribution/').alias('color_att')
+    # color_att.show()
+    b.join(color_att, F.col('token') == F.col('color'), 'leftanti').show()
+
+
+
+
 
     exit(0)
     """

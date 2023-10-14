@@ -8,6 +8,8 @@
 from pyspark.sql import SparkSession
 import pyspark.sql.functions as F
 import pyspark.sql.types as T
+import os
+os.chdir('../../../')
 
 
 @F.udf(returnType=T.ArrayType(T.StringType()))
@@ -52,7 +54,7 @@ if __name__ == "__main__":
 
     ori_shp = spark.read \
         .option('header', True) \
-        .csv('/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/송장명.csv')
+        .csv('commerce/data/송장명.csv')
 
     shp = ori_shp\
         .select(F.regexp_replace(F.col('_c2'), "[^a-zA-Zㄱ-힝0-9]", ' ').alias("shipping_nm")) \
@@ -73,11 +75,11 @@ if __name__ == "__main__":
     # 상품명 df에서 카테고리 추출
     prod_df1 = spark.read. \
         option('header', True). \
-        csv("/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/nvr_prod.csv")
+        csv("commerce/data/nvr_prod.csv")
 
     prod_df2 = spark.read. \
         option('header', True). \
-        csv("/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/nvr_prod_2.csv")
+        csv("commerce/data/nvr_prod_2.csv")
 
     prod = prod_df1.unionByName(prod_df2, allowMissingColumns=True)  # .select(F.col('대분류'), F.col('중분류'), F.col('소분류'), F.col('세분류'))
     l_cate = prod.select(F.explode(F.split(F.regexp_replace(F.lower(F.col('대분류')), '/', ','), ",")).alias('cate'))
@@ -126,6 +128,21 @@ if __name__ == "__main__":
     msr_attr.select(F.count(F.col('shp_nm_token'))).show()
     # msr_attr.coalesce(15).write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/dictionary/measures_attribution/")  # save hdfs
     msr_attr.write.format("parquet").mode("overwrite")\
-        .save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/measures_attribution/")  # save hdfs
+        .save("data/parquet/measures_attribution/")  # save hdfs
+
+    # 속성 - 색상
+    nike_df = spark.read.csv("commerce/data/nike_data.csv")\
+        .select(
+            F.col('_c0').alias('color'),
+            F.col('_c2').alias('category'),
+            F.col('_c3').alias('prod_nm')
+        ).alias('nike_df')
+    color_attr = nike_df \
+        .select(F.explode(F.split(F.regexp_replace(F.col('color'), r" ", '/'), "/")).alias('color')) \
+        .groupby(F.col('color')) \
+        .agg(F.count(F.col('color')).alias('cnt'))\
+        .alias('color_attr')
+    color_attr.write.format("parquet").mode("overwrite").save("data/parquet/color_attribution/")
+    color_attr.orderBy(F.col('cnt').desc()).show(1000, False)
 
     exit(0)
