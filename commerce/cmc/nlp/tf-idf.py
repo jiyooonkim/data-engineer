@@ -38,11 +38,18 @@ if __name__ == "__main__":
         .select(F.col("상품명")).distinct()
     shipping_df = spark.read.csv("commerce/data/송장명.csv")\
         .select(F.col("_c2").alias("상품명")).distinct()
+    nike_df = spark.read.csv("commerce/data/nike_data.csv") \
+        .select(
+            F.col('_c3').alias('상품명')
+        ).alias('nike_df')
+
     total_df = (
                     df1
                     .unionByName(df2, allowMissingColumns=True)
                     .unionByName(shipping_df, allowMissingColumns=True)
+                    .unionByName(nike_df, allowMissingColumns=True)
                 ).distinct().alias("total_df")
+
     ori_df = total_df.\
         select(
             F.regexp_replace(F.col('상품명'), "[^a-zA-Zㄱ-힝0-9]", ' ').alias("prod_nm"),
@@ -90,7 +97,5 @@ if __name__ == "__main__":
     # tf_idf.orderBy(F.col("tf-idf").desc()).show(1000, False)
     tf_idf.write.format("parquet").mode("overwrite").save("data/parquet/tfidf/")
     #  코닥, 모닝, 화이트, 헬시
-
-
 
     exit(0)

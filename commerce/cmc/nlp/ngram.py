@@ -191,12 +191,15 @@ if __name__ == "__main__":
     color_att = spark.read.parquet('data/parquet/color_attribution/').alias('color_att')
     msr_att = spark.read.parquet('data/parquet/measures_attribution/').alias('msr_att')
 
-    except_att_tagt = b.join(color_att, F.col('token') == F.col('color'), 'leftanti')\
+    except_att_tagt = b.where(F.length(F.col('token')) > 2)\
+        .join(color_att, F.col('token') == F.col('color'), 'leftanti')\
         .join(msr_att, F.col('shp_nm_token') == F.col('token'), 'leftanti')\
-        .withColumn('triple_tkn', get_triple_token(F.col('prod_nm_tkns')))
+        .select(F.col('prod_nm'), F.col('token'), (get_triple_token(F.col('prod_nm_tkns'))).alias('triple_tkn'))
 
-    except_att_tagt.show(10, False)
-
+    except_att_tagt.select(F.explode(F.col('triple_tkn')).alias('triple_tkn'))\
+        .where(F.col('token') == '나이키')\
+        .groupby(F.col('triple_tkn'))\
+        .agg(F.count(F.col('triple_tkn')).alias('cnt')).orderBy(F.col('cnt').desc()).show(1000, False)
 
     exit(0)
     """
