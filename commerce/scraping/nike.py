@@ -35,7 +35,8 @@ while 1:
     if resp['data']['products']['pages']['totalPages']:
         anchor = resp['data']['products']['pages']['totalPages']
         resp = requests.get(url, params=parameter, headers=headers).json()
-        for data in  resp['data']['products']['products']:
+        for data in resp['data']['products']['products']:
+            print("data : ", data)
             data_list.append([data['colorDescription'], data['productType'], data['subtitle'], data['title']])
 
         pagenation = pagenation + 24
@@ -43,11 +44,11 @@ while 1:
     if pagenation >= (resp['data']['products']['pages']['totalResources']):
         break
 
-file_path = 'commerce/data/nike_data.csv'
-print("data_list  : ", data_list)
-with open(file_path,  'a', newline='') as file:
-    writer = csv.writer(file)
-    writer.writerows(data_list)
+# file_path = 'commerce/data/nike_data.csv'
+# print("data_list  : ", data_list)
+# with open(file_path,  'a', newline='') as file:
+#     writer = csv.writer(file)
+#     writer.writerows(data_list)
 
 # if __name__ == "__main__":
 #     get_data(scraping())

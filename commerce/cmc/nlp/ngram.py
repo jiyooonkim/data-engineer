@@ -194,12 +194,46 @@ if __name__ == "__main__":
     except_att_tagt = b.where(F.length(F.col('token')) > 2)\
         .join(color_att, F.col('token') == F.col('color'), 'leftanti')\
         .join(msr_att, F.col('shp_nm_token') == F.col('token'), 'leftanti')\
-        .select(F.col('prod_nm'), F.col('token'), (get_triple_token(F.col('prod_nm_tkns'))).alias('triple_tkn'))
+        .select(F.col('prod_nm'), F.col('token'), (get_triple_token(F.col('prod_nm_tkns'))).alias('triple_tkn'))\
+        .withColumn("prod_nm_hash", F.hash("prod_nm"))
+    # except_att_tagt.select(F.col('token'), F.col('prod_nm_hash'), F.col('prod_nm')).where(F.col('token') == '나이키').show(100, False)
 
-    except_att_tagt.select(F.explode(F.col('triple_tkn')).alias('triple_tkn'))\
+    # vertex
+
+    a = except_att_tagt.select(F.col('token'), F.explode(F.col('triple_tkn')).alias('vertex'))\
         .where(F.col('token') == '나이키')\
-        .groupby(F.col('triple_tkn'))\
-        .agg(F.count(F.col('triple_tkn')).alias('cnt')).orderBy(F.col('cnt').desc()).show(1000, False)
+        .groupby(F.col('token'), F.col('vertex'))\
+        .agg(F.count(F.col('vertex')).alias('cnt'))\
+        .orderBy(F.col('cnt').desc())
+
+    # a.show(30, False)
+    # .select(F.col('property_1'), F.col('token'))
+
+    a.where(
+        (F.col('vertex')[0] == (F.col('token'))) |
+        (F.col('vertex')[1] == (F.col('token'))) |
+        (F.col('vertex')[2] == (F.col('token')))
+    ).show(1000, False)
+
+    a.where(
+        (F.col('vertex')[0] != (F.col('token'))) &
+        (F.col('vertex')[1] != (F.col('token'))) &
+        (F.col('vertex')[2] != (F.col('token')))
+    ).show(1000, False)
+
+
+
+    """
+        step1 - 토큰이 포함된 데이터셋 vs  미포함된 데이터셋 
+        step2 - 한상풍명에 있는 것 vs다른 상품명에 있는 것 
+        리스트 셋에 토큰 포함 여부
+        토큰: 나이키   리스트 : "나이키"가 포함된
+        1촌 : 같은 상품명 안에서 나온 데이터셋     2촌 : 다른 상품명에 있는 데이터셋
+        edge
+    """
+
+
+
 
     exit(0)
     """

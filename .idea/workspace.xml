@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Develop nike scraping">
-      <change beforePath="$PROJECT_DIR$/.idea/csv-editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/ngram.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/ngram.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/product/get_attribute.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/product/get_attribute.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/scraping/nike.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/scraping/nike.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/doc/hive.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/hive.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,10 +234,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.ngram" />
-        <item itemvalue="Python.get_attribute" />
         <item itemvalue="Python.nike" />
-        <item itemvalue="Python.test" />
         <item itemvalue="Python.tf-idf" />
+        <item itemvalue="Python.get_attribute" />
+        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -378,22 +378,6 @@
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
       <updated>1687013639343</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Dev modelnumber dictionary">
-      <option name="closed" value="true" />
-      <created>1688658642411</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1688658642411</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Dev modelnumber dictionary">
-      <option name="closed" value="true" />
-      <created>1688821666456</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1688821666456</updated>
     </task>
     <task id="LOCAL-00022" summary="Dev modelnumber dictionary">
       <option name="closed" value="true" />
@@ -627,7 +611,23 @@
       <option name="project" value="LOCAL" />
       <updated>1697290839474</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Develop nike scraping">
+      <option name="closed" value="true" />
+      <created>1697293675014</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1697293675015</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Develop nike scraping">
+      <option name="closed" value="true" />
+      <created>1697414634770</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1697414634770</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

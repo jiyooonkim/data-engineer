@@ -1,19 +1,21 @@
-### Title: Apache Hive
-#### Date : 2023-08-01  
+## Apache Hive
+##### Date : 2023-08-01  
 
-## hive  
+#### Hive  
 - 동작방식  
          ![img_41.png](..%2Fplatform%2Fimg%2Fimg_41.png)      
 </br></br>  
 
 
 #### Hive Architecture   
-+ Hive는 HDFS 파일 형식을 소유하지 않는다.         
-사용자는 다른 도구를 사용하여 Hive 테이블에서 HDFS 파일을 직접 읽거나 다른 도구를 사용하여 "CREATE EXTERNAL TABLE"을 통해 Hive에 로드할 수 있거나    
-"LOAD DATA INPATH"를 통해 Hive에 로드할 수 있는 HDFS 파일에 직접 쓸 수 있어야함     
-+ HQL : Java에 통합하는 데 필요한 SQL 추상화를 제공  
-+  hivewearhouse : 실제 테이블 데이터가 저장된 위치, Hive를 사용하기 전 HDFS에서 디렉터리 생성 필요    
-+ Metastore 
++ Hive는 HDFS 파일 형식을 소유하지 않는다.     
+  + I/O 방식   
+    + 사용자는 다른 도구를 사용하여 Hive 테이블에서 HDFS 파일을 직접 read
+    + 다른 도구를 사용하여 "CREATE EXTERNAL TABLE"을 통해 Hive에 load
+    + "LOAD DATA INPATH"를 통해 hivewarehouse 에 load   
++ HQL(Hive-SQL) : Java에 통합하는 데 필요한 SQL 추상화를 제공  
++ hivewearhouse : 실제 메타데이터(테이블 데이터)가 저장된 위치, Hive를 사용하기 전 HDFS에서 디렉터리 생성 필요    
++ Metastore   
   + Hive가 구동될때 필요한 테이블의 스키만 구조나 다양한 설정값이 저장      
   + 기본적으로 Hive는 포함된 Apache Derby 데이터베이스에 메타데이터를 저장(MySQL 과 같은 다른 클라이언트/서버 데이터베이스를 선택적으로 사용)           
   + Meta Store에 장애가 발생할 경우 Hive는 정상적으로 구동되지 않음, MySQL, Oracle, PostgreSQL 등에 저장, 3가지 실행모드로 동작     
@@ -58,21 +60,26 @@
 
 ##### Solved Problem
 + 문제 :데이터 건수는 8만건정돈데 vertex error 가 발생 한다.  
-+ 특징 : 총 column 개수는 20개, row는 8만, 특정 column value 전부 null 값   
-+ Null은 카디널리티가 매우 높고 맵 측 집계가 제대로 작동하지 않는 경우 맵 축소 경계에서 폭발이 발생할 수 있음  
- Thrift는 맵에서 null을 지원하지 않으므로 객체 관계형 매핑(ORM)에서 검색된 맵에 있는 null은 가지치기하거나 빈 문자열로 변환 필요
-+ 환경 : tez, hive   
-+ 해결방법 
-  + "set hive.vectorized.execution.enabled=true;" 으로 백터화 disable 처리      
-  + 전부 null value 로만 된 컬럼 찾아 case when으로 공백 처리   
-  ![img_37.png](..%2Fplatform%2Fimg%2Fimg_37.png)
+  + 특징 : 총 column 개수는 20개, row는 8만, 특정 column value 전부 null 값   
+  + Null은 카디널리티가 매우 높고 맵 측 집계가 제대로 작동하지 않는 경우 맵 축소 경계에서 폭발이 발생할 수 있음  
+   Thrift는 맵에서 null을 지원하지 않으므로 객체 관계형 매핑(ORM)에서 검색된 맵에 있는 null은 가지치기하거나 빈 문자열로 변환 필요
+  + 환경 : tez, hive   
+  + 해결방법 
+    + "set hive.vectorized.execution.enabled=true;" 으로 백터화 disable 처리      
+    + 전부 null value 로만 된 컬럼 찾아 case when으로 공백 처리   
+    ![img_37.png](..%2Fplatform%2Fimg%2Fimg_37.png)
 
-+ 문제 : hive external table에는 partitionby 존재, hivewarehouse에는 파티션단위 파일이 아닐경우 데이터가 dbeaver에서 보이지 않는다.
-+ 환경 : hdfs, hive   
-+ 해결방법 
-  + 1. DDL에 partitionby를 제외
-  + 2. hivewarehouse에 파티션단위(디렉토리)단위 적재
+  + 문제 : hive external table에는 partitionby 존재, hivewarehouse에는 파티션단위 파일이 아닐경우 데이터가 dbeaver에서 보이지 않는다.
+  + 환경 : hdfs, hive   
+  + 해결방법 
+    1. DDL에 partitionby를 제외
+    2. hivewarehouse에 파티션단위(디렉토리)단위 적재
 
++ 문제 : select count(*) from temp_table 시, 데이터는 있는데 카운팅이 되지 않은 경우   
+  + 특징 : 결과가 0건으로 나옴 
+  + 환경 : hdfs, hive   
+  + 해결방법
+    + "Analyze table temp_table;", 메타데이터가 갱신되지 않아 통계정보를 못 읽는 현상으로 Analyze 명령 통해 수동으로 통계 정보 업데이트 필요  
 
 ##### Managed table & External table
 + Managed table
