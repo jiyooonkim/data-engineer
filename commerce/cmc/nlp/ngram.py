@@ -42,8 +42,19 @@ def get_gram(token, n):
     return lst
 
 
+@F.udf(returnType=T.StringType())
+def get_word_type(txt):
+    if txt.isalpha():  # eng+kor, kor
+        res = re.compile(u'[^a-z]+').sub(u'', txt)
+        if res:     # kor + eng
+            return 'engkor'
+        else:       # only kor
+            return 'kor'
+
+
 @F.udf(returnType=T.ArrayType(T.ArrayType(T.StringType())))
 def get_txt_type(col):  # txt type in list
+    # todo : 타입구분 하는 기능, 리스트 변환하는 기능 분리 하기
     lst = []
     for sub_lst in col:
         s_lst = []
@@ -102,6 +113,7 @@ if __name__ == "__main__":
         .config('spark.submit.deployMode', 'client') \
         .config("spark.driver.bindAddress", "127.0.0.1") \
         .config("spark.network.timeout", 10000) \
+        .config('spark.sql.shuffle.partitions', '300') \
         .config('spark.ui.showConsoleProgress', True) \
         .config('spark.sql.repl.eagerEval.enabled', True) \
         .getOrCreate()
@@ -194,23 +206,26 @@ if __name__ == "__main__":
     except_att_tagt = b.where(F.length(F.col('token')) > 2)\
         .join(color_att, F.col('token') == F.col('color'), 'leftanti')\
         .join(msr_att, F.col('shp_nm_token') == F.col('token'), 'leftanti')\
-        .select(F.col('prod_nm'), F.col('token'), (get_triple_token(F.col('prod_nm_tkns'))).alias('triple_tkn'))\
+        .select(F.col('prod_nm'), F.col('token'), get_triple_token(F.col('prod_nm_tkns')).alias('triple_tkn'))\
         .withColumn("prod_nm_hash", F.hash("prod_nm"))
-    # except_att_tagt.select(F.col('token'), F.col('prod_nm_hash'), F.col('prod_nm')).where(F.col('token') == '나이키').show(100, False)
 
-    # vertex
+
+    # except_att_tagt.show()
 
     get_token_set = except_att_tagt\
         .select(F.col('token'), F.explode(F.col('triple_tkn')).alias('vertex'))\
+        .withColumn('tp', get_word_type(F.col("token")))\
         .where(F.col('token') == '나이키')\
         .groupby(F.col('token'), F.col('vertex'))\
-        .agg(F.count(F.col('vertex')).alias('cnt'))\
-        # .orderBy(F.col('cnt').desc())
+        .agg(F.count(F.col('vertex')).alias('cnt'))
+    # todo : 토큰있는 셋과 없는 셋 분리 해보기
+    get_token_set.select(F.count(F.col('vertex'))).show()
+    get_token_set.show(30, False)
 
     """
-        step1 - 토큰이 포함된 데이터셋 vs  미포함된 데이터셋 
-        step2 - 한상풍명에 있는 것 vs 다른 상품명에 있는 것 
-        step3 - 동일 상품명에서 나온 것인지 판단  
+        step1 - 토큰이 포함된 데이터셋 vs  미포함된 데이터셋
+        step2 - 한상풍명에 있는 것 vs 다른 상품명에 있는 것
+        step3 - 동일 상품명에서 나온 것인지 판단
         리스트 셋에 토큰 포함 여부
         토큰: 나이키   리스트 : "나이키"가 포함된
         1촌 : 같은 상품명 안에서 나온 데이터셋     2촌 : 다른 상품명에 있는 데이터셋
@@ -233,28 +248,25 @@ if __name__ == "__main__":
 
 
     """
-        stopwrod 기준 쉽지 않은데 ?? 일단 거르지 말자... 
+        stopwrod 기준 쉽지 않은데 ?? 일단 거르지 말자...
         edge join
-        결과물 : [나이키, sx7677, 화이트] + [sx7677, 화이트, 양말],[sx7677, 화이트, 24],[sx7677, 화이트, m] 
+        결과물 : [나이키, sx7677, 화이트] + [sx7677, 화이트, 양말],[sx7677, 화이트, 24],[sx7677, 화이트, m]
                 = 상품번호:sx7677, 품목:양말, 색상:화이트 색상코드:100 사이즈:24(m)
+                [나이키, 가방, cv0062] + [가방, cv0062, 스포츠], [cv0062, 더플백, 가방] 
+                = 상품번호:cv0062, 품목:가방, 타입:더플백 
     """
     # todo : 토큰 array list 에서 array structure 로 변경 한 뒤 join 하기
     isin_tokn.join(
         notin_tokn,
-        # F.array_intersect(F.col('isin_tokn.vertex'), F.col('notin_tokn.vertex')[0])
-        ((F.col('isin_tokn.vertex')[0] == F.col('notin_tokn.vertex')[0]) |
-        (F.col('isin_tokn.vertex')[1] == F.col('notin_tokn.vertex')[0]) |
-        (F.col('isin_tokn.vertex')[2] == F.col('notin_tokn.vertex')[0])) &
-        ((F.col('isin_tokn.vertex')[0] == F.col('notin_tokn.vertex')[1]) |
-         (F.col('isin_tokn.vertex')[1] == F.col('notin_tokn.vertex')[1]) |
-         (F.col('isin_tokn.vertex')[2] == F.col('notin_tokn.vertex')[1]))
-    ).show(1000, False)
-    # # todo : 토큰이 1개 겹치는것 , 2개 겹치는것 array_intersect
-    # isin_tokn.show(10, False)
-    # notin_tokn.show(10, False)
-
-
-
+            # F.array_intersect(F.col('isin_tokn.vertex'), F.col('notin_tokn.vertex')[0])
+            ((F.col('isin_tokn.vertex')[0] == F.col('notin_tokn.vertex')[0]) |
+            (F.col('isin_tokn.vertex')[1] == F.col('notin_tokn.vertex')[0]) |
+            (F.col('isin_tokn.vertex')[2] == F.col('notin_tokn.vertex')[0])) &
+            ((F.col('isin_tokn.vertex')[0] == F.col('notin_tokn.vertex')[1]) |
+             (F.col('isin_tokn.vertex')[1] == F.col('notin_tokn.vertex')[1]) |
+             (F.col('isin_tokn.vertex')[2] == F.col('notin_tokn.vertex')[1]))
+    ).show(10, False)
+    # todo : 토큰이 1개 겹치는것 , 2개 겹치는것 array_intersect
 
     exit(0)
     """

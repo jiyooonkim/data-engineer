@@ -43,7 +43,7 @@
     발생 하는 경우 : 파티션에 데이터 재배치 될 때 발생, 맵리듀스에서 리듀스 단계 중 물리적 데이터 이동시
 #### <파티션의 개념 및 차이점>  
   - partition() : 코어수에 따라 할당
-  - paritionby(column) : 디스크 데이터를 분산 할 때 , 속도 향상 , write 함수  
+  - paritionby(column) : 디스크 데이터를 분산 할 때, 속도 향상 , write 함수  
   - repartition(partition count, column)  : 메모리에서 데이터 분산할 때  
   - coalesce: 디폴트는 파티션 수 감소할 때만 사용, numofpartition = true 시에는 파티는 증가도 가능  
                데이터 개수에 따라 다르지만, 분할보다 병합 비용이 더 큼
