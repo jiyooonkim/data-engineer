@@ -353,3 +353,12 @@ def get_triple_token(tks):
 
 tks = ['ph', '내열', '높은', '2칸', '일회용도시락', '10개입', '1개']
 # print("tks : ", get_triple_token(tks))
+
+
+def get_intersection_word(arr1, arr2):
+    return list(set(arr1) & set(arr2))
+
+arr1 = ['모델', '나이키', '수량']
+arr2 = ['모델', '에브리데이', '수량']
+print(get_intersection_word(arr1, arr2))
+

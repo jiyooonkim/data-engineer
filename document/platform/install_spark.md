@@ -71,12 +71,16 @@
   - pyspark code > spark-submit > spark-defaults.conf 순서     
   - pyspark 코드 실행시 spark-submit 제출하면 UI에 spark-submit이 보일 수 있지만 실제는 코드 내 설정값으로 적용      
 
-#### <Sql 보다, spark 엔진을 사용해야하는 이유>  
+#### <Sql 보다, spark 엔진을 사용해야하는 이유>
   - Spark 은 다양한 엔진 및 라이브러리를 제공    
   - python, java, R 등 개발 언어와 함께 사용 할 수 있음    
-  - Sql 단순 데이터베이스 조회에 적합-> sql 만 쓰면 그것만 하게 됨 spark 만큼 확장성 없어      
+  - Sql 단순 데이터베이스 조회에 적합-> sql 만 쓰면 그것만 하게 됨 spark 만큼 확장성 없어        
 
 
+#### <Array Structure vs Array String>      
+  - Array Structure : key, value 가 있는듯..     
+  - Array String : 그냥 list 형태 인듯...
+  - Array Type : 동일한 타입의 데이터로만 이루어짐   
 
 
 - Executor : task 들이 수행, 디스크/메모리에 동작하는 곳

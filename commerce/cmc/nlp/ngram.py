@@ -200,37 +200,58 @@ if __name__ == "__main__":
 
     # vertex
 
-    a = except_att_tagt.select(F.col('token'), F.explode(F.col('triple_tkn')).alias('vertex'))\
+    get_token_set = except_att_tagt\
+        .select(F.col('token'), F.explode(F.col('triple_tkn')).alias('vertex'))\
         .where(F.col('token') == '나이키')\
         .groupby(F.col('token'), F.col('vertex'))\
         .agg(F.count(F.col('vertex')).alias('cnt'))\
-        .orderBy(F.col('cnt').desc())
-
-    # a.show(30, False)
-    # .select(F.col('property_1'), F.col('token'))
-
-    a.where(
-        (F.col('vertex')[0] == (F.col('token'))) |
-        (F.col('vertex')[1] == (F.col('token'))) |
-        (F.col('vertex')[2] == (F.col('token')))
-    ).show(1000, False)
-
-    a.where(
-        (F.col('vertex')[0] != (F.col('token'))) &
-        (F.col('vertex')[1] != (F.col('token'))) &
-        (F.col('vertex')[2] != (F.col('token')))
-    ).show(1000, False)
-
-
+        # .orderBy(F.col('cnt').desc())
 
     """
         step1 - 토큰이 포함된 데이터셋 vs  미포함된 데이터셋 
-        step2 - 한상풍명에 있는 것 vs다른 상품명에 있는 것 
+        step2 - 한상풍명에 있는 것 vs 다른 상품명에 있는 것 
+        step3 - 동일 상품명에서 나온 것인지 판단  
         리스트 셋에 토큰 포함 여부
         토큰: 나이키   리스트 : "나이키"가 포함된
         1촌 : 같은 상품명 안에서 나온 데이터셋     2촌 : 다른 상품명에 있는 데이터셋
         edge
     """
+
+    isin_tokn = get_token_set\
+        .where(
+            (F.col('vertex')[0] == (F.col('token'))) |
+            (F.col('vertex')[1] == (F.col('token'))) |
+            (F.col('vertex')[2] == (F.col('token')))
+        ).alias('isin_tokn')
+
+    notin_tokn = get_token_set\
+        .where(
+            (F.col('vertex')[0] != (F.col('token'))) &
+            (F.col('vertex')[1] != (F.col('token'))) &
+            (F.col('vertex')[2] != (F.col('token')))
+        ).alias('notin_tokn')
+
+
+    """
+        stopwrod 기준 쉽지 않은데 ?? 일단 거르지 말자... 
+        edge join
+        결과물 : [나이키, sx7677, 화이트] + [sx7677, 화이트, 양말],[sx7677, 화이트, 24],[sx7677, 화이트, m] 
+                = 상품번호:sx7677, 품목:양말, 색상:화이트 색상코드:100 사이즈:24(m)
+    """
+    # todo : 토큰 array list 에서 array structure 로 변경 한 뒤 join 하기
+    isin_tokn.join(
+        notin_tokn,
+        # F.array_intersect(F.col('isin_tokn.vertex'), F.col('notin_tokn.vertex')[0])
+        ((F.col('isin_tokn.vertex')[0] == F.col('notin_tokn.vertex')[0]) |
+        (F.col('isin_tokn.vertex')[1] == F.col('notin_tokn.vertex')[0]) |
+        (F.col('isin_tokn.vertex')[2] == F.col('notin_tokn.vertex')[0])) &
+        ((F.col('isin_tokn.vertex')[0] == F.col('notin_tokn.vertex')[1]) |
+         (F.col('isin_tokn.vertex')[1] == F.col('notin_tokn.vertex')[1]) |
+         (F.col('isin_tokn.vertex')[2] == F.col('notin_tokn.vertex')[1]))
+    ).show(1000, False)
+    # # todo : 토큰이 1개 겹치는것 , 2개 겹치는것 array_intersect
+    # isin_tokn.show(10, False)
+    # notin_tokn.show(10, False)
 
 
 
