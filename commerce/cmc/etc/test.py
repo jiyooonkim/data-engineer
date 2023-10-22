@@ -342,17 +342,21 @@ def get_kor(wd):
         return False
 
 
-def get_triple_token(tks):
+def get_triple_token(tks, tk):
     output_total = []
+    contain_tk_set = []
     for i in range(0, len(tks)):
         for j in range(i, len(tks)):
             for k in range(j, len(tks)):
                 if (tks[i].__ne__(tks[j])) & (tks[j].__ne__(tks[k])) & (tks[k].__ne__(tks[i])):
-                    output_total.append(([tks[i], tks[j], tks[k]]))
-    return output_total
-
+                    if (tk.__eq__(tks[i])) | (tk.__eq__(tks[j])) | (tk.__eq__(tks[k])):
+                        contain_tk_set.append(([tks[i], tks[j], tks[k]]))
+                    else:
+                        output_total.append(([tks[i], tks[j], tks[k]]))
+    return contain_tk_set, output_total
+tk = '10개입'
 tks = ['ph', '내열', '높은', '2칸', '일회용도시락', '10개입', '1개']
-# print("tks : ", get_triple_token(tks))
+print("tks : ", get_triple_token(tks, tk))
 
 
 def get_intersection_word(arr1, arr2):

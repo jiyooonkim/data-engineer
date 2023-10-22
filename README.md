@@ -22,12 +22,14 @@ Developers with the ability to create good data in big databases.
   - Noisy Channel Model : 정타<->오타 매핑 사전(오타사전), 카테고리 중심 유사 단어 추출(get noise keyword, stopword)
   - tf-idf
   - word2vec(with skip-gram & cbow)
+  - Ngram (with Liked Prediction) 
 
 - Develop
   - Dictionary     
     - 합성어
     - 모델명
     - 외래어 
+  - scraping
   
 - Platfrom & Doc
   - Hadoop 
@@ -50,7 +52,6 @@ Developers with the ability to create good data in big databases.
     - 시리즈
     - 불용어(stopword)
   - NLP
-    - Ngram (with Liked Prediction) 
     - Negative Sampling
   - ML(적용하여 학습 예정(커버리지 늘리기 위해)) 
     - RNN
@@ -59,7 +60,7 @@ Developers with the ability to create good data in big databases.
     - Scikit-Learn
   - Search
     - Elasticsearch 검색 엔진 구축 및 이해 
-    - 상품 검색 Inner Keyword 매핑
+    - 상품 검색 Inner Keyword 매핑 
     - 오타 교정
     - 형태소 분석기 
   - 그 외

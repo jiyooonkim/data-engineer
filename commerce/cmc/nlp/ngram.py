@@ -90,15 +90,20 @@ def find_kwd_set(token, lst):
     return rtn_lst
 
 
-@F.udf(returnType=T.ArrayType(T.ArrayType(T.StringType())))
-def get_triple_token(tks):
+@F.udf(returnType=T.ArrayType(T.ArrayType(T.ArrayType(T.StringType()))))
+def get_triple_token(tk, tks):
+    # token 포함 여부로 2차원 리스트 생성
     output_total = []
+    contain_tk_set = []
     for i in range(0, len(tks)):
         for j in range(i, len(tks)):
             for k in range(j, len(tks)):
                 if (tks[i].__ne__(tks[j])) & (tks[j].__ne__(tks[k])) & (tks[k].__ne__(tks[i])):
-                    output_total.append(([tks[i], tks[j], tks[k]]))
-    return output_total
+                    if (tk.__eq__(tks[i])) | (tk.__eq__(tks[j])) | (tk.__eq__(tks[k])):
+                        contain_tk_set.append(([tks[i], tks[j], tks[k]]))
+                    else:
+                        output_total.append(([tks[i], tks[j], tks[k]]))
+    return contain_tk_set, output_total
 
 
 if __name__ == "__main__":
@@ -169,7 +174,7 @@ if __name__ == "__main__":
         # .where(F.size(F.col('find_tkn')) > 1).where(F.col('tkn_tp')[1][1] != 'num')#.sample(0.5)
     # c.where(F.col("token") == '혜강씨큐리티').show(1000, False)
     '''
-        todo : ['삼성', ' 도어락'] + ['삼성', 'SHP-DR700'] = ['도어락', 'SHP-DR700'] 형태 만들기!!
+        purpose : ['삼성', ' 도어락'] + ['삼성', 'SHP-DR700'] = ['도어락', 'SHP-DR700'] 형태 
     '''
     get_couple_tokn = c.where(F.size(F.col('find_tkn')) == 2)\
         .withColumn("fst_end_1", F.array(F.col('find_tkn')[0][0], F.col('find_tkn')[1][1])).distinct().alias("get_couple_tokn")
@@ -206,69 +211,91 @@ if __name__ == "__main__":
     except_att_tagt = b.where(F.length(F.col('token')) > 2)\
         .join(color_att, F.col('token') == F.col('color'), 'leftanti')\
         .join(msr_att, F.col('shp_nm_token') == F.col('token'), 'leftanti')\
-        .select(F.col('prod_nm'), F.col('token'), get_triple_token(F.col('prod_nm_tkns')).alias('triple_tkn'))\
-        .withColumn("prod_nm_hash", F.hash("prod_nm"))
+        .select(F.col('prod_nm'), F.col('token'), get_triple_token(F.col('token'), F.col('prod_nm_tkns')).alias('triple_tkn'))\
+        .withColumn("prod_nm_hash", F.hash("prod_nm"))\
+        .withColumn('tp', get_word_type(F.col("token"))).where(F.col('tp') == 'kor')\
+        # .where(F.col('token') =='운동화')
 
+        # .where((F.size(F.col('triple_tkn')) < 10) & (F.size(F.col('triple_tkn')) > 2)).sample(0.5)\
 
-    # except_att_tagt.show()
+    # except_att_tagt.select(F.col('triple_tkn')).show(10, False)
 
-    get_token_set = except_att_tagt\
-        .select(F.col('token'), F.explode(F.col('triple_tkn')).alias('vertex'))\
+    agg_contain_token = except_att_tagt\
+        .select(F.col('token'), F.explode(F.col('triple_tkn')[0]).alias('vertex'))\
         .withColumn('tp', get_word_type(F.col("token")))\
-        .where(F.col('token') == '나이키')\
         .groupby(F.col('token'), F.col('vertex'))\
-        .agg(F.count(F.col('vertex')).alias('cnt'))
-    # todo : 토큰있는 셋과 없는 셋 분리 해보기
-    get_token_set.select(F.count(F.col('vertex'))).show()
-    get_token_set.show(30, False)
+        .agg(F.count(F.col('vertex')).alias('cnt'))\
+        .alias('agg_contain_token')
 
-    """
-        step1 - 토큰이 포함된 데이터셋 vs  미포함된 데이터셋
-        step2 - 한상풍명에 있는 것 vs 다른 상품명에 있는 것
-        step3 - 동일 상품명에서 나온 것인지 판단
-        리스트 셋에 토큰 포함 여부
-        토큰: 나이키   리스트 : "나이키"가 포함된
-        1촌 : 같은 상품명 안에서 나온 데이터셋     2촌 : 다른 상품명에 있는 데이터셋
-        edge
-    """
+    agg_not_contain_token = except_att_tagt \
+        .select(F.col('token'), F.explode(F.col('triple_tkn')[1]).alias('vertex')) \
+        .withColumn('tp', get_word_type(F.col("token"))) \
+        .groupby(F.col('token'), F.col('vertex')) \
+        .agg(F.count(F.col('vertex')).alias('cnt')) \
+        .alias('agg_not_contain_token')
+    agg_contain_token.show(10, False)
+    agg_not_contain_token.show(10, False)
 
-    isin_tokn = get_token_set\
-        .where(
-            (F.col('vertex')[0] == (F.col('token'))) |
-            (F.col('vertex')[1] == (F.col('token'))) |
-            (F.col('vertex')[2] == (F.col('token')))
-        ).alias('isin_tokn')
+    res = agg_not_contain_token.join(
+        agg_not_contain_token,
+        F.array_contains(F.col('agg_contain_token.vertex'), F.col('agg_not_contain_token.vertex'))
 
-    notin_tokn = get_token_set\
-        .where(
-            (F.col('vertex')[0] != (F.col('token'))) &
-            (F.col('vertex')[1] != (F.col('token'))) &
-            (F.col('vertex')[2] != (F.col('token')))
-        ).alias('notin_tokn')
+    )
+    res.show()
 
-
-    """
-        stopwrod 기준 쉽지 않은데 ?? 일단 거르지 말자...
-        edge join
-        결과물 : [나이키, sx7677, 화이트] + [sx7677, 화이트, 양말],[sx7677, 화이트, 24],[sx7677, 화이트, m]
-                = 상품번호:sx7677, 품목:양말, 색상:화이트 색상코드:100 사이즈:24(m)
-                [나이키, 가방, cv0062] + [가방, cv0062, 스포츠], [cv0062, 더플백, 가방] 
-                = 상품번호:cv0062, 품목:가방, 타입:더플백 
-    """
-    # todo : 토큰 array list 에서 array structure 로 변경 한 뒤 join 하기
-    isin_tokn.join(
-        notin_tokn,
-            # F.array_intersect(F.col('isin_tokn.vertex'), F.col('notin_tokn.vertex')[0])
-            ((F.col('isin_tokn.vertex')[0] == F.col('notin_tokn.vertex')[0]) |
-            (F.col('isin_tokn.vertex')[1] == F.col('notin_tokn.vertex')[0]) |
-            (F.col('isin_tokn.vertex')[2] == F.col('notin_tokn.vertex')[0])) &
-            ((F.col('isin_tokn.vertex')[0] == F.col('notin_tokn.vertex')[1]) |
-             (F.col('isin_tokn.vertex')[1] == F.col('notin_tokn.vertex')[1]) |
-             (F.col('isin_tokn.vertex')[2] == F.col('notin_tokn.vertex')[1]))
-    ).show(10, False)
-    # todo : 토큰이 1개 겹치는것 , 2개 겹치는것 array_intersect
-
-    exit(0)
-    """
-         모델명에 대한 상품 정보/특징 매핑 해보기 (색상, 상품명, 상품번호, 브랜드, 성별, 카테고리 등...)
-    """
+    # """
+    #     step1 - 토큰이 포함된 데이터셋 vs  미포함된 데이터셋
+    #     step2 - 한상풍명에 있는 것 vs 다른 상품명에 있는 것
+    #     step3 - 동일 상품명에서 나온 것인지 판단
+    #     리스트 셋에 토큰 포함 여부
+    #     토큰: 나이키   리스트 : "나이키"가 포함된
+    #     1촌 : 같은 상품명 안에서 나온 데이터셋     2촌 : 다른 상품명에 있는 데이터셋
+    #     edge
+    # """
+    #
+    # isin_tokn = agg_contain_token\
+    #     .where(
+    #         (F.col('vertex')[0] == (F.col('token'))) |
+    #         (F.col('vertex')[1] == (F.col('token'))) |
+    #         (F.col('vertex')[2] == (F.col('token')))
+    #     ).alias('isin_tokn')
+    #
+    # notin_tokn = agg_contain_token\
+    #     .where(
+    #         (F.col('vertex')[0] != (F.col('token'))) &
+    #         (F.col('vertex')[1] != (F.col('token'))) &
+    #         (F.col('vertex')[2] != (F.col('token')))
+    #     ).alias('notin_tokn')
+    #
+    #
+    #
+    # """
+    #     stopwrod 기준 쉽지 않은데 ?? 일단 거르지 말자...
+    #     edge join
+    #     결과물 :
+    #         [나이키, sx7677, 화이트] + [sx7677, 화이트, 양말],[sx7677, 화이트, 24],[sx7677, 화이트, m]
+    #             = 상품번호:sx7677, 품목:양말, 색상:화이트 색상코드:100 사이즈:24(m)
+    #         [나이키, 가방, cv0062] + [가방, cv0062, 스포츠], [cv0062, 더플백, 가방]
+    #             = 상품번호:cv0062, 품목:가방, 타입:더플백
+    #         [프로스펙스, 남성, 운동화] + |[프로스펙스, 남성, pw0uw19s541]
+    #             = 상품번호:pw0uw19s541, 품목:운동화, 브랜:프로스펙스
+    # """
+    # # todo : 토큰 array list 에서 array structure 로 변경 한 뒤 join 하기
+    # res = isin_tokn.join(
+    #     notin_tokn,
+    #         # F.array_intersect(F.col('isin_tokn.vertex'), F.col('notin_tokn.vertex')[0])
+    #         ((F.col('isin_tokn.vertex')[0] == F.col('notin_tokn.vertex')[0]) |
+    #         (F.col('isin_tokn.vertex')[1] == F.col('notin_tokn.vertex')[0]) |
+    #         (F.col('isin_tokn.vertex')[2] == F.col('notin_tokn.vertex')[0])) &
+    #         ((F.col('isin_tokn.vertex')[0] == F.col('notin_tokn.vertex')[1]) |
+    #          (F.col('isin_tokn.vertex')[1] == F.col('notin_tokn.vertex')[1]) |
+    #          (F.col('isin_tokn.vertex')[2] == F.col('notin_tokn.vertex')[1]))
+    # ).select(isin_tokn['*'], F.col('notin_tokn.vertex').alias("vertex_2"))
+    # res.show(1000, False)
+    # res.write.format("parquet").mode("overwrite").save("data/parquet/linked_predict/")
+    # # todo : 토큰이 1개 겹치는것 , 2개 겹치는것 array_intersect
+    #
+    # exit(0)
+    # """
+    #      모델명에 대한 상품 정보/특징 매핑 해보기 (색상, 상품명, 상품번호, 브랜드, 성별, 카테고리 등...)
+    # """
