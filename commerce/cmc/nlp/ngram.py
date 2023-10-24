@@ -236,12 +236,12 @@ if __name__ == "__main__":
     agg_contain_token.show(10, False)
     agg_not_contain_token.show(10, False)
 
-    res = agg_not_contain_token.join(
-        agg_not_contain_token,
-        F.array_contains(F.col('agg_contain_token.vertex'), F.col('agg_not_contain_token.vertex'))
-
-    )
-    res.show()
+    # res = agg_not_contain_token.join(
+    #     agg_not_contain_token,
+    #     F.array_contains(F.col('agg_contain_token.vertex'), F.col('agg_not_contain_token.vertex'))
+    #
+    # )
+    # res.show()
 
     # """
     #     step1 - 토큰이 포함된 데이터셋 vs  미포함된 데이터셋
