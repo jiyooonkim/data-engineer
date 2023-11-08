@@ -5,14 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Develop Linked prediction">
-      <change afterPath="$PROJECT_DIR$/data/parquet/linked_predict/._SUCCESS.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/linked_predict/.part-00000-4316c27a-ef92-4b5d-9ce1-1fc6acc26a9f-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/linked_predict/_SUCCESS" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/linked_predict/part-00000-4316c27a-ef92-4b5d-9ce1-1fc6acc26a9f-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/platform/img/img_51.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/platform/img/img_52.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/platform/img/img_53.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/etc/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/etc/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/ngram.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/ngram.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/platform/install_airflow.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_airflow.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/platform/install_docker.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_docker.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/platform/install_jenkins_(CICD).md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_jenkins_(CICD).md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +109,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.ngram">
     <configuration name="get_attribute" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -383,22 +384,6 @@
       <option name="project" value="LOCAL" />
       <updated>1687013639343</updated>
     </task>
-    <task id="LOCAL-00025" summary="Study ELK">
-      <option name="closed" value="true" />
-      <created>1688886937145</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1688886937145</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Study ELK">
-      <option name="closed" value="true" />
-      <created>1689431066652</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1689431066652</updated>
-    </task>
     <task id="LOCAL-00027" summary="Study ELK">
       <option name="closed" value="true" />
       <created>1689431212956</created>
@@ -631,7 +616,23 @@
       <option name="project" value="LOCAL" />
       <updated>1697871866887</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="Develop Linked prediction">
+      <option name="closed" value="true" />
+      <created>1697982078333</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1697982078333</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Develop Linked prediction">
+      <option name="closed" value="true" />
+      <created>1698154601900</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1698154601900</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

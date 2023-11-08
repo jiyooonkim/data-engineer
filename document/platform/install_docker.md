@@ -3,13 +3,13 @@
 #### Date : 2023-03-04 
 #### Desc : brew cask 이용하여 설치, myssql 설치
 ##### (** home homebrew 설치방법 : /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" )
-<br/><br/>
+<br/>
 
 ## Install Flow
 1. 도커 설치 명령  
 ``` brew install --cask docker```  
 2. Local에서 Docker Desktop 확인 하기
-<br/><br/>
+<br/>
 
 
 ## Docker 명령어  
@@ -21,11 +21,9 @@
 - 컨테이너 목록 : docker ps -a     
 - 컨테이너 종료 : docker stop [컨테이너 이름]         
 - 컨테이너 삭제 : docker rm [컨테이너 id]    
-<img src = "img/img_26.png" width = "450" height = "180"/>    
+<img src = "img/img_26.png" width = "450" height = "180"/>        
 
-
-## Docker compose
-- 
+## docker compose
 - 위치 : docker-compose.yaml 파일의 위치와 docker-compose up -d 커맨드 위치와 동일    
 - <img src = "img/img_33.png" width = "450" height = "180"/>   
 

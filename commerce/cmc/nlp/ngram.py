@@ -233,15 +233,16 @@ if __name__ == "__main__":
         .groupby(F.col('token'), F.col('vertex')) \
         .agg(F.count(F.col('vertex')).alias('cnt')) \
         .alias('agg_not_contain_token')
-    agg_contain_token.show(10, False)
-    agg_not_contain_token.show(10, False)
+    # agg_contain_token.select(F.count(F.col('token'))).show(10, False)         # 9213734
+    # agg_not_contain_token.select(F.count(F.col('token'))).show(10, False)   # 55901122
 
-    # res = agg_not_contain_token.join(
-    #     agg_not_contain_token,
-    #     F.array_contains(F.col('agg_contain_token.vertex'), F.col('agg_not_contain_token.vertex'))
-    #
-    # )
-    # res.show()
+    res = agg_not_contain_token.join(
+        agg_not_contain_token,
+        ((F.col('agg_contain_token.vertex')[0] == F.col('agg_not_contain_token.vertex')[0]) |
+         (F.col('agg_contain_token.vertex')[1] == F.col('agg_not_contain_token.vertex')[0]) |
+         (F.col('agg_contain_token.vertex')[2] == F.col('agg_not_contain_token.vertex')[0]))
+    )
+    res.show()
 
     # """
     #     step1 - 토큰이 포함된 데이터셋 vs  미포함된 데이터셋

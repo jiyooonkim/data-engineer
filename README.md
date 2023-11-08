@@ -77,6 +77,8 @@ Developers with the ability to create good data in big databases.
      - Kafka
      - streaming(spark streaming, Hudi, Kafka)
      - devops
+     - dataops
+     - airflow with ci/cd
  
 ##### 번외      
  - Data Engineer로서 겪은 고뇌의 Moment and Future(Q&A)  

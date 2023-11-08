@@ -1,4 +1,4 @@
-### title : CI/CD 구축
+###  CI/CD 구축
 #### env : macbook pro14 m2(silicon)
 #### date : 2023-05-31 ~ 2023-06-04
 #### desc : jenkins 설치 github repository 와 연동, jenkins 이용하여 git (add, commit ,push) build 기능
@@ -54,9 +54,8 @@
 
 ## Jenkins에서 Github 배포 파이프라인 구성  
 refer : https://itnext.io/jenkins-tutorial-part-10-work-with-git-in-pipeline-b5e42f6d124b
-1. +새로운 Item > Enter an item name 입력 > Pipeline    
-2. GitHub project 에 git url 입력 > Pipeline script 입력      
-    <img src = "img/img.png" width = "450" height = "280"/>    
+1. +새로운 Item > Enter an item name 입력 > Pipeline       
+2. GitHub project 에 git url 입력 > Pipeline script 입력           
     <img src = "img/img_1.png" width = "450" height = "280"/>    
 
 

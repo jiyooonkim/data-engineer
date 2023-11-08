@@ -1,4 +1,4 @@
-### Title: Airflow 설치
+## Airflow 설치
 #### Env : macbook pro14 m2(silicon)
 #### Date : 2023-05-04
 #### Desc : Spark version 3.4.0, Python 3.9.16, Jdk(Zulu11.64)  
@@ -14,8 +14,8 @@
    * Dag : Direct Acyclic Graph
 
 
-## Install(Local)
-** mac silicon 칩은 가상환경 설치만 가능 (2023.05.01 기준)
+## Install (VM)
+**  install airflow on VM
 1. ```brew install conda```  
 2. ```pip3 install apache-airflow```  
   2-1. python 가상 환경 생성, 3.8 version 생성  
@@ -50,6 +50,34 @@
    ```dags_folder = /Users/jy_kim/airflow/dags ```   
      <img src = "img/img_21.png" width = "350" height = "140"/>  
 
+
+
+## Install(Local)    
++  Quick ver    
++ Refer : https://airflow.apache.org/docs/apache-airflow/stable/start.html
+1. ```export AIRFLOW_HOME=~/airflow```        
+2. ```   
+    AIRFLOW_VERSION=2.7.2   
+    PYTHON_VERSION="$(python --version | cut -d " " -f 2 | cut -d "." -f 1-2)"   
+    CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"
+    pip install "apache-airflow==${AIRFLOW_VERSION}" --constraint "${CONSTRAINT_URL}"
+   ```         
+3. Airflow 실행 명령 
+    ```airflow standalone```
+4. Find login info at log   (username: admin  password: UW95MrXcbytbXmy7)    
+     <img src = "img/img_51.png" width = "350" height = "140"/>  
+* Airflow의 개별 부분을 수동으로 실행 방법
+    ``` 
+        airflow db migrate
+        airflow users create \
+            --username admin \
+            --firstname Peter \
+            --lastname Parker \
+            --role Admin \
+            --email spiderman@superhero.org
+        airflow webserver --port 8080
+        airflow scheduler
+    ``` 
 ## Install(Docker)
 * 참고 : https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html (Airflow Version: 2.6.3) 
 1. docker yaml 가져오기    
@@ -82,11 +110,19 @@ yaml 구성요소
 ```
 airflow webserver -D  
 airflow scheduler -D  
-```  
-- mysql 설치  
-```brew install mysql```
+```     
+#### mysql 과 airflow 연동 방법 설치     
+1. mysql 설치    
+    ```brew install mysql```
+2. airflow.cfg 에 database 경로 변경   
+    ```vi airflow/airflow.cfg```    
+<img src = "img/img_52.png" width = "300" height = "40"/>        
+3. workbench 에서 airflow db 확인    
+<img src = "img/img_53.png" width = "140" height = "400"/>     
 
-#### docker compose 란??
+
+
+#### docker compose 란??    
 - 여러 개의 컨테이너(container)로 구성된 애플리케이션을 관리하기 위한 간단한 오케스트레이션(Orchestration) 도구    
 ##### 명령어 
 - docker-compose up -d : 모든 서비스 컨테이너를 한 번에 생성/실행하기 위해서 사용 (-d : working background )
