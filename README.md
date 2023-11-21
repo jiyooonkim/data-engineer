@@ -4,7 +4,7 @@
 Developers with the ability to create good data in big databases.
 
 - skill : hadoop, pyspark, python, shell, hive
-- version and env : python3.9, pyspark3.3.2, hadoop3.3.4, airflow, jenkins
+- version : python3.9, pyspark3.3.2, hadoop3.3.4, airflow, jenkins
 
 ### 목적 및 방향성
 - 좋은 기초(학습) 데이터 생성 목적(Only by Data Engineering)  
@@ -58,13 +58,12 @@ Developers with the ability to create good data in big databases.
     - TenserFlow
     - keras
     - Scikit-Learn
+    - 회귀분석
   - Search
     - Elasticsearch 검색 엔진 구축 및 이해 
     - 상품 검색 Inner Keyword 매핑 
     - 오타 교정
-    - 형태소 분석기 
-  - 그 외
-    - Flask 로 간단한 API 구성
+    - 형태소 분석기
 
 - 환경 세팅(Platform)
      - MLops

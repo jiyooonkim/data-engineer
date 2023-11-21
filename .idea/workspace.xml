@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Develop Linked prediction">
-      <change afterPath="$PROJECT_DIR$/document/platform/img/img_51.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document/platform/img/img_52.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document/platform/img/img_53.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/doc/img/img_54.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/doc/img/img_55.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/ngram.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/nlp/ngram.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/platform/install_airflow.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_airflow.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/platform/install_docker.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_docker.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/platform/install_jenkins_(CICD).md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_jenkins_(CICD).md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/cmc/ml/mllib.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/cmc/ml/mllib.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/doc/hive.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/hive.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +93,7 @@
       <recent name="$PROJECT_DIR$/document/nlp" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/document/doc/img" />
       <recent name="$PROJECT_DIR$/document/platform/img" />
       <recent name="$PROJECT_DIR$/document/platform" />
       <recent name="$PROJECT_DIR$/../commerce/data" />

@@ -25,6 +25,11 @@
     ![img_39.png](..%2Fplatform%2Fimg%2Fimg_39.png)      
     + 리모트(Remote) : 별도의 데이터베이스를 가지고, 별도의 JVM에서 단독으로 동작하는 모드, 리모트로 동작하는 메타스토어를 HCat서버 있음       
     ![img_40.png](..%2Fplatform%2Fimg%2Fimg_40.png)      
+  
+#### Hive 내부구조
+  <img src="./img/img_54.png" title="hive 내부구조"/> 
+  <img src="./img/img_55.png" title="hive 내부구조"/> 
+  
 
 ##### HQL vs SQL 
 - SQL(Structured Query Language) : RDBMS라고도 하는 관계형 데이터베이스 관리 시스템에 저장된 데이터를 관리       
@@ -66,7 +71,7 @@
   + 환경 : tez, hive   
   + 해결방법 
     + "set hive.vectorized.execution.enabled=true;" 으로 백터화 disable 처리      
-    + 전부 null value 로만 된 컬럼 찾아 case when으로 공백 처리   
+    + 전부 null value 로만 된 컬럼 찾아 "case when"으로 공백 처리   
     ![img_37.png](..%2Fplatform%2Fimg%2Fimg_37.png)
 
   + 문제 : hive external table에는 partitionby 존재, hivewarehouse에는 파티션단위 파일이 아닐경우 데이터가 dbeaver에서 보이지 않는다.

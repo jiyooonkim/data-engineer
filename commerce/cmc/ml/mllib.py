@@ -14,7 +14,7 @@ import pyspark.sql.window as window
 
 if __name__ == "__main__":
     spark = SparkSession.builder \
-        .appName('Compound word Job') \
+        .appName('Boston Housing Linear Regression example') \
         .master('local[*]') \
         .config('spark.sql.execution.arrow.pyspark.enabled', True) \
         .config('spark.sql.session.timeZone', 'UTC') \
