@@ -24,6 +24,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/a.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/commerce/data/nike_data.csv">
           <value>
             <Attribute>
@@ -46,6 +53,13 @@
           </value>
         </entry>
         <entry key="/commerce/data/송장명.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/data/output/non_stopword/part-00000-6fc749e6-2a96-4382-b4ed-9533fb873ea1-c000.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

@@ -142,8 +142,8 @@ if __name__ == "__main__":
         .groupby(F.col('color')) \
         .agg(F.count(F.col('color')).alias('cnt'))\
         .alias('color_attr')
-    color_attr.write.format("parquet").mode("overwrite").save("data/parquet/color_attribution/")
-    color_attr.orderBy(F.col('cnt').desc()).show(1000, False)
+    color_attr.write.format("parquet").mode("append").save("data/parquet/color_attribution/")
+    # color_attr.orderBy(F.col('cnt').desc()).show(1000, False)
 
     # todo : b = spark.read.parquet('data/parquet/tfidf/') 로 도량형 속성 구해보기
 

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/data/parquet/color_attribution/part-00000-62f961ed-1e9c-49f2-82da-5a0bf6aea41b-c000.snappy.parquet" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/data/parquet/loan_word_cndd_eng/.part-00000-2b9160ea-b94c-481a-9728-8936f84cdb14-c000.snappy.parquet.crc" charset="EUC-KR" />
     <file url="file://$PROJECT_DIR$/data/parquet/loan_word_cndd_eng/.part-00000-4e19fa00-34c2-40fb-975d-f9942426670d-c000.snappy.parquet.crc" charset="ISO-8859-1" />
     <file url="file://$PROJECT_DIR$/data/parquet/loan_word_cndd_kor/.part-00000-24b4facb-fb30-40c4-93b1-0a8c8c45ba72-c000.snappy.parquet.crc" charset="UTF-16" />

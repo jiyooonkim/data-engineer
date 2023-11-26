@@ -1,5 +1,5 @@
 '''
-    # title : naive bayes
+    # title : Naive Bayes Classifier
     # doc : https://tensorflow.blog/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/2-3-4-%EB%82%98%EC%9D%B4%EB%B8%8C-%EB%B2%A0%EC%9D%B4%EC%A6%88-%EB%B6%84%EB%A5%98%EA%B8%B0/
     # desc :
         - 조건부 확률 기반의 분류 모델
@@ -11,7 +11,10 @@
 
     # Refer :
         - https://bkshin.tistory.com/entry/%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D-1%EB%82%98%EC%9D%B4%EB%B8%8C-%EB%B2%A0%EC%9D%B4%EC%A6%88-%EB%B6%84%EB%A5%98-Naive-Bayes-Classification
-
+    # 주제
+        - 나이브베이즈 분류 활용하여 송장명 카테고리 예측
+            - traiging set : nvr_prod
+            - test set : 송장명
 '''
 
 from pyspark.sql import SparkSession
@@ -36,13 +39,16 @@ if __name__ == "__main__":
         .config('spark.sql.repl.eagerEval.enabled', True) \
         .getOrCreate()
 
-    prod_1 = spark.read. \
-        option('header', True). \
-        csv("/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/nvr_prod.csv") \
-        .select(F.col('상품명'), F.col('대분류'), F.col('중분류'), F.col('소분류'))
+    # prod_1 = spark.read. \
+    #     option('header', True). \
+    #     csv("/Users/jy_kim/Documents/private/data-engineer/commerce/data/nvr_prod.csv") \
+    #     .select(F.col('상품명'), F.col('대분류'), F.col('중분류'), F.col('소분류'))
+    #
+    # prod_1.show()
+    # prod_1.select(F.count(F.col('상품명'))).show()
 
-    prod_1.show()
-    prod_1.select(F.count(F.col('상품명'))).show()
+    df = spark.read.parquet('/Users/jy_kim/Documents/private/data-engineer/data/parquet/linked_predict')
+    df.show(1000, False)
     '''
         - 사건 B가 일어난 후 사건 A가 일어날 확률
         1. 전제: 두 사건 A, B가 있고, 사건 B가 발생한 이후에 사건 A가 발생한다고 가정한다.

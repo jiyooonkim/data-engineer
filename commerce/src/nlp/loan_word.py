@@ -9,6 +9,8 @@ from pyspark.sql import SparkSession
 import pyspark.sql.functions as F
 import pyspark.sql.types as T
 import pyspark.sql.window as window
+import os
+os.chdir('../../../')
 
 
 @F.udf(returnType=T.ArrayType(T.ArrayType(T.StringType())))
@@ -263,12 +265,12 @@ if __name__ == "__main__":
 
     prod_1 = spark.read. \
         option('header', True). \
-        csv("/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/nvr_prod.csv") \
+        csv("commerce/data/nvr_prod.csv") \
         .select(F.col('상품명'), F.col('대분류'), F.col('중분류'), F.col('소분류'))
 
     prod_2 = spark.read. \
         option('header', True). \
-        csv("/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/nvr_prod_2.csv") \
+        csv("commerce/data/nvr_prod_2.csv") \
         .select(F.col('상품명'), F.col('대분류'), F.col('중분류'), F.col('소분류'))
 
     prod = (prod_1.union(prod_2)).distinct()
@@ -452,7 +454,7 @@ if __name__ == "__main__":
 
     # todoL tf-idf 결과로 token(한국어) - prod_nm(영어만 남기기) df 생성후 이니셜 포함 확률 구해보기
     # 코닥, 모닝, 화이트, 헬시
-    tf_idf = spark.read.parquet("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/tfidf/")\
+    tf_idf = spark.read.parquet("data/parquet/tfidf/")\
         .select(
             F.trim(
                     F.regexp_replace(
@@ -519,7 +521,7 @@ if __name__ == "__main__":
     # d.orderBy(F.col("token").desc()).show(2000, False)
 
     d.coalesce(15).write.format("parquet").mode("overwrite") \
-        .save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/loan_word_cndd/")
+        .save("data/parquet/loan_word_cndd/")
 
     # b.where(F.col("token") == '닌텐도').distinct().orderBy(F.col("tf-idf").desc()).show(2000, False)
     '''
@@ -545,7 +547,7 @@ if __name__ == "__main__":
     '''
 
     ''' Ver2 - By ngram candidate '''
-    loan_wd_cndd1_by_ngram = spark.read.parquet('/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/loan_wd_cndd1_by_ngram')\
+    loan_wd_cndd1_by_ngram = spark.read.parquet('data/parquet/loan_wd_cndd1_by_ngram')\
         .select(F.col('toks')[0].alias('eng_tkn'), F.col('toks')[1].alias('kor_tkn'))\
         .alias('loan_wd_cndd1_by_ngram')
     a = loan_wd_cndd1_by_ngram\
@@ -556,14 +558,11 @@ if __name__ == "__main__":
             F.rank().over(window.Window.partitionBy(F.col('kor_tkn')).orderBy(F.col('cnt').desc()))
         ).where(F.length(F.col('kor_tkn')) > 1).where(F.col('rnk') < 2)
 
-
     b = a.withColumn("jaso", get_jaso(F.regexp_replace(F.col('kor_tkn'), "[^가-힣]", ''))) \
         .withColumn("initial", convert_kor_to_initial(F.col("jaso"))) \
-        .withColumn("konglish", get_konglish(F.col("jaso"))) \
-        # .withColumn("initianl_jcd_sim", get_jaccard_sim(F.col("initial"), F.col("prod_nm_token"))) \
-        # .withColumn("intersection_word", get_intersection_word(F.col("konglish"), F.col("prod_nm_token")))
-    b.where(F.col('eng_tkn').substr(0, 1) == F.col('initial').substr(0, 1))\
-        .orderBy(F.col('kor_tkn'))\
-        .show(1000, False)
+        .withColumn("konglish", get_konglish(F.col("jaso")))
+    # b.where(F.col('eng_tkn').substr(0, 1) == F.col('initial').substr(0, 1))\
+    #     .orderBy(F.col('kor_tkn'))\
+    #     .show(1000, False)
 
     exit(0)

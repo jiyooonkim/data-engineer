@@ -53,12 +53,14 @@ Developers with the ability to create good data in big databases.
     - 불용어(stopword)
   - NLP
     - Negative Sampling
-  - ML(적용하여 학습 예정(커버리지 늘리기 위해)) 
+    - Stemming(어간추출)
+  - ML
     - RNN
     - TenserFlow
     - keras
     - Scikit-Learn
-    - 회귀분석
+    - 선형회귀분석
+    - 딥 러닝, 랜덤 포레스트, 그래디언트 부스팅 트리, k-평균 클러스터링 등)과 해당 알고리즘의 개발, 검증 및 평가에 대한 깊은 이해
   - Search
     - Elasticsearch 검색 엔진 구축 및 이해 
     - 상품 검색 Inner Keyword 매핑 
