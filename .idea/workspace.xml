@@ -4,59 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Develop ML">
-      <change afterPath="$PROJECT_DIR$/commerce/src/nlp/stopword.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/stop_word_1/._SUCCESS.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/stop_word_1/.part-00000-142c820a-3eae-4ed9-b90e-ba7340bd779f-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/stop_word_1/.part-00001-142c820a-3eae-4ed9-b90e-ba7340bd779f-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/stop_word_1/_SUCCESS" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/stop_word_1/part-00000-142c820a-3eae-4ed9-b90e-ba7340bd779f-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/stop_word_1/part-00001-142c820a-3eae-4ed9-b90e-ba7340bd779f-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/color_attribution/.part-00000-4e41a746-711b-4058-90d9-445e0bff98cf-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/color_attribution/.part-00000-70c1634a-d7dc-463b-bdae-f403c9e02209-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/color_attribution/part-00000-4e41a746-711b-4058-90d9-445e0bff98cf-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/color_attribution/part-00000-70c1634a-d7dc-463b-bdae-f403c9e02209-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/loan_word_cndd/.part-00000-d9728fa1-461c-496d-8aab-5a4b08cbf11a-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/loan_word_cndd/part-00000-d9728fa1-461c-496d-8aab-5a4b08cbf11a-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/measures_attribution/.part-00000-b30c8db4-13d8-45d7-af07-5e3d7d13e666-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/measures_attribution/part-00000-b30c8db4-13d8-45d7-af07-5e3d7d13e666-c000.snappy.parquet" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Develop Stopword">
+      <change afterPath="$PROJECT_DIR$/commerce/src/etc/create_df.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/non_stopword/.part-00000-c04a09ea-dce2-4398-8908-d5cd3c5d367a-c000.csv.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/non_stopword/part-00000-c04a09ea-dce2-4398-8908-d5cd3c5d367a-c000.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/stop_word_1/.part-00000-91471830-e4ff-4a8d-92a4-d96379300b3b-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/stop_word_1/.part-00001-91471830-e4ff-4a8d-92a4-d96379300b3b-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/stop_word_1/part-00000-91471830-e4ff-4a8d-92a4-d96379300b3b-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/stop_word_1/part-00001-91471830-e4ff-4a8d-92a4-d96379300b3b-c000.snappy.parquet" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/csv-editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/etc/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/etc/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/etc/conn_es.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/etc/conn_es.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/etc/encryption.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/etc/encryption.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/etc/export_es_spark_ver.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/etc/export_es_spark_ver.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/etc/smtp.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/etc/smtp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/etc/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/etc/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/ml/k-means.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/ml/k-means.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/ml/mllib.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/ml/mllib.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/ml/nive_bayes.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/ml/nive_bayes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/compound_word.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/compound_word.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/cosine_similarity.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/cosine_similarity.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/jaccard_similarity.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/jaccard_similarity.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/loan_word.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/loan_word.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/ngram.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/ngram.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/noise_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/noise_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/spark_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/spark_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/stopword.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/tf-idf.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/tf-idf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/tf-idf_func.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/tf-idf_func.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/typo_dictionary.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/typo_dictionary.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/nlp/word2vec.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/word2vec.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/product/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/product/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/product/get_attribute.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/product/get_attribute.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/product/get_modelname_number.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/product/get_modelname_number.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/product/kwd.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/product/kwd.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/cmc/product/nvr_prod_cate_match.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/product/nvr_prod_cate_match.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/color_attribution/.part-00000-62f961ed-1e9c-49f2-82da-5a0bf6aea41b-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/color_attribution/part-00000-62f961ed-1e9c-49f2-82da-5a0bf6aea41b-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_word_cndd/.part-00000-dd65b578-d6f9-4ffc-8d2b-6988d34da53c-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_word_cndd/part-00000-dd65b578-d6f9-4ffc-8d2b-6988d34da53c-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/measures_attribution/.part-00000-ad1f5575-da95-40c7-bf9a-5a69898b6b61-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/measures_attribution/part-00000-ad1f5575-da95-40c7-bf9a-5a69898b6b61-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/src/nlp/compound_word.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/compound_word.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/src/nlp/stopword.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/stopword.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/output/non_stopword/.part-00000-6fc749e6-2a96-4382-b4ed-9533fb873ea1-c000.csv.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/output/non_stopword/part-00000-6fc749e6-2a96-4382-b4ed-9533fb873ea1-c000.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/output/stop_word_1/.part-00000-15f6c8a9-6997-4e5f-a5c2-22c9f59dd97b-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/output/stop_word_1/.part-00001-15f6c8a9-6997-4e5f-a5c2-22c9f59dd97b-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/output/stop_word_1/part-00000-15f6c8a9-6997-4e5f-a5c2-22c9f59dd97b-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/output/stop_word_1/part-00001-15f6c8a9-6997-4e5f-a5c2-22c9f59dd97b-c000.snappy.parquet" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -431,14 +396,6 @@
       <option name="project" value="LOCAL" />
       <updated>1687013639343</updated>
     </task>
-    <task id="LOCAL-00029" summary="Study shell">
-      <option name="closed" value="true" />
-      <created>1689689766289</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1689689766289</updated>
-    </task>
     <task id="LOCAL-00030" summary="Develop load word">
       <option name="closed" value="true" />
       <created>1689778101923</created>
@@ -679,7 +636,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700578127009</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Develop Stopword">
+      <option name="closed" value="true" />
+      <created>1700984616735</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1700984616735</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -716,7 +681,8 @@
     <MESSAGE value="Develop nike scraping" />
     <MESSAGE value="Develop Linked prediction" />
     <MESSAGE value="Develop ML" />
-    <option name="LAST_COMMIT_MESSAGE" value="Develop ML" />
+    <MESSAGE value="Develop Stopword" />
+    <option name="LAST_COMMIT_MESSAGE" value="Develop Stopword" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

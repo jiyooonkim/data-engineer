@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-# title : compound_word
-# doc : 합성어 추출
-# desc : - 합성어 예시 : 클렌징 + 폼 = 클렌징폼, 메주 + 가루 = 메주가루, 휴대용 + 빨래판 = 휴대용빨래판, 수영 + 안경 = 수영안경
+    # title : compound_word
+    # doc : 합성어 추출
+    # desc : - 합성어 예시 : 클렌징 + 폼 = 클렌징폼, 메주 + 가루 = 메주가루, 휴대용 + 빨래판 = 휴대용빨래판, 수영 + 안경 = 수영안경
 """
 
 from pyspark.sql import SparkSession
