@@ -6,7 +6,7 @@ os.chdir('../../')
 print(os.getcwd())
 # note : anchor 가 시작인듯 24개씩 증가하는데 ??
 # "endpoint": "/product_feed/rollup_threads/v2?filter=marketplace(KR)&filter=language(ko)&filter=employeePrice(true)&filter=attributeIds(a00f0bb2-648b-4853-9559-4cd943b7d6c6,7baf216c-acc6-4452-9e07-39c2ca77ba32)&anchor=144&consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&count=24",
-     
+
 url = "https://api.nike.com/cic/browse/v2"
 headers = {
     "Accept": "*/*",

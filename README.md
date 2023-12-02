@@ -29,6 +29,7 @@ Developers with the ability to create good data in big databases.
     - 합성어
     - 모델명
     - 외래어 
+    - 불용어(stopword)
   - scraping
   
 - Platfrom & Doc
@@ -50,7 +51,7 @@ Developers with the ability to create good data in big databases.
     - 동의어
     - 브랜드 
     - 시리즈
-    - 불용어(stopword)
+    
   - NLP
     - Negative Sampling
     - Stemming(어간추출)
