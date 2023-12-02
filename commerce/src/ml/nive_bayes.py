@@ -1,4 +1,4 @@
-'''
+"""
     # title : Naive Bayes Classifier
     # doc : https://tensorflow.blog/%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D/2-3-4-%EB%82%98%EC%9D%B4%EB%B8%8C-%EB%B2%A0%EC%9D%B4%EC%A6%88-%EB%B6%84%EB%A5%98%EA%B8%B0/
     # desc :
@@ -15,12 +15,14 @@
         - 나이브베이즈 분류 활용하여 송장명 카테고리 예측
             - traiging set : nvr_prod
             - test set : 송장명
-'''
+"""
 
 from pyspark.sql import SparkSession
 import pyspark.sql.functions as F
 import pyspark.sql.types as T
 import pyspark.sql.window as window
+import os
+os.chdir('../../../')
 
 
 if __name__ == "__main__":

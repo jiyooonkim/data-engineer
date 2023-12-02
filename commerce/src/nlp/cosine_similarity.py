@@ -1,20 +1,20 @@
 # -*- coding: utf-8 -*-
 """
-# title : cosine similarity
-# doc : https://needjarvis.tistory.com/665
-# desc :
-- 단어의 빈도수 중요할 경우 사용 (자카드유사도와 반대)
-- text similarity 측정
-- ver1. 상품명 vs 상품명
+    # title : cosine similarity
+    # doc : https://needjarvis.tistory.com/665
+    # desc :
+        - 단어의 빈도수 중요할 경우 사용 (자카드유사도와 반대)
+        - text similarity 측정
+        - ver1. 상품명 vs 상품명
 
-# insight :
- - 연관 상품 가능성
-  ex) '2p 눈썹칼 눈썹정리 칼 접이식' 의 추천 상품명 '눈썹칼 눈썹정리 메이크업소품 눈썹정리기 접이식', '왁싱 접이식 눈썹칼 3종 set 왁싱디자인 눈썹정리 잔털정리', '화장소품 눈썹정리 눈썹칼 가위 아이브로우', '메이크업소품 2단 접이식 눈썹칼 2개입'
-# dev :
- - 현) 카테고리 미적용, 상품개수 4만개라서..  -> 카테고리 기준으로 묶는다면 유사한(연관성) 상승 할 것으로 예측
-# pro :
- - 단어의 가중치에 따른 분류 필요  -> 'cc 28 희귀한 판화' <-> '랑콤 cc 크림 w spf 50 5'  'cc' 로 묶임
- - 단어(word)자체 비교이기 때문에 동일한 단어가 아닐 경우 예측이 안 됨으로 자세한 분석이 될 수 없음 ->  유의어,동의어.. 같은 것은 비교가 안됨
+    # insight :
+        - 연관 상품 가능성
+            ex) '2p 눈썹칼 눈썹정리 칼 접이식' 의 추천 상품명 '눈썹칼 눈썹정리 메이크업소품 눈썹정리기 접이식', '왁싱 접이식 눈썹칼 3종 set 왁싱디자인 눈썹정리 잔털정리', '화장소품 눈썹정리 눈썹칼 가위 아이브로우', '메이크업소품 2단 접이식 눈썹칼 2개입'
+    # dev :
+        - 현) 카테고리 미적용, 상품개수 4만개라서..  -> 카테고리 기준으로 묶는다면 유사한(연관성) 상승 할 것으로 예측
+    # pro :
+         - 단어의 가중치에 따른 분류 필요  -> 'cc 28 희귀한 판화' <-> '랑콤 cc 크림 w spf 50 5'  'cc' 로 묶임
+         - 단어(word)자체 비교이기 때문에 동일한 단어가 아닐 경우 예측이 안 됨으로 자세한 분석이 될 수 없음 ->  유의어,동의어.. 같은 것은 비교가 안됨
 
 """
 
@@ -22,6 +22,8 @@ from pyspark.sql import SparkSession
 import pyspark.sql.functions as F
 import pyspark.sql.types as T
 import pyspark.sql.window as window
+import os
+os.chdir('../../../')
 
 
 @F.udf(returnType=T.ArrayType(T.IntegerType()))

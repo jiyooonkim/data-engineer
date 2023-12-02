@@ -4,25 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Develop Stopword">
-      <change afterPath="$PROJECT_DIR$/commerce/src/etc/create_df.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/non_stopword/.part-00000-c04a09ea-dce2-4398-8908-d5cd3c5d367a-c000.csv.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/non_stopword/part-00000-c04a09ea-dce2-4398-8908-d5cd3c5d367a-c000.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/stop_word_1/.part-00000-91471830-e4ff-4a8d-92a4-d96379300b3b-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/stop_word_1/.part-00001-91471830-e4ff-4a8d-92a4-d96379300b3b-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/stop_word_1/part-00000-91471830-e4ff-4a8d-92a4-d96379300b3b-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/stop_word_1/part-00001-91471830-e4ff-4a8d-92a4-d96379300b3b-c000.snappy.parquet" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/csv-editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-editor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/src/nlp/compound_word.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/compound_word.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/src/nlp/stopword.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/stopword.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/non_stopword/.part-00000-6fc749e6-2a96-4382-b4ed-9533fb873ea1-c000.csv.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/non_stopword/part-00000-6fc749e6-2a96-4382-b4ed-9533fb873ea1-c000.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/stop_word_1/.part-00000-15f6c8a9-6997-4e5f-a5c2-22c9f59dd97b-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/stop_word_1/.part-00001-15f6c8a9-6997-4e5f-a5c2-22c9f59dd97b-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/stop_word_1/part-00000-15f6c8a9-6997-4e5f-a5c2-22c9f59dd97b-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/stop_word_1/part-00001-15f6c8a9-6997-4e5f-a5c2-22c9f59dd97b-c000.snappy.parquet" beforeDir="false" />
-    </list>
+    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Develop Stopword" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
