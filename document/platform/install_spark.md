@@ -59,7 +59,14 @@
 + 파티션 수를 줄일 땐 coalesce(), 파티션 수를 늘릴 땐 repartition()
 
 #### Skew
-+ 
++ 데이터 편향 현상, 고르게 파티션 별로 분배 되지 못할 떄 발생 
++ 해결 방법
+  + (custom) repartition
+  + sorting
+  + bucketing
+  + broadcast join
+  + join tunning 
+  
 #### Spill
 + 역직렬화하여 연산 재개하는 행위
 + 발생사유 : 데이터 shuffle 시 자원 충분하지 못할 때 발생

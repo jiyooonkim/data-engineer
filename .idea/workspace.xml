@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Develop stemming">
-      <change afterPath="$PROJECT_DIR$/data/output/stemming_kor/._SUCCESS.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/stemming_kor/.part-00000-fa34bcf2-8c64-45bb-9cb2-8a441aa0473a-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/stemming_kor/.part-00001-fa34bcf2-8c64-45bb-9cb2-8a441aa0473a-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/stemming_kor/_SUCCESS" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/stemming_kor/part-00000-fa34bcf2-8c64-45bb-9cb2-8a441aa0473a-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/stemming_kor/part-00001-fa34bcf2-8c64-45bb-9cb2-8a441aa0473a-c000.snappy.parquet" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/src/nlp/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/src/nlp/stemming.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/stemming.py" afterDir="false" />
+    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Develop stemming, running spark">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/document/platform/install_spark.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_spark.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -390,14 +382,6 @@
       <option name="project" value="LOCAL" />
       <updated>1687013639343</updated>
     </task>
-    <task id="LOCAL-00033" summary="Study hadoop">
-      <option name="closed" value="true" />
-      <created>1690798061100</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1690798061100</updated>
-    </task>
     <task id="LOCAL-00034" summary="Study spark, hadoop">
       <option name="closed" value="true" />
       <created>1690895124418</created>
@@ -638,7 +622,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701584032199</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Develop stemming, running spark">
+      <option name="closed" value="true" />
+      <created>1701617852204</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1701617852204</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -677,6 +669,7 @@
     <MESSAGE value="Develop ML" />
     <MESSAGE value="Develop Stopword" />
     <MESSAGE value="Develop stemming" />
-    <option name="LAST_COMMIT_MESSAGE" value="Develop stemming" />
+    <MESSAGE value="Develop stemming, running spark" />
+    <option name="LAST_COMMIT_MESSAGE" value="Develop stemming, running spark" />
   </component>
 </project>
