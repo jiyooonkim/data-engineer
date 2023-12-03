@@ -25,7 +25,7 @@ if __name__ == "__main__":
     from nlp import init_spark_session, F, get_txt_type
 
     spark = init_spark_session()
-    # print(os.getcwd())
+
 
     # Step1. get product name
     df1 = (spark.read.option('header', True)
@@ -59,7 +59,7 @@ if __name__ == "__main__":
     '''
     df_3_size = (origin_df.where((F.length(F.col('token')) <= 4))
                  .groupby(F.col('token')).agg(F.count(F.col('token')).alias('cnt'))
-                 .repartition(600, F.col('cnt'))
+                 .repartition(400, F.col('cnt'))
                  .alias('df_3_size'))
     # df_3_size.select(F.count(F.col('token'))).show() & (F.length(F.col('token')) > 1)
     # origin_df = origin_df.distinct().alias('origin_df')
@@ -74,8 +74,11 @@ if __name__ == "__main__":
     origin_df.select(F.count(F.col('token'))).show()
     df_3_size.select(F.count(F.col('token'))).show()
     kor_ver.show()
-    # kor_ver.write.format("parquet").mode("overwrite").save(
-    #     "/Users/jy_kim/Documents/private/data-engineer/data/output/stemming_kor/")
+
+    kor_ver.write.format("parquet").mode("overwrite").save(
+        "../../../data/output/stemming_kor/")
+    # todo : 토큰 매핑 알고리즘 구현 , 안나올 경우 대비해 토큰 빈도수도 구해둠!!
+
     # todo : eng ver
 
     # .groupBy(F.col('stem')).agg(F.collect_list(F.col('word')))
