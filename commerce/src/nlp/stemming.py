@@ -1,12 +1,13 @@
 """
     # title : 어간 추출(stemming)
-    # desc : 단어에서 개념적(최소) 의미를 갖는 어간만 추출하는 방법
-        ex) analysis과 analytic ->analy
-        예시와 같이 어간만 추출하다보니 사전에 없는 단어가 생기게 됩니다.
-        - Stemming의 목적은 어근과 차이가 있더라도 관련이 있는 단어들이 일정하게 동일한 어간으로 매핑되게 하는 것 목적
-        어간 VS 표제어
-            - 어간 : 사전에 미존재하는 단어 나올 수 있음, 문맥정보 없음
-            - 표제어 : 기본 사전형 의미, 단어의 형태가 보존되어야 함, 문맥정보 있음
+    # desc : - 단어에서 개념적(최소) 의미를 갖는 어간만 추출하는 방법
+                ex) analysis과 analytic ->analy
+                    예시와 같이 어간만 추출하다보니 사전에 없는 단어 발생하기도 함
+            - Stemming의 목적은 어근과 차이가 있더라도 관련이 있는 단어들이 일정하게 동일한 어간으로 매핑되게 하는 것 목적
+            - 어간 VS 표제어
+                - 어간 : 사전에 미존재하는 단어 나올 수 있음, 문맥정보 없음
+                - 표제어 : 기본 사전형 의미, 단어의 형태가 보존되어야 함, 문맥정보 있음
+            - 사
     # output
         -
 """
@@ -17,21 +18,11 @@
 
 import sys
 from os import path
+
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
-
-@F.udf(returnType=T.ArrayType(T.StringType()))
-def get_token_ver1(tks, cndd_lst):
-    # output : [어간(stem), 어미(ending)]
-    stm_cndd = []
-    for cndd in cndd_lst:
-        if tks.__contains__(cndd):
-            stm_cndd.append([tks, cndd])
-    return stm_cndd
-
-
 if __name__ == "__main__":
-    from nlp import init_spark_session, F
+    from nlp import init_spark_session, F, get_txt_type
 
     spark = init_spark_session()
     # print(os.getcwd())
@@ -50,43 +41,44 @@ if __name__ == "__main__":
         F.explode(
             F.split(
                 F.regexp_replace(F.regexp_replace(
-                    F.lower(F.col('prod_nm')), "[^A-Za-z0-9가-힣-]", ' '
+                    F.lower(F.col('prod_nm')), "[^가-힣0-9-*&]", ' '
                 ), r"\s+", ' '), ' '
             )
         ).alias('token')
-    ).where(F.length(F.col('token')) > 1).distinct().alias('origin_df')
+    ).where(F.length(F.col('token')) != 0).alias('origin_df')
+    # .where(F.length(F.col('token')) > 1)
+    # todo : 영어 +  숫자 ver A-Za-z0-9
+    #
     '''
         # Todo 
         - 전처리 : 토크나이징, 특수문자, 소문자 변환
         - Stemming 방식
             - 단어 기반 포함된 알고리즘 찾는것 
-            - 예상 output : 축이되는 단어 +  잘린단어 
-        - broadcasting 1:N 
+            - 예상 output : 축이되는 단어 + 잘린단어 
+ 
     '''
-    df_3_size = origin_df.where(F.length(F.col('token')) <= 3).alias('df_3_size')
+    df_3_size = (origin_df.where((F.length(F.col('token')) <= 4))
+                 .groupby(F.col('token')).agg(F.count(F.col('token')).alias('cnt'))
+                 .repartition(600, F.col('cnt'))
+                 .alias('df_3_size'))
+    # df_3_size.select(F.count(F.col('token'))).show() & (F.length(F.col('token')) > 1)
+    # origin_df = origin_df.distinct().alias('origin_df')
+    kor_ver = (df_3_size
+               .join(origin_df.distinct(), F.col('origin_df.token').contains(F.col('df_3_size.token')))
+               .where(F.col('origin_df.token') != F.col('df_3_size.token'))
+               .select(
+                    F.col('origin_df.token').alias('word'),
+                    F.col('df_3_size.token').alias('stem'),
+                    F.col('df_3_size.cnt').alias('cnt'))
+               .where(get_txt_type(F.col('word')) != 'num'))
+    origin_df.select(F.count(F.col('token'))).show()
+    df_3_size.select(F.count(F.col('token'))).show()
+    kor_ver.show()
+    # kor_ver.write.format("parquet").mode("overwrite").save(
+    #     "/Users/jy_kim/Documents/private/data-engineer/data/output/stemming_kor/")
+    # todo : eng ver
 
-    (df_3_size.join(origin_df, F.col('df_3_size.token').contains(F.col('origin_df.token')))
-     .where(F.col('origin_df.token') != F.col('df_3_size.token')))
-    # .show(10000, False))
-    df_3_size.show(10000, False)
-    # F.regexp_replace(F.lower(F.col('prod_nm')), "[^A-Za-z0-9가-힣]", ' '), r"\s+", ' '))
-
-    cp = spark.read.parquet('/Users/jy_kim/Documents/private/data-engineer/data/parquet/compound')
-    # cp.orderBy(F.col('freq').desc()).show(1000, False)
-    '''
-    
-    |2호세트                 |[세트, 2호]                 |1460|1  |
-|3000세트                |[세트, 3000]                |1446|1  |
-|300w스피커              |[스피커, 300w]              |144 |1  |
-|32세트                  |[세트, 32]                  |1444|1  |
-|34rc                    |[rc, 34]                    |71  |1  |
-|35rc                    |[rc, 35]                    |90  |1  |
-|3d선글라스              |[선글라스, 3d]              |211 |1  |
-|3d스캐너                |[스캐너, 3d]                |193 |1  |
-|3d영화                  |[영화, 3d]                  |127 |1  |
-|3d퍼즐                  |[퍼즐, 3d]                  |183 |1  |
-|3d프린터                |[프린터, 3d]                |217 |1  |
-|3d피규어                |[피규어, 3d]                |'''
+    # .groupBy(F.col('stem')).agg(F.collect_list(F.col('word')))
+    # df_3_size.join(origin_df, F.col('df_3_size.token').contains(F.col('origin_df.token'))).where(F.col('origin_df.token') != F.col('df_3_size.token')).show(10000, False)
 
     exit(0)
-    # todo :

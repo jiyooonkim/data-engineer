@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Develop Stopword" />
+    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Develop stemming">
+      <change afterPath="$PROJECT_DIR$/data/output/stemming_kor/._SUCCESS.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/stemming_kor/.part-00000-fa34bcf2-8c64-45bb-9cb2-8a441aa0473a-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/stemming_kor/.part-00001-fa34bcf2-8c64-45bb-9cb2-8a441aa0473a-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/stemming_kor/_SUCCESS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/stemming_kor/part-00000-fa34bcf2-8c64-45bb-9cb2-8a441aa0473a-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/stemming_kor/part-00001-fa34bcf2-8c64-45bb-9cb2-8a441aa0473a-c000.snappy.parquet" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/src/nlp/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/src/nlp/stemming.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/stemming.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/platform/install_spark.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_spark.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,16 +73,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jy_kim/Documents/private/data-engineer&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.CSV/TSV/PSV&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/jy_kim/Documents/private/data-engineer",
+    "settings.editor.selected.configurable": "preferences.sourceCode.CSV/TSV/PSV"
   }
-}</component>
+}]]></component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings module-name="test" is-module-sdk="true">
@@ -82,11 +94,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/commerce" />
+      <recent name="$PROJECT_DIR$/commerce/src" />
       <recent name="$PROJECT_DIR$/commerce/cmc/nlp" />
       <recent name="$PROJECT_DIR$/document/doc" />
-      <recent name="$PROJECT_DIR$/document/platform/img" />
-      <recent name="$PROJECT_DIR$/document/platform" />
-      <recent name="$PROJECT_DIR$/document/nlp" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/document/doc/img" />
@@ -103,7 +115,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Python.stopword (1)">
+  <component name="RunManager" selected="Python.stemming">
     <configuration name="get_attribute" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -167,7 +179,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="nive_bayes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="stemming" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -175,11 +187,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/cmc/ml" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/nlp" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/cmc/ml/nive_bayes.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/stemming.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -232,11 +244,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.stemming" />
         <item itemvalue="Python.stopword (1)" />
         <item itemvalue="Python.get_attribute" />
         <item itemvalue="Python.stopword" />
         <item itemvalue="Python.loan_word" />
-        <item itemvalue="Python.nive_bayes" />
       </list>
     </recent_temporary>
   </component>
@@ -377,30 +389,6 @@
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
       <updated>1687013639343</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Develop load word">
-      <option name="closed" value="true" />
-      <created>1689778101923</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1689778101923</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Develop load word">
-      <option name="closed" value="true" />
-      <created>1689928929543</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1689928929543</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Develop load word">
-      <option name="closed" value="true" />
-      <created>1690687458913</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1690687458913</updated>
     </task>
     <task id="LOCAL-00033" summary="Study hadoop">
       <option name="closed" value="true" />
@@ -626,7 +614,31 @@
       <option name="project" value="LOCAL" />
       <updated>1700984616735</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Develop stemming">
+      <option name="closed" value="true" />
+      <created>1701528888437</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1701528888437</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Develop stemming">
+      <option name="closed" value="true" />
+      <created>1701529033815</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1701529033816</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Develop stemming">
+      <option name="closed" value="true" />
+      <created>1701584032199</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1701584032199</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -664,32 +676,7 @@
     <MESSAGE value="Develop Linked prediction" />
     <MESSAGE value="Develop ML" />
     <MESSAGE value="Develop Stopword" />
-    <option name="LAST_COMMIT_MESSAGE" value="Develop Stopword" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/commerce/src/product/nvr_prod_cate_match.py</url>
-          <line>107</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/commerce/src/nlp/jaccard_similarity.py</url>
-          <line>75</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/commerce/src/nlp/jaccard_similarity.py</url>
-          <line>109</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/commerce/src/nlp/tf-idf_func.py</url>
-          <line>4</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Develop stemming" />
+    <option name="LAST_COMMIT_MESSAGE" value="Develop stemming" />
   </component>
 </project>

@@ -40,21 +40,32 @@
 <br/><br/>
 ### 용어 정리/개념 설명
 #### Shuffle
-    발생 하는 경우 : 파티션에 데이터 재배치 될 때 발생, 맵리듀스에서 리듀스 단계 중 물리적 데이터 이동시
-#### <파티션의 개념 및 차이점>  
-  - partition() : 코어수에 따라 할당
-  - paritionby(column) : 디스크 데이터를 분산 할 때, 속도 향상 , write 함수  
-  - repartition(partition count, column)  : 메모리에서 데이터 분산할 때  
-  - coalesce: 디폴트는 파티션 수 감소할 때만 사용, numofpartition = true 시에는 파티는 증가도 가능  
-               데이터 개수에 따라 다르지만, 분할보다 병합 비용이 더 큼
++ 발생 하는 경우 : 파티션에 데이터 재배치 될 때 발생, 맵리듀스에서 리듀스 단계 중 물리적 데이터 이동시
+  + 디폴트 파티션 개수 : 200
+  + 파일의 크기 : 128MB (128MB 클경우, 이 수치 만큼 쪼개서 읽음)
++ join, union, groupBy, sort, coalesce, repartition, aggregate 
++ reduce()에 해당하는 operation을 실행하기전에 물리적인 데이터의 이동이 있어야 하기 때문에 발생
++ 
+#### <파티션의 개념 및 차이점>       
++ partition() : 코어수에 따라 할당, 1 Core = 1 Task = 1 Partition   
++ paritionby(column) : 디스크 데이터를 분산 할 때, 속도 향상 , write 함수      
++ repartition(partition count, column)  : 메모리에서 데이터 분산할 때  
++ coalesce: 디폴트는 파티션 수 감소할 때만 사용, numofpartition = true 시에는 파티는 증가도 가능  
+           데이터 개수에 따라 다르지만, 분할보다 병합 비용이 더 큼
 
-#### < transformation vs action >  
+#### <coalesce() vs repartition()>
++ coalesce는 파티션을 줄일 때 사용하고, repartition()은 파티션 수를 늘리거나 줄일 때 사용(셔플의 유/무)
++ coalesce 는 파티션 별도 셜정필요, repartition은 파티션 디폴트 
++ 파티션 수를 줄일 땐 coalesce(), 파티션 수를 늘릴 땐 repartition()
+
+
+#### <transformation vs action>  
   - transformation : query plan만 만들고 실제로 메모리에 올리지는 않음   
     ex) map, filter, distinct, union, reprtition, group by, intersection
   - action : 메모리 올려서 동작, Transformation을 실행, action의 return타입은 RDD에서 다른 타입   
     ex) collection, count, reduce, agg(regation)  
 
-#### < spark vs mr >    
+#### <spark vs mr>    
   - mr : data 처리 엔진, hdfs에 write 하는 오픈소스 프레임워크, 속도느림, 프로그램 속도느림, Java로 코드를 작성해야    
   - spark : 분석 프레임워크, mr 보다 빠름, 프로그램 용이, 프로그래밍 인터페이스를 갖추고 있으며 여러 언어를 지원  
 

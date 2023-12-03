@@ -26,7 +26,7 @@ from pyspark.ml.torch.distributor import TorchDistributor
 import pyspark.sql.types as T
 import pyspark.sql.functions as F
 import pyspark.sql.window as window
-
+import re
 DEFAULT_PATH = '../'
 
 
@@ -34,6 +34,7 @@ class CreateData:
     """
         Managing table 
     """
+
     def __init__(self):
         self.column = column
         self.dirctory = dirctory
@@ -42,7 +43,7 @@ class CreateData:
         self.db = db
         self.mode = mode
         self.table = table
-         
+
     def read_data(self, dirctory, file_type, header=None):
         return None
 
@@ -54,6 +55,26 @@ def get_tonkenizing():
     # todo
     get_nike_tkn_2 = nike_dt.select(
         F.explode(F.split(F.regexp_replace(F.lower(F.col('_c0')), "[^A-Za-z0-9가-힣]", ' '), ' ')))
+
+
+@F.udf(returnType=T.StringType())
+def get_txt_type(wd):
+    if wd.encode().isalpha():  # only eng
+        str_tp = 'eng'
+    elif wd.isalpha():  # eng+kor, kor
+        res = re.compile(u'[^a-z]+').sub(u'', wd)
+        if res:  # kor + eng
+            str_tp= 'engkor'
+        else:  # only kor
+            str_tp = 'kor'
+    elif wd.isdigit():  # 숫자만
+        str_tp = 'num'
+    elif wd.isalnum():  # 영어/한글 + 숫자
+        str_tp = 'txtnum'
+    else:
+        str_tp = 'etc'
+    return str_tp
+
 
 def init_spark_session(app_name="spark_job", arrow=True, dm="16g", dc=8, em="16g", deployMode="client"):
     from pyspark.sql import SparkSession
