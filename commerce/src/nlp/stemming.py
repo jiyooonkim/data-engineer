@@ -17,8 +17,18 @@
 
 import sys
 from os import path
-
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+
+
+@F.udf(returnType=T.ArrayType(T.StringType()))
+def get_token_ver1(tks, cndd_lst):
+    # output : [어간(stem), 어미(ending)]
+    stm_cndd = []
+    for cndd in cndd_lst:
+        if tks.__contains__(cndd):
+            stm_cndd.append([tks, cndd])
+    return stm_cndd
+
 
 if __name__ == "__main__":
     from nlp import init_spark_session, F
@@ -51,12 +61,13 @@ if __name__ == "__main__":
         - Stemming 방식
             - 단어 기반 포함된 알고리즘 찾는것 
             - 예상 output : 축이되는 단어 +  잘린단어 
+        - broadcasting 1:N 
     '''
     df_3_size = origin_df.where(F.length(F.col('token')) <= 3).alias('df_3_size')
 
     (df_3_size.join(origin_df, F.col('df_3_size.token').contains(F.col('origin_df.token')))
      .where(F.col('origin_df.token') != F.col('df_3_size.token')))
-     # .show(10000, False))
+    # .show(10000, False))
     df_3_size.show(10000, False)
     # F.regexp_replace(F.lower(F.col('prod_nm')), "[^A-Za-z0-9가-힣]", ' '), r"\s+", ' '))
 
@@ -78,3 +89,4 @@ if __name__ == "__main__":
 |3d피규어                |[피규어, 3d]                |'''
 
     exit(0)
+    # todo :
