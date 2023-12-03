@@ -58,6 +58,22 @@
 + coalesce 는 파티션 별도 셜정필요, repartition은 파티션 디폴트 
 + 파티션 수를 줄일 땐 coalesce(), 파티션 수를 늘릴 땐 repartition()
 
+#### Skew
++ 
+#### Spill
++ 역직렬화하여 연산 재개하는 행위
++ 발생사유 : 데이터 shuffle 시 자원 충분하지 못할 때 발생
++ 미치는 영향 
+  + Task 지연, Error 발생 
+  + Hadoop Cluster 사용률 높을 경우, 연달아 erro 발생하고 spark job 강제 종료 될 수 있음 
++ 방지방법
+  + Skew 현상 제거
+  + partition 수 감소
+  + core 당 memory 양 증가 
++ shuffle spill
+  + memory : spill 될 때 메모리에서 역직렬화된 데이터 크기
+  + disk : spill 이후 디스크에서 직렬화될 때
+
 
 #### <transformation vs action>  
   - transformation : query plan만 만들고 실제로 메모리에 올리지는 않음   
