@@ -183,7 +183,7 @@ def get_intersection_word(kong, eng):
 
 if __name__ == "__main__":
     spark = SparkSession.builder \
-        .appName('jy_kim') \
+        .appName('Spark test Job') \
         .master('local[4]') \
         .config('spark.sql.execution.arrow.pyspark.enabled', True) \
         .config('spark.sql.session.timeZone', 'UTC') \

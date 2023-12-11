@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="studying spark">
-      <change beforePath="$PROJECT_DIR$/commerce/src/nlp/stemming.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/stemming.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/stemming_kor/._SUCCESS.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/stemming_kor/.part-00000-fa34bcf2-8c64-45bb-9cb2-8a441aa0473a-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/stemming_kor/.part-00001-fa34bcf2-8c64-45bb-9cb2-8a441aa0473a-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/stemming_kor/_SUCCESS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/stemming_kor/part-00000-fa34bcf2-8c64-45bb-9cb2-8a441aa0473a-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/stemming_kor/part-00001-fa34bcf2-8c64-45bb-9cb2-8a441aa0473a-c000.snappy.parquet" beforeDir="false" />
+    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Change relative path">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,8 +71,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/jy_kim/Documents/private/data-engineer",
-    "settings.editor.selected.configurable": "preferences.sourceCode.CSV/TSV/PSV"
+    "last_opened_file_path": "/Users/jy_kim/Documents/private/data-engineer/jar",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="PyConsoleOptionsProvider">
@@ -91,18 +85,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/jar" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/commerce" />
       <recent name="$PROJECT_DIR$/commerce/src" />
       <recent name="$PROJECT_DIR$/commerce/cmc/nlp" />
-      <recent name="$PROJECT_DIR$/document/doc" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data/output" />
       <recent name="$PROJECT_DIR$/document/doc/img" />
       <recent name="$PROJECT_DIR$/document/platform/img" />
       <recent name="$PROJECT_DIR$/document/platform" />
       <recent name="$PROJECT_DIR$/../commerce/data" />
-      <recent name="$PROJECT_DIR$/cmc/product" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -112,7 +106,28 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Python.stemming">
+  <component name="RunManager" selected="Python.get_modelname_number">
+    <configuration name="export_es_spark_ver" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/etc" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/etc/export_es_spark_ver.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="get_attribute" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -134,7 +149,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="loan_word" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="get_modelname_number" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -142,11 +157,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/cmc/nlp" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/product" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/cmc/nlp/loan_word.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/product/get_modelname_number.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -176,7 +191,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="stemming" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="ngram" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -188,7 +203,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/stemming.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/ngram.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -197,7 +212,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="stopword (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="noise_data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -209,28 +224,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/stopword.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="stopword" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="test" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/cmc/nlp" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/cmc/nlp/stopword.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/noise_data.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -241,11 +235,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.stemming" />
-        <item itemvalue="Python.stopword (1)" />
+        <item itemvalue="Python.get_modelname_number" />
+        <item itemvalue="Python.ngram" />
+        <item itemvalue="Python.noise_data" />
         <item itemvalue="Python.get_attribute" />
-        <item itemvalue="Python.stopword" />
-        <item itemvalue="Python.loan_word" />
+        <item itemvalue="Python.export_es_spark_ver" />
       </list>
     </recent_temporary>
   </component>
@@ -386,22 +380,6 @@
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
       <updated>1687013639343</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Study CICD">
-      <option name="closed" value="true" />
-      <created>1691504708866</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1691504708866</updated>
-    </task>
-    <task id="LOCAL-00037" summary="Develop load word">
-      <option name="closed" value="true" />
-      <created>1692285137169</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1692285137169</updated>
     </task>
     <task id="LOCAL-00038" summary="Develop load word">
       <option name="closed" value="true" />
@@ -635,7 +613,23 @@
       <option name="project" value="LOCAL" />
       <updated>1701618437908</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="Develop stemming">
+      <option name="closed" value="true" />
+      <created>1701618913947</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1701618913947</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Change relative path">
+      <option name="closed" value="true" />
+      <created>1702307955580</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1702307955580</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -651,7 +645,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Develop Basic word dictionary" />
     <MESSAGE value="todo list 작성" />
     <MESSAGE value="dev skip-gram" />
     <MESSAGE value="dev cosine_similarity algorithm" />
@@ -673,9 +666,10 @@
     <MESSAGE value="Develop Linked prediction" />
     <MESSAGE value="Develop ML" />
     <MESSAGE value="Develop Stopword" />
-    <MESSAGE value="Develop stemming" />
     <MESSAGE value="Develop stemming, running spark" />
     <MESSAGE value="studying spark" />
-    <option name="LAST_COMMIT_MESSAGE" value="studying spark" />
+    <MESSAGE value="Develop stemming" />
+    <MESSAGE value="Change relative path" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change relative path" />
   </component>
 </project>

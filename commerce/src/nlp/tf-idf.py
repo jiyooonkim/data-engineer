@@ -15,7 +15,7 @@ os.chdir('../../../')
 
 if __name__ == "__main__":
     spark = SparkSession.builder \
-        .appName('jy_kim') \
+        .appName('TF IDF Job') \
         .master('local[4]') \
         .config('spark.sql.execution.arrow.pyspark.enabled', True) \
         .config('spark.sql.session.timeZone', 'UTC') \

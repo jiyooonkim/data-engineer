@@ -111,7 +111,7 @@ def get_jaccard_sim(str1, str2):
 
 if __name__ == "__main__":
     spark = SparkSession.builder \
-        .appName('jy_kim') \
+        .appName('typo dictionary job') \
         .master('local[5]') \
         .config('spark.sql.execution.arrow.pyspark.enabled', True) \
         .config('spark.sql.session.timeZone', 'UTC') \

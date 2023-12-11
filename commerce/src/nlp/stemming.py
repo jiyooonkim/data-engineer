@@ -7,25 +7,19 @@
             - 어간 VS 표제어
                 - 어간 : 사전에 미존재하는 단어 나올 수 있음, 문맥정보 없음
                 - 표제어 : 기본 사전형 의미, 단어의 형태가 보존되어야 함, 문맥정보 있음
-            - 사
+            -
     # output
         -
 """
 
-# import pyspark.sql.functions as F
-# import pyspark.sql.types as T
-# import pyspark.sql.window as window
-
 import sys
 from os import path
-
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 if __name__ == "__main__":
     from nlp import init_spark_session, F, get_txt_type
 
     spark = init_spark_session()
-
 
     # Step1. get product name
     df1 = (spark.read.option('header', True)
