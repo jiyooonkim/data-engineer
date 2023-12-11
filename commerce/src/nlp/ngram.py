@@ -158,16 +158,18 @@ if __name__ == "__main__":
             |[나이키, w]    |[[kor], [eng]]
             +----------------+--------------+
     '''
-    # # b.withColumn("aaaaaa", get_txt_type(F.col("find_tkn"))).show(100, False)
-    # get_loan_wd_target = b.select(F.explode(F.col('find_tkn')).alias('toks')).withColumn('tp', get_txt_type(F.col("toks")))
-    #
-    # loan_wd_cndd1 = get_loan_wd_target.where(F.col('tp')[1][0] == 'kor').where(F.col('tp')[0][0] == 'eng')\
-    #     .where(F.length(F.col('toks')[1]) < F.length(F.col("toks")[0]))
-    # loan_wd_cndd1.write.format("parquet").mode("overwrite").save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/loan_wd_cndd1_by_ngram/")
-    #
-    # loan_wd_cndd2 = get_loan_wd_target.where(F.col('tp')[1][0] == 'eng').where(F.col('tp')[0][0] == 'kor') \
-    #     .where(F.length(F.col('toks')[1]) > F.length(F.col("toks")[0]))
-    # loan_wd_cndd2.write.format("parquet").mode("overwrite").save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/loan_wd_cndd2_by_ngram/")
+    # b.withColumn("aaaaaa", get_txt_type(F.col("find_tkn"))).show(100, False)
+    get_loan_wd_target = (b.select(F.explode(F.col('find_tkn')).alias('toks'))
+                          .withColumn('tp', get_txt_type(F.col("toks"))))
+
+    loan_wd_cndd1 = (get_loan_wd_target.where(F.col('tp')[1][0] == 'kor')
+                     .where(F.col('tp')[0][0] == 'eng')\
+        .where(F.length(F.col('toks')[1]) < F.length(F.col("toks")[0])))
+    loan_wd_cndd1.write.format("parquet").mode("overwrite").save("data/output/loan_wd_cndd1_by_ngram/")
+
+    loan_wd_cndd2 = get_loan_wd_target.where(F.col('tp')[1][0] == 'eng').where(F.col('tp')[0][0] == 'kor') \
+        .where(F.length(F.col('toks')[1]) > F.length(F.col("toks")[0]))
+    loan_wd_cndd2.write.format("parquet").mode("overwrite").save("data/output/loan_wd_cndd2_by_ngram/")
 
     c = b\
         .select(F.col("token"), F.col("find_tkn"), F.col('tf-idf'), get_txt_type(F.col("find_tkn")).alias('tkn_tp'))\

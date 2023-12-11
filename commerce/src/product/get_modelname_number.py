@@ -1,14 +1,16 @@
 # -*- coding: utf-8 -*-
-'''
+"""
     title : 모델명 추출
     desc : - 영+숫 타입 추출
     모델번호 != 상품번호 != 모델명
     only number : 모델번호
-'''
+"""
 
 from pyspark.sql import SparkSession
 import pyspark.sql.functions as F
 import pyspark.sql.types as T
+import os
+os.chdir('../../../')
 
 
 @F.udf(returnType=T.ArrayType(T.StringType()))
@@ -58,7 +60,7 @@ def get_spelling_type(col):
 if __name__ == "__main__":
     spark = SparkSession.builder \
         .appName('mapping_shipping_prodnm_job') \
-        .master('local[8]') \
+        .master('local[*]') \
         .config('spark.sql.execution.arrow.pyspark.enabled', True) \
         .config('spark.sql.session.timeZone', 'UTC') \
         .config('spark.driver.memory', '32G') \
@@ -68,7 +70,7 @@ if __name__ == "__main__":
         .getOrCreate()
 
     # Step1. 상품명에서 영+숫 타입 토큰 확보
-    prod_token = spark.read.csv('/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/nvr_prod.csv')\
+    prod_token = spark.read.csv('commerce/data/nvr_prod.csv')\
         .select(F.col('_c1'), 
             F.regexp_replace(
                 F.regexp_replace(F.lower(F.col('_c1')), "[^A-Za-z0-9-]", ' '),  # 숫자, 영어(소문자)만 남김
@@ -89,7 +91,7 @@ if __name__ == "__main__":
     ).distinct()\
     .alias('prod_token')
 
-    attr = spark.read.parquet('/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/measures_attribution').alias('attr')
+    attr = spark.read.parquet('data/parquet/measures_attribution').alias('attr')
     get_token_info = prod_token.join(
                                         attr,
                                         F.col('prod_token.token') == F.col('attr.shp_nm_token'),
@@ -134,7 +136,7 @@ if __name__ == "__main__":
                                             ).alias('model_nm_cndd_2')    # todo : 첫글자, 마지막글자 -(dash) 인것 삭제
     model_nm = (model_nm_cndd_1.union(model_nm_cndd_2)).distinct()
     model_nm.write.format("parquet").mode("overwrite")\
-        .save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/model_name/")
+        .save("data/output/model_name/")
 
     # 번외 : 속성 추출 : eng , num 개수로 판별 하기
     get_attr = get_token_info\
@@ -162,7 +164,7 @@ if __name__ == "__main__":
     # msr_cndd.distinct().orderBy(F.col('cnt').desc()).show(10000, False)
     msr_attr = msr_cndd.join(get_attr, F.col('token').contains(F.col('msr'))).select(F.col('get_attr.token')).distinct()
     msr_attr.write.format("parquet").mode("overwrite")\
-        .save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/measures_attribution_ver2/")
+        .save("data/output/measures_attribution_ver2/")
 
     # get_attr = get_attr.sample(0.5)
     # get_attr.show(10, False)

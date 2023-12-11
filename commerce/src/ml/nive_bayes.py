@@ -39,17 +39,9 @@ if __name__ == "__main__":
         .config("spark.network.timeout", 10000) \
         .config('spark.ui.showConsoleProgress', True) \
         .config('spark.sql.repl.eagerEval.enabled', True) \
-        .getOrCreate()
+        .getOrCreate() 
 
-    # prod_1 = spark.read. \
-    #     option('header', True). \
-    #     csv("/Users/jy_kim/Documents/private/data-engineer/commerce/data/nvr_prod.csv") \
-    #     .select(F.col('상품명'), F.col('대분류'), F.col('중분류'), F.col('소분류'))
-    #
-    # prod_1.show()
-    # prod_1.select(F.count(F.col('상품명'))).show()
-
-    df = spark.read.parquet('/Users/jy_kim/Documents/private/data-engineer/data/parquet/linked_predict')
+    df = spark.read.parquet('data/parquet/linked_predict')
     df.show(1000, False)
     '''
         - 사건 B가 일어난 후 사건 A가 일어날 확률

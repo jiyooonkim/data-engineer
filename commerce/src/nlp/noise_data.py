@@ -12,6 +12,8 @@
 from pyspark.sql import SparkSession
 import pyspark.sql.functions as F
 import pyspark.sql.types as T
+import os
+os.chdir('../../../')
 
 
 def get_match_length(crr_wd, cndd_wd):
@@ -26,12 +28,10 @@ def get_match_length(crr_wd, cndd_wd):
 
 
 @F.udf(returnType=T.ArrayType(T.StringType()))
-# @F.udf(returnType=T.ArrayType(T.ArrayType(T.StringType()), T.ArrayType(T.StringType()), T.ArrayType(T.StringType())))
 def get_err_type(crr_wd, cndd_wd):
     crr_txt = []
     err_txt = []
     posision = []
-    tp = ''
     
     if len(crr_wd) > len(cndd_wd):
         tp = 'deletion'
@@ -62,7 +62,6 @@ def get_err_type(crr_wd, cndd_wd):
     return [crr_txt, err_txt, posision, tp]
  
 
-# @F.udf(returnType=T.StringType())
 @F.udf(returnType=T.ArrayType(T.StringType()))
 def get_spelling(word):
     # 초성 리스트. 00 ~ 18
@@ -111,7 +110,7 @@ def get_jaccard_sim(str1, str2):
 
 if __name__ == "__main__":
     spark = SparkSession.builder \
-        .appName('jy_kim') \
+        .appName('Get noise data') \
         .master('local[5]') \
         .config('spark.sql.execution.arrow.pyspark.enabled', True) \
         .config('spark.sql.session.timeZone', 'UTC') \
@@ -125,7 +124,7 @@ if __name__ == "__main__":
         .config('spark.sql.repl.eagerEval.enabled', True) \
         .getOrCreate()
     # 송장명 개수 : 21135
-    shipping_df = spark.read.csv("/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/송장명.csv") \
+    shipping_df = spark.read.csv("commerce/data/송장명.csv") \
         .select(
         F.split(
             F.trim(
@@ -143,7 +142,7 @@ if __name__ == "__main__":
         .withColumn('txt_type', F.col('tkns').cast("int").isNotNull()) \
         .where(F.col('txt_type') == False).alias('ship_tkn_agg')  # remove only number value,   cnt : 43987
 
-    attr = spark.read.parquet('/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/measures_attribution') \
+    attr = spark.read.parquet('data/output/measures_attribution') \
         .select(F.col('shp_nm_token'), F.col('cnt').alias('attr_cnt')).alias('attr')
     # ship_tkn_agg.select(F.count(F.col('tkns'))).show()
     # res = attr.unionAll(ship_tkn_agg.select(F.col('tkns'), F.col('cnt')))
@@ -153,12 +152,12 @@ if __name__ == "__main__":
 
     prod_1 = spark.read. \
         option('header', True). \
-        csv("/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/nvr_prod.csv") \
+        csv("commerce/data/nvr_prod.csv") \
         .select(F.col('상품명'), F.col('대분류'), F.col('중분류'), F.col('소분류'))
 
     prod_2 = spark.read. \
         option('header', True). \
-        csv("/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/nvr_prod_2.csv") \
+        csv("commerce/data/nvr_prod_2.csv") \
         .select(F.col('상품명'), F.col('대분류'), F.col('중분류'), F.col('소분류'))
 
     prod = (prod_1.union(prod_2)).distinct()
@@ -205,8 +204,8 @@ if __name__ == "__main__":
 
     compound_word = get_word_matric.withColumn('jaccard_sim', get_jaccard_sim(F.col('cate'), F.col('prod_nm')))
     # compound_word.write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/compound_word_candidate")     # 합성어
-    compound_word.write.format("parquet").mode("overwrite").save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/compound_word_candidate/")     # 합성어
-    compound_word.where(F.col('jaccard_sim')>0.8).orderBy(F.col('cate')).show(1000, False)
+    compound_word.write.format("parquet").mode("overwrite").save("data/output/compound_word_candidate/")     # 합성어
+    compound_word.where(F.col('jaccard_sim') > 0.8).orderBy(F.col('cate')).show(1000, False)
 
     # get_word_matric = get_word_matric.withColumn('err_tp', get_err_type(F.col('prod_tokens'), F.col('cate_tokens')))\
     #

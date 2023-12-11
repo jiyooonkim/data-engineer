@@ -9,7 +9,9 @@ from pyspark.sql import SparkSession
 import pyspark.sql.functions as F
 import pyspark.sql.types as T
 import pyspark.sql.window as window
-from konlpy.tag import Okt, Kkma
+# from konlpy.tag import Okt, Kkma
+import os
+os.chdir('../../../')
 
 
 @F.udf(returnType=T.ArrayType(T.StringType()))
@@ -26,7 +28,7 @@ def get_morpheme(txt):
 
 if __name__ == "__main__":
     spark = SparkSession.builder \
-            .appName('jy_kim') \
+            .appName('naver_product matching Job') \
             .master('local[*]') \
             .config('spark.sql.execution.arrow.pyspark.enabled', True) \
             .config('spark.sql.session.timeZone', 'UTC') \
@@ -38,7 +40,7 @@ if __name__ == "__main__":
 
     ori_df = spark.read.\
             option('header', True).\
-            csv("/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/nvr_prod.csv").\
+            csv('commerce/data/nvr_prod.csv').\
             select(
                 F.regexp_replace(F.col('상품명'), "[^a-zA-Zㄱ-힝0-9]", ' ').alias("prod_nm"),
                 # F.col('cate_code'),
@@ -90,12 +92,12 @@ if __name__ == "__main__":
     # # get_prod_tkn.select(F.count(F.col('prod_nm'))).show()
 
     # get_prod_tkn.coalesce(20).write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/test/prod2/")      # save hdfs
-    get_prod_tkn.coalesce(20).write.format("parquet").mode("overwrite")\
-        .save("/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/prod2/")      # save hdfs
+    get_prod_tkn.coalesce(16).write.format("parquet").mode("overwrite").save("../data/parquet/prod2/")
+
     # get_prod_tkn.write.mode('overwrite').saveAsTable("stag_os.hive_test_3")
 
-    # # 송장명 토크나이징 ##
-    shipping_nm = spark.read.csv("/Users/jy_kim/Documents/private/nlp-engineer/commerce/data/송장명.csv")\
+    # 송장명 토크나이징
+    shipping_nm = spark.read.csv("commerce/data/송장명.csv")\
                     .select(
                         F.explode(
                             F.split(F.regexp_replace(F.lower(F.col('_c2')), ' ', ','), ",")
@@ -117,8 +119,5 @@ if __name__ == "__main__":
                                             shp_tkn_cnt,
                                             F.col('get_prod_tkn.prod_nm_token') == F.col('shp_tkn_cnt.shp_tkn'),
                                             'left'
-                                        )
-
-    # match_shp_prod.orderBy(F.col('prod_nm')).show(300, False)
-
+                                        ) 
     exit(0)

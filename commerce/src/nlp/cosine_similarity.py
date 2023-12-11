@@ -68,7 +68,7 @@ def get_cosine_similarity(numerator, demom):
     
 if __name__ == "__main__":
     spark = SparkSession.builder \
-            .appName('jy_kim') \
+            .appName('cosine similarity') \
             .master('local[*]') \
             .config('spark.sql.execution.arrow.pyspark.enabled', True) \
             .config('spark.sql.session.timeZone', 'UTC') \
@@ -81,6 +81,7 @@ if __name__ == "__main__":
             .config('spark.ui.showConsoleProgress', True) \
             .config('spark.sql.repl.eagerEval.enabled', True) \
             .getOrCreate()
+    print(os.getcwd())
 
     prod = spark.read.parquet('/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/prod2/') \
         .select(

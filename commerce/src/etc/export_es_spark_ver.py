@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
 """
-# title : 합성어 인덱싱
-# doc : 합성어를 es에 색인
+    # title : 합성어 인덱싱
+    # doc : 합성어를 es에 색인
 """
 from pyspark.sql import SQLContext
 from pyspark.sql import SparkSession
 import os
-
+os.chdir('../../../')
 
 es_options = {
-                    "es.nodes": "http://localhost:9200",
-                    "es.nodes.wan.only": "true",
-                    "es.batch.size.bytes": "6m",
-                    "es.batch.size.entries": "6000",
-                    "es.batch.write.refresh": "false"
+                "es.nodes": "http://localhost:9200",
+                "es.nodes.wan.only": "true",
+                "es.batch.size.bytes": "6m",
+                "es.batch.size.entries": "6000",
+                "es.batch.write.refresh": "false"
             }
 
 if __name__ == "__main__":
@@ -28,10 +28,10 @@ if __name__ == "__main__":
         .config("spark.network.timeout", 10000) \
         .config('spark.ui.showConsoleProgress', True) \
         .config('spark.sql.shuffle.partitions', '200') \
-        .config("spark.jars", "/Users/jy_kim/Downloads/jar_files/elasticsearch-spark-20_2.12-8.8.2.jar") \
+        .config("spark.jars", "../jar/elasticsearch-spark-20_2.12-8.8.2.jar") \
         .getOrCreate()
 
-    df = spark.read.parquet('/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/compound/')
+    df = spark.read.parquet('data/parquet/compound/')
     df.show(10, False)
     
     df.write\
@@ -47,7 +47,7 @@ if __name__ == "__main__":
                  .option("es.nodes", "localhost:9200")
                  )
 
-    query = {'match':{'target_word':'0t장판'}}
+    query = {'match': {'target_word' : '0t장판'}}
     get_compound = spark.read\
         .format("org.elasticsearch.spark.sql")\
         .option("es.read.field.as.array.include", "NerArray")\
