@@ -51,10 +51,6 @@ class CreateData:
         return None
 
 
-def get_tonkenizing():
-    # todo
-    get_nike_tkn_2 = nike_dt.select(
-        F.explode(F.split(F.regexp_replace(F.lower(F.col('_c0')), "[^A-Za-z0-9가-힣]", ' '), ' ')))
 
 
 @F.udf(returnType=T.StringType())
@@ -97,3 +93,4 @@ def init_spark_session(app_name="spark_job", arrow=True, dm="16g", dc=8, em="16g
 # __all__ = [
 #     "init_spark_session",
 # ]
+
