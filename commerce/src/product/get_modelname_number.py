@@ -163,7 +163,7 @@ if __name__ == "__main__":
         ).alias('msr_cndd')
     # msr_cndd.distinct().orderBy(F.col('cnt').desc()).show(10000, False)
     msr_attr = msr_cndd.join(get_attr, F.col('token').contains(F.col('msr'))).select(F.col('get_attr.token')).distinct()
-    msr_attr.write.format("parquet").mode("overwrite")\
+    msr_attr.coalesce(1).write.format("parquet").mode("overwrite").option("compression", "gzip")\
         .save("data/output/measures_attribution_ver2/")
 
     # get_attr = get_attr.sample(0.5)
