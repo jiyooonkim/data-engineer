@@ -127,8 +127,8 @@ if __name__ == "__main__":
     msr_attr = (msr_attr_1.unionAll(msr_attr_2)).where(F.length(F.col('shp_nm_token')) < 7).distinct()
     msr_attr.select(F.count(F.col('shp_nm_token'))).show()
     # msr_attr.coalesce(15).write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/dictionary/measures_attribution/")  # save hdfs
-    msr_attr.write.format("parquet").mode("overwrite")\
-        .save("data/parquet/measures_attribution/")  # save hdfs
+    msr_attr.coalesce(3).write.format("parquet").mode("overwrite").option("compression", "gzip")\
+        .save("data/output/measures_attribution/")  # save hdfs
 
     # 속성 - 색상
     nike_df = spark.read.csv("commerce/data/nike_data.csv")\
@@ -142,7 +142,7 @@ if __name__ == "__main__":
         .groupby(F.col('color')) \
         .agg(F.count(F.col('color')).alias('cnt'))\
         .alias('color_attr')
-    color_attr.write.format("parquet").mode("append").save("data/parquet/color_attribution/")
+    color_attr.write.format("parquet").mode("append").option("compression", "gzip").save("data/output/color_attribution/")
     # color_attr.orderBy(F.col('cnt').desc()).show(1000, False)
 
     # todo : b = spark.read.parquet('data/parquet/tfidf/') 로 도량형 속성 구해보기

@@ -4,108 +4,32 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Develop one hot encoding">
-      <change beforePath="$PROJECT_DIR$/data/output/compound_word_candidate/._SUCCESS.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/compound_word_candidate/.part-00000-5b50e626-b58f-40c6-a7a3-dc2275579b00-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/compound_word_candidate/.part-00001-5b50e626-b58f-40c6-a7a3-dc2275579b00-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/compound_word_candidate/.part-00002-5b50e626-b58f-40c6-a7a3-dc2275579b00-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/compound_word_candidate/.part-00003-5b50e626-b58f-40c6-a7a3-dc2275579b00-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/compound_word_candidate/.part-00004-5b50e626-b58f-40c6-a7a3-dc2275579b00-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/._SUCCESS.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/.part-00000-77df937a-1e0f-4c88-843d-6183c22e958d-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/.part-00001-77df937a-1e0f-4c88-843d-6183c22e958d-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/.part-00002-77df937a-1e0f-4c88-843d-6183c22e958d-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/.part-00003-77df937a-1e0f-4c88-843d-6183c22e958d-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/.part-00004-77df937a-1e0f-4c88-843d-6183c22e958d-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/.part-00005-77df937a-1e0f-4c88-843d-6183c22e958d-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/.part-00006-77df937a-1e0f-4c88-843d-6183c22e958d-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/part-00011-77df937a-1e0f-4c88-843d-6183c22e958d-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/part-00012-77df937a-1e0f-4c88-843d-6183c22e958d-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/part-00013-77df937a-1e0f-4c88-843d-6183c22e958d-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/part-00014-77df937a-1e0f-4c88-843d-6183c22e958d-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/part-00015-77df937a-1e0f-4c88-843d-6183c22e958d-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/._SUCCESS.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/.part-00000-095101e1-2a8f-4044-945f-eab9f4765d66-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/.part-00001-095101e1-2a8f-4044-945f-eab9f4765d66-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/.part-00002-095101e1-2a8f-4044-945f-eab9f4765d66-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/.part-00003-095101e1-2a8f-4044-945f-eab9f4765d66-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/.part-00004-095101e1-2a8f-4044-945f-eab9f4765d66-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/.part-00005-095101e1-2a8f-4044-945f-eab9f4765d66-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/part-00011-095101e1-2a8f-4044-945f-eab9f4765d66-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/part-00012-095101e1-2a8f-4044-945f-eab9f4765d66-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/part-00013-095101e1-2a8f-4044-945f-eab9f4765d66-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/part-00014-095101e1-2a8f-4044-945f-eab9f4765d66-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/part-00015-095101e1-2a8f-4044-945f-eab9f4765d66-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/measures_attribution/._SUCCESS.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/measures_attribution/.part-00000-b30c8db4-13d8-45d7-af07-5e3d7d13e666-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/measures_attribution_ver2/._SUCCESS.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/measures_attribution_ver2/.part-00000-723aafcb-b54c-4466-8396-0d54edc2d8af-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/model_name/._SUCCESS.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/model_name/.part-00000-19da242d-114f-46a5-94b8-f5241a78bbdb-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/stemming_kor/._SUCCESS.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/stemming_kor/.part-00000-b932e941-f125-47ad-a247-1a65a0cd879f-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/stemming_kor/.part-00001-b932e941-f125-47ad-a247-1a65a0cd879f-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/stemming_kor/_SUCCESS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/stemming_kor/part-00000-537878d5-a1cd-421d-89c2-8cc03336a9b6-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/stemming_kor/part-00001-537878d5-a1cd-421d-89c2-8cc03336a9b6-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/stop_word_1/._SUCCESS.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/stop_word_1/.part-00000-7822cdbf-f306-45b4-b507-f2b34a4ff467-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/stop_word_1/.part-00001-7822cdbf-f306-45b4-b507-f2b34a4ff467-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/stop_word_1/_SUCCESS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/stop_word_1/part-00000-7822cdbf-f306-45b4-b507-f2b34a4ff467-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/stop_word_1/part-00001-7822cdbf-f306-45b4-b507-f2b34a4ff467-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/color_attribution/._SUCCESS.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/color_attribution/.part-00000-025fb6df-328e-4593-affd-8887522db875-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/color_attribution/.part-00000-4e41a746-711b-4058-90d9-445e0bff98cf-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/color_attribution/.part-00000-70c1634a-d7dc-463b-bdae-f403c9e02209-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/color_attribution/.part-00000-a7e8b5f3-0548-4578-a702-140dea60adb2-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/color_attribution/_SUCCESS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/color_attribution/part-00000-4e41a746-711b-4058-90d9-445e0bff98cf-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/color_attribution/part-00000-70c1634a-d7dc-463b-bdae-f403c9e02209-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd1_by_ngram/.part-00007-2bdb0d63-8979-4ce4-9f63-abf2fe31e90d-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd1_by_ngram/.part-00008-2bdb0d63-8979-4ce4-9f63-abf2fe31e90d-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd1_by_ngram/.part-00009-2bdb0d63-8979-4ce4-9f63-abf2fe31e90d-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd1_by_ngram/.part-00010-2bdb0d63-8979-4ce4-9f63-abf2fe31e90d-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd1_by_ngram/.part-00011-2bdb0d63-8979-4ce4-9f63-abf2fe31e90d-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd1_by_ngram/.part-00012-2bdb0d63-8979-4ce4-9f63-abf2fe31e90d-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd1_by_ngram/.part-00013-2bdb0d63-8979-4ce4-9f63-abf2fe31e90d-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd1_by_ngram/.part-00014-2bdb0d63-8979-4ce4-9f63-abf2fe31e90d-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd1_by_ngram/.part-00015-2bdb0d63-8979-4ce4-9f63-abf2fe31e90d-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd1_by_ngram/_SUCCESS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd1_by_ngram/part-00000-2bdb0d63-8979-4ce4-9f63-abf2fe31e90d-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd1_by_ngram/part-00001-2bdb0d63-8979-4ce4-9f63-abf2fe31e90d-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd1_by_ngram/part-00002-2bdb0d63-8979-4ce4-9f63-abf2fe31e90d-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd1_by_ngram/part-00003-2bdb0d63-8979-4ce4-9f63-abf2fe31e90d-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd1_by_ngram/part-00004-2bdb0d63-8979-4ce4-9f63-abf2fe31e90d-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd1_by_ngram/part-00005-2bdb0d63-8979-4ce4-9f63-abf2fe31e90d-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd1_by_ngram/part-00006-2bdb0d63-8979-4ce4-9f63-abf2fe31e90d-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd1_by_ngram/part-00007-2bdb0d63-8979-4ce4-9f63-abf2fe31e90d-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd1_by_ngram/part-00008-2bdb0d63-8979-4ce4-9f63-abf2fe31e90d-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd1_by_ngram/part-00009-2bdb0d63-8979-4ce4-9f63-abf2fe31e90d-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd1_by_ngram/part-00010-2bdb0d63-8979-4ce4-9f63-abf2fe31e90d-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd1_by_ngram/part-00011-2bdb0d63-8979-4ce4-9f63-abf2fe31e90d-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd2_by_ngram/.part-00007-9109de14-caf0-48bf-8472-0adc09432143-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd2_by_ngram/.part-00008-9109de14-caf0-48bf-8472-0adc09432143-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd2_by_ngram/.part-00009-9109de14-caf0-48bf-8472-0adc09432143-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd2_by_ngram/.part-00010-9109de14-caf0-48bf-8472-0adc09432143-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd2_by_ngram/.part-00011-9109de14-caf0-48bf-8472-0adc09432143-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd2_by_ngram/.part-00012-9109de14-caf0-48bf-8472-0adc09432143-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd2_by_ngram/.part-00013-9109de14-caf0-48bf-8472-0adc09432143-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd2_by_ngram/.part-00014-9109de14-caf0-48bf-8472-0adc09432143-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd2_by_ngram/.part-00015-9109de14-caf0-48bf-8472-0adc09432143-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd2_by_ngram/_SUCCESS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd2_by_ngram/part-00000-9109de14-caf0-48bf-8472-0adc09432143-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd2_by_ngram/part-00001-9109de14-caf0-48bf-8472-0adc09432143-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd2_by_ngram/part-00002-9109de14-caf0-48bf-8472-0adc09432143-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd2_by_ngram/part-00003-9109de14-caf0-48bf-8472-0adc09432143-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd2_by_ngram/part-00004-9109de14-caf0-48bf-8472-0adc09432143-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd2_by_ngram/part-00005-9109de14-caf0-48bf-8472-0adc09432143-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd2_by_ngram/part-00006-9109de14-caf0-48bf-8472-0adc09432143-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd2_by_ngram/part-00007-9109de14-caf0-48bf-8472-0adc09432143-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd2_by_ngram/part-00008-9109de14-caf0-48bf-8472-0adc09432143-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd2_by_ngram/part-00009-9109de14-caf0-48bf-8472-0adc09432143-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/loan_wd_cndd2_by_ngram/part-00010-9109de14-caf0-48bf-8472-0adc09432143-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/measures_attribution/part-00000-b30c8db4-13d8-45d7-af07-5e3d7d13e666-c000.snappy.parquet" beforeDir="false" afterPath="$PROJECT_DIR$/data/parquet/measures_attribution/part-00000-3af8d59b-eaeb-4ba4-b2a8-3f830ec22bdc-c000.snappy.parquet" afterDir="false" />
+    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="get measure data">
+      <change afterPath="$PROJECT_DIR$/data/output/color_attribution/.part-00000-b360b01e-0f9d-407f-abc6-b7f31ee06cab-c000.gz.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/color_attribution/part-00000-b360b01e-0f9d-407f-abc6-b7f31ee06cab-c000.gz.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/measures_attribution/._SUCCESS.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/measures_attribution/.part-00000-63b6c3d3-5b67-4e23-a374-e900f59dc201-c000.gz.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/measures_attribution/_SUCCESS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/measures_attribution/part-00000-63b6c3d3-5b67-4e23-a374-e900f59dc201-c000.gz.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/measures_attribution_ver2/.part-00000-1edee660-60d3-484d-b441-ea2c75c228ce-c000.gz.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/measures_attribution_ver2/part-00000-1edee660-60d3-484d-b441-ea2c75c228ce-c000.gz.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/model_name/.part-00000-4daeda29-74a2-4b4b-8d3e-f5260325c251-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/model_name/part-00000-4daeda29-74a2-4b4b-8d3e-f5260325c251-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/color_attribution/._SUCCESS.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/color_attribution/.part-00000-89782e2e-7c52-47a3-beb8-2802eb020e63-c000.gz.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/color_attribution/_SUCCESS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/color_attribution/part-00000-89782e2e-7c52-47a3-beb8-2802eb020e63-c000.gz.parquet" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/src/nlp/noise_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/noise_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/src/product/get_attribute.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/product/get_attribute.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/output/measures_attribution_ver2/.part-00000-e67bbc5d-0fe1-4a37-bc74-b990ce991afa-c000.gz.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/output/measures_attribution_ver2/part-00000-e67bbc5d-0fe1-4a37-bc74-b990ce991afa-c000.gz.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/output/model_name/.part-00000-f624632e-272c-4271-a056-298b9c34f1b7-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/output/model_name/part-00000-f624632e-272c-4271-a056-298b9c34f1b7-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/measures_attribution/._SUCCESS.crc" beforeDir="false" afterPath="$PROJECT_DIR$/data/output/color_attribution/._SUCCESS.crc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/measures_attribution/.part-00000-3af8d59b-eaeb-4ba4-b2a8-3f830ec22bdc-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/measures_attribution/_SUCCESS" beforeDir="false" afterPath="$PROJECT_DIR$/data/output/color_attribution/_SUCCESS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/measures_attribution/part-00000-3af8d59b-eaeb-4ba4-b2a8-3f830ec22bdc-c000.snappy.parquet" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,7 +136,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Python.one_hot_encoding">
+  <component name="RunManager" selected="Python.get_attribute">
     <configuration name="get_attribute" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -276,7 +200,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ngram" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="nive_bayes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -284,11 +208,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/nlp" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/ml" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/ngram.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/ml/nive_bayes.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -341,11 +265,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.one_hot_encoding" />
-        <item itemvalue="Python.get_modelname_number" />
-        <item itemvalue="Python.ngram" />
-        <item itemvalue="Python.noise_data" />
         <item itemvalue="Python.get_attribute" />
+        <item itemvalue="Python.noise_data" />
+        <item itemvalue="Python.get_modelname_number" />
+        <item itemvalue="Python.nive_bayes" />
+        <item itemvalue="Python.one_hot_encoding" />
       </list>
     </recent_temporary>
   </component>
@@ -486,22 +410,6 @@
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
       <updated>1687013639343</updated>
-    </task>
-    <task id="LOCAL-00056" summary="Develop Linked prediction">
-      <option name="closed" value="true" />
-      <created>1697982078333</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1697982078333</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Develop Linked prediction">
-      <option name="closed" value="true" />
-      <created>1698154601900</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1698154601900</updated>
     </task>
     <task id="LOCAL-00058" summary="Develop ML">
       <option name="closed" value="true" />
@@ -735,7 +643,23 @@
       <option name="project" value="LOCAL" />
       <updated>1702738342091</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="Develop one hot encoding">
+      <option name="closed" value="true" />
+      <created>1702738411370</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1702738411370</updated>
+    </task>
+    <task id="LOCAL-00088" summary="get measure data">
+      <option name="closed" value="true" />
+      <created>1702738918373</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1702738918373</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -751,7 +675,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="dev skip-gram" />
     <MESSAGE value="dev cosine_similarity algorithm" />
     <MESSAGE value="develop Spelling Correction and the&#10;Noisy Channel Algorithm" />
     <MESSAGE value="Write documents" />
@@ -776,7 +699,8 @@
     <MESSAGE value="Develop stemming" />
     <MESSAGE value="Change relative path" />
     <MESSAGE value="Develop one hot encoding" />
-    <option name="LAST_COMMIT_MESSAGE" value="Develop one hot encoding" />
+    <MESSAGE value="get measure data" />
+    <option name="LAST_COMMIT_MESSAGE" value="get measure data" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -205,7 +205,7 @@ if __name__ == "__main__":
     compound_word = get_word_matric.withColumn('jaccard_sim', get_jaccard_sim(F.col('cate'), F.col('prod_nm')))
     # compound_word.write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/compound_word_candidate")     # 합성어
 
-    compound_word.write.format("parquet").mode("overwrite").save("data/output/compound_word_candidate/")     # 합성어
+    compound_word.write.format("parquet").mode("overwrite").option("compression", "gzip").save("data/output/compound_word_candidate/")     # 합성어
     compound_word.where(F.col('jaccard_sim') > 0.8).orderBy(F.col('cate')).show(1000, False)
 
     # get_word_matric = get_word_matric.withColumn('err_tp', get_err_type(F.col('prod_tokens'), F.col('cate_tokens')))\
