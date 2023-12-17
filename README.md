@@ -31,6 +31,8 @@ Developers with the ability to create good data in big databases.
     - 외래어 
     - 불용어(stopword)
   - scraping
+  - ML
+    - one_hot_encoding
   
 - Platfrom & Doc
   - Hadoop 
