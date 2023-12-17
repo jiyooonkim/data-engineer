@@ -16,6 +16,7 @@ from keras.preprocessing.text import Tokenizer
 from keras.utils import to_categorical
 
 
+
 class Tokeniz:
     def __init__(
             self,
@@ -31,6 +32,7 @@ class Tokeniz:
         self.tokens = []
         self.word_index = {}
         self.sub_word_index = []
+        self.encoding_index = 0
 
     def tonkenizing(self, texts):
         import re
@@ -51,6 +53,7 @@ class Tokeniz:
 
         result = sorted(counts.items(), key=lambda va: va[1], reverse=True)
         self.word_index = dict((value[0], i + 1) for i, value in enumerate(result))
+        print("get_index: ", self.word_index)
 
     def texts_to_sequences(self, texts):
         """
@@ -69,12 +72,26 @@ class Tokeniz:
             for j, value in enumerate(self.word_index):
                 if i == value:
                     self.sub_word_index.append(j + 1)
-        # print("self.sub_word_index : ", self.sub_word_index)
+        print("texts_to_sequences: ", self.sub_word_index)
+        return self.sub_word_index
 
-    def get_to_categorical(self):
+    def get_to_categorical(self, *kargs):
+        import numpy as np
         """
             :return: sequences 결과에 대한 벡터 리스트 구하기
         """
+        print("self.sub_word_index1 : ",args)
+        if kargs[index] is not None:
+            self.sub_word_index = kargs[index]
+
+        print("self.sub_word_index2 : ", self.sub_word_index)
+        arr = np.array(self.sub_word_index)
+        print("arr : ", arr)
+        res = np.zeros((len(self.sub_word_index), len(self.sub_word_index)), dtype=int)
+        # res = res[np.arange(len(self.sub_word_index)), self.sub_word_index] = 1
+
+
+        print("res :", res)
 
         return 0
 
@@ -87,15 +104,17 @@ tokenizer = Tokenizer()
 tokenizer.fit_on_texts([text])
 encoded = tokenizer.texts_to_sequences([sub_text])[0]
 one_hot = to_categorical(encoded, 15)
-print("one_hot : ", one_hot)
-print("encoded : ", encoded)
+# print("one_hot : ", one_hot)
+# print("encoded : ", encoded)
 
 """ delvelop one hot ending  """
 self_Tokeniz = Tokeniz()
 self_Tokeniz.tonkenizing(text)
 self_Tokeniz.get_index()
 
-self_Tokeniz.texts_to_sequences(sub_text)
+
+encd = self_Tokeniz.texts_to_sequences(sub_text)
+self_Tokeniz .get_to_categorical("encd")
 # print(Tokeniz().tonkenizing("cc","bb"))
 
 # sub_text = "점심 먹으러 갈래 메뉴는 햄버거 최고지만 아닌데"

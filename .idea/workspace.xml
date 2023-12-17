@@ -4,32 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="get measure data">
-      <change afterPath="$PROJECT_DIR$/data/output/color_attribution/.part-00000-b360b01e-0f9d-407f-abc6-b7f31ee06cab-c000.gz.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/color_attribution/part-00000-b360b01e-0f9d-407f-abc6-b7f31ee06cab-c000.gz.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/measures_attribution/._SUCCESS.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/measures_attribution/.part-00000-63b6c3d3-5b67-4e23-a374-e900f59dc201-c000.gz.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/measures_attribution/_SUCCESS" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/measures_attribution/part-00000-63b6c3d3-5b67-4e23-a374-e900f59dc201-c000.gz.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/measures_attribution_ver2/.part-00000-1edee660-60d3-484d-b441-ea2c75c228ce-c000.gz.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/measures_attribution_ver2/part-00000-1edee660-60d3-484d-b441-ea2c75c228ce-c000.gz.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/model_name/.part-00000-4daeda29-74a2-4b4b-8d3e-f5260325c251-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/output/model_name/part-00000-4daeda29-74a2-4b4b-8d3e-f5260325c251-c000.snappy.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/color_attribution/._SUCCESS.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/color_attribution/.part-00000-89782e2e-7c52-47a3-beb8-2802eb020e63-c000.gz.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/color_attribution/_SUCCESS" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/color_attribution/part-00000-89782e2e-7c52-47a3-beb8-2802eb020e63-c000.gz.parquet" afterDir="false" />
+    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="develop one hot encoding">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/src/nlp/noise_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/noise_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/src/product/get_attribute.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/product/get_attribute.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/measures_attribution_ver2/.part-00000-e67bbc5d-0fe1-4a37-bc74-b990ce991afa-c000.gz.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/measures_attribution_ver2/part-00000-e67bbc5d-0fe1-4a37-bc74-b990ce991afa-c000.gz.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/model_name/.part-00000-f624632e-272c-4271-a056-298b9c34f1b7-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/output/model_name/part-00000-f624632e-272c-4271-a056-298b9c34f1b7-c000.snappy.parquet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/measures_attribution/._SUCCESS.crc" beforeDir="false" afterPath="$PROJECT_DIR$/data/output/color_attribution/._SUCCESS.crc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/measures_attribution/.part-00000-3af8d59b-eaeb-4ba4-b2a8-3f830ec22bdc-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/measures_attribution/_SUCCESS" beforeDir="false" afterPath="$PROJECT_DIR$/data/output/color_attribution/_SUCCESS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/measures_attribution/part-00000-3af8d59b-eaeb-4ba4-b2a8-3f830ec22bdc-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/src/ml/one_hot_encoding.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/ml/one_hot_encoding.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +113,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Python.get_attribute">
+  <component name="RunManager" selected="Python.one_hot_encoding">
     <configuration name="get_attribute" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -265,11 +242,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.one_hot_encoding" />
         <item itemvalue="Python.get_attribute" />
         <item itemvalue="Python.noise_data" />
         <item itemvalue="Python.get_modelname_number" />
         <item itemvalue="Python.nive_bayes" />
-        <item itemvalue="Python.one_hot_encoding" />
       </list>
     </recent_temporary>
   </component>
@@ -410,22 +387,6 @@
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
       <updated>1687013639343</updated>
-    </task>
-    <task id="LOCAL-00058" summary="Develop ML">
-      <option name="closed" value="true" />
-      <created>1700575059068</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1700575059069</updated>
-    </task>
-    <task id="LOCAL-00059" summary="Develop ML">
-      <option name="closed" value="true" />
-      <created>1700578127009</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1700578127009</updated>
     </task>
     <task id="LOCAL-00060" summary="Develop Stopword">
       <option name="closed" value="true" />
@@ -659,7 +620,23 @@
       <option name="project" value="LOCAL" />
       <updated>1702738918373</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="get attribute data">
+      <option name="closed" value="true" />
+      <created>1702739226039</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1702739226039</updated>
+    </task>
+    <task id="LOCAL-00090" summary="develop one hot encoding">
+      <option name="closed" value="true" />
+      <created>1702825482173</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1702825482173</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -675,8 +652,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="dev cosine_similarity algorithm" />
-    <MESSAGE value="develop Spelling Correction and the&#10;Noisy Channel Algorithm" />
     <MESSAGE value="Write documents" />
     <MESSAGE value="develop typo correction, compound word" />
     <MESSAGE value="develop compound word" />
@@ -700,14 +675,16 @@
     <MESSAGE value="Change relative path" />
     <MESSAGE value="Develop one hot encoding" />
     <MESSAGE value="get measure data" />
-    <option name="LAST_COMMIT_MESSAGE" value="get measure data" />
+    <MESSAGE value="get attribute data" />
+    <MESSAGE value="develop one hot encoding" />
+    <option name="LAST_COMMIT_MESSAGE" value="develop one hot encoding" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" log-message="true" suspend="NONE" type="python-line">
           <url>file://$PROJECT_DIR$/commerce/src/ml/one_hot_encoding.py</url>
-          <line>111</line>
+          <line>119</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
