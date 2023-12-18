@@ -16,7 +16,6 @@ from keras.preprocessing.text import Tokenizer
 from keras.utils import to_categorical
 
 
-
 class Tokeniz:
     def __init__(
             self,
@@ -72,28 +71,20 @@ class Tokeniz:
             for j, value in enumerate(self.word_index):
                 if i == value:
                     self.sub_word_index.append(j + 1)
-        print("texts_to_sequences: ", self.sub_word_index)
+        print("texts_to_sequences: ", max(self.sub_word_index))
         return self.sub_word_index
 
-    def get_to_categorical(self, *kargs):
+    def get_to_categorical(self, **kwargs):
         import numpy as np
         """
             :return: sequences 결과에 대한 벡터 리스트 구하기
         """
-        print("self.sub_word_index1 : ",args)
-        if kargs[index] is not None:
-            self.sub_word_index = kargs[index]
+        if 'index' in kwargs:
+            self.sub_word_index = kwargs.get("index")
 
-        print("self.sub_word_index2 : ", self.sub_word_index)
         arr = np.array(self.sub_word_index)
-        print("arr : ", arr)
-        res = np.zeros((len(self.sub_word_index), len(self.sub_word_index)), dtype=int)
-        # res = res[np.arange(len(self.sub_word_index)), self.sub_word_index] = 1
-
-
-        print("res :", res)
-
-        return 0
+        res = np.zeros((len(self.sub_word_index), max(self.sub_word_index)+1), dtype=int)
+        res[np.arange(arr.size), self.sub_word_index] = 1
 
 
 text = "나랑 점심 먹으러 갈래 점심 메뉴는 햄버거 갈래 갈래 햄버거 최고야"
@@ -114,7 +105,7 @@ self_Tokeniz.get_index()
 
 
 encd = self_Tokeniz.texts_to_sequences(sub_text)
-self_Tokeniz .get_to_categorical("encd")
+self_Tokeniz .get_to_categorical( text="test")
 # print(Tokeniz().tonkenizing("cc","bb"))
 
 # sub_text = "점심 먹으러 갈래 메뉴는 햄버거 최고지만 아닌데"
