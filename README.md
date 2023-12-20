@@ -23,6 +23,8 @@ Developers with the ability to create good data in big databases.
   - tf-idf
   - word2vec(with skip-gram & cbow)
   - Ngram (with Liked Prediction) 
+  - one_hot_encoding
+  - integer_encoding
 
 - Develop
   - Dictionary     
@@ -32,7 +34,7 @@ Developers with the ability to create good data in big databases.
     - 불용어(stopword)
   - scraping
   - ML
-    - one_hot_encoding
+    
   
 - Platfrom & Doc
   - Hadoop 

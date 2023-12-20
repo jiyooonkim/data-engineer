@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="develop one hot encoding">
+      <change afterPath="$PROJECT_DIR$/commerce/src/nlp/integer_encoding.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/src/ml/one_hot_encoding.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/ml/one_hot_encoding.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/src/ml/one_hot_encoding.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/one_hot_encoding.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,11 +101,11 @@
       <recent name="$PROJECT_DIR$/commerce/cmc/nlp" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/commerce/src/nlp" />
       <recent name="$PROJECT_DIR$/data/output" />
       <recent name="$PROJECT_DIR$/document/doc/img" />
       <recent name="$PROJECT_DIR$/document/platform/img" />
       <recent name="$PROJECT_DIR$/document/platform" />
-      <recent name="$PROJECT_DIR$/../commerce/data" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -231,7 +233,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/ml/one_hot_encoding.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/one_hot_encoding.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -387,22 +389,6 @@
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
       <updated>1687013639343</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Develop Stopword">
-      <option name="closed" value="true" />
-      <created>1700984616735</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1700984616735</updated>
-    </task>
-    <task id="LOCAL-00061" summary="Develop stemming">
-      <option name="closed" value="true" />
-      <created>1701528888437</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1701528888437</updated>
     </task>
     <task id="LOCAL-00062" summary="Develop stemming">
       <option name="closed" value="true" />
@@ -636,7 +622,23 @@
       <option name="project" value="LOCAL" />
       <updated>1702825482173</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="develop one hot encoding">
+      <option name="closed" value="true" />
+      <created>1702828178373</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1702828178373</updated>
+    </task>
+    <task id="LOCAL-00092" summary="develop one hot encoding">
+      <option name="closed" value="true" />
+      <created>1702912920996</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1702912920996</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -683,8 +685,8 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" log-message="true" suspend="NONE" type="python-line">
-          <url>file://$PROJECT_DIR$/commerce/src/ml/one_hot_encoding.py</url>
-          <line>119</line>
+          <url>file://$PROJECT_DIR$/commerce/src/nlp/one_hot_encoding.py</url>
+          <line>110</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
