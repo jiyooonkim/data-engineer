@@ -334,7 +334,7 @@ def get_kor(wd):
     hangul = re.compile(u'[^a-z]+')
     res = hangul.sub(u'', wd)
     res = reg.sub(u'', res)
-    print("res  : ", res)
+    # print("res  : ", res)
     if res: # kor+ eng
 
         return True
@@ -356,7 +356,7 @@ def get_triple_token(tks, tk):
     return contain_tk_set, output_total
 tk = '10개입'
 tks = ['ph', '내열', '높은', '2칸', '일회용도시락', '10개입', '1개']
-print("tks : ", get_triple_token(tks, tk))
+# print("tks : ", get_triple_token(tks, tk))
 
 
 def get_intersection_word(arr1, arr2):
@@ -364,5 +364,44 @@ def get_intersection_word(arr1, arr2):
 
 arr1 = ['모델', '나이키', '수량']
 arr2 = ['모델', '에브리데이', '수량']
-print(get_intersection_word(arr1, arr2))
+# print(get_intersection_word(arr1, arr2))
+
+
+def sliding_window(tokens=[], center = "", window_size=1):
+    '''
+        :param  i : 입력1(embedding layer1)   j : 입력2(embedding layer2)
+        window size = 1
+    '''
+    def skip_grams(center, tkns):
+        grams= list()
+        for i in tkns:
+            if center != i:
+                grams.append([center, i])
+        print("grams : ", grams)
+        return grams
+
+
+
+    res = list()
+    for idx in range(len(tokens)):
+        if center == tokens[idx]:
+            print("tokens[idx] : ", tokens[idx])
+            if idx - window_size < 0:
+                # skip_gram.append(tokens[0: idx + window_size + 1])
+                # skip_grams(tokens[idx], tokens[0: idx + window_size + 1])
+                res.extend(skip_grams(tokens[idx], tokens[0: idx + window_size + 1]))
+            else:
+                # skip_gram.append(tokens[idx - window_size: idx + window_size + 1])
+                # skip_grams(tokens[idx], tokens[idx - window_size: idx + window_size + 1])
+                res.extend(skip_grams(tokens[idx], tokens[idx - window_size: idx + window_size + 1]))
+        # print("skip_gram : ", skip_gram)
+
+    return res
+
+
+print("sliding_window : ",
+      sliding_window(
+          ['홀더', '스탠드', '삼각대', '플렉시블', '헤드', '핫슈', '조인트', '듀얼'],
+          '핫슈', 3)
+      )
 
