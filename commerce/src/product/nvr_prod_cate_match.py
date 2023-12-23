@@ -37,7 +37,7 @@ if __name__ == "__main__":
             .config('spark.ui.showConsoleProgress', True) \
             .config('spark.sql.repl.eagerEval.enabled', True) \
             .getOrCreate()
-
+    print(os.getcwd())
     ori_df = spark.read.\
             option('header', True).\
             csv('commerce/data/nvr_prod.csv').\
@@ -93,12 +93,12 @@ if __name__ == "__main__":
 
     # get_prod_tkn.coalesce(20).write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/test/prod2/")      # save hdfs
     get_prod_tkn.show()
-    get_prod_tkn.write.format("parquet").mode("overwrite").save("../data/parquet/prod2/")
+    get_prod_tkn.write.format("parquet").mode("overwrite").save("data/parquet/prod2/")
 
     # get_prod_tkn.write.mode('overwrite').saveAsTable("stag_os.hive_test_3")
 
     # 송장명 토크나이징
-    shipping_nm = spark.read.csv("commerce/data/송장명.csv")\
+    shipping_nm = spark.read.csv("/commerce/data/송장명.csv")\
                     .select(
                         F.explode(
                             F.split(F.regexp_replace(F.lower(F.col('_c2')), ' ', ','), ",")
