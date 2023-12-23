@@ -16,7 +16,7 @@ from keras.preprocessing.text import Tokenizer
 from keras.utils import to_categorical
 
 
-class Tokeniz:
+class OneHotTokeniz:
     def __init__(
             self,
             sentence=None,
@@ -91,15 +91,16 @@ text = "나랑 점심 먹으러 갈래 점심 메뉴는 햄버거 갈래 갈래 
 sub_text = "점심 먹으러 갈래 메뉴는 햄버거 최고야"
 
 """ by keras library """
-tokenizer = Tokenizer()
-tokenizer.fit_on_texts([text])
-encoded = tokenizer.texts_to_sequences([sub_text])[0]
-one_hot = to_categorical(encoded, 15)
+# tokenizer = Tokenizer()
+# tokenizer.fit_on_texts([text])
+# encoded = tokenizer.texts_to_sequences([sub_text])[0]
+# one_hot = to_categorical(encoded, 15)
 # print("one_hot : ", one_hot)
 # print("encoded : ", encoded)
 
-""" delvelop one hot ending  """
-self_Tokeniz = Tokeniz()
+
+""" custum  one hot ending tokening """
+self_Tokeniz = OneHotTokeniz()
 self_Tokeniz.tonkenizing(text)
 self_Tokeniz.get_index()
 
