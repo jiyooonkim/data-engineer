@@ -130,17 +130,9 @@ if __name__ == "__main__":
     # 중심단어 & 주변단어 매핑 해서 전체 확률 구해보기
     # 세트로 등장하는 단어 빈도수 잘라보면...?
 
-
-
-
     # # /usr/local/Cellar/hadoop/3.3.4/libexec/bin/hdfs
 
-    #
     # attr = spark.read.parquet("hdfs://localhost:9000/dictionary/measures_attribution/")   # 속성 df
     # attr.show(10, False)
-
-
-
-
 
     exit(0)
