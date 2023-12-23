@@ -93,12 +93,12 @@ if __name__ == "__main__":
 
     # get_prod_tkn.coalesce(20).write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/test/prod2/")      # save hdfs
     get_prod_tkn.show()
-    get_prod_tkn.write.format("parquet").mode("overwrite").save("data/parquet/prod2/")
+    get_prod_tkn.coalesce(20).write.format("parquet").mode("overwrite").save("data/parquet/prod2/")
 
     # get_prod_tkn.write.mode('overwrite').saveAsTable("stag_os.hive_test_3")
 
     # 송장명 토크나이징
-    shipping_nm = spark.read.csv("/commerce/data/송장명.csv")\
+    shipping_nm = spark.read.csv("commerce/data/송장명.csv")\
                     .select(
                         F.explode(
                             F.split(F.regexp_replace(F.lower(F.col('_c2')), ' ', ','), ",")
@@ -117,8 +117,8 @@ if __name__ == "__main__":
     #
 
     match_shp_prod = get_prod_tkn.join(
-                                            shp_tkn_cnt,
-                                            F.col('get_prod_tkn.prod_nm_token') == F.col('shp_tkn_cnt.shp_tkn'),
-                                            'left'
-                                        ) 
+        shp_tkn_cnt,
+        F.col('get_prod_tkn.prod_nm_token') == F.col('shp_tkn_cnt.shp_tkn'),
+        'left'
+    )
     exit(0)

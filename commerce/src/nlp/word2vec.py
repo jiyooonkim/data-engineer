@@ -78,7 +78,7 @@ if __name__ == "__main__":
 
     # skip-gram
     # df = spark.read.parquet('hdfs://localhost:9000/test/prod2')\
-    df = spark.read.parquet('../data/parquet/prod2/')\
+    df = spark.read.parquet('data/parquet/prod2/')\
         .select(F.regexp_replace(F.lower(F.col('prod_nm')), '  ', ' ').alias('prod_nm'))\
         .withColumn("prod_nm_tkns", F.split(F.regexp_replace(F.lower(F.col('prod_nm')), ' ', ','), ","))\
         .withColumn("couple_word", get_embadding_layer(F.col('prod_nm_tkns')))\
@@ -112,11 +112,11 @@ if __name__ == "__main__":
         ).where(F.col('lyr2_rnk') < 6)
     # get_candidate.show(100, False)
 
-    get_candidate.coalesce(20).write.format("parquet").mode("overwrite").save("/data/parquet/word2vec/skip_gram/cnadidate")  # save hdfs
+    get_candidate.coalesce(20).write.format("parquet").mode("overwrite").save("data/parquet/word2vec/skip_gram/cnadidate")  # save hdfs
     # todo : 뒷좌석, 뒷자석 -> typo correction
     get_candidate_list = get_candidate.groupBy(F.col('layer1')).agg(F.collect_list(F.col('layer2')))
     get_candidate_list.show(1000, False)
-    get_candidate_list.coalesce(20).write.format("parquet").mode("overwrite").save("/data/parquet/word2vec/skip_gram/cnadidate_list")  # save hdfs
+    get_candidate_list.coalesce(20).write.format("parquet").mode("overwrite").save("data/parquet/word2vec/skip_gram/cnadidate_list")  # save hdfs
 
     # cbow
 
