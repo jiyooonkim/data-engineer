@@ -33,6 +33,7 @@ from pyspark.ml.feature import Word2Vec
 import pyspark.sql.functions as F
 import pyspark.sql.types as T
 import pyspark.sql.window as window
+os.chdir('../../../')
 
 
 @F.udf(returnType=T.ArrayType(T.ArrayType(T.StringType())))
@@ -75,7 +76,8 @@ if __name__ == "__main__":
         .getOrCreate()
 
     # skip-gram
-    df = spark.read.parquet('hdfs://localhost:9000/test/prod2')\
+    # df = spark.read.parquet('hdfs://localhost:9000/test/prod2')\
+    df = spark.read.parquet('../data/parquet/prod2/')\
         .select(F.regexp_replace(F.lower(F.col('prod_nm')), '  ', ' ').alias('prod_nm'))\
         .withColumn("prod_nm_tkns", F.split(F.regexp_replace(F.lower(F.col('prod_nm')), ' ', ','), ","))\
         .withColumn("couple_word", get_embadding_layer(F.col('prod_nm_tkns')))\

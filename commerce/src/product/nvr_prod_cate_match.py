@@ -92,7 +92,8 @@ if __name__ == "__main__":
     # # get_prod_tkn.select(F.count(F.col('prod_nm'))).show()
 
     # get_prod_tkn.coalesce(20).write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/test/prod2/")      # save hdfs
-    get_prod_tkn.coalesce(16).write.format("parquet").mode("overwrite").save("../data/parquet/prod2/")
+    get_prod_tkn.show()
+    get_prod_tkn.write.format("parquet").mode("overwrite").save("../data/parquet/prod2/")
 
     # get_prod_tkn.write.mode('overwrite').saveAsTable("stag_os.hive_test_3")
 
