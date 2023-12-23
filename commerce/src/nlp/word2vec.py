@@ -11,9 +11,9 @@
      - 속성, 불용어(stopword) 제거
      - 상품명에서 inner keyword 제거 후 남은 것이 Stopword 가 될 가능성은 ??
  # insight :
-    - skip-gram을 이용해서 연관키워드 도출 가능 함    ex) 히프커버->힙커버, 낚시복, 낚시옷, 낚시용품 ..., 힐링쉴드-> 폰트리, 액정보호필름, 시계보호필름
-# insight :
-    - 연관키워드, 연관상품, 추천 상품 ,추천키워드 (해쉬태그....??)
+    - 연관키워드 : window 내에 가장 많이 등장한 키워드 세트
+        ex) 히프커버->힙커버, 낚시복, 낚시옷, 낚시용품 ..., 힐링쉴드-> 폰트리, 액정보호필름, 시계보호필름, 골프 -> 골프체, 웨어, 남성, 가방, 여성
+    - 오타교정 : 초,중,종성의 앞,뒤로 올 확률 구할 수 있을듯 : 정타사전 만들어 보기!!
 """
 
 '''
@@ -163,14 +163,14 @@ if __name__ == "__main__":
 
     stop_word = spark.read.parquet("data/parquet/stop_word_1").alias('stop_word')
     except_stopword = get_candidate.join(stop_word, F.col('get_candidate.layer1') == F.col('stop_word.prod_tkn'), 'leftanti')
-    except_stopword.show(100, False)
+    except_stopword.orderBy(F.col('layer1')).show(100, False)
 
     except_stopword.coalesce(20).write.format("parquet").mode("overwrite").save("data/parquet/word2vec/skip_gram/cnadidate")  # save hdfs
 
     ''' cbow '''
-    # word2Vec = Word2Vec(vectorSize=4, seed=3, inputCol="prod_nm_tkns", outputCol="model")
-    # word2Vec.setMaxIter(10)
-    # model = word2Vec.fit(df)
+    word2Vec = Word2Vec(vectorSize=4, seed=3, inputCol="prod_nm_tkns", outputCol="model")
+    word2Vec.setMaxIter(10)
+    model = word2Vec.fit(df)
     # model.getVectors().show(100, False)
 
     # ## step.1 ##
@@ -180,7 +180,7 @@ if __name__ == "__main__":
 
     # # /usr/local/Cellar/hadoop/3.3.4/libexec/bin/hdfs
 
-    # attr = spark.read.parquet("hdfs://localhost:9000/dictionary/measures_attribution/")   # 속성 df
-    # attr.show(10, False)
+    # attr = spark.read.parquet("data/parquet/measures_attribution/")   # 속성 df
+    # attr.show(100, False)
 
     exit(0)
