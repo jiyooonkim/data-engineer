@@ -67,11 +67,11 @@ if __name__ == "__main__":
                    .groupby(F.col('prod_tkn'))
                    .agg(F.count(F.col('대분류')).alias('cnt'))
                    .alias('stop_word_1'))
-    non_stop_wd = spark.read.option('header', False).csv("data/output/non_stopword").alias('non_stop_wd')  # 불용어 아닌 것 제거
+    non_stop_wd = spark.read.option('header', False).csv("data/parquet/non_stopword").alias('non_stop_wd')  # 불용어 아닌 것 제거
 
     st_wd = stop_word_1.join(non_stop_wd, F.col('non_stop_wd._c0') == F.col('stop_word_1.prod_tkn'), 'leftanti')
     st_wd.where(F.col('cnt') >= '14').select(F.count(F.col('prod_tkn'))).show(1000, False)
-    stop_word_1.where(F.col('cnt') >= '14').write.format('parquet').mode('overwrite').save('data/output/stop_word_1')
+    stop_word_1.coalesce(3).where(F.col('cnt') >= '14').write.format('parquet').mode('overwrite').save('data/parquet/stop_word_1')
 
     '''
  
