@@ -166,11 +166,6 @@ if __name__ == "__main__":
     except_stopword.show(100, False)
 
     except_stopword.coalesce(20).write.format("parquet").mode("overwrite").save("data/parquet/word2vec/skip_gram/cnadidate")  # save hdfs
-    # # todo : 뒷좌석, 뒷자석 -> typo correction
-    # get_candidate_list = get_candidate.groupBy(F.col('layer1')).agg(F.collect_list(F.col('layer2')))
-    # # get_candidate_list.show(1000, False)
-    # get_candidate_list.coalesce(20).write.format("parquet").mode("overwrite").save("data/parquet/word2vec/skip_gram/cnadidate_list")  # save hdfs
-    #
 
     ''' cbow '''
     # word2Vec = Word2Vec(vectorSize=4, seed=3, inputCol="prod_nm_tkns", outputCol="model")

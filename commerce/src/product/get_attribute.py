@@ -128,7 +128,7 @@ if __name__ == "__main__":
     msr_attr.select(F.count(F.col('shp_nm_token'))).show()
     # msr_attr.coalesce(15).write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/dictionary/measures_attribution/")  # save hdfs
     msr_attr.coalesce(3).write.format("parquet").mode("overwrite").option("compression", "gzip")\
-        .save("data/output/measures_attribution/")  # save hdfs
+        .save("data/parquet/measures_attribution/")  # save hdfs
 
     # 속성 - 색상
     nike_df = spark.read.csv("commerce/data/nike_data.csv")\
