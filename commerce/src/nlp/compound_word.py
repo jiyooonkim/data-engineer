@@ -12,6 +12,7 @@ import pyspark.sql.window as window
 import os
 os.chdir('../../../')
 
+
 @F.udf(returnType=T.ArrayType(T.StringType()))
 def get_token_ver1(crr_wd, cndd_wd):
     """

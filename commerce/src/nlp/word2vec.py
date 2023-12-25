@@ -109,14 +109,15 @@ def get_txt_type(col):
 if __name__ == "__main__":
     spark = SparkSession.builder \
         .appName('Word 2 vector Job') \
-        .master('local[4]') \
-        .config("spark.driver.bindAddress", "127.0.0.1") \
-        .config('spark.executor.extraJavaOptions', 'Ddev.ludovic.netlib.blas.nativeLib=libopenblas.so') \
+        .master('local[*]') \
         .config('spark.sql.execution.arrow.pyspark.enabled', True) \
         .config('spark.sql.session.timeZone', 'UTC') \
-        .config('spark.driver.memory', '16G') \
-        .config("spark.dynamicAllocation.enabled", True) \
-        .config("spark.shuffle.service.enabled", True) \
+        .config('spark.driver.memory', '32g') \
+        .config('spark.driver.cores', '8') \
+        .config('spark.executor.memory', '16g') \
+        .config('spark.submit.deployMode', 'client') \
+        .config("spark.driver.bindAddress", "127.0.0.1") \
+        .config("spark.network.timeout", 100000) \
         .config('spark.ui.showConsoleProgress', True) \
         .config('spark.sql.repl.eagerEval.enabled', True) \
         .getOrCreate()
@@ -167,16 +168,19 @@ if __name__ == "__main__":
 
     except_stopword.coalesce(20).write.format("parquet").mode("overwrite").save("data/parquet/word2vec/skip_gram/cnadidate")  # save hdfs
 
-    ''' cbow '''
-    word2Vec = Word2Vec(vectorSize=4, seed=3, inputCol="prod_nm_tkns", outputCol="model")
-    word2Vec.setMaxIter(10)
-    model = word2Vec.fit(df)
+    ''' Word2Vec library test (Only 벡터화 시켜주는 기능) '''
+    # word2Vec = Word2Vec(vectorSize=20, seed=3, inputCol="layer1", outputCol="model")
+    # word2Vec.setMaxIter(10)
+    # model = word2Vec.fit(except_stopword)
     # model.getVectors().show(100, False)
 
-    # ## step.1 ##
-    # todo: 네거티브 샘플링 skip-gram(SGNS)
-    # 중심단어 & 주변단어 매핑 해서 전체 확률 구해보기
-    # 세트로 등장하는 단어 빈도수 잘라보면...?
+    '''
+        step.1
+            todo: 네거티브 샘플링 skip-gram(SGNS)
+            중심단어 & 주변단어 매핑 해서 전체 확률 구해보기
+            세트로 등장하는 단어 빈도수 잘라보면...?
+    '''
+
 
     # # /usr/local/Cellar/hadoop/3.3.4/libexec/bin/hdfs
 
