@@ -399,9 +399,35 @@ def sliding_window(tokens=[], center = "", window_size=1):
     return res
 
 
+# print("sliding_window : ",
+#       sliding_window(
+#           ['홀더', '스탠드', '삼각대', '플렉시블', '헤드', '핫슈', '조인트', '듀얼'],
+#           '핫슈', 3)
+#       )
+
+
+
+# todo : 
+def negative_sampling(tokens=[], center = "", window_size=1):
+    res = list()
+    for idx in range(len(tokens)):
+        if center == tokens[idx]:
+            print("tokens[idx] : ", tokens[idx])
+            if idx - window_size < 0:
+                # print("1 : ", tokens[0: idx + window_size + 1])
+                print("1 : ", [x for x in tokens if x not in tokens[0: idx + window_size + 1]] )
+            else:
+                # print("2 : ",tokens[idx - window_size: idx + window_size + 1])
+                print("2 : ",[x for x in tokens if x not in tokens[idx - window_size: idx + window_size + 1]] )
+    def get_negative_sample(all_tokens=[], center = "", negative_tokens=[]):
+
+
 print("sliding_window : ",
-      sliding_window(
+      negative_sampling(
           ['홀더', '스탠드', '삼각대', '플렉시블', '헤드', '핫슈', '조인트', '듀얼'],
           '핫슈', 3)
       )
+
+
+
 

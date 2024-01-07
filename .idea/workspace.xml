@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="develop integer encoing(NLP)">
-      <change afterPath="$PROJECT_DIR$/data/parquet/word2vec/skip_gram/cnadidate/.part-00000-6d55c637-3d32-4f34-b5cb-9cb3e8346c16-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/word2vec/skip_gram/cnadidate/part-00000-6d55c637-3d32-4f34-b5cb-9cb3e8346c16-c000.snappy.parquet" afterDir="false" />
+    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="develop word2vec">
+      <change afterPath="$PROJECT_DIR$/data/parquet/word2vec/skip_gram/cnadidate/.part-00000-0a2645b6-83e1-4bf4-a3b4-679613958e16-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/word2vec/skip_gram/cnadidate/part-00000-0a2645b6-83e1-4bf4-a3b4-679613958e16-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/doc/LLM(LangChain).md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/src/etc/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/etc/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commerce/src/nlp/word2vec.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/word2vec.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/word2vec/skip_gram/cnadidate/.part-00000-e894ef3b-3ada-4ac8-94f9-276c53669c06-c000.snappy.parquet.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/word2vec/skip_gram/cnadidate/part-00000-e894ef3b-3ada-4ac8-94f9-276c53669c06-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/word2vec/skip_gram/cnadidate/.part-00000-79c029bd-62d2-4d4e-8ae4-5a31a625bd7f-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/word2vec/skip_gram/cnadidate/part-00000-79c029bd-62d2-4d4e-8ae4-5a31a625bd7f-c000.snappy.parquet" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +88,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/jy_kim/Documents/private/data-engineer/jar",
+    "last_opened_file_path": "/Users/jy_kim/Documents/private/data-engineer",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
@@ -125,7 +129,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Python.word2vec">
+  <component name="RunManager" selected="Python.test">
     <configuration name="create_df" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="ENV_FILES" value="" />
@@ -260,9 +264,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.word2vec" />
         <item itemvalue="Python.get_attribute" />
-        <item itemvalue="Python.test" />
         <item itemvalue="Python.stopword" />
         <item itemvalue="Python.create_df" />
       </list>
@@ -412,14 +416,6 @@
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
       <updated>1687013639343</updated>
-    </task>
-    <task id="LOCAL-00064" summary="Develop stemming, running spark">
-      <option name="closed" value="true" />
-      <created>1701617852204</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1701617852204</updated>
     </task>
     <task id="LOCAL-00065" summary="studying spark">
       <option name="closed" value="true" />
@@ -661,7 +657,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703303325380</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="develop word2vec">
+      <option name="closed" value="true" />
+      <created>1703348818475</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1703348818475</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -677,7 +681,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="develop typo correction, compound word" />
     <MESSAGE value="develop compound word" />
     <MESSAGE value="Dev Noisy Channel seed data" />
     <MESSAGE value="Dev modelnumber dictionary" />
@@ -702,7 +705,8 @@
     <MESSAGE value="get attribute data" />
     <MESSAGE value="develop one hot encoding" />
     <MESSAGE value="develop integer encoing(NLP)" />
-    <option name="LAST_COMMIT_MESSAGE" value="develop integer encoing(NLP)" />
+    <MESSAGE value="develop word2vec" />
+    <option name="LAST_COMMIT_MESSAGE" value="develop word2vec" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

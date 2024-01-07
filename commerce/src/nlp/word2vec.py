@@ -123,50 +123,62 @@ if __name__ == "__main__":
         .getOrCreate()
 
     ''' skip-gram '''
-    # df = spark.read.parquet('hdfs://localhost:9000/test/prod2')\
-    df = (spark.read.parquet('data/parquet/prod2/') \
-          .select(F.regexp_replace(F.lower(F.trim(F.col('prod_nm'))), '\s+', ' ').alias('prod_nm')) \
-          .withColumn("prod_nm_tkns", F.split(F.regexp_replace(F.lower(F.col('prod_nm')), ' ', ','), ",")) \
-          .withColumn("target_word", F.explode(F.col('prod_nm_tkns'))).distinct() \
-          .withColumn("skip_gram", get_skip_gram(F.col('prod_nm_tkns'), F.col('target_word'), F.lit(2)))
-          .repartition(350)
-          )
-    # df.orderBy(F.col('prod_nm')).show(100, False)
-    embd_lble = df.select(
-                            F.col('prod_nm'),
-                            F.explode(F.col('skip_gram')).alias('embad_layer'),
-                            F.col('embad_layer')[0].alias('layer1'),
-                            F.col('embad_layer')[1].alias('layer2')
-                        ).where(
-                            (F.length(F.col('layer1')) > 1) &
-                            (F.length(F.col('layer2')) > 1)
-                        ).alias('embd_lble')
+    prod_df = spark.read.parquet('data/parquet/prod2/').select(
+        F.regexp_replace(
+            F.lower(F.trim(F.col('prod_nm'))), '\s+', ' '
+        ).alias('prod_nm')
+    ).withColumn(
+        "prod_nm_tkns",
+        F.split(F.regexp_replace(F.lower(F.col('prod_nm')), ' ', ','), ",")
+    ).withColumn(
+        "target_word",
+        F.explode(F.col('prod_nm_tkns'))
+    ).distinct().alias("prod_df")
+
+    skipgram = (prod_df
+                .withColumn("skip_gram", get_skip_gram(F.col('prod_nm_tkns'), F.col('target_word'), F.lit(2)))
+                .repartition(350)
+                .alias("skipgram"))
+
+    embd_lble = skipgram.select(
+        F.col('prod_nm'),
+        F.explode(F.col('skip_gram')).alias('embad_layer'),
+        F.col('embad_layer')[0].alias('layer1'),
+        F.col('embad_layer')[1].alias('layer2')
+    ).where(
+        (F.length(F.col('layer1')) > 1) &
+        (F.length(F.col('layer2')) > 1)
+    ).alias('embd_lble')
     # embd_lble.orderBy(F.col('prod_nm')).show(100, False)
 
     # negative sampling : 예측값 구하기, 레이블이 1인것만 가능, 0은 불가(일부만 샘플링하는것인데 일부의 기준 애매해서..)
-    kor_eng_lble_frq = embd_lble\
-        .withColumn('txt_type', get_txt_type(F.col('layer1')))\
-        .where(F.col('txt_type') == 'kor')\
-        .groupBy(F.col('layer1'), F.col('layer2'))\
-        .agg(F.count(F.col('layer2')).alias('cnt'))\
-        .where(F.col('cnt') > 10)
+    kor_eng_lble_frq = embd_lble \
+        .withColumn('txt_type', get_txt_type(F.col('layer1'))) \
+        .where(F.col('txt_type') == 'kor') \
+        .groupBy(F.col('layer1'), F.col('layer2')) \
+        .agg(F.count(F.col('layer2')).alias('cnt')) \
+        .where(F.col('cnt') > 10) \
+        .alias("kor_eng_lble_frq")
 
     # layer2 -> 상위 4개까지 리스트 형식 으로
-    get_candidate = kor_eng_lble_frq\
+    get_candidate = kor_eng_lble_frq \
         .withColumn(
             'prdt_val',
-            F.round(F.log((F.col('cnt')/kor_eng_lble_frq.count())), 4)
+            F.round(F.log((F.col('cnt') / kor_eng_lble_frq.count())), 4)
         ).withColumn(
             'lyr2_rnk',
             F.rank().over(window.Window.partitionBy(F.col('layer1')).orderBy(F.col('prdt_val')))
         ).where(F.col('lyr2_rnk') < 6).alias('get_candidate')
-    # get_candidate.show(100, False)
 
     stop_word = spark.read.parquet("data/parquet/stop_word_1").alias('stop_word')
-    except_stopword = get_candidate.join(stop_word, F.col('get_candidate.layer1') == F.col('stop_word.prod_tkn'), 'leftanti')
-    except_stopword.orderBy(F.col('layer1')).show(100, False)
+    except_stopword = get_candidate.join(
+        stop_word,
+        F.col('get_candidate.layer1') == F.col('stop_word.prod_tkn'),
+        'leftanti'
+    )
 
-    except_stopword.coalesce(20).write.format("parquet").mode("overwrite").save("data/parquet/word2vec/skip_gram/cnadidate")  # save hdfs
+    (except_stopword.coalesce(20).write.format("parquet").mode("overwrite")
+     .save("data/parquet/word2vec/skip_gram/cnadidate"))
 
     ''' Word2Vec library test (Only 벡터화 시켜주는 기능) '''
     # word2Vec = Word2Vec(vectorSize=20, seed=3, inputCol="layer1", outputCol="model")
@@ -175,13 +187,18 @@ if __name__ == "__main__":
     # model.getVectors().show(100, False)
 
     '''
-        step.1
-            todo: 네거티브 샘플링 skip-gram(SGNS)
-            중심단어 & 주변단어 매핑 해서 전체 확률 구해보기
-            세트로 등장하는 단어 빈도수 잘라보면...?
+        네거티브 샘플링 skip-gram(SGNS)
+        중심단어 & 주변단어 매핑 해서 전체 확률 구해보기
+        세트로 등장하는 단어 빈도수 잘라보면...?
+        네거티브 샘플링의 목적은 타겟 단어와 연관성이 없을 것이라고 추정되는 단어를 뽑는 것
+        negative sampling을 할 때는 더 자주 등장하는 단어일수록 연관성이 낮을 것
+        
+       분자 : 𝑓(𝑤𝑖) 는 해당 단어가 말뭉치에 등장한 비율(해당 단어 빈도/전체 단어수)
+       분모 : 사실 중복을 허용한 전체 단어의 수
     '''
-
-
+    # todo : 네거티브 샘플링 진행 하기
+    
+    skipgram.show(100, False)
     # # /usr/local/Cellar/hadoop/3.3.4/libexec/bin/hdfs
 
     # attr = spark.read.parquet("data/parquet/measures_attribution/")   # 속성 df

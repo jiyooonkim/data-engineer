@@ -59,6 +59,7 @@ Developers with the ability to create good data in big databases.
   - NLP
     - Negative Sampling
     - Stemming(어간추출)
+    - LLM(LangChain)
   - ML
     - RNN
     - TenserFlow
