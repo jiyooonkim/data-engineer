@@ -52,13 +52,6 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="/data/output/non_stopword/part-00000-c04a09ea-dce2-4398-8908-d5cd3c5d367a-c000.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
       </map>
     </option>
   </component>
