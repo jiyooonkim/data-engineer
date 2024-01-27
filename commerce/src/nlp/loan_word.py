@@ -452,7 +452,7 @@ if __name__ == "__main__":
     # b.where(F.col("prod_nm_token") == "나이키").orderBy(F.col("initianl_jcd_sim").desc()).show(1000, False)
     # a.where(F.col("prod_nm_token").substr(0, 1) == F.col("initial").substr(0, 1)).orderBy(F.col("initianl_jcd_sim").desc()).show(100, False)
 
-    # todoL tf-idf 결과로 token(한국어) - prod_nm(영어만 남기기) df 생성후 이니셜 포함 확률 구해보기
+    # todo: tf-idf 결과로 token(한국어) - prod_nm(영어만 남기기) df 생성후 이니셜 포함 확률 구해보기
     # 코닥, 모닝, 화이트, 헬시
     tf_idf = spark.read.parquet("data/parquet/tfidf/")\
         .select(

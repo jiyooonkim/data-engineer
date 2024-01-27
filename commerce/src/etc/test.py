@@ -204,7 +204,7 @@ for k in eng_cndd:
                 j = "0"
 itc = float(len(set(res).intersection(set(eng_cndd))))  # 분자
 union = len(res) + len(konglish) - itc  # 분모
-print("itc : ", itc)
+# print("itc : ", itc)
 
 
 def convert_eng_to_kor(eng_txt):
@@ -419,15 +419,77 @@ def negative_sampling(tokens=[], center = "", window_size=1):
             else:
                 # print("2 : ",tokens[idx - window_size: idx + window_size + 1])
                 print("2 : ",[x for x in tokens if x not in tokens[idx - window_size: idx + window_size + 1]] )
-    def get_negative_sample(all_tokens=[], center = "", negative_tokens=[]):
+    # todo: 네거티브 샘플링
+    # def get_negative_sample(all_tokens=[], center = "", negative_tokens=[]):
+
+'''
+|사이드메뉴                                                |[[110, 뉴], [19, 이], [32, 드], [7, 메뉴], [7, 사이], [70, 사이드], [9, 사]]     
+|삭스앵클부츠                                                      |[[10, 부], [10, 앵클부츠], [134, 부츠], [136, 삭스], [35, 앵클], [36, 스], [7, 클]]  
+산모용쿠션용품                                                    |[[14, 모], [19, 품], [262, 용], [27, 산], [28, 산모], [399, 쿠션], [4, 산모용], [499, 용품], [9, 쿠]]                                                                                                                                                                                                                                                              |[]                                                                            |
+
+|삶기세탁세제                                              |[[17, 세], [24, 제], [26, 세탁세제], [32, 기], [4, 삶기], [51, 세제], [60, 세탁]]      
+산소공급                                                  |[[100, 공], [12, 산소], [27, 산], [280, 소], [34, 급], [37, 공급]]      
+|산업용냉풍기                                                      |[{1, 풍기}, {2, 풍}, {12, 냉풍기}, {19, 냉}, {22, 산업}, {27, 산}, {30, 업}, {32, 기}, {66, 산업용}, {262, 용}]                                                                                                                                                                                                                                                                                                                                                               |[1, 풍기]    |
+|산업용석고                                                        |[{6, 석}, {6, 석고}, {21, 고}, {22, 산업}, {27, 산}, {30, 업}, {66, 산업용}, {262, 용}]                                                                                                                                                                                                                                                                                                                                                                                       |[6, 석]      |
+|산업용전기히터                                                    |[{2, 히}, {3, 터}, {9, 전기히터}, {20, 전}, {22, 산업}, {27, 산}, {30, 업}, {32, 기}, {57, 히터}, {66, 산업용}, {262, 용}, {314, 전기}]                                                                                                                                                                                                                                                                                                                                       |[2, 히]      |
+
+'''
+# txt = '산업용냉풍기'
+txt = '삶기세탁세제'
+txt = '레노버사운드바'
+# txt = '산업용석고'
+# txt = '산업용석고'
+# tkn_list = [[15, '사운드바'], [16, '레노버'], [32, '드'], [4, '레'], [5, '운'], [7, '노'], [71, '바'], [71, '사운드'], [9, '사']]
+# tkn_list = [[14, '모'], [19, '품'], [262, '용'], [27, '산'], [28, '산모'], [399, '쿠션'], [4, '산모용'], [499, '용품'], [9, '쿠']]
+tkn_list = [[6, '석'], [6, '석고'], [21, '고'], [22, '산업'], [27, '산'], [30, '업'], [66, '산업용'], [262, '용']]
+# tkn_list =[[17, '세'], [32, '기'], [60, '세탁'], [24, '제'], [26, '세탁세제'],  [4, '삶기'], [51, '세제']]
+# tkn_list = [[10, '부'], [10, '앵클부츠'], [134, '부츠'], [136, '삭스'], [35, '앵클'], [36, '스'], [7, '클']]
+# tkn_list = [[110, '뉴'], [19, '이'], [32, '드'], [7, '메뉴'], [7, '사이'], [70, '사이드'], [9, '사']]
+'''
+리스트중 제일 많이 등장한 단어 일 가능성 
+
+'''
+def aa(tkn_list):
+    total = []
+
+    for i in range(0, len(tkn_list)):
+        tkn_cndd = []
+        max_len_txt = ''
+        print("tkn_list[i][1] : " , tkn_list[i][1])
+        for j in range(0, len(tkn_list)):
+            if  (tkn_list[j][1]!= (tkn_list[i][1])):
+                if (tkn_list[j][1].__contains__(tkn_list[i][1])) :
+                # if int(tkn_list[i][0]) < int(tkn_list[j][0]):
+                    if len(max_len_txt) <= len(tkn_list[j][1]):
+                        max_len_txt = tkn_list[j][1]
+                    else:
+                        max_len_txt = tkn_list[i][1]
+
+                    tkn_cndd.append(tkn_list[j][1])
+            print("tkn_cndd : ", tkn_cndd)
+
+        print("total : ", total)
+
+        total.append(max_len_txt)
+    return list(set(total))
 
 
-print("sliding_window : ",
-      negative_sampling(
-          ['홀더', '스탠드', '삼각대', '플렉시블', '헤드', '핫슈', '조인트', '듀얼'],
-          '핫슈', 3)
-      )
 
+print("최종 : ", aa(tkn_list))
+
+def get_tokns(tkn_list, ):
+    tkn_cndd = []
+    for i in range(0, len(tkn_list)):
+        for j in range(i, len(tkn_list)):
+            if (tkn_list[i][1].__contains__(tkn_list[j][1])) | (tkn_list[j][1].__contains__(tkn_list[i][1])):
+                if (tkn_list[i][1]!=(tkn_list[j][1])):
+                    if int(tkn_list[i][0]) < int(tkn_list[j][0]):
+                        if len(tkn_list[i][1]) >= len(tkn_list[j][1]):
+                            tkn_cndd.append(tkn_list[i])
+
+
+    return tkn_cndd
+print(get_tokns(tkn_list))
 
 
 

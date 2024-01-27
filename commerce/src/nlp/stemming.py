@@ -10,11 +10,69 @@
             -
     # output
         -
+
+    # solution
+        1. 최소한의 의미 갖는 단위로 나눈뒤 어간을 보자
+
 """
 
 import sys
 from os import path
+from pyspark.sql.window import Window
+import pyspark.sql.functions as F
+import pyspark.sql.types as T
 sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
+
+
+# @F.udf(returnType=T.ArrayType(T.ArrayType(T.StringType())))
+@F.udf(returnType=T.ArrayType((T.StringType())))
+def get_tokns(tkn_list):
+    total = []
+    for i in range(0, len(tkn_list)):
+        tkn_cndd = []
+        max_len_txt = ''
+        # print("tkn_list[i][1] : " , tkn_list[i][1])
+        for j in range(0, len(tkn_list)):
+            if  (tkn_list[j][1]!= (tkn_list[i][1])):
+                if (tkn_list[j][1].__contains__(tkn_list[i][1])) :
+                # if int(tkn_list[i][0]) < int(tkn_list[j][0]):
+                    if len(max_len_txt) <= len(tkn_list[j][1]):
+                        max_len_txt = tkn_list[j][1]
+                    tkn_cndd.append(tkn_list[j][1])
+        #     print("tkn_cndd : ", tkn_cndd)
+        # print("total : ", total)
+
+        total.append(max_len_txt)
+    return list(set(total))
+
+    #
+    # for i in range(0, len(tkn_list)):
+    #     tkn_cndd = []
+    #     # print("tkn_list[i][1] : ", tkn_list[i][1])
+    #     for j in range(0, len(tkn_list)):
+    #         if (tkn_list[j][1] != (tkn_list[i][1])):
+    #             if (tkn_list[j][1].__contains__(tkn_list[i][1])):
+    #                 # if int(tkn_list[i][0]) < int(tkn_list[j][0]):
+    #
+    #                 tkn_cndd.append(tkn_list[j][1])
+    #
+    #         # print("tkn_cndd : ", tkn_cndd)
+    #
+    #     total.extend(tkn_cndd)
+    # return list(set(total))
+
+
+    # tkn_cndd = []
+    # for i in range(0, len(tkn_list)):
+    #     for j in range(i, len(tkn_list)):
+    #         if (tkn_list[i][1].__contains__(tkn_list[j][1])) | (tkn_list[j][1].__contains__(tkn_list[i][1])):
+    #             if (tkn_list[i][1] != (tkn_list[j][1])):
+    #                 if int(tkn_list[i][0]) < int(tkn_list[j][0]):
+    #                     if len(tkn_list[i][1]) >= len(tkn_list[j][1]):
+    #                         tkn_cndd.append(tkn_list[i])
+    # return tkn_cndd
+
+
 
 if __name__ == "__main__":
     from nlp import init_spark_session, F, get_txt_type
@@ -57,20 +115,48 @@ if __name__ == "__main__":
                  .alias('df_3_size'))
     # df_3_size.select(F.count(F.col('token'))).show() & (F.length(F.col('token')) > 1)
     # origin_df = origin_df.distinct().alias('origin_df')
-    kor_ver = (df_3_size
+    kor_ver = ((df_3_size
                .join(origin_df.distinct(), F.col('origin_df.token').contains(F.col('df_3_size.token')))
                .where(F.col('origin_df.token') != F.col('df_3_size.token'))
                .select(
                     F.col('origin_df.token').alias('word'),
                     F.col('df_3_size.token').alias('stem'),
                     F.col('df_3_size.cnt').alias('cnt'))
-               .where(get_txt_type(F.col('word')) != 'num'))
-    origin_df.select(F.count(F.col('token'))).show()
-    df_3_size.select(F.count(F.col('token'))).show()
-    kor_ver.show()
+               .where((get_txt_type(F.col('word')) != 'num') & (get_txt_type(F.col('word')) != 'etc')))
+               .where(F.col('cnt')>2))
 
-    kor_ver.write.format("parquet").mode("overwrite").save(
-        "../../../data/output/stemming_kor/")
+
+
+    (kor_ver.withColumn("rnk", F.rank().over(Window.partitionBy(F.col('word')).orderBy(F.col('stem').desc())))
+     .show(1000, False))
+    a = kor_ver \
+        .groupby(F.col('word')) \
+        .agg(
+            F.array_sort(
+                F.collect_list(
+                    F.array(
+                        F.col('cnt'), F.col('stem')
+                    )
+                )
+            ).alias('lst')
+        ).withColumn("cnd", get_tokns(F.col('lst')))
+    a.sample(0.6).show(10000, False)
+    a.printSchema()
+
+
+
+    '''
+        갑뿐...합성어 
+        우선순위 토큰 : 빈도수 높은것 , 단어길이긴것
+        제외 토큰 : 한글자로만 이루어진다면 제외, 한글자로 3개이상 있다면 제외
+    '''
+
+    # comp = spark.read.parquet("/Users/jy_kim/Documents/private/data-engineer/data/parquet/compound")
+    # comp.sample(0.5).show(1000, False)
+
+
+    # kor_ver.write.format("parquet").mode("overwrite").save(
+    #     "../../../data/output/stemming_kor/")
     # todo : 토큰 매핑 알고리즘 구현 , 안나올 경우 대비해 토큰 빈도수도 구해둠!!
 
     # todo : eng ver
