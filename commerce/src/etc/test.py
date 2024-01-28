@@ -423,6 +423,7 @@ def negative_sampling(tokens=[], center = "", window_size=1):
     # def get_negative_sample(all_tokens=[], center = "", negative_tokens=[]):
 
 '''
+|사무실청소용품                                                    |[[106, 청소], [14, 청소용품], [15, 실], [19, 청], [19, 품], [240, 사무실], [262, 용], [28, 무], [280, 소], [46, 사무], [499, 용품], [5, 청소용], [9, 사]]     
 |사이드메뉴                                                |[[110, 뉴], [19, 이], [32, 드], [7, 메뉴], [7, 사이], [70, 사이드], [9, 사]]     
 |삭스앵클부츠                                                      |[[10, 부], [10, 앵클부츠], [134, 부츠], [136, 삭스], [35, 앵클], [36, 스], [7, 클]]  
 산모용쿠션용품                                                    |[[14, 모], [19, 품], [262, 용], [27, 산], [28, 산모], [399, 쿠션], [4, 산모용], [499, 용품], [9, 쿠]]                                                                                                                                                                                                                                                              |[]                                                                            |
@@ -432,7 +433,7 @@ def negative_sampling(tokens=[], center = "", window_size=1):
 |산업용냉풍기                                                      |[{1, 풍기}, {2, 풍}, {12, 냉풍기}, {19, 냉}, {22, 산업}, {27, 산}, {30, 업}, {32, 기}, {66, 산업용}, {262, 용}]                                                                                                                                                                                                                                                                                                                                                               |[1, 풍기]    |
 |산업용석고                                                        |[{6, 석}, {6, 석고}, {21, 고}, {22, 산업}, {27, 산}, {30, 업}, {66, 산업용}, {262, 용}]                                                                                                                                                                                                                                                                                                                                                                                       |[6, 석]      |
 |산업용전기히터                                                    |[{2, 히}, {3, 터}, {9, 전기히터}, {20, 전}, {22, 산업}, {27, 산}, {30, 업}, {32, 기}, {57, 히터}, {66, 산업용}, {262, 용}, {314, 전기}]                                                                                                                                                                                                                                                                                                                                       |[2, 히]      |
-
+사각연필꽂이                                         |[[11, 필], [13, 연필꽂이], [19, 이], [190, 사각], [22, 연필], [23, 각], [42, 꽂이], [7, 연], [9, 사]]   
 '''
 # txt = '산업용냉풍기'
 txt = '삶기세탁세제'
@@ -441,15 +442,17 @@ txt = '레노버사운드바'
 # txt = '산업용석고'
 # tkn_list = [[15, '사운드바'], [16, '레노버'], [32, '드'], [4, '레'], [5, '운'], [7, '노'], [71, '바'], [71, '사운드'], [9, '사']]
 # tkn_list = [[14, '모'], [19, '품'], [262, '용'], [27, '산'], [28, '산모'], [399, '쿠션'], [4, '산모용'], [499, '용품'], [9, '쿠']]
-tkn_list = [[6, '석'], [6, '석고'], [21, '고'], [22, '산업'], [27, '산'], [30, '업'], [66, '산업용'], [262, '용']]
+# tkn_list = [[6, '석'], [6, '석고'], [21, '고'], [22, '산업'], [27, '산'], [30, '업'], [66, '산업용'], [262, '용']]
 # tkn_list =[[17, '세'], [32, '기'], [60, '세탁'], [24, '제'], [26, '세탁세제'],  [4, '삶기'], [51, '세제']]
-# tkn_list = [[10, '부'], [10, '앵클부츠'], [134, '부츠'], [136, '삭스'], [35, '앵클'], [36, '스'], [7, '클']]
+tkn_list = [[10, '부'], [10, '앵클부츠'], [134, '부츠'], [136, '삭스'], [35, '앵클'], [36, '스'], [7, '클']]
 # tkn_list = [[110, '뉴'], [19, '이'], [32, '드'], [7, '메뉴'], [7, '사이'], [70, '사이드'], [9, '사']]
+# tkn_list = [[11, '필'], [13, '연필꽂이'], [19, '이'], [190, '사각'], [22, '연필'], [23, '각'], [42, '꽂이'], [7, '연'], [9, '사']]
 '''
 리스트중 제일 많이 등장한 단어 일 가능성 
-
+todo : 후보들중 포함하지 않는 토큰에 대해서 추가 되지 않는 현상 => 워드- 후보 = 남은 토큰 으로 해결 가능 ??
+앵클부츠 -> 앵클 + 부츠 안되는 현상 !!
 '''
-def aa(tkn_list):
+def get_tokns(tkn_list):
     total = []
 
     for i in range(0, len(tkn_list)):
@@ -459,37 +462,51 @@ def aa(tkn_list):
         for j in range(0, len(tkn_list)):
             if  (tkn_list[j][1]!= (tkn_list[i][1])):
                 if (tkn_list[j][1].__contains__(tkn_list[i][1])) :
-                # if int(tkn_list[i][0]) < int(tkn_list[j][0]):
                     if len(max_len_txt) <= len(tkn_list[j][1]):
                         max_len_txt = tkn_list[j][1]
-                    else:
-                        max_len_txt = tkn_list[i][1]
-
                     tkn_cndd.append(tkn_list[j][1])
             print("tkn_cndd : ", tkn_cndd)
 
         print("total : ", total)
+        if max_len_txt!= "":
+            total.append(max_len_txt)
 
-        total.append(max_len_txt)
     return list(set(total))
 
+print("get_tokns 결과 : ", get_tokns(tkn_list))
 
+# tkn_list = [[11, '필'], [13, '연필꽂이'], [19, '이'], [190, '사각'], [22, '연필'], [23, '각'], [42, '꽂이'], [7, '연'], [9, '사']]
 
-print("최종 : ", aa(tkn_list))
+cndds = ['앵클부츠', '삭스']
+def sub_tokenize(cndds, tkn_list):
+    sub_tokens = []
+    for i in cndds:     # ['사각', '연필꽂이']
+        for j in tkn_list:      #
+            if i.__ne__(j):
+                if (len(i) > len(j)) &(len(j[1])>1):
+                    if i[0:len(j[1])] == j[1]:
+                        sub_tokens.append(i[0:len(j[1])])
+                        # print("시작 : ", j, i[0:len(j[1])])
+                    elif i[len(i) - len(j[1]):] == j[1]:
+                        sub_tokens.append(i[len(i) - len(j[1]):])
+                    # print("끝 : ", j,  i[len(i) - len(j[1]):])
+    return sub_tokens
 
-def get_tokns(tkn_list, ):
-    tkn_cndd = []
-    for i in range(0, len(tkn_list)):
-        for j in range(i, len(tkn_list)):
-            if (tkn_list[i][1].__contains__(tkn_list[j][1])) | (tkn_list[j][1].__contains__(tkn_list[i][1])):
-                if (tkn_list[i][1]!=(tkn_list[j][1])):
-                    if int(tkn_list[i][0]) < int(tkn_list[j][0]):
-                        if len(tkn_list[i][1]) >= len(tkn_list[j][1]):
-                            tkn_cndd.append(tkn_list[i])
+print("sub_tokenize 결과 : ", sub_tokenize(cndds, tkn_list))
 
-
-    return tkn_cndd
-print(get_tokns(tkn_list))
+# def get_tokns(tkn_list, ):
+#     tkn_cndd = []
+#     for i in range(0, len(tkn_list)):
+#         for j in range(i, len(tkn_list)):
+#             if (tkn_list[i][1].__contains__(tkn_list[j][1])) | (tkn_list[j][1].__contains__(tkn_list[i][1])):
+#                 if (tkn_list[i][1]!=(tkn_list[j][1])):
+#                     if int(tkn_list[i][0]) < int(tkn_list[j][0]):
+#                         if len(tkn_list[i][1]) >= len(tkn_list[j][1]):
+#                             tkn_cndd.append(tkn_list[i])
+#
+#
+#     return tkn_cndd
+# print(get_tokns(tkn_list))
 
 
 
