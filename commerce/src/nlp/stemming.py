@@ -31,47 +31,30 @@ def get_tokns(tkn_list):
     for i in range(0, len(tkn_list)):
         tkn_cndd = []
         max_len_txt = ''
-        # print("tkn_list[i][1] : " , tkn_list[i][1])
+        print("tkn_list[i][1] : ", tkn_list[i][1])
         for j in range(0, len(tkn_list)):
-            if  (tkn_list[j][1]!= (tkn_list[i][1])):
-                if (tkn_list[j][1].__contains__(tkn_list[i][1])) :
-                # if int(tkn_list[i][0]) < int(tkn_list[j][0]):
+            if tkn_list[j][1] != (tkn_list[i][1]):
+                if tkn_list[j][1].__contains__(tkn_list[i][1]):
                     if len(max_len_txt) <= len(tkn_list[j][1]):
                         max_len_txt = tkn_list[j][1]
                     tkn_cndd.append(tkn_list[j][1])
-        #     print("tkn_cndd : ", tkn_cndd)
-        # print("total : ", total)
-
-        total.append(max_len_txt)
+        if max_len_txt != "":
+            total.append(max_len_txt)
     return list(set(total))
 
-    #
-    # for i in range(0, len(tkn_list)):
-    #     tkn_cndd = []
-    #     # print("tkn_list[i][1] : ", tkn_list[i][1])
-    #     for j in range(0, len(tkn_list)):
-    #         if (tkn_list[j][1] != (tkn_list[i][1])):
-    #             if (tkn_list[j][1].__contains__(tkn_list[i][1])):
-    #                 # if int(tkn_list[i][0]) < int(tkn_list[j][0]):
-    #
-    #                 tkn_cndd.append(tkn_list[j][1])
-    #
-    #         # print("tkn_cndd : ", tkn_cndd)
-    #
-    #     total.extend(tkn_cndd)
-    # return list(set(total))
 
-
-    # tkn_cndd = []
-    # for i in range(0, len(tkn_list)):
-    #     for j in range(i, len(tkn_list)):
-    #         if (tkn_list[i][1].__contains__(tkn_list[j][1])) | (tkn_list[j][1].__contains__(tkn_list[i][1])):
-    #             if (tkn_list[i][1] != (tkn_list[j][1])):
-    #                 if int(tkn_list[i][0]) < int(tkn_list[j][0]):
-    #                     if len(tkn_list[i][1]) >= len(tkn_list[j][1]):
-    #                         tkn_cndd.append(tkn_list[i])
-    # return tkn_cndd
-
+@F.udf(returnType=T.ArrayType((T.StringType())))
+def sub_tokenize(cndds, tkn_list):
+    sub_tokens = []
+    for i in cndds:     # ['사각', '연필꽂이']
+        for j in tkn_list:      #
+            if i.__ne__(j):
+                if (len(i) > len(j)) & (len(j[1]) > 1):
+                    if i[0:len(j[1])] == j[1]:
+                        sub_tokens.append(i[0:len(j[1])])
+                    elif i[len(i) - len(j[1]):] == j[1]:
+                        sub_tokens.append(i[len(i) - len(j[1]):])
+    return list(set(cndds + sub_tokens))
 
 
 if __name__ == "__main__":
@@ -107,7 +90,14 @@ if __name__ == "__main__":
         - Stemming 방식
             - 단어 기반 포함된 알고리즘 찾는것 
             - 예상 output : 축이되는 단어 + 잘린단어 
- 
+        - 문제점
+            - 서브워드 토크나이징    ex) 사운드바 -> 사운드 + 바
+            - 등장빈도수 우선순위 적용시 ex)  브레이브복싱글러브 ->  ['브레이브', '복싱글', '글러브'] , 복싱 과 글러브 의 추출 방안은?
+            - 빈도수 우선순위 대체제는?
+            
+        - 완벽한 토크나이징은 없는 듯, 다양한 토크나이저들이 있지만 완벽히 해내는 것은 없느듯
+        서브워드 토크나이징 처리 불가, 부정확한 토크나이징 등... 현상들이 많다.
+        최적의 해결 방안은 ??
     '''
     df_3_size = (origin_df.where((F.length(F.col('token')) <= 4))
                  .groupby(F.col('token')).agg(F.count(F.col('token')).alias('cnt'))
@@ -123,13 +113,13 @@ if __name__ == "__main__":
                     F.col('df_3_size.token').alias('stem'),
                     F.col('df_3_size.cnt').alias('cnt'))
                .where((get_txt_type(F.col('word')) != 'num') & (get_txt_type(F.col('word')) != 'etc')))
-               .where(F.col('cnt')>2))
+               .where(F.col('cnt') > 7))
 
 
 
     (kor_ver.withColumn("rnk", F.rank().over(Window.partitionBy(F.col('word')).orderBy(F.col('stem').desc())))
      .show(1000, False))
-    a = kor_ver \
+    a = (kor_ver \
         .groupby(F.col('word')) \
         .agg(
             F.array_sort(
@@ -140,6 +130,7 @@ if __name__ == "__main__":
                 )
             ).alias('lst')
         ).withColumn("cnd", get_tokns(F.col('lst')))
+         .withColumn("sub_cnd", sub_tokenize(get_tokns(F.col('lst')), F.col('lst'))))
     a.sample(0.6).show(10000, False)
     a.printSchema()
 
