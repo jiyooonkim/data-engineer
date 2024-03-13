@@ -5,8 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="develop word2vec">
+      <change afterPath="$PROJECT_DIR$/commerce/src/etc/aa.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/doc/img/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/doc/img/img_054.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/doc/img/img_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/doc/img/img_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/doc/kubernetes.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/platform/img/img_054.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/csv-editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commerce/src/etc/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/etc/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/src/ml/nive_bayes.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/ml/nive_bayes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commerce/src/nlp/stemming.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/stemming.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/doc/kafka.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/kafka.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/platform/img/img_5.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,9 +80,11 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.aa.executor": "Run",
     "Python.create_df.executor": "Run",
     "Python.get_attribute.executor": "Run",
     "Python.integer_encoding.executor": "Run",
+    "Python.nive_bayes.executor": "Run",
     "Python.nvr_prod_cate_match.executor": "Run",
     "Python.one_hot_encoding.executor": "Run",
     "Python.stemming.executor": "Run",
@@ -82,7 +96,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/jy_kim/Documents/private/data-engineer",
+    "last_opened_file_path": "/Users/jy_kim/Documents/private/data-engineer/document/doc/img",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
@@ -102,18 +116,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/document/doc/img" />
+      <recent name="$PROJECT_DIR$/document/doc" />
       <recent name="$PROJECT_DIR$/jar" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/commerce" />
-      <recent name="$PROJECT_DIR$/commerce/src" />
-      <recent name="$PROJECT_DIR$/commerce/cmc/nlp" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/document/doc/img4" />
       <recent name="$PROJECT_DIR$/commerce/src/nlp" />
       <recent name="$PROJECT_DIR$/data/output" />
       <recent name="$PROJECT_DIR$/document/doc/img" />
       <recent name="$PROJECT_DIR$/document/platform/img" />
-      <recent name="$PROJECT_DIR$/document/platform" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -123,8 +137,8 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Python.stemming">
-    <configuration name="get_attribute" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.aa">
+    <configuration name="aa" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -133,11 +147,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/product" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/etc" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/product/get_attribute.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/etc/aa.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -168,6 +182,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="nive_bayes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/ml" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/ml/nive_bayes.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="stemming" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="ENV_FILES" value="" />
@@ -182,28 +218,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/stemming.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="stopword" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="test" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/nlp" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/stopword.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -258,11 +272,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.aa" />
+        <item itemvalue="Python.nive_bayes" />
         <item itemvalue="Python.stemming" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.word2vec" />
-        <item itemvalue="Python.get_attribute" />
-        <item itemvalue="Python.stopword" />
       </list>
     </recent_temporary>
   </component>
@@ -727,7 +741,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" log-message="true" suspend="NONE" type="python-line">
           <url>file://$PROJECT_DIR$/commerce/src/nlp/stemming.py</url>
-          <line>112</line>
+          <line>132</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>

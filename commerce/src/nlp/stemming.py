@@ -26,20 +26,24 @@ sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 
 # @F.udf(returnType=T.ArrayType(T.ArrayType(T.StringType())))
 @F.udf(returnType=T.ArrayType((T.StringType())))
-def get_tokns(tkn_list):
+def get_tokns(tkn_list, word):
     total = []
     for i in range(0, len(tkn_list)):
         tkn_cndd = []
         max_len_txt = ''
-        print("tkn_list[i][1] : ", tkn_list[i][1])
         for j in range(0, len(tkn_list)):
             if tkn_list[j][1] != (tkn_list[i][1]):
                 if tkn_list[j][1].__contains__(tkn_list[i][1]):
                     if len(max_len_txt) <= len(tkn_list[j][1]):
+                        # if tkn_list[i][0] < tkn_list[j][0]:
                         max_len_txt = tkn_list[j][1]
                     tkn_cndd.append(tkn_list[j][1])
         if max_len_txt != "":
+            word = word.strip(max_len_txt)
             total.append(max_len_txt)
+    if word != "":
+        total.append(word)
+
     return list(set(total))
 
 
@@ -81,20 +85,29 @@ if __name__ == "__main__":
             )
         ).alias('token')
     ).where(F.length(F.col('token')) != 0).alias('origin_df')
-    # .where(F.length(F.col('token')) > 1)
+    #  = df1.union(df2).union(df3).select(
+    #         F.col('prod_nm'),
+    #         F.split(
+    #             F.regexp_replace(F.regexp_replace(
+    #                 F.lower(F.col('prod_nm')), "[^가-힣0-9-*&]", ' '
+    #             ), r"\s+", ' '), ' '
+    # 
+    #     ).alias('token')
+    # )
+    # eeee.where(F.col('prod_nm').contains("브레이브")).show(10000, False)
+
     # todo : 영어 +  숫자 ver A-Za-z0-9
-    #
     '''
-        # Todo 
+        # Todo
         - 전처리 : 토크나이징, 특수문자, 소문자 변환
         - Stemming 방식
-            - 단어 기반 포함된 알고리즘 찾는것 
-            - 예상 output : 축이되는 단어 + 잘린단어 
+            - 단어 기반 포함된 알고리즘 찾는것
+            - 예상 output : 축이되는 단어 + 잘린단어
         - 문제점
             - 서브워드 토크나이징    ex) 사운드바 -> 사운드 + 바
             - 등장빈도수 우선순위 적용시 ex)  브레이브복싱글러브 ->  ['브레이브', '복싱글', '글러브'] , 복싱 과 글러브 의 추출 방안은?
             - 빈도수 우선순위 대체제는?
-            
+
         - 완벽한 토크나이징은 없는 듯, 다양한 토크나이저들이 있지만 완벽히 해내는 것은 없느듯
         서브워드 토크나이징 처리 불가, 부정확한 토크나이징 등... 현상들이 많다.
         최적의 해결 방안은 ??
@@ -117,10 +130,10 @@ if __name__ == "__main__":
 
 
 
-    (kor_ver.withColumn("rnk", F.rank().over(Window.partitionBy(F.col('word')).orderBy(F.col('stem').desc())))
-     .show(1000, False))
-    a = (kor_ver \
-        .groupby(F.col('word')) \
+    # (kor_ver.withColumn("rnk", F.rank().over(Window.partitionBy(F.col('word')).orderBy(F.col('stem').desc())))
+    #  .show(1000, False))
+    a = (kor_ver
+        .groupby(F.col('word'))
         .agg(
             F.array_sort(
                 F.collect_list(
@@ -129,30 +142,10 @@ if __name__ == "__main__":
                     )
                 )
             ).alias('lst')
-        ).withColumn("cnd", get_tokns(F.col('lst')))
-         .withColumn("sub_cnd", sub_tokenize(get_tokns(F.col('lst')), F.col('lst'))))
-    a.sample(0.6).show(10000, False)
-    a.printSchema()
-
-
-
-    '''
-        갑뿐...합성어 
-        우선순위 토큰 : 빈도수 높은것 , 단어길이긴것
-        제외 토큰 : 한글자로만 이루어진다면 제외, 한글자로 3개이상 있다면 제외
-    '''
-
-    # comp = spark.read.parquet("/Users/jy_kim/Documents/private/data-engineer/data/parquet/compound")
-    # comp.sample(0.5).show(1000, False)
-
-
-    # kor_ver.write.format("parquet").mode("overwrite").save(
-    #     "../../../data/output/stemming_kor/")
-    # todo : 토큰 매핑 알고리즘 구현 , 안나올 경우 대비해 토큰 빈도수도 구해둠!!
-
-    # todo : eng ver
-
-    # .groupBy(F.col('stem')).agg(F.collect_list(F.col('word')))
-    # df_3_size.join(origin_df, F.col('df_3_size.token').contains(F.col('origin_df.token'))).where(F.col('origin_df.token') != F.col('df_3_size.token')).show(10000, False)
-
+        ).withColumn("cnd", get_tokns(F.col('lst'), F.col('word')))
+         .withColumn("sub_cnd", sub_tokenize(get_tokns(F.col('lst'), F.col('word')), F.col('lst')))
+         )
+    a.where(F.size(F.col('cnd')) > 0).sample(0.6).show(10000, False)
+    a.printSchema() 
+  
     exit(0)

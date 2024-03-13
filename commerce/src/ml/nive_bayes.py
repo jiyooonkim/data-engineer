@@ -15,6 +15,7 @@
         - 나이브베이즈 분류 활용하여 송장명 카테고리 예측
             - traiging set : nvr_prod
             - test set : 송장명
+        
 """
 
 from pyspark.sql import SparkSession
@@ -39,10 +40,55 @@ if __name__ == "__main__":
         .config("spark.network.timeout", 10000) \
         .config('spark.ui.showConsoleProgress', True) \
         .config('spark.sql.repl.eagerEval.enabled', True) \
-        .getOrCreate() 
+        .getOrCreate()
+    prod_1 = spark.read.option('header', True). \
+        csv("commerce/data/nvr_prod.csv") \
+        .select(
+            F.explode(
+                F.split(
+                    F.trim(
+                        F.regexp_replace(
+                            F.regexp_replace(F.lower(F.col('상품명')), "[^A-Za-z0-9가-힣]", ' '), r"\s+", ' '
+                        )
+                    ), ' '
+                )
+            ).alias('prod_tkn'), F.col('상품명'), F.col('대분류'), F.col('중분류'), F.col('소분류'))
 
-    df = spark.read.parquet('data/parquet/linked_predict')
-    df.show(1000, False)
+    # todo : prod_tkn 전처리 할 것
+    before_prct = (
+        prod_1.groupby(F.col('대분류'), F.col('prod_tkn'))
+        .agg(F.count(F.col("prod_tkn")).alias('tkn_cnt'))
+        .withColumn("befor_prct", F.col('tkn_cnt') / F.lit(prod_1.count()))
+       )
+
+    before_prct.orderBy(F.col('대분류')).show(1000, False)
+
+    shipping_df = spark.read.csv("commerce/data/송장명.csv") \
+        .select(
+            F.col('_c2'),
+                F.explode(
+                    F.split(
+                    F.trim(
+                        F.regexp_replace(
+                            F.regexp_replace(F.lower(F.col('_c2')), "[^A-Za-z0-9가-힣]", ' '), r"\s+", ' ')
+                    )
+        , " ")).alias("shipping_token"))
+    # shipping_df.show(100, False)
+
+    # shipping_df.groupby(F.col('')).agg().show()
+    ''' 
+        step1. 한  대분류 카테고리에 대해 상품이 카테고리에 맞는지 아닌지 확률 구하기  
+        사전 확률 : 상품 df ,  카테고리별 의미있는 키워드 뽑아내는게 중점 일듯 
+        사후 확률 : 송장명 df, 송장명 토크나이징 
+    '''
+
+
+    '''
+        step2. MultinomialNB
+    '''
+
+
+
     '''
         - 사건 B가 일어난 후 사건 A가 일어날 확률
         1. 전제: 두 사건 A, B가 있고, 사건 B가 발생한 이후에 사건 A가 발생한다고 가정한다.
