@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Study kubernetes">
+      <change afterPath="$PROJECT_DIR$/document/platform/install_kubeflow.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/doc/kubernetes.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/kubernetes.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -413,14 +413,6 @@
       <option name="project" value="LOCAL" />
       <updated>1687013639343</updated>
     </task>
-    <task id="LOCAL-00067" summary="Develop stemming">
-      <option name="closed" value="true" />
-      <created>1701618913947</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1701618913947</updated>
-    </task>
     <task id="LOCAL-00068" summary="Change relative path">
       <option name="closed" value="true" />
       <created>1702307955580</created>
@@ -661,7 +653,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710316447942</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="Study kubernetes">
+      <option name="closed" value="true" />
+      <created>1710504564245</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1710504564245</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
