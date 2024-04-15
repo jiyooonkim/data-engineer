@@ -50,10 +50,13 @@ Password: 12341234
 
 
 ### Docker 명령어
-+ 정상 작동 확인 : docker ps	
-+ 이미지 이름 변경 : docker tag IMAGE_ID new_image:latest
-+ 버전확인 : docker --version
-+ Docker 삭제 명령어      
++ 정상 작동 확인     
+ ```  docker ps	 ```     
++ 이미지 이름 변경    
+ ```  docker tag IMAGE_ID new_image:latest  ``` 
++ 버전 확인     
+ ```   docker --version  ```      
++ Docker 삭제 명령어        
 ``` 
     /Applications/Docker.app/Contents/MacOS/uninstall
     rm -rf ~/Library/Group\ Containers/group.com.docker
@@ -83,5 +86,5 @@ Password: 12341234
     docker build --tag python3.7    # 실행 
     docker images                   # 확인
 ``` 
-+ Pycharm 서 Interpreter 변경           
-<img src = "./img/img_200.png" width = "350" height = "140"/> 
++ Pycharm 서 Interpreter 변경            
+<img src = "./img/200.png" width = "850" height = "140" title=" "/> 

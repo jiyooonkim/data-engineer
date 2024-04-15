@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Study kubeflow">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Install kubeflow">
       <change beforePath="$PROJECT_DIR$/document/platform/install_kubeflow.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_kubeflow.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -413,14 +412,6 @@
       <option name="project" value="LOCAL" />
       <updated>1687013639343</updated>
     </task>
-    <task id="LOCAL-00069" summary="Change relative path">
-      <option name="closed" value="true" />
-      <created>1702308978925</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1702308978926</updated>
-    </task>
     <task id="LOCAL-00070" summary="Change relative path">
       <option name="closed" value="true" />
       <created>1702309133616</created>
@@ -661,7 +652,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710842342025</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="Install kubeflow">
+      <option name="closed" value="true" />
+      <created>1713193248257</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1713193248258</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -677,7 +676,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Dev modelnumber dictionary" />
     <MESSAGE value="Study ELK" />
     <MESSAGE value="Study shell" />
     <MESSAGE value="Study hadoop" />
@@ -702,7 +700,8 @@
     <MESSAGE value="develop word2vec" />
     <MESSAGE value="Study kubernetes" />
     <MESSAGE value="Study kubeflow" />
-    <option name="LAST_COMMIT_MESSAGE" value="Study kubeflow" />
+    <MESSAGE value="Install kubeflow" />
+    <option name="LAST_COMMIT_MESSAGE" value="Install kubeflow" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
