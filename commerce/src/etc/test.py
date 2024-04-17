@@ -521,4 +521,3 @@ print("sub_tokenize 결과 : ", sub_tokenize(cndds, tkn_list))
 # print(get_tokns(tkn_list))
 
 
-    print()

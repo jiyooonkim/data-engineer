@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-# title :  TF-IDF
-# desc : 문서 전체에 단어 중요도 구하고자
-# doc : - https://yeong-jin-data-blog.tistory.com/entry/TF-IDF-Term-Frequency-Inverse-Document-Frequency
-# pro : -
-tf vs tf-idf
-tf : 일반적인 텍스트 유사도 계산시
-tf-idf : 검색쿼리 적절성 판단 시
+    # title :  TF-IDF
+    # desc : 문서 전체에 단어 중요도 구하고자
+    # doc : - https://yeong-jin-data-blog.tistory.com/entry/TF-IDF-Term-Frequency-Inverse-Document-Frequency
+    # pro : -
+    tf vs tf-idf
+    tf : 일반적인 텍스트 유사도 계산시
+    tf-idf : 검색쿼리 적절성 판단 시
 """
 from pyspark.sql import SparkSession
 import pyspark.sql.functions as F

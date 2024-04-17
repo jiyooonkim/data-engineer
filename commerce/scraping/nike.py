@@ -4,7 +4,7 @@ import os
 
 os.chdir('../../')
 print(os.getcwd())
-# note : anchor 가 시작인듯 24개씩 증가하는데 ??
+# note : anchor 가 시작인 듯 24개씩 증가
 # "endpoint": "/product_feed/rollup_threads/v2?filter=marketplace(KR)&filter=language(ko)&filter=employeePrice(true)&filter=attributeIds(a00f0bb2-648b-4853-9559-4cd943b7d6c6,7baf216c-acc6-4452-9e07-39c2ca77ba32)&anchor=144&consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&count=24",
 
 url = "https://api.nike.com/cic/browse/v2"
@@ -17,32 +17,34 @@ headers = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36",
 }
 
-pagenation = 1
-data_list = []
-while 1:
-    parameter = {
-        "queryid": "products",
-        "anonymousId": "A752FB5CBFBCAE92B90EA25EFCD46723",
-        "country": 'kr',
-        # "endpoint":   "/product_feed/rollup_threads/v2?filter=marketplace(KR)&filter=language(ko)&filter=employeePrice(true)&filter=attributeIds(16633190-45e5-4830-a068-232ac7aea82c,0f64ecc7-d624-4e91-b171-b83a03dd8550)&anchor=" + str(pagenation) + "&consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&count=24",
-        # "endpoint": "/product_feed/rollup_threads/v2?filter=marketplace(KR)&filter=language(ko)&filter=employeePrice(true)&filter=attributeIds(a00f0bb2-648b-4853-9559-4cd943b7d6c6,7baf216c-acc6-4452-9e07-39c2ca77ba32)&anchor=" + str(pagenation) + "&consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&count=24",
-        # "endpoint": "/product_feed/rollup_threads/v2?filter=marketplace(KR)&filter=language(ko)&filter=employeePrice(true)&filter=attributeIds(0f64ecc7-d624-4e91-b171-b83a03dd8550,a00f0bb2-648b-4853-9559-4cd943b7d6c6)&anchor=" + str(pagenation) + "&consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&count=24",
-        "endpoint": "/product_feed/rollup_threads/v2?filter=marketplace(KR)&filter=language(ko)&filter=employeePrice(true)&filter=attributeIds(fa863563-4508-416d-bae9-a53188c04937,7baf216c-acc6-4452-9e07-39c2ca77ba32)&anchor=" + str(pagenation) + "&consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&count=24",
-        "language": "ko",
-        "localizedRangeStr": "{lowestPrice} ~ {highestPrice}"
-    }
-    resp = requests.get(url, params=parameter, headers=headers).json()
-    if resp['data']['products']['pages']['totalPages']:
-        anchor = resp['data']['products']['pages']['totalPages']
-        resp = requests.get(url, params=parameter, headers=headers).json()
-        for data in resp['data']['products']['products']:
-            print("data : ", data)
-            data_list.append([data['colorDescription'], data['productType'], data['subtitle'], data['title']])
 
-        pagenation = pagenation + 24
-        print("pagenation : ", pagenation)
-    if pagenation >= (resp['data']['products']['pages']['totalResources']):
-        break
+def scraping():
+    pagenation = 1
+    data_list = []
+    while 1:
+        parameter = {
+            "queryid": "products",
+            "anonymousId": "A752FB5CBFBCAE92B90EA25EFCD46723",
+            "country": 'kr',
+            # "endpoint":   "/product_feed/rollup_threads/v2?filter=marketplace(KR)&filter=language(ko)&filter=employeePrice(true)&filter=attributeIds(16633190-45e5-4830-a068-232ac7aea82c,0f64ecc7-d624-4e91-b171-b83a03dd8550)&anchor=" + str(pagenation) + "&consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&count=24",
+            # "endpoint": "/product_feed/rollup_threads/v2?filter=marketplace(KR)&filter=language(ko)&filter=employeePrice(true)&filter=attributeIds(a00f0bb2-648b-4853-9559-4cd943b7d6c6,7baf216c-acc6-4452-9e07-39c2ca77ba32)&anchor=" + str(pagenation) + "&consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&count=24",
+            # "endpoint": "/product_feed/rollup_threads/v2?filter=marketplace(KR)&filter=language(ko)&filter=employeePrice(true)&filter=attributeIds(0f64ecc7-d624-4e91-b171-b83a03dd8550,a00f0bb2-648b-4853-9559-4cd943b7d6c6)&anchor=" + str(pagenation) + "&consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&count=24",
+            "endpoint": "/product_feed/rollup_threads/v2?filter=marketplace(KR)&filter=language(ko)&filter=employeePrice(true)&filter=attributeIds(fa863563-4508-416d-bae9-a53188c04937,7baf216c-acc6-4452-9e07-39c2ca77ba32)&anchor=" + str(pagenation) + "&consumerChannelId=d9a5bc42-4b9c-4976-858a-f159cf99c647&count=24",
+            "language": "ko",
+            "localizedRangeStr": "{lowestPrice} ~ {highestPrice}"
+        }
+        resp = requests.get(url, params=parameter, headers=headers).json()
+        if resp['data']['products']['pages']['totalPages']:
+            anchor = resp['data']['products']['pages']['totalPages']
+            resp = requests.get(url, params=parameter, headers=headers).json()
+            for data in resp['data']['products']['products']:
+                print("data : ", data)
+                data_list.append([data['colorDescription'], data['productType'], data['subtitle'], data['title']])
+
+            pagenation = pagenation + 24
+            print("pagenation : ", pagenation)
+        if pagenation >= (resp['data']['products']['pages']['totalResources']):
+            break
 
 # file_path = 'commerce/data/nike_data.csv'
 # print("data_list  : ", data_list)
@@ -50,7 +52,8 @@ while 1:
 #     writer = csv.writer(file)
 #     writer.writerows(data_list)
 
-# if __name__ == "__main__":
-#     get_data(scraping())
+
+if __name__ == "__main__":
+    get_data(scraping())
 
 

@@ -7,8 +7,10 @@
         - https://velog.io/@wijoonwu/ModuleNotFoundError-No-module-named-Crypto-%EC%98%A4%EB%A5%98-%ED%95%B4%EA%B2%B0%EB%B0%A9%EB%B2%95
         - DB : https://createseok.tistory.com/entry/MARIA-DBDB-%EC%95%94%ED%98%B8%ED%99%94-%EB%B3%B5%ED%98%B8%ED%99%94
 """
+
 import crypto
 import sys
+
 sys.modules['Crypto'] = crypto
 from crypto.Random import get_random_bytes
 from crypto.Cipher import AES
@@ -41,6 +43,7 @@ class AESCipher(object):
     def __iv(self):
         return chr(0) * 16
 
+
 key = "this is key"
 data = "암호화 대상문장 입니다"
 
@@ -48,8 +51,8 @@ aes = AESCipher(key)
 
 encrypt = aes.encrypt(data)
 print("암호화:", encrypt)
-print("-"*100)
+print("-" * 100)
 
 decrypt = aes.decrypt(encrypt)
 print("복호화:", decrypt)
-print("-"*100)
+print("-" * 100)

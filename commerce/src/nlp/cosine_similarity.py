@@ -83,7 +83,7 @@ if __name__ == "__main__":
             .getOrCreate()
     print(os.getcwd())
 
-    prod = spark.read.parquet('/Users/jy_kim/Documents/private/nlp-engineer/data/parquet/prod2/') \
+    prod = spark.read.parquet('./data/parquet/prod2/') \
         .select(
             F.trim(
                 F.regexp_replace(

@@ -1,4 +1,6 @@
 from elasticsearch import Elasticsearch
+
+
 def searchAPI(query):
     es = Elasticsearch('http://127.0.0.1:9200')
     index = 'search-2021*'

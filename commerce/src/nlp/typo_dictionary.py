@@ -11,6 +11,7 @@ from pyspark.sql import SparkSession
 import pyspark.sql.functions as F
 import pyspark.sql.types as T
 import os
+
 os.chdir('../../../')
 
 
@@ -32,7 +33,7 @@ def get_err_type(crr_wd, cndd_wd):
     err_txt = []
     posision = []
     tp = ''
-    
+
     if len(crr_wd) > len(cndd_wd):
         tp = 'deletion'
         crr_wd, cndd_wd = get_match_length(crr_wd, cndd_wd)
@@ -41,7 +42,7 @@ def get_err_type(crr_wd, cndd_wd):
                 crr_txt.append(crr_wd[i])
                 cndd_wd.insert(i, crr_wd[i])
                 posision.append(i)
-        
+
     if len(crr_wd) < len(cndd_wd):
         tp = 'insertion'
         crr_wd, cndd_wd = get_match_length(crr_wd, cndd_wd)
@@ -54,13 +55,13 @@ def get_err_type(crr_wd, cndd_wd):
     # step2-3. substitution, transposition(제외)
     else:
         tp = 'substitution'
-        for i in range(0, len(crr_wd)): 
+        for i in range(0, len(crr_wd)):
             if cndd_wd[i] != crr_wd[i]:
                 crr_txt.append(crr_wd[i])
                 err_txt.append(cndd_wd[i])
                 posision.append(i)
     return [crr_txt, err_txt, posision, tp]
- 
+
 
 # @F.udf(returnType=T.StringType())
 @F.udf(returnType=T.ArrayType(T.StringType()))
@@ -91,7 +92,7 @@ def get_spelling(word):
         else:
             # r_str.join(w)
             r_lst.extend(w)
-    return  r_lst
+    return r_lst
 
 
 # @F.udf(returnType=T.DoubleType())
@@ -104,9 +105,9 @@ def get_jaccard_sim(str1, str2):
     # set 이유 : 중복성 무시
     a = set(str1)  # set(str1.split())
     b = set(str2)  # set(str2.split())
-    itc = float(len(set(a).intersection(set(b))))      # 분자
-    union = len(a) + len(b) - itc    # 분모
-    return itc/union
+    itc = float(len(set(a).intersection(set(b))))  # 분자
+    union = len(a) + len(b) - itc  # 분모
+    return itc / union
 
 
 if __name__ == "__main__":
@@ -191,29 +192,29 @@ if __name__ == "__main__":
     '''
 
     cate = cate.withColumn('cate_tokens', get_spelling(F.col('cate')))
-    get_word_cnt = prod_nm\
-        .groupby(F.col('prod_nm'), F.col('prod_tokens'))\
-        .agg(F.count(F.col('prod_nm')).alias('count_w'))\
-        .withColumn('p_w', F.round(F.col('count_w') / prod_nm.count(), 9))\
+    get_word_cnt = prod_nm \
+        .groupby(F.col('prod_nm'), F.col('prod_tokens')) \
+        .agg(F.count(F.col('prod_nm')).alias('count_w')) \
+        .withColumn('p_w', F.round(F.col('count_w') / prod_nm.count(), 9)) \
         .alias('get_word_cnt')
 
     # get_word_cnt.select(F.count(F.col('prod_nm'))).show()   # 95873
     # cate.select(F.count(F.col('cate'))).show()  # cnt : 2043
-    
+
     ''' 
         todo : 적당한 후보 매핑이 필요함, 워딩 별로 유사도 매겨서 get_err_type 호출\ 
         get_close_matches 알아보기!!
     '''
 
-    get_word_matric = get_word_cnt\
-        .join(F.broadcast(cate))\
-        .where(F.col('prod_nm') != F.col('cate'))\
+    get_word_matric = get_word_cnt \
+        .join(F.broadcast(cate)) \
+        .where(F.col('prod_nm') != F.col('cate')) \
         .withColumn('jaccard_sim', get_jaccard_sim(F.col('prod_nm'), F.col('cate')))
 
     compound_word = get_word_matric.withColumn('jaccard_sim', get_jaccard_sim(F.col('prod_nm'), F.col('cate')))
     # compound_word.write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/compound_word_candidate")     # 합성어
-    compound_word.write.format("parquet").mode("overwrite").save("data/output/compound_word_candidate/")     # 합성어
-    compound_word.where(F.col('jaccard_sim')>0.9).show(100, False)
+    compound_word.write.format("parquet").mode("overwrite").save("data/parquet/compound_word_candidate/")  # 합성어
+    compound_word.where(F.col('jaccard_sim') > 0.9).show(100, False)
 
     # get_word_matric = get_word_matric.withColumn('err_tp', get_err_type(F.col('prod_tokens'), F.col('cate_tokens')))\
     #
@@ -221,7 +222,4 @@ if __name__ == "__main__":
     # # get_word_matric.where(F.length(F.col('prod_nm')) == F.length(F.col('cate'))).orderBy(F.col('prod_nm').desc()).show(100, False)
     # get_word_matric.orderBy(F.col('prod_nm').desc()).show(100, False)
 
-
-
     # prod.select(F.col('상품명')).where(F.col('상품명').like('%블루 %')).show(100, False)
-  

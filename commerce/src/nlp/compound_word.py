@@ -33,7 +33,7 @@ def get_token_ver1(crr_wd, cndd_wd):
 @F.udf(returnType=T.ArrayType(T.StringType()))
 def get_token_ver2(crr_wd, cndd_wd):
     """
-    문제 : 선글라스케이스 |케이스 |[케이스, 선글라] |
+        문제 : 선글라스케이스 |케이스 |[케이스, 선글라] |
     """
     tokens = []
     if crr_wd.__contains__(cndd_wd):
@@ -93,7 +93,7 @@ if __name__ == "__main__":
         .config('spark.sql.repl.eagerEval.enabled', True) \
         .getOrCreate()
 
-    # setp1 . 자카드 유사도 이용해 토근 후보들 추출 - 단어의 유사성 이용하여 seed 생성
+    # step1. 자카드 유사도 이용해 토근 후보들 추출 - 단어의 유사성 이용하여 seed 생성
     compound_word_candidate = spark.read.parquet("data/parquet/compound_word_candidate") \
         .select(
             F.regexp_replace(F.lower(F.col('prod_nm')), ' ', '').alias('prod_nm'),
@@ -140,8 +140,8 @@ if __name__ == "__main__":
         ).where(
             F.col('rnk') == 1
         ).dropDuplicates(['target_word'])
-    d.write.format("parquet").mode("overwrite").save("data/parquet/compound/")
-    d.show(1000, False)
+    # d.write.format("parquet").mode("overwrite").save("data/parquet/compound/")
+    # d.show(1000, False)
 
     '''
     todo : 
@@ -150,4 +150,7 @@ if __name__ == "__main__":
             ex> 현) 건강용품도매 = 건강용품 + 도매      후) 건강+용품+도매  로 작업 해볼 것 
         - 서브워드 토크나이저 기법 사용 
     '''
+
+    df = spark.read.parquet("data/parquet/compound/")
+    df.show(1000, False)
     exit(0)
