@@ -6,14 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Install kubeflow">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/scraping/nike.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/scraping/nike.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/src/etc/aa.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/src/etc/conn_es.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/etc/conn_es.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/src/etc/encryption.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/etc/encryption.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/src/etc/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/etc/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/src/nlp/compound_word.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/compound_word.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/src/nlp/cosine_similarity.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/cosine_similarity.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/src/nlp/tf-idf.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/tf-idf.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commerce/src/nlp/typo_dictionary.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/typo_dictionary.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,32 +65,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Python.aa.executor": "Run",
-    "Python.compound_word.executor": "Run",
-    "Python.cosine_similarity.executor": "Run",
-    "Python.create_df.executor": "Run",
-    "Python.get_attribute.executor": "Run",
-    "Python.integer_encoding.executor": "Run",
-    "Python.nive_bayes.executor": "Run",
-    "Python.nvr_prod_cate_match.executor": "Run",
-    "Python.one_hot_encoding.executor": "Run",
-    "Python.stemming.executor": "Run",
-    "Python.stopword.executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.tf-idf_func.executor": "Run",
-    "Python.typo_dictionary.executor": "Run",
-    "Python.word2vec.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/jy_kim/Documents/private/data-engineer/document/platform/img",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.aa.executor&quot;: &quot;Run&quot;,
+    &quot;Python.compound_word.executor&quot;: &quot;Run&quot;,
+    &quot;Python.cosine_similarity.executor&quot;: &quot;Run&quot;,
+    &quot;Python.create_df.executor&quot;: &quot;Run&quot;,
+    &quot;Python.get_attribute.executor&quot;: &quot;Run&quot;,
+    &quot;Python.integer_encoding.executor&quot;: &quot;Run&quot;,
+    &quot;Python.nive_bayes.executor&quot;: &quot;Run&quot;,
+    &quot;Python.nvr_prod_cate_match.executor&quot;: &quot;Run&quot;,
+    &quot;Python.one_hot_encoding.executor&quot;: &quot;Run&quot;,
+    &quot;Python.stemming.executor&quot;: &quot;Run&quot;,
+    &quot;Python.stopword.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tf-idf_func.executor&quot;: &quot;Run&quot;,
+    &quot;Python.typo_dictionary.executor&quot;: &quot;Run&quot;,
+    &quot;Python.word2vec.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jy_kim/Documents/private/data-engineer&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="Push.Settings">
     <option name="SHOW_DETAILS_PANEL" value="false" />
   </component>

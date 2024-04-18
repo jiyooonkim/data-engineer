@@ -215,7 +215,7 @@ if __name__ == "__main__":
     # compound_word.write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/compound_word_candidate")     # 합성어
     compound_word.write.format("parquet").mode("overwrite").save("data/parquet/compound_word_candidate/")  # 합성어
     compound_word.where(F.col('jaccard_sim') > 0.9).show(100, False)
-
+  
     # get_word_matric = get_word_matric.withColumn('err_tp', get_err_type(F.col('prod_tokens'), F.col('cate_tokens')))\
     #
     # # get_word_matric.show(100, False)
