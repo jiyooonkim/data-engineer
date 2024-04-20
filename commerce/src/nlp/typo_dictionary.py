@@ -4,7 +4,7 @@
 # desc : Spelling Correction and the Noisy Channel 기반 오타교정 모델
 # object :
  - 보류 
- - 사유 : 오타 데이터 미확보, 삼품명 기반 유사 단어 토큰으로 찾아보려 했으나 대부분 정타  
+ - 사유 : 오타 데이터 미확보, 상품명 기반 유사 단어 토큰으로 찾아보려 했으나 대부분 정타
 """
 
 from pyspark.sql import SparkSession
