@@ -146,7 +146,7 @@ if __name__ == "__main__":
 
     attr = spark.read.parquet('data/parquet/measures_attribution') \
         .select(F.col('shp_nm_token'), F.col('cnt').alias('attr_cnt')).alias('attr')
-    # ship_tkn_agg.select(F.count(F.col('tkns'))).show()
+
     # res = attr.unionAll(ship_tkn_agg.select(F.col('tkns'), F.col('cnt')))
 
     # ship_tkn_agg.join(attr, F.col('tkns') == F.col('shp_nm_token'), 'leftanti').orderBy(F.col('cnt').desc()).show(1000, False)
@@ -213,8 +213,11 @@ if __name__ == "__main__":
 
     compound_word = get_word_matric.withColumn('jaccard_sim', get_jaccard_sim(F.col('prod_nm'), F.col('cate')))
     # compound_word.write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/compound_word_candidate")     # 합성어
-    compound_word.write.format("parquet").mode("overwrite").save("data/parquet/compound_word_candidate/")  # 합성어
-    compound_word.where(F.col('jaccard_sim') > 0.9).show(100, False)
+    cnt = compound_word.where(F.col('jaccard_sim') > 0.8)
+    cnt.show(5000, False)
+    cnt.sample(0.1).write.format("parquet").mode("overwrite").option("compression", "gzip").save("data/parquet/compound_word_candidate/")  # 합성어
+
+    # compound_word.select(F.count(F.col('prod_nm'))).show()
   
     # get_word_matric = get_word_matric.withColumn('err_tp', get_err_type(F.col('prod_tokens'), F.col('cate_tokens')))\
     #
