@@ -52,6 +52,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/data/parquet/stopword/part-00000-c8668fbe-63d7-4dd0-aeb2-4caa6540e72b-c000.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>

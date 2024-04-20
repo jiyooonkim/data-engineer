@@ -5,8 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Install kubeflow">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/compound_word_candidate/.part-00000-7d0ebfbb-251d-4e70-a9e8-f3c528bce18d-c000.gz.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/compound_word_candidate/.part-00001-7d0ebfbb-251d-4e70-a9e8-f3c528bce18d-c000.gz.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/compound_word_candidate/.part-00002-7d0ebfbb-251d-4e70-a9e8-f3c528bce18d-c000.gz.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/compound_word_candidate/.part-00003-7d0ebfbb-251d-4e70-a9e8-f3c528bce18d-c000.gz.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/compound_word_candidate/.part-00004-7d0ebfbb-251d-4e70-a9e8-f3c528bce18d-c000.gz.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/compound_word_candidate/part-00000-7d0ebfbb-251d-4e70-a9e8-f3c528bce18d-c000.gz.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/compound_word_candidate/part-00001-7d0ebfbb-251d-4e70-a9e8-f3c528bce18d-c000.gz.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/compound_word_candidate/part-00002-7d0ebfbb-251d-4e70-a9e8-f3c528bce18d-c000.gz.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/compound_word_candidate/part-00003-7d0ebfbb-251d-4e70-a9e8-f3c528bce18d-c000.gz.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/compound_word_candidate/part-00004-7d0ebfbb-251d-4e70-a9e8-f3c528bce18d-c000.gz.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/stop_word_1/.part-00000-b8374c67-df1f-4488-a0af-0c551cc5aa8f-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/stop_word_1/part-00000-b8374c67-df1f-4488-a0af-0c551cc5aa8f-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/stopword/._SUCCESS.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/stopword/.part-00000-1ce3583f-0383-4413-b28e-1737c0fa81a6-c000.txt.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/stopword/_SUCCESS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/src/nlp/stopword.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/stopword.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commerce/src/nlp/typo_dictionary.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/typo_dictionary.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/compound_word_candidate/.part-00000-eea0251d-bfe0-43bc-9508-8690c836f79b-c000.gz.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/compound_word_candidate/.part-00001-eea0251d-bfe0-43bc-9508-8690c836f79b-c000.gz.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/compound_word_candidate/.part-00002-eea0251d-bfe0-43bc-9508-8690c836f79b-c000.gz.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/compound_word_candidate/.part-00003-eea0251d-bfe0-43bc-9508-8690c836f79b-c000.gz.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/compound_word_candidate/.part-00004-eea0251d-bfe0-43bc-9508-8690c836f79b-c000.gz.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/compound_word_candidate/part-00000-eea0251d-bfe0-43bc-9508-8690c836f79b-c000.gz.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/compound_word_candidate/part-00001-eea0251d-bfe0-43bc-9508-8690c836f79b-c000.gz.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/compound_word_candidate/part-00002-eea0251d-bfe0-43bc-9508-8690c836f79b-c000.gz.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/compound_word_candidate/part-00003-eea0251d-bfe0-43bc-9508-8690c836f79b-c000.gz.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/compound_word_candidate/part-00004-eea0251d-bfe0-43bc-9508-8690c836f79b-c000.gz.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/stop_word_1/.part-00000-a16684b1-1c7b-4383-968d-41a67c419851-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/stop_word_1/part-00000-a16684b1-1c7b-4383-968d-41a67c419851-c000.snappy.parquet" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +155,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Python.typo_dictionary">
+  <component name="RunManager" selected="Python.stopword">
     <configuration name="aa" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="ENV_FILES" value="" />
@@ -217,7 +244,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="nive_bayes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="stopword" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -226,11 +253,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/ml" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/nlp" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/ml/nive_bayes.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/stopword.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -263,11 +290,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.stopword" />
         <item itemvalue="Python.typo_dictionary" />
         <item itemvalue="Python.compound_word" />
         <item itemvalue="Python.cosine_similarity" />
         <item itemvalue="Python.aa" />
-        <item itemvalue="Python.nive_bayes" />
       </list>
     </recent_temporary>
   </component>
