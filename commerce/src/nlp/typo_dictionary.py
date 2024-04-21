@@ -215,14 +215,9 @@ if __name__ == "__main__":
     # compound_word.write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/compound_word_candidate")     # 합성어
     cnt = compound_word.where(F.col('jaccard_sim') > 0.8)
     cnt.show(5000, False)
-    cnt.sample(0.1).write.format("parquet").mode("overwrite").option("compression", "gzip").save("data/parquet/compound_word_candidate/")  # 합성어
-
-    # compound_word.select(F.count(F.col('prod_nm'))).show()
-  
-    # get_word_matric = get_word_matric.withColumn('err_tp', get_err_type(F.col('prod_tokens'), F.col('cate_tokens')))\
-    #
-    # # get_word_matric.show(100, False)
-    # # get_word_matric.where(F.length(F.col('prod_nm')) == F.length(F.col('cate'))).orderBy(F.col('prod_nm').desc()).show(100, False)
-    # get_word_matric.orderBy(F.col('prod_nm').desc()).show(100, False)
-
-    # prod.select(F.col('상품명')).where(F.col('상품명').like('%블루 %')).show(100, False)
+    cnt.select(F.col('prod_nm'), F.col('cate')).coalesce(1).write.mode('overwrite').save(
+        'data/parquet/custom_synonym/')
+    cnt.select(
+        F.concat(F.col('prod_nm'), F.lit(','), F.col('cate'))
+        ).coalesce(1).write.text(
+        'data/parquet/customsynonym')

@@ -96,6 +96,7 @@ if __name__ == "__main__":
         .alias('prod')\
         .repartition(600)    # cnt : 46271
 
+
     # Cosine similarity
     # ver1. 상품명 vs 상품명
     # todo : 공백 제거
@@ -110,6 +111,7 @@ if __name__ == "__main__":
         .agg(
             F.collect_list(F.col('tkns')).alias('tkns_list')
         )
+    get_token_cnt.show()
 
     self_prod = get_token_cnt\
         .where(F.length(F.col('prod_nm')) < 28).alias('df1')\

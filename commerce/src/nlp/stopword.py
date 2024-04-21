@@ -78,6 +78,6 @@ if __name__ == "__main__":
     st_wd.where(F.col('cnt') >= '14').show(1000, False)
     # stop_word_1.coalesce(1).where(F.col('cnt') >= '14').write.format('parquet').mode('overwrite').save('data/parquet/stop_word_1')
     st_wd.where(F.col('cnt') >= '14').select(F.col('prod_tkn')).coalesce(1).write.format('text').mode('overwrite').save('data/parquet/stopword')
-    # df1.write.text("output_compressed", compression="gzip")
+
 
     exit(0)
