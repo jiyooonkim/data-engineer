@@ -12,7 +12,8 @@ import pyspark.sql.window as window
 import os
 os.chdir('../../../')
 
-
+# todo : 한/영 사전 만들기
+#  babootaeng, 바부탱 , codezip, 코드집
 @F.udf(returnType=T.ArrayType(T.ArrayType(T.StringType())))
 def get_konglish(kor_txt):
     ja = {'ㄱ': ['K','G', 'CK'], 'ㄲ': ['KK','GG'], 'ㄴ': 'N', 'ㄷ': 'D', 'ㄸ': ['D', 'TT'], 'ㄹ': ['R', 'L'], 'ㅁ': 'M', 'ㅂ': 'B',

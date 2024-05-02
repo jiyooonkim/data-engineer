@@ -16,7 +16,7 @@
   + MR : Mape -> Reduce ->hdfs(결과저장) -> Map -> Reduce(최종 결과 저장)
   <img height="440" src="img/img_47.png" width="350"/>
 
-### Map Reduce 대신 Apache Tez 사용이유
+### Map Reduce 대신 Apache Tez 사용 이유
 - MapReduce 엔진에서 단일 작업으로 DAG(방향성 비순환 그래프)를 실행    
 - Tez는 해당 제약 조건이 없으며 작업 시작 오버 헤드를 최소화하는 하나의 작업으로 복잡한 DAG를 처리 가능  
 - 불필요한 쓰기를 방지       

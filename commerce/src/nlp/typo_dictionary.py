@@ -128,14 +128,14 @@ if __name__ == "__main__":
     # 송장명 개수 : 21135
     shipping_df = spark.read.csv("commerce/data/송장명.csv") \
         .select(
-        F.split(
-            F.trim(
-                F.regexp_replace(
-                    F.regexp_replace(F.lower(F.col('_c2')), "[^A-Za-z0-9가-힣]", ' '), r"\s+", ' '
-                )
-            ), ' '
-        ).alias('shipping_nm')
-    ).withColumn('tkns', F.explode(F.col('shipping_nm'))) \
+            F.split(
+                F.trim(
+                    F.regexp_replace(
+                        F.regexp_replace(F.lower(F.col('_c2')), "[^A-Za-z0-9가-힣]", ' '), r"\s+", ' '
+                    )
+                ), ' '
+            ).alias('shipping_nm')
+        ).withColumn('tkns', F.explode(F.col('shipping_nm'))) \
         .where(F.length(F.col('tkns')) > 1)
 
     ship_tkn_agg = shipping_df \
@@ -143,6 +143,7 @@ if __name__ == "__main__":
         .agg(F.count(F.col('tkns')).alias('cnt')) \
         .withColumn('txt_type', F.col('tkns').cast("int").isNotNull()) \
         .where(F.col('txt_type') == False).alias('ship_tkn_agg')  # remove only number value,   cnt : 43987
+
 
     attr = spark.read.parquet('data/parquet/measures_attribution') \
         .select(F.col('shp_nm_token'), F.col('cnt').alias('attr_cnt')).alias('attr')
@@ -176,7 +177,6 @@ if __name__ == "__main__":
     ).where(
         F.length(F.col('prod_nm')) > 1
     ).withColumn('prod_tokens', get_spelling(F.col('prod_nm'))).alias('prod_nm')
-    # prod_nm.show(1000)
     l_cate = prod.select(F.explode(F.split(F.regexp_replace(F.lower(F.col('대분류')), '/', ','), ",")).alias('cate'))
     m_cate = prod.select(F.explode(F.split(F.regexp_replace(F.lower(F.col('중분류')), '/', ','), ",")).alias('cate'))
     s_cate = prod.select(F.explode(F.split(F.regexp_replace(F.lower(F.col('소분류')), '/', ','), ",")).alias('cate'))
@@ -198,12 +198,12 @@ if __name__ == "__main__":
         .withColumn('p_w', F.round(F.col('count_w') / prod_nm.count(), 9)) \
         .alias('get_word_cnt')
 
+
     # get_word_cnt.select(F.count(F.col('prod_nm'))).show()   # 95873
     # cate.select(F.count(F.col('cate'))).show()  # cnt : 2043
 
     ''' 
-        todo : 적당한 후보 매핑이 필요함, 워딩 별로 유사도 매겨서 get_err_type 호출\ 
-        get_close_matches 알아보기!!
+        todo : 적당한 후보 매핑이 필요함, 워딩 별로 유사도 매겨서 get_err_type 호출 
     '''
 
     get_word_matric = get_word_cnt \
@@ -211,12 +211,12 @@ if __name__ == "__main__":
         .where(F.col('prod_nm') != F.col('cate')) \
         .withColumn('jaccard_sim', get_jaccard_sim(F.col('prod_nm'), F.col('cate')))
 
-    compound_word = get_word_matric.withColumn('jaccard_sim', get_jaccard_sim(F.col('prod_nm'), F.col('cate')))
     # compound_word.write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/compound_word_candidate")     # 합성어
-    cnt = compound_word.where(F.col('jaccard_sim') > 0.8)
-    cnt.show(5000, False)
-    cnt.select(F.col('prod_nm'), F.col('cate')).coalesce(1).write.mode('overwrite').save(
-        'data/parquet/custom_synonym/')
-    cnt.select(
-            F.concat(F.col('prod_nm'), F.lit(','), F.col('cate'))
-        ).coalesce(1).write.text('data/parquet/customsynonym')
+    cnt = get_word_matric.where(F.col('jaccard_sim') > 0.82)
+    cnt.orderBy(F.col('prod_nm')).show(5000, False)
+
+    # cnt.select(F.col('prod_nm'), F.col('cate')).coalesce(1).write.mode('overwrite').save(
+    #     'data/parquet/custom_synonym/')
+    # cnt.select(
+    #         F.concat(F.col('prod_nm'), F.lit(','), F.col('cate'))
+    #     ).coalesce(1).write.text('data/parquet/customsynonym')

@@ -4,15 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Install kubeflow">
-      <change afterPath="$PROJECT_DIR$/data/parquet/custom_synonym/._SUCCESS.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/custom_synonym/.part-00000-fdba0c8d-6eb4-4870-8d3c-025225d26bbb-c000.snappy.parquet.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/custom_synonym/_SUCCESS" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/custom_synonym/part-00000-fdba0c8d-6eb4-4870-8d3c-025225d26bbb-c000.snappy.parquet" afterDir="false" />
+    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="create es dictionary">
+      <change afterPath="$PROJECT_DIR$/data/parquet/stopword_cndd/._SUCCESS.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/stopword_cndd/.part-00000-c1722c2a-77f2-477c-b7a2-202d26d250ff-c000.txt.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/stopword_cndd/_SUCCESS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/stopword_cndd/part-00000-c1722c2a-77f2-477c-b7a2-202d26d250ff-c000.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/csv-editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/src/nlp/cosine_similarity.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/cosine_similarity.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/src/nlp/loan_word.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/loan_word.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/src/nlp/noise_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/noise_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commerce/src/nlp/stopword.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/stopword.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commerce/src/nlp/typo_dictionary.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/typo_dictionary.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/Q&amp;A.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/Q&amp;A.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/doc/hive.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/hive.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/doc/tez.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/tez.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/platform/install_airflow.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_airflow.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +87,7 @@
     &quot;Python.get_attribute.executor&quot;: &quot;Run&quot;,
     &quot;Python.integer_encoding.executor&quot;: &quot;Run&quot;,
     &quot;Python.nive_bayes.executor&quot;: &quot;Run&quot;,
+    &quot;Python.noise_data.executor&quot;: &quot;Run&quot;,
     &quot;Python.nvr_prod_cate_match.executor&quot;: &quot;Run&quot;,
     &quot;Python.one_hot_encoding.executor&quot;: &quot;Run&quot;,
     &quot;Python.stemming.executor&quot;: &quot;Run&quot;,
@@ -127,6 +134,11 @@
       <recent name="$PROJECT_DIR$/document/platform/img" />
     </key>
   </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="pip install &amp;quot;apache-airflow==2.2.3&amp;quot; --constraint &amp;quot;https://raw.githubusercontent.com/apache/airflow/constraints-2.2.3/constraints-no-providers-3.8.txt&amp;quot;" />
+    </option>
+  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -135,28 +147,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.typo_dictionary">
-    <configuration name="aa" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="test" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/etc" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/etc/aa.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="compound_word" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="ENV_FILES" value="" />
@@ -223,6 +213,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="noise_data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/nlp" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/noise_data.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="stopword" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="ENV_FILES" value="" />
@@ -270,10 +282,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.typo_dictionary" />
-        <item itemvalue="Python.cosine_similarity" />
         <item itemvalue="Python.stopword" />
+        <item itemvalue="Python.noise_data" />
+        <item itemvalue="Python.cosine_similarity" />
         <item itemvalue="Python.compound_word" />
-        <item itemvalue="Python.aa" />
       </list>
     </recent_temporary>
   </component>
@@ -421,22 +433,6 @@
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
       <updated>1687013639343</updated>
-    </task>
-    <task id="LOCAL-00072" summary="Change relative path">
-      <option name="closed" value="true" />
-      <created>1702309206201</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1702309206201</updated>
-    </task>
-    <task id="LOCAL-00073" summary="commit data">
-      <option name="closed" value="true" />
-      <created>1702309238223</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1702309238223</updated>
     </task>
     <task id="LOCAL-00074" summary="Change relative path">
       <option name="closed" value="true" />
@@ -670,7 +666,23 @@
       <option name="project" value="LOCAL" />
       <updated>1713623553342</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="Install kubeflow">
+      <option name="closed" value="true" />
+      <created>1713708830247</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1713708830247</updated>
+    </task>
+    <task id="LOCAL-00104" summary="create es dictionary">
+      <option name="closed" value="true" />
+      <created>1713708867989</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1713708867989</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -686,7 +698,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Study ELK" />
     <MESSAGE value="Study shell" />
     <MESSAGE value="Study hadoop" />
     <MESSAGE value="Study spark, hadoop" />
@@ -711,7 +722,8 @@
     <MESSAGE value="Study kubernetes" />
     <MESSAGE value="Study kubeflow" />
     <MESSAGE value="Install kubeflow" />
-    <option name="LAST_COMMIT_MESSAGE" value="Install kubeflow" />
+    <MESSAGE value="create es dictionary" />
+    <option name="LAST_COMMIT_MESSAGE" value="create es dictionary" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

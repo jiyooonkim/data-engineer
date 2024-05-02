@@ -74,10 +74,9 @@ if __name__ == "__main__":
                                 F.col('non_stop_wd._c0') == F.col('stop_word_1.prod_tkn'),
                                 'leftanti'
                             )
-    st_wd.where(F.col('cnt') >= '14').select(F.count(F.col('prod_tkn'))).show(1000, False)
-    st_wd.where(F.col('cnt') >= '14').show(1000, False)
+    stop_word_1.where(F.col('cnt') >= '14').show(1000, False)
     # stop_word_1.coalesce(1).where(F.col('cnt') >= '14').write.format('parquet').mode('overwrite').save('data/parquet/stop_word_1')
-    st_wd.where(F.col('cnt') >= '14').select(F.col('prod_tkn')).coalesce(1).write.format('text').mode('overwrite').save('data/parquet/stopword')
+    # st_wd.where(F.col('cnt') >= '14').select(F.col('prod_tkn')).coalesce(1).write.format('text').mode('overwrite').save('data/parquet/stopword_cndd')
 
 
     exit(0)

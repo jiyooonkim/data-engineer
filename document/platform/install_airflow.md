@@ -14,38 +14,44 @@
    * Dag : Direct Acyclic Graph
 
 
-## Install (VM)
+## Install on Conda
 **  install airflow on VM
 1. ```brew install conda```  
-2. ```pip3 install apache-airflow```  
+2. ``` pip3 install apache-airflow```  
   2-1. python 가상 환경 생성, 3.8 version 생성  
-  ```conda create --name airflow_env python=3.8 -y  ```  
+  ``` conda create --name airflow_env python=3.8 -y  ```  
   2-2. 가상 환경 활성화  
   ```conda activate airflow_env  ```  
   2-3. 가상 환경에 airflow 설치   
-  ```pip install "apache-airflow==2.2.3" --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.2.3/constraints-no-providers-3.8.txt" ``` 
-  2-4. db 활성화 : dag, task info 관리 하기 위해 db 사용    
-  ```airflow db init```
-  2-5. 디렉토리 이동 및 목록 확인      
+  ```
+   pip install "apache-airflow==2.2.3" --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.2.3/constraints-no-providers-3.8.txt" 
+   ```        
+  2-4. db 활성화 : dag, task info 관리 하기 위해 db 사용      
    ```
-   cd ~/airflow  
-   ls -al    
+    airflow db init
+   ```     
+  2-5. 디렉토리 이동 및 목록 확인        
+   ```
+       cd ~/airflow  
+       ls -al    
    ```      
     <img src = "img/img_19.png" width = "350" height = "140"/>      
 
    2-6. airflow 계정 생성        
    ```airflow users create --role Admin --username admin --password admin --email admin@example.com --firstname foo --lastname bar  ```      
-   2-7. 웹서버 시작    
-   ```  
-   airflow webserver -D 
-   airflow webserver --port 8080  
+   2-7. 웹서버 시작      
+   ```       
+   airflow webserver -D      
+   airflow webserver --port 8080       
    ```  
    2-8. 스케줄러 시작      
-   ```airflow scheduler -D```  
-   2-9. Airflow 시작    
-   ```http://localhost:8080```  
-     <img src = "img/img_20.png" width = "350" height = "140"/>  
-3. Airflow dag project 설정 , airflow.cfg 파일에 dags_folder 에 디렉토리 지정  
+   ``` 
+    airflow scheduler -D
+   ```      
+   2-9. Airflow 시작       
+   ```http://localhost:8080```      
+     <img src = "img/img_20.png" width = "350" height = "140"/>     
+3. Airflow dag project 설정 , airflow.cfg 파일에 dags_folder 에 디렉토리 지정     
    ```vi airflow/airflow.cfg```  
    ```dags_folder = /Users/jy_kim/airflow/dags ```   
      <img src = "img/img_21.png" width = "350" height = "140"/>  
