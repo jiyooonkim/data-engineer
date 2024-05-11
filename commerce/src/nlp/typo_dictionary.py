@@ -15,6 +15,18 @@ import os
 os.chdir('../../../')
 
 
+def compare_ngrm(wd1, wd2):
+    # todo : ngram 기반으로 jaccard similarity 구해보기
+    '''
+    :exception
+    word 1 : statistics  ----> st ta at ti is st ti ic cs (9 bigrams)
+    word 2 : statistical ----> st ta at ti is st ti .... (10 bigrams)
+    jaccard = (a 교집합 b) / (a 합집합 b)
+    src : https://www.slideshare.net/slideshow/spell-checker-using-natural-language-processing/124586321
+    '''
+    return 0
+
+
 def get_match_length(crr_wd, cndd_wd):
     # step1. 길이 맞추기
     if len(crr_wd) > len(cndd_wd):
@@ -131,7 +143,10 @@ if __name__ == "__main__":
             F.split(
                 F.trim(
                     F.regexp_replace(
-                        F.regexp_replace(F.lower(F.col('_c2')), "[^A-Za-z0-9가-힣]", ' '), r"\s+", ' '
+                        F.regexp_replace(
+                            F.lower(F.col('_c2')),
+                            "[^A-Za-z0-9가-힣]", ' '),
+                        r"\s+", ' '
                     )
                 ), ' '
             ).alias('shipping_nm')
@@ -144,9 +159,11 @@ if __name__ == "__main__":
         .withColumn('txt_type', F.col('tkns').cast("int").isNotNull()) \
         .where(F.col('txt_type') == False).alias('ship_tkn_agg')  # remove only number value,   cnt : 43987
 
-
     attr = spark.read.parquet('data/parquet/measures_attribution') \
-        .select(F.col('shp_nm_token'), F.col('cnt').alias('attr_cnt')).alias('attr')
+        .select(
+            F.col('shp_nm_token'),
+            F.col('cnt').alias('attr_cnt')
+        ).alias('attr')
 
     # res = attr.unionAll(ship_tkn_agg.select(F.col('tkns'), F.col('cnt')))
 
@@ -198,22 +215,36 @@ if __name__ == "__main__":
         .withColumn('p_w', F.round(F.col('count_w') / prod_nm.count(), 9)) \
         .alias('get_word_cnt')
 
-
     # get_word_cnt.select(F.count(F.col('prod_nm'))).show()   # 95873
     # cate.select(F.count(F.col('cate'))).show()  # cnt : 2043
 
     ''' 
         todo : 적당한 후보 매핑이 필요함, 워딩 별로 유사도 매겨서 get_err_type 호출 
     '''
-
     get_word_matric = get_word_cnt \
         .join(F.broadcast(cate)) \
         .where(F.col('prod_nm') != F.col('cate')) \
         .withColumn('jaccard_sim', get_jaccard_sim(F.col('prod_nm'), F.col('cate')))
 
     # compound_word.write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/compound_word_candidate")     # 합성어
-    cnt = get_word_matric.where(F.col('jaccard_sim') > 0.82)
-    cnt.orderBy(F.col('prod_nm')).show(5000, False)
+    cnt = get_word_matric.where(F.col('jaccard_sim') > 0.8)
+    # cnt.select(F.col('cate')).distinct().coalesce(1).write.csv('data/txt/similarity')
+    # cnt.select(F.col('cate')).distinct().write.format("org.elasticsearch.spark.sql").save("index/type")
+
+    # export es
+    (cnt.select(F.col('cate').alias('correct_cndd'))
+     .write.format("org.elasticsearch.spark.sql")
+     .option("es.nodes", "http://localhost:9200")
+     .option("es.net.http.auth.user", 'elastic')
+     .option("es.net.http.auth.pass", 'elastic')
+     .option("es.batch.size.entries", '6000')
+     .option("es.batch.size.bytes", '6m')
+     .option("es.nodes.wan.only", 'true')
+     .option("es.resource", 'tfidf_typo')
+     .option("es.mapping.id", "correct_cndd")
+     .mode("overwrite")
+     .save()
+     )
 
     # cnt.select(F.col('prod_nm'), F.col('cate')).coalesce(1).write.mode('overwrite').save(
     #     'data/parquet/custom_synonym/')
