@@ -3,15 +3,16 @@
 ### Good basic data brings good results!!
 Developers with the ability to create good data in big databases.
 
-- skill : hadoop, pyspark, python, shell, hive
-- version : python3.9, pyspark3.3.2, hadoop3.3.4, airflow, jenkins
+- skill : hadoop, pyspark, python, shell, hive, ElasticSearch
+- version : python3.9, pyspark3.3.2, hadoop3.3.4, (airflow, jenkins)
 
 ### 목적 및 방향성
-- 좋은 기초(학습) 데이터 생성 목적(Only by Data Engineering)  
-- NLP 기반으로 가설 수립 후 개발 주도    
+- 좋은 기초(학습) 데이터 생성 목적(by Data Engineering)  
+- NLP 기반 가설 수립 후 개발 주도    
 - 데이터 연관성 및 특징 파악 훈련  
 - AI/ML 지식 획득 및 데이터 훈련   
 - 안정적인 플랫폼(Hadoop, python, spark, hive..)구축 및 운영 방법 모색  
+- 검색을 위한 데이터 개발(Add 추천)
 
 ### 구성 및 작업 내용
 - NLP
@@ -86,6 +87,9 @@ Developers with the ability to create good data in big databases.
      - devops
      - dataops
      - airflow with ci/cd
+   - Kubernetes 
+   - MLOps
+   - DataOps
   
     
       

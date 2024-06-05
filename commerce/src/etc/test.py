@@ -319,14 +319,24 @@ def ngram(token, n):
     lst = []
     for i in range(0, len(token)-n):
         lst.append(token[i:i+n])
-    # print( "lst : ", lst)
+    print( "lst : ", lst)
 
 token = ['nusskati', '크런치', '땅콩버터', '350g', '9팩', '땅콩버터', '땅콩잼']
 n = 3
-print(ngram(token, n))
+print("ngram ; " , ngram(token, n))
 
 
 
+def get_shingle(token, n):
+    lst = []
+    if token.__str__():
+        token = list(token)
+
+    for i in range(0, len(token)):
+        if len(token[i:i+n]) == n:
+            lst.append(token[i:i+n])
+    print("get_shingle : ", lst)
+get_shingle("도어락", 2)
 
 def get_kor(wd):
     import re

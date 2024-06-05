@@ -5,17 +5,79 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="create es dictionary">
-      <change afterPath="$PROJECT_DIR$/data/txt/similarity.json/._SUCCESS.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/txt/similarity.json/.part-00000-6df10f3a-eed9-4c42-bab3-093eb6b33fba-c000.json.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/txt/similarity.json/_SUCCESS" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/txt/similarity.json/part-00000-6df10f3a-eed9-4c42-bab3-093eb6b33fba-c000.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/txt/similarity/._SUCCESS.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/txt/similarity/.part-00000-3bdbea0d-650d-4673-ae6a-61a61e127c92-c000.csv.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/txt/similarity/_SUCCESS" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/txt/similarity/part-00000-3bdbea0d-650d-4673-ae6a-61a61e127c92-c000.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commerce/src/nlp/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/._SUCCESS.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/.part-00000-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/.part-00001-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/.part-00002-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/.part-00003-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/.part-00004-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/.part-00005-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/.part-00006-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/.part-00007-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/.part-00008-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/.part-00009-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/.part-00010-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/.part-00011-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/.part-00012-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/.part-00013-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/.part-00014-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/.part-00015-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/_SUCCESS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/part-00000-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/part-00001-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/part-00002-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/part-00003-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/part-00004-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/part-00005-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/part-00006-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/part-00007-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/part-00008-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/part-00009-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/part-00010-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/part-00011-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/part-00012-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/part-00013-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/part-00014-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd1_by_ngram/part-00015-9120781c-5777-43a5-97b0-118b49cb9aa3-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/._SUCCESS.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/.part-00000-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/.part-00001-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/.part-00002-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/.part-00003-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/.part-00004-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/.part-00005-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/.part-00006-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/.part-00007-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/.part-00008-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/.part-00009-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/.part-00010-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/.part-00011-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/.part-00012-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/.part-00013-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/.part-00014-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/.part-00015-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/_SUCCESS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/part-00000-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/part-00001-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/part-00002-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/part-00003-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/part-00004-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/part-00005-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/part-00006-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/part-00007-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/part-00008-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/part-00009-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/part-00010-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/part-00011-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/part-00012-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/part-00013-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/part-00014-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/output/loan_wd_cndd2_by_ngram/part-00015-c4f5fb05-d539-4b8c-a927-800406b26e7e-c000.snappy.parquet" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/src/etc/export_es_spark_ver.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/etc/export_es_spark_ver.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/src/nlp/tf-idf.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/tf-idf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/src/etc/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/etc/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/src/nlp/ngram.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/ngram.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commerce/src/nlp/typo_dictionary.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/typo_dictionary.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,35 +137,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Python.aa.executor": "Run",
-    "Python.compound_word.executor": "Run",
-    "Python.cosine_similarity.executor": "Run",
-    "Python.create_df.executor": "Run",
-    "Python.export_es_spark_ver.executor": "Run",
-    "Python.get_attribute.executor": "Run",
-    "Python.integer_encoding.executor": "Run",
-    "Python.nive_bayes.executor": "Run",
-    "Python.noise_data.executor": "Run",
-    "Python.nvr_prod_cate_match.executor": "Run",
-    "Python.one_hot_encoding.executor": "Run",
-    "Python.stemming.executor": "Run",
-    "Python.stopword.executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.tf-idf.executor": "Run",
-    "Python.tf-idf_func.executor": "Run",
-    "Python.typo_dictionary.executor": "Run",
-    "Python.word2vec.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/jy_kim/Documents/private/data-engineer",
-    "settings.editor.selected.configurable": "preferences.toDoOptions"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.aa.executor&quot;: &quot;Run&quot;,
+    &quot;Python.compound_word.executor&quot;: &quot;Run&quot;,
+    &quot;Python.cosine_similarity.executor&quot;: &quot;Run&quot;,
+    &quot;Python.create_df.executor&quot;: &quot;Run&quot;,
+    &quot;Python.export_es_spark_ver.executor&quot;: &quot;Run&quot;,
+    &quot;Python.get_attribute.executor&quot;: &quot;Run&quot;,
+    &quot;Python.integer_encoding.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ngram.executor&quot;: &quot;Run&quot;,
+    &quot;Python.nive_bayes.executor&quot;: &quot;Run&quot;,
+    &quot;Python.noise_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python.nvr_prod_cate_match.executor&quot;: &quot;Run&quot;,
+    &quot;Python.one_hot_encoding.executor&quot;: &quot;Run&quot;,
+    &quot;Python.stemming.executor&quot;: &quot;Run&quot;,
+    &quot;Python.stopword.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tf-idf.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tf-idf_func.executor&quot;: &quot;Run&quot;,
+    &quot;Python.typo_dictionary.executor&quot;: &quot;Run&quot;,
+    &quot;Python.word2vec.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jy_kim/Documents/private/data-engineer&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.toDoOptions&quot;
   }
-}]]></component>
+}</component>
   <component name="Push.Settings">
     <option name="SHOW_DETAILS_PANEL" value="false" />
   </component>
@@ -146,7 +210,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Python.typo_dictionary">
+  <component name="RunManager" selected="Python.ngram">
     <configuration name="export_es_spark_ver" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="ENV_FILES" value="" />
@@ -191,7 +255,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="noise_data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="ngram" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -204,7 +268,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/noise_data.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/ngram.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -213,7 +277,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="stopword" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -222,11 +286,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/nlp" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/etc" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/stopword.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/etc/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -235,7 +299,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="tf-idf" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -248,7 +312,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/tf-idf.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -281,11 +345,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ngram" />
+        <item itemvalue="Python.test (1)" />
         <item itemvalue="Python.typo_dictionary" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.export_es_spark_ver" />
-        <item itemvalue="Python.tf-idf" />
-        <item itemvalue="Python.stopword" />
-        <item itemvalue="Python.noise_data" />
       </list>
     </recent_temporary>
   </component>
@@ -433,14 +497,6 @@
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
       <updated>1687013639343</updated>
-    </task>
-    <task id="LOCAL-00076" summary="Change relative path">
-      <option name="closed" value="true" />
-      <created>1702309342518</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1702309342518</updated>
     </task>
     <task id="LOCAL-00077" summary="Change relative path">
       <option name="closed" value="true" />
@@ -682,7 +738,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714663211226</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="create es dictionary">
+      <option name="closed" value="true" />
+      <created>1715419057666</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1715419057666</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -725,6 +789,18 @@
     <MESSAGE value="create es dictionary" />
     <option name="LAST_COMMIT_MESSAGE" value="create es dictionary" />
   </component>
+  <component name="WfRunsListSearchHistory"><![CDATA[{
+  "history": [
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    }
+  ],
+  "lastFilter": {
+    "branch": "main",
+    "currentBranchFilter": true
+  }
+}]]></component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -752,6 +828,11 @@
           <url>file://$PROJECT_DIR$/commerce/src/nlp/stemming.py</url>
           <line>132</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/commerce/src/nlp/typo_dictionary.py</url>
+          <line>243</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

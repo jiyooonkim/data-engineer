@@ -34,8 +34,15 @@ import re
 
 
 @F.udf(returnType=T.ArrayType(T.ArrayType(T.StringType())))
-def get_gram(token, n):
+def get_ngram(token, n):
+    """
+        :param token:  단일 토큰( ex> 도어락 ), 토큰들( ex> [도어락, 태그, 출입키, 터치키, 보조키, 현관문, 도어락, 태그] )
+        :param n: 토큰 개수
+        :return [[디, 지], [지, 털], [털, 도], [도, 어], [어, 락]], [[현관문도어락, 디지털도어락], [디지털도어락, 현관]]
+     """
     lst = []
+    if token.__str__():
+        token = list(token)
     for i in range(0, len(token)):
         if len(token[i:i+n]) == n:
             lst.append(token[i:i+n])
@@ -131,9 +138,9 @@ if __name__ == "__main__":
     b = spark.read.parquet('data/parquet/tfidf/')\
         .withColumn("prod_nm_tkns", F.split(F.lower(F.trim(F.regexp_replace(F.col('prod_nm'), r" +", ' '))), " "))\
         .where(F.length(F.col('token')) > 1)\
-        .withColumn("bi_gram", get_gram(F.col("prod_nm_tkns"), F.lit("2").cast(T.IntegerType())))\
+        .withColumn("bi_gram", get_ngram(F.col("prod_nm_tkns"), F.lit("2").cast(T.IntegerType())))\
         .withColumn("find_tkn", find_kwd_set(F.col('token'), F.col('bi_gram')))
-    # b.where(F.col("prod_nm").like("%도어락%")).show(100, False)
+    b.where(F.col("prod_nm").like("%도어락%")).withColumn("tokenss", get_ngram(F.col("token"), F.lit("2").cast(T.IntegerType()))).show(100, False)
     # .withColumn("txt_tp", get_txt_type(F.col("bi_gram"))) \
     # b.where(F.col('token').like('나이키')).select(F.col('token'), F.col('tf-idf'), F.col('bi_gram'),F.col('find_tkn'))\
     #     .orderBy(F.col('tf-idf')).show(100, False)
@@ -244,7 +251,7 @@ if __name__ == "__main__":
          (F.col('agg_contain_token.vertex')[1] == F.col('agg_not_contain_token.vertex')[0]) |
          (F.col('agg_contain_token.vertex')[2] == F.col('agg_not_contain_token.vertex')[0]))
     )
-    res.show()
+    # res.show()
 
     # """
     #     step1 - 토큰이 포함된 데이터셋 vs  미포함된 데이터셋
