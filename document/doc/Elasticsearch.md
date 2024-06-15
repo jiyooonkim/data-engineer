@@ -1,4 +1,4 @@
-### Title: Elasticsearch
+### Elasticsearch
 #### Date : 2023-09-21  
 #### Doc : https://coding-start.tistory.com/176      
 https://esbook.kimjmin.net/02-install/2.1   
@@ -13,6 +13,9 @@ https://esbook.kimjmin.net/02-install/2.1
 +   
 
 ##### Index & Shards
+
+
+
 ##### Node
 + Master Node
   + 
@@ -30,4 +33,5 @@ https://esbook.kimjmin.net/02-install/2.1
 + term : 
 + bucket : 
 + metrics : 
++ query dsl : 
 

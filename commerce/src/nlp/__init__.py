@@ -51,8 +51,6 @@ class CreateData:
         return None
 
 
-
-
 @F.udf(returnType=T.StringType())
 def get_txt_type(wd):
     if wd.encode().isalpha():  # only eng

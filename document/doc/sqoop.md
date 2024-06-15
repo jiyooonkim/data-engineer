@@ -1,4 +1,4 @@
-### Title: Apache Sqoop
+### Apache Sqoop
 #### Env : macbook pro14 m2(silicon)
 #### Date : 2023-07-01  
 

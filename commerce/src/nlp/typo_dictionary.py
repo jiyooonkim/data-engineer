@@ -232,7 +232,7 @@ if __name__ == "__main__":
     # cnt.select(F.col('cate')).distinct().write.format("org.elasticsearch.spark.sql").save("index/type")
 
     # export es
-    (cnt.select(F.col('cate').alias('field'))
+    (cnt.select(F.col('cate').alias('candidates'))
      .write.format("org.elasticsearch.spark.sql")
      .option("es.nodes", "http://localhost:9200")
      .option("es.net.http.auth.user", 'elastic')
@@ -240,7 +240,7 @@ if __name__ == "__main__":
      .option("es.batch.size.entries", '6000')
      .option("es.batch.size.bytes", '6m')
      .option("es.nodes.wan.only", 'true')
-     .option("es.resource", 'scripted-similarity-index2')
+     .option("es.resource", 'typo_beta_search')
      # .option("es.mapping.id", "correct_cndd")
      .mode("overwrite")
      .save()

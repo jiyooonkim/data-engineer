@@ -14,12 +14,12 @@
     + 다른 도구를 사용하여 "CREATE EXTERNAL TABLE"을 통해 Hive에 load
     + "LOAD DATA INPATH"를 통해 hivewarehouse 에 load   
 + HQL(Hive-SQL) : Java에 통합하는 데 필요한 SQL 추상화를 제공  
-+ hivewearhouse : 실제 메타데이터(테이블 데이터)가 저장된 위치, Hive를 사용하기 전 HDFS에서 디렉터리 생성 필요    
++ Hive Warehouse : 실제 메타데이터(테이블 데이터)가 저장된 위치, Hive를 사용하기 전 HDFS에서 디렉터리 생성 필요    
 + Metastore   
-  + Hive가 구동될때 필요한 테이블의 스키만 구조나 다양한 설정값이 저장      
-  + 기본적으로 Hive는 포함된 Apache Derby 데이터베이스에 메타데이터를 저장(MySQL 과 같은 다른 클라이언트/서버 데이터베이스를 선택적으로 사용)           
-  + Meta Store에 장애가 발생할 경우 Hive는 정상적으로 구동되지 않음, MySQL, Oracle, PostgreSQL 등에 저장, 3가지 실행모드로 동작     
-    + 임베디드(Embedded) : 더비DB를 이용한 모드이며 한번에 한명의 유저만 접근이 가능(derby: metastore 저장하는 db, default)         
+  + Hive가 구동될 때 필요한 테이블의 스키만 구조나 다양한 설정값이 저장      
+  + 기본적으로 Hive는 포함된 Apache Derby 데이터베이스에 Metadata 저장(MySQL 과 같은 다른 클라이언트/서버 데이터베이스 선택적 사용)           
+  + Meta Store에 장애가 발생할 경우 Hive는 비정상적 구동, MySQL, Oracle, PostgreSQL 등에 저장, 3가지 실행모드로 동작     
+    + 임베디드(Embedded) : 더비DB를 이용한 모드이며 한번에 한명의 유저만 접근이 가능(derby: metastore 저장하는 DB, default)         
     ![img_38.png](..%2Fplatform%2Fimg%2Fimg_38.png)   
     + 로컬(Local): 별도의 데이터베이스를 가지고 있지만 하이브 드라이버와 같은 JVM에서 동작        
     ![img_39.png](..%2Fplatform%2Fimg%2Fimg_39.png)      
@@ -27,11 +27,11 @@
     ![img_40.png](..%2Fplatform%2Fimg%2Fimg_40.png)      
   
 #### Hive 내부구조
-  <img src="./img/img_54.png" title="hive 내부구조"/> 
-  <img src="./img/img_55.png" title="hive 내부구조"/> 
++ <img src="./img/img_54.png" title="hive 내부구조"/>
++ <img src="./img/img_55.png" title="hive 내부구조"/> 
   
 
-##### HQL vs SQL 
+##### HQL & SQL 
 - SQL(Structured Query Language) : RDBMS라고도 하는 관계형 데이터베이스 관리 시스템에 저장된 데이터를 관리       
 - Hive 쿼리 언어(HiveQL) : HiveQL은 메타 저장소에서 구조화된 데이터를 분석하고 처리하기 위한 Hive용 쿼리 언어, equal join 만 가능        
 , TEXT FILE, SEQUENCE FILE, ORC 및 RC FILE(Record Columnar File)의 네 가지 파일 형식을 지원      
@@ -49,7 +49,7 @@
   + SELECT 사용 시 고려사항     
    *를 이용해 모든 데이터를 가져오지 않고, 필요한 칼럼 데이터만 선택    
   + Vectorized Query Execution(벡터화) :  일반적인 쿼리 작업의 CPU 사용량을 크게 줄이는 기능, 한 번에 1024행 블록을 처리      
-   설정방법 : set hive.vectorized.execution.enabled = true;_  
+   설정방법 : set hive.vectorized.execution.enabled = true;     
    사용가능 타입 : tinyint, smallint, int, bigint, boolean, float, double, decimal, date, timestamp, string    
   + Hive 버킷팅: 대형 데이터 집합을 클러스터 또는 세그먼트하여 쿼리 성능을 최적화    
   + 조인 최적화  
@@ -68,23 +68,32 @@
   + 특징 : 총 column 개수는 20개, row는 8만, 특정 column value 전부 null 값   
   + Null은 카디널리티가 매우 높고 맵 측 집계가 제대로 작동하지 않는 경우 맵 축소 경계에서 폭발이 발생할 수 있음  
    Thrift는 맵에서 null을 지원하지 않으므로 객체 관계형 매핑(ORM)에서 검색된 맵에 있는 null은 가지치기하거나 빈 문자열로 변환 필요
-  + 환경 : tez, hive   
+  + 환경 : apache tez, apache hdfs, apache hive   
   + 해결방법 
     + "set hive.vectorized.execution.enabled=true;" 으로 백터화 disable 처리      
     + 전부 null value 로만 된 컬럼 찾아 "case when"으로 공백 처리   
     ![img_37.png](..%2Fplatform%2Fimg%2Fimg_37.png)
 
   + 문제 : hive external table에는 partitionby 존재, hivewarehouse에는 파티션단위 파일이 아닐경우 데이터가 dbeaver에서 보이지 않는다.
-  + 환경 : hdfs, hive   
+  + 환경 : apache tez, apache hdfs, apache hive   
   + 해결방법 
     1. DDL에 partitionby를 제외
     2. hivewarehouse에 파티션단위(디렉토리)단위 적재
 
 + 문제 : select count(*) from temp_table 시, 데이터는 있는데 카운팅이 되지 않은 경우   
   + 특징 : 결과가 0건으로 나옴 
-  + 환경 : hdfs, hive   
+  + 환경 : apache tez, apache hdfs, apache hive   
   + 해결방법
     + "Analyze table temp_table;", 메타데이터가 갱신되지 않아 통계정보를 못 읽는 현상으로 Analyze 명령 통해 수동으로 통계 정보 업데이트 필요  
+
++ 문제 : DDL생성(hive,glue), 데이터 적재(hivewarehouse, S3) 후 파티션있는 테이블 조회(Select)시 결과 안나오는 경우   
+  + 특징 : 
+  + 환경 : apache tez, apache hdfs, apache hive  / AWS : S3, Athena, Glue 
+  + 해결방법
+    + "MSCK REPAIR table_name" 쿼리 수행
+    **+ 카탈로그의 메타데이터를 업데이트 필요
+
+
 
 ##### Managed table & External table
 + Managed table
@@ -95,7 +104,47 @@
   + 테이블 생성시 Location을 지정   
   + hive 테이블 제거해도 실제 hdfs상에 있는 데이터는 지워지지 않고 그대로 유지
 
-##### Manage Metaster 
+
+##### Hive Transcation(Up Hive 0.13, Hive3.0 이상 추천)
++ HDFS에 파일은 수정 불가능 하나, warehouse tool 사용으로 HDFS에 있는 데이터 조회, 삽입, 삭제 변경 가능하도록 함
+  + base
+  + delta
+    + 변경분 데이터 저장 
+    + 테이블 수정작업 늘수록 delta 파일 계속 쌓임, NameNode부하 (해결방안: HDFS 성능 위해 압축)
++ 트랜잭션
+  + 데이터베이스 연산
++ ACID
+  ┗ Atomicity(원자성) : 성공적인 트랜잭션 처리, 아닐 경우 미처리 
+  ┗ Consistency(일관성) : (분산된) 데이터를 일관된 상태로 전환해주는지 여부
+  ┗ Isolation(독립성) : 한꺼번에 동시에 운영되는 다른 트랜젝션과 무관하게 실행 가능한지 여부
+  ┗ Durability(지속성) : 트랜젝션 처리 후에도 결과가 그대로 유지되는지 여부
++ Hive 트랜잭션 처리 순서
+  ① 테이블 및 파티션 데이터 기본 파일 세트에 저장
+  ② insert/update/delete 결과 델타 파일로 저장
+  ③ read 시점에 기본파일과 델타 파일 합쳐 최신 데이터 반환 
++ 트랜잭션 가능한 Hive DDL 생성 옵션
+  + 예시)    
+  ``` 
+    CREATE TABLE test_hive_table 
+      (id int) 
+    CLUSTERED BY (id) INTO 10 BUCKETS STORED AS ORC TBLPROPERTIES (
+      "transactional"="true",
+      "compactor.mapreduce.map.memory.mb"="2048",
+      "compactorthreshold.hive.compactor.delta.num.threshold"="4",
+      "compactorthreshold.hive.compactor.delta.pct.threshold"="0.5"
+    )  
+  ``` 
++ 트랜잭션 설정 (/etc/hive/conf/hive-site.xml)
+  + 예시)    
+  ``` 
+    hive.compactor.initiator.on=true (for metastore)
+    hive.compactor.worker.threads=10 (for metastore)
+    hive.support.concurrency=true (for hive-server2,client)
+    hive.txn.manager=org.apache.hadoop.hive.ql.lockmgr.DbTxnManager (for hive-server2, client)
+    hive.exec.dynamic.partition.mode = nonstrict (for hive-server2, client)  
+  ``` 
+
+
 
 
 ##### 용어정리
