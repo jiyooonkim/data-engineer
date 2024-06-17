@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Study Hive ACID">
-      <change afterPath="$PROJECT_DIR$/document/doc/img/Elasticsearch_cluster.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document/doc/img/img_43.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document/doc/img/img_44.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document/doc/img/img_45.png" afterDir="false" />
+    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Study Elasticsearch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/document/doc/Elasticsearch.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/Elasticsearch.md" afterDir="false" />
     </list>
@@ -430,14 +426,6 @@
       <option name="project" value="LOCAL" />
       <updated>1687013639343</updated>
     </task>
-    <task id="LOCAL-00079" summary="Change relative path">
-      <option name="closed" value="true" />
-      <created>1702309536149</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1702309536149</updated>
-    </task>
     <task id="LOCAL-00080" summary="Change relative path">
       <option name="closed" value="true" />
       <created>1702309565884</created>
@@ -678,7 +666,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718433771842</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="Study Elasticsearch">
+      <option name="closed" value="true" />
+      <created>1718638470350</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1718638470350</updated>
+    </task>
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -694,7 +690,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Study spark, hadoop" />
     <MESSAGE value="Study CICD" />
     <MESSAGE value="Develop load word" />
     <MESSAGE value="Develop Linked prediction with Ngram" />
@@ -719,7 +714,8 @@
     <MESSAGE value="create es dictionary" />
     <MESSAGE value="export Es index" />
     <MESSAGE value="Study Hive ACID" />
-    <option name="LAST_COMMIT_MESSAGE" value="Study Hive ACID" />
+    <MESSAGE value="Study Elasticsearch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Study Elasticsearch" />
   </component>
   <component name="WfRunsListSearchHistory"><![CDATA[{
   "history": [
