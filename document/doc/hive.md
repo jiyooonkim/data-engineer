@@ -64,7 +64,7 @@
 
 
 ##### Solved Problem
-+ 문제 :데이터 건수는 8만건정돈데 vertex error 가 발생 한다.  
++ 문제 :데이터 건수는 약 8만건 정도 vertex error 가 발생 한다.  
   + 특징 : 총 column 개수는 20개, row는 8만, 특정 column value 전부 null 값   
   + Null은 카디널리티가 매우 높고 맵 측 집계가 제대로 작동하지 않는 경우 맵 축소 경계에서 폭발이 발생할 수 있음  
    Thrift는 맵에서 null을 지원하지 않으므로 객체 관계형 매핑(ORM)에서 검색된 맵에 있는 null은 가지치기하거나 빈 문자열로 변환 필요
@@ -84,7 +84,12 @@
   + 특징 : 결과가 0건으로 나옴 
   + 환경 : apache tez, apache hdfs, apache hive   
   + 해결방법
-    + "Analyze table temp_table;", 메타데이터가 갱신되지 않아 통계정보를 못 읽는 현상으로 Analyze 명령 통해 수동으로 통계 정보 업데이트 필요  
+    + "Analyze table temp_table;", 메타데이터가 갱신되지 않아 통계정보를 못 읽는 현상으로 Analyze 명령 통해 수동으로 통계 정보 업데이트 필요      
+
++ 문제 :  select ccount(*) ... 개수 != select * from .. 의 전체 개수, 단순 select 시 전체 Row 개수와 count(*) 쿼리 실행시 개수가 다름    
+  + 환경 : apache tez, apache hdfs, apache hive      
+  + 해결방법
+    + "ANALYZE TABLE  table_name  PARTITION(partition_name) COMPUTE STATISTICS;" 
 
 + 문제 : DDL생성(hive,glue), 데이터 적재(hivewarehouse, S3) 후 파티션있는 테이블 조회(Select)시 결과 안나오는 경우   
   + 특징 : 

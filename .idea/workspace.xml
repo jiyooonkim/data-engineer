@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Study Elasticsearch">
+      <change afterPath="$PROJECT_DIR$/commerce/spark_connect/conn_hive.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commerce/spark_connect/conn_ncp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commerce/spark_connect/conn_s3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/doc/img.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/doc/Elasticsearch.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/Elasticsearch.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/doc/hive.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/hive.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/doc/question.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/question.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/doc/tez.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/tez.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/platform/install_spark.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_spark.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,37 +72,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Python.aa.executor": "Run",
-    "Python.compound_word.executor": "Run",
-    "Python.cosine_similarity.executor": "Run",
-    "Python.create_df.executor": "Run",
-    "Python.export_es_spark_ver.executor": "Run",
-    "Python.get_attribute.executor": "Run",
-    "Python.integer_encoding.executor": "Run",
-    "Python.ngram.executor": "Run",
-    "Python.nive_bayes.executor": "Run",
-    "Python.noise_data.executor": "Run",
-    "Python.nvr_prod_cate_match.executor": "Run",
-    "Python.one_hot_encoding.executor": "Run",
-    "Python.stemming.executor": "Run",
-    "Python.stopword.executor": "Run",
-    "Python.test (1).executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.tf-idf.executor": "Run",
-    "Python.tf-idf_func.executor": "Run",
-    "Python.typo_dictionary.executor": "Run",
-    "Python.word2vec.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/jy_kim/Documents/private/data-engineer/document/doc/img",
-    "settings.editor.selected.configurable": "GitLink.ProjectSettings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.aa.executor&quot;: &quot;Run&quot;,
+    &quot;Python.compound_word.executor&quot;: &quot;Run&quot;,
+    &quot;Python.cosine_similarity.executor&quot;: &quot;Run&quot;,
+    &quot;Python.create_df.executor&quot;: &quot;Run&quot;,
+    &quot;Python.export_es_spark_ver.executor&quot;: &quot;Run&quot;,
+    &quot;Python.get_attribute.executor&quot;: &quot;Run&quot;,
+    &quot;Python.integer_encoding.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ngram.executor&quot;: &quot;Run&quot;,
+    &quot;Python.nive_bayes.executor&quot;: &quot;Run&quot;,
+    &quot;Python.noise_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python.nvr_prod_cate_match.executor&quot;: &quot;Run&quot;,
+    &quot;Python.one_hot_encoding.executor&quot;: &quot;Run&quot;,
+    &quot;Python.stemming.executor&quot;: &quot;Run&quot;,
+    &quot;Python.stopword.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tf-idf.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tf-idf_func.executor&quot;: &quot;Run&quot;,
+    &quot;Python.typo_dictionary.executor&quot;: &quot;Run&quot;,
+    &quot;Python.word2vec.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jy_kim/Documents/private/data-engineer/document/doc/img&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;GitLink.ProjectSettings&quot;
   }
-}]]></component>
+}</component>
   <component name="Push.Settings">
     <option name="SHOW_DETAILS_PANEL" value="false" />
   </component>
@@ -426,14 +433,6 @@
       <option name="project" value="LOCAL" />
       <updated>1687013639343</updated>
     </task>
-    <task id="LOCAL-00080" summary="Change relative path">
-      <option name="closed" value="true" />
-      <created>1702309565884</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1702309565884</updated>
-    </task>
     <task id="LOCAL-00081" summary="Change relative path">
       <option name="closed" value="true" />
       <created>1702339963913</created>
@@ -674,7 +673,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718638470350</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="Study Elasticsearch">
+      <option name="closed" value="true" />
+      <created>1718640104508</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1718640104508</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -719,6 +726,14 @@
   </component>
   <component name="WfRunsListSearchHistory"><![CDATA[{
   "history": [
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
     {
       "branch": "main",
       "currentBranchFilter": true
