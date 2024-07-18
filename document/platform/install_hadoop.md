@@ -1,4 +1,4 @@
-### title: Apache hadoop 설치
+### Apache hadoop 설치
 #### env : macbook pro14 m2(silicon)
 #### date : 2023-02-04
 #### desc : hadoop ver. 3.3.4, jdk ver. zulu-11.jdk  

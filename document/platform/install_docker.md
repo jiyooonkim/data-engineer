@@ -1,4 +1,4 @@
-### Title:  도커설치 
+### 도커설치 
 #### Env : macbook pro14 m2(silicon), Spark version 3.4.0, Python 3.9.16, Jdk(Zulu11.64)
 #### Date : 2023-03-04 
 #### Desc : brew cask 이용하여 설치, myssql 설치

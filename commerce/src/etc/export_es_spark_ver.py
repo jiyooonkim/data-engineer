@@ -41,28 +41,38 @@ if __name__ == "__main__":
     (df.write \
      .format("org.elasticsearch.spark.sql") \
      .options(**es_options)
-     .option("es.resource", 'compound2') \
+     .option("es.resource", 'compound1') \
      .mode("overwrite") \
      .save()
      )
 
-    es_reader = (spark.read
-                 .format("org.elasticsearch.spark.sql")
-                 .option("inferSchema", "true")
-                 .option("es.read.field.as.array.include", "tags")
-                 .option("es.nodes", "localhost:9200")
-                 )
+    es_options = {
+        "es.nodes": "http://localhost:9200",
+        "es.nodes.wan.only": "true",
+        "es.batch.size.bytes": "6m",
+        "es.batch.size.entries": "6000",
+        "es.batch.write.refresh": "false",
+        "es.net.http.auth.user": "elastic",
+        "es.net.http.auth.pass": "elastic",
 
-    query = {'match': {'target_word': '0t장판'}}
+    }
+
+    query = """{
+  "query" :{
+    "match": {
+      "target_word": "0t장판"
+    }
+    }
+}"""
     get_compound = spark.read \
         .format("org.elasticsearch.spark.sql") \
-        .option("es.read.field.as.array.include", "NerArray") \
         .option("es.read.metadata", "true") \
         .option("es.query", query) \
         .option("inferSchema", "true") \
-        .option("es.nodes", "localhost:9200") \
-        .option("es.nodes.discovery", "true") \
-        .load("compound")
-    spark.sql("show tables").show()
+        .option("es.nodes.wan.only", "true") \
+        .option("es.nodes", "http://localhost:9200") \
+        .option("es.net.http.auth.user", "elastic") \
+        .option("es.net.http.auth.pass", "elastic") \
+        .load("compound2")
     get_compound.select('target_word').show(10, False)
     exit(0)

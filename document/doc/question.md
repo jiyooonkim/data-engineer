@@ -182,7 +182,12 @@
  + Spark Context
 24. KAFKA 설명 > KAFKA 로드밸런싱을 한 이유, 내,외부 네트워크를 나눈 이유
 25. Spark streaming & Kafka
+26. Airflow worker 가 죽었을때 해결방법 ?
+27. Airflow worker 동작방법
 </br></br>
 
 <ElasticSearch>
+
+1. 검색의 흐름에 대해 (데이터 가공 부터 색인 -> backend -> fornt 까지 전체적 흐름 설명)
+2. 검색 api?
 

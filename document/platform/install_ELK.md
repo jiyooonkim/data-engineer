@@ -1,4 +1,4 @@
-### Title: EKL 설치
+###  EKL 설치
 #### Env : macbook pro14 m2(silicon)
 #### Date : 2023-07-09
 #### Refer : -7.x version 설치  https://esbook.kimjmin.net/

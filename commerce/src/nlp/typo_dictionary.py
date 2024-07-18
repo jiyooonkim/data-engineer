@@ -244,7 +244,7 @@ if __name__ == "__main__":
      # .option("es.mapping.id", "correct_cndd")
      .mode("overwrite")
      .save()
-     )
+     ) 
 
     # cnt.select(F.col('prod_nm'), F.col('cate')).coalesce(1).write.mode('overwrite').save(
     #     'data/parquet/custom_synonym/')
