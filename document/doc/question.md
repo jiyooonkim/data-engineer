@@ -55,11 +55,12 @@
 	- 데이터가 있는 곳으로 프로세스를 가져간다. 
 
 
-7. 하둡은 어떻게 구성되는가?
+7. Hadoop 핵심 구성 요소?
 	- Hadoop Common
 		- 하둡의 다른 모듈을 지원하기 위한 공통 유틸리티
-	- HDFS
-		- 고가용성을 지원하는 분산파일 저장시스템
+	- HDFS(Hadoop Distribute File System)
+		- 하둡 기본 스토리지 시스템
+        - 고가용성을 지원하는 분산파일 저장시스템
 	- MapReduce
 		- 대용량 데이터의 병렬처리를 위한 YARN 기반의 시스템
 	- YARN
@@ -145,6 +146,14 @@
     + 팀즈 webhook 알림, Mail 알림, Slack 알림 기능 직접 구현 하고 조직내에 전파 
 </br></br>
 
+16. Avro vs Parquet
++ Parquet
+  + 열 기반 - 읽기 최적
+    + 필요한 열만 선택적으로 읽어 올 수 있어 부하 적음
++ Avro
+  + 행 기반 - 쓰기 최적
+    + 한개의 열을 읽기 위해 행전체 읽기 수행해야 함
+
 17. 사용해본 저장소 
     + ES
     + HDFS
@@ -155,14 +164,17 @@
 21. spark / hive 차이 
 + Hive 
   + HQL 사용
+  + Hadoop 필수     
   + 디스크 기반
   + 안정적인 일괄 처리 프레임워크
   + JDBC, ODBC, Thrift 드라이버 지원 
     + JDBC : 자바와 데이터베이스를 연결하기 위한 자바API, JAVA 에서만 가능 
-    + ODBC :  표준 개방형 응용 프로그램 인터페이스 ,ORACLE, MySQL 등등)와 연동이 필요할때 사용 
+    + ODBC :  표준 개방형 응용 프로그램 인터페이스 ,ORACLE, MySQL 등등)와 연동이 필요할 때 사용 
   + 배치 처리, 대규모 Datawarehouse
+  + 메타스토어 관련 정보를 저장하고 테이블을 만들고 관리 목적
 + Spark
-  + SQL 사용 
+  + SQL 사용
+  + Hadoop 필수 아님 
   + 메모리 기반
   + 행 수준 업데이트, 실시간 온라인 트랜잭션 처리 지원 
   + MR, SQL query , MLlibe, Grapth 처리 지원 
@@ -170,9 +182,18 @@
   + 실시간 스트림 처리 
 
 </br></br>
-22. 맵리듀스 왜쓰나? 장/단점?
+22. 맵리듀스(MapReduce) 왜쓰나? 장/단점?
++ 여러 노드에 태스크를 분배 하는 방법
 + 단위작업을 처리하는 맵(Map) 작업과 맵 작업의 결과물을 모아서 집계하는 리듀스(Reduce) 단계   
 <img src="./img/question.png" title="hive 내부구조"/>
++ Mapper    
+  + Key/Value 형태로 데이터 읽음   
++ Reducer
+    + Shuffle 과정에서 동일한 key 값 있으면 동일한 Reducer에 할당
+    + Mapper에서 Shuffling 결과를 리스트(List) 형태로 받음         
+      + ex) value값 철자 단위 분리하여 출력할 경우 ('foo', 'bar') -> [('foo', 'b'), ('foo', 'a'), ('foo', 'r')]
++ Key & Value 선호이유 
+  + Key로 sorting, Grouping 작업 용이 => 빅데이터 구성하는 기본 데이터 구조로 채택 됨 (spark 도 동일)
  
 23. Spark Session vs Spark Context
  + Spark Session > SQL Context > Spark Context
@@ -180,10 +201,38 @@
    + /2.x 부터 사용가능한 spark 진입점 
  + SQL Context
  + Spark Context
-24. KAFKA 설명 > KAFKA 로드밸런싱을 한 이유, 내,외부 네트워크를 나눈 이유
-25. Spark streaming & Kafka
-26. Airflow worker 가 죽었을때 해결방법 ?
-27. Airflow worker 동작방법
+24. KAFKA 설명 
+    + 분산 메시지 큐 솔루션, 메시지(데이터)의 송신자와 수신자의 중개를 하는 시스템
+    + Pub-Sub 메시징 모델
+    + Publisher가 Subscriber에 직접 메시지를 보내는 대신 항상 Broker를 사이
+    + Publisher에서 보낸 메시지는 Broker의 Topic에 저장
+    + Topic에 저장되어야 하는지를 Publisher로부터 지정
+    + 각 Subscriber는 특정 Topic에서만 선택적으로 메시지를 받음
+    + Broker : Publisher/Subscriber 는 브로커만 바라보고 통신하면 된다는 이점, 브로커 없다면 개별 통신 이뤄져야 함, 메시징 모델 변경 용이 
+    + Producer : Publisher, 메시지 생성(송신)
+    + Consumer : Subscriber, 메시지 수신(수신)
+25. spark vs mapreduce 
++ spark
+  + RAM 에서 데이터 처리 (메모리 기반)
+  + 동일한 데이터 여러번 반복 하는 작업 유용 
+  + Java, Scala, Python 과 함께 사용 가능 ,SQL 도 있음
++ MapReduce
+  + 맵 또는 리듀스 작업 결과를 디스크에 write 
+  + ETL 같은 원패스 작업에 유리 
+  + JAVA로 작성, 프로그래밍 하기 어려움 (Hive SQL 호환성 제공)
+26. 파티셔닝과 버켓팅 차이점
++ Bucketing : 지정된 칼럼의 값을 해쉬 처리하고 지정한 수의 파일로 나누어 저장하는 방법, Join을 하거나 샘플링 작업을 할 경우 성능 향상
++ Partition vs Bucketing
+  + Partition: 데이터를 디렉토리로 나누어 저장
+  + Bucketing: 데이터를 파일별로 나누어 저장 
+
+26. KAFKA 로드밸런싱을 한 이유
+27. 내,외부 네트워크를 나눈 이유
+28. Spark streaming & Kafka
+29. Airflow worker 가 죽었을때 해결방법 ?
+30. Airflow worker 동작방법
+
+
 </br></br>
 
 <ElasticSearch>

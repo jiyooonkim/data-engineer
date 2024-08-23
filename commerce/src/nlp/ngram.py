@@ -14,17 +14,17 @@
     - 한계점
         - 정확도 : N개 연속된 단어만 고려하기 떄문에 문장의 맥락이 안맞을 수 있음
         - 희소(sparsity) : N개의 단어를 연속적으로 갖는 문장자체가 드물다
-        - 상충(trade-off) : N값의 크기(너무 크거나작거나), N=5를 권장, 희소문제 연관성
+        - 상충(trade-off) : N값의 크기(너무 크거나작거나), N=5를 권장, 희소 문제 연관성
 # available :
     - Inner keyword 후보로 사용(상품명에 없는 키워드라도 관련 있는 키워드는 사용가능)
         ex) "삼성 도어락" 질의시, Ngram & Linked prediction 결과로 매핑된 후보 키워드들로 노출 가능
             ['삼성', '도어락']['삼성', 'SHP-DR700']['도어락', 'SHP-DR700']
     - 검색 필터 반영
             ex) "올세인츠" 질의시 검색필터 : 여성용, 남성용, 민소매, 긴소매, 가죽자켓, 원피스, 니트, S,M,L(사이즈)
-
     - 오타교정 : 철자 단위 ngram한다면, 앞뒤로 어떤 문자들이 많이 왔는가 -> 정타 사전 구축 가능 할듯 , 가지고 있는 오타가 많이 없으니
 """
 import os
+
 os.chdir('../../../')
 from pyspark.sql import SparkSession
 import pyspark.sql.functions as F
@@ -44,8 +44,8 @@ def get_ngram(token, n):
     if token.__str__():
         token = list(token)
     for i in range(0, len(token)):
-        if len(token[i:i+n]) == n:
-            lst.append(token[i:i+n])
+        if len(token[i:i + n]) == n:
+            lst.append(token[i:i + n])
     return lst
 
 
@@ -53,9 +53,9 @@ def get_ngram(token, n):
 def get_word_type(txt):
     if txt.isalpha():  # eng+kor, kor
         res = re.compile(u'[^a-z]+').sub(u'', txt)
-        if res:     # kor + eng
+        if res:  # kor + eng
             return 'engkor'
-        else:       # only kor
+        else:  # only kor
             return 'kor'
 
 
@@ -71,13 +71,13 @@ def get_txt_type(col):  # txt type in list
                 s_lst.append('eng')
             elif wd.isalpha():  # eng+kor, kor
                 res = re.compile(u'[^a-z]+').sub(u'', wd)
-                if res:     # kor + eng
+                if res:  # kor + eng
                     s_lst.append('engkor')
-                else:       # only kor
+                else:  # only kor
                     s_lst.append('kor')
-            elif wd.isdigit():   # 숫자만
+            elif wd.isdigit():  # 숫자만
                 s_lst.append('num')
-            elif wd.isalnum():   # 영어/한글 + 숫자
+            elif wd.isalnum():  # 영어/한글 + 숫자
                 s_lst.append('txtnum')
             else:
                 s_lst.append('etc')
@@ -115,7 +115,7 @@ def get_triple_token(tk, tks):
 
 if __name__ == "__main__":
     spark = SparkSession.builder \
-        .appName('Compound word Job') \
+        .appName('Ngram Job') \
         .master('local[*]') \
         .config('spark.sql.execution.arrow.pyspark.enabled', True) \
         .config('spark.sql.session.timeZone', 'UTC') \
@@ -135,18 +135,50 @@ if __name__ == "__main__":
         ex)
             [여성,나이키], [운동화,여성]      예측결과물:  [나이키,운동화] 
     '''
-    b = spark.read.parquet('data/parquet/tfidf/')\
-        .withColumn("prod_nm_tkns", F.split(F.lower(F.trim(F.regexp_replace(F.col('prod_nm'), r" +", ' '))), " "))\
-        .where(F.length(F.col('token')) > 1)\
-        .withColumn("bi_gram", get_ngram(F.col("prod_nm_tkns"), F.lit("2").cast(T.IntegerType())))\
-        .withColumn("find_tkn", find_kwd_set(F.col('token'), F.col('bi_gram')))
-    b.where(F.col("prod_nm").like("%도어락%")).withColumn("tokenss", get_ngram(F.col("token"), F.lit("2").cast(T.IntegerType()))).show(100, False)
-    # .withColumn("txt_tp", get_txt_type(F.col("bi_gram"))) \
-    # b.where(F.col('token').like('나이키')).select(F.col('token'), F.col('tf-idf'), F.col('bi_gram'),F.col('find_tkn'))\
-    #     .orderBy(F.col('tf-idf')).show(100, False)
+    basic_tkn = (spark.read.parquet('data/parquet/tfidf/') \
+                 .withColumn("prod_nm_tkns",
+                             F.split(F.lower(F.trim(F.regexp_replace(F.col('prod_nm'), r" +", ' '))), " ")) \
+                 .where(F.length(F.col('token')) > 1) \
+                 .withColumn("bi_gram", get_ngram(F.col("prod_nm_tkns"), F.lit("2").cast(T.IntegerType()))) \
+                 .withColumn("find_tkn", find_kwd_set(F.col('token'), F.col('bi_gram'))) \
+                 .withColumn("prod_nm_hash", F.hash("prod_nm"))
+                 .alias("basic_tkn"))
+    (basic_tkn.where(F.col("prod_nm").like("%운동화%"))
+     .withColumn("tokenss", get_ngram(F.col("token"), F.lit("2").cast(T.IntegerType())))
+     .select(F.col('prod_nm'), F.col('find_tkn'))
+     .orderBy(F.col("prod_nm"))
+     .show(100, False))
+    spark.read.parquet('data/parquet/tfidf/').where(F.col("tf-idf")>20).select(F.count(F.col("prod_nm"))).show()
 
-    # b.where(F.col('token') == '프리미엄').select(F.col('prod_nm'), F.col('token'), F.col('tf-idf'), F.explode(F.col('find_tkn')).alias('ngram_set')).orderBy(F.col('tf-idf')).show(100, False)
-    # b.groupby(F.col('token')).agg(F.count(F.col('token')).alias('cnt')).orderBy(F.col('cnt').desc()).show(1000, False)
+    tag_cndd = basic_tkn.select(F.col("prod_nm"), F.col("prod_nm_hash"),
+                                F.explode(F.col('basic_tkn.find_tkn')).alias("tag")).distinct().alias("tag_cndd")
+    # basic_tkn.select(F.col("basic_tkn.prod_nm")).show(30, False)
+    # tag_cndd.show(30, False)
+
+    # (basic_tkn.join(
+    #     tag_cndd,
+    #     F.col("basic_tkn.prod_nm").contains(F.col("tag_cndd.tag")[0])).where(
+    #     F.col("basic_tkn.prod_nm_hash") != F.col("tag_cndd.prod_nm_hash"))
+    #  .show(3, False))
+
+    # tag_1.show(100, False)
+    es_options = {
+        "es.nodes": "http://localhost:9200",
+        "es.nodes.wan.only": "true",
+        "es.batch.size.bytes": "6m",
+        "es.batch.size.entries": "6000",
+        "es.batch.write.refresh": "false",
+        "es.net.http.auth.user": "elastic",
+        "es.net.http.auth.pass": "elastic"
+    }
+    # (tag_cndd.write \
+    #  .format("org.elasticsearch.spark.sql") \
+    #  .options(**es_options)
+    #  .option("es.resource", 'search_test3') \
+    #  .mode("overwrite") \
+    #  .save()
+    #  )
+
     '''
         가설 : 한글,영어 or 영어,한글 형식이면 
         trial: loan word 확률 ?? 얼마나??    
@@ -166,28 +198,30 @@ if __name__ == "__main__":
             +----------------+--------------+
     '''
     # b.withColumn("aaaaaa", get_txt_type(F.col("find_tkn"))).show(100, False)
-    get_loan_wd_target = (b.select(F.explode(F.col('find_tkn')).alias('toks'))
+    get_loan_wd_target = (basic_tkn.select(F.explode(F.col('find_tkn')).alias('toks'))
                           .withColumn('tp', get_txt_type(F.col("toks"))))
 
     loan_wd_cndd1 = (get_loan_wd_target.where(F.col('tp')[1][0] == 'kor')
-                     .where(F.col('tp')[0][0] == 'eng')\
-        .where(F.length(F.col('toks')[1]) < F.length(F.col("toks")[0])))
-    loan_wd_cndd1.write.format("parquet").mode("overwrite").save("data/output/loan_wd_cndd1_by_ngram/")
+                     .where(F.col('tp')[0][0] == 'eng') \
+                     .where(F.length(F.col('toks')[1]) < F.length(F.col("toks")[0])))
+    # loan_wd_cndd1.write.format("parquet").mode("overwrite").save("data/output/loan_wd_cndd1_by_ngram/")
 
     loan_wd_cndd2 = get_loan_wd_target.where(F.col('tp')[1][0] == 'eng').where(F.col('tp')[0][0] == 'kor') \
         .where(F.length(F.col('toks')[1]) > F.length(F.col("toks")[0]))
-    loan_wd_cndd2.write.format("parquet").mode("overwrite").save("data/output/loan_wd_cndd2_by_ngram/")
+    # loan_wd_cndd2.write.format("parquet").mode("overwrite").save("data/output/loan_wd_cndd2_by_ngram/")
 
-    c = b\
-        .select(F.col("token"), F.col("find_tkn"), F.col('tf-idf'), get_txt_type(F.col("find_tkn")).alias('tkn_tp'))\
+    c = basic_tkn \
+        .select(F.col("token"), F.col("find_tkn"), F.col('tf-idf'), get_txt_type(F.col("find_tkn")).alias('tkn_tp')) \
         # .where(F.size(F.col('find_tkn')) > 1).where(F.col('tkn_tp')[1][1] != 'num')#.sample(0.5)
     # c.where(F.col("token") == '혜강씨큐리티').show(1000, False)
     '''
         purpose : ['삼성', ' 도어락'] + ['삼성', 'SHP-DR700'] = ['도어락', 'SHP-DR700'] 형태 
     '''
-    get_couple_tokn = c.where(F.size(F.col('find_tkn')) == 2)\
-        .withColumn("fst_end_1", F.array(F.col('find_tkn')[0][0], F.col('find_tkn')[1][1])).distinct().alias("get_couple_tokn")
-    get_fst_end = get_couple_tokn.select(F.explode(F.col('find_tkn')).alias('fst_end_2')).distinct().alias("get_fst_end")
+    get_couple_tokn = c.where(F.size(F.col('find_tkn')) == 2) \
+        .withColumn("fst_end_1", F.array(F.col('find_tkn')[0][0], F.col('find_tkn')[1][1])).distinct().alias(
+        "get_couple_tokn")
+    get_fst_end = get_couple_tokn.select(F.explode(F.col('find_tkn')).alias('fst_end_2')).distinct().alias(
+        "get_fst_end")
 
     # c = get_couple_tokn.join(
     #                             get_fst_end,
@@ -217,23 +251,24 @@ if __name__ == "__main__":
     color_att = spark.read.parquet('data/parquet/color_attribution/').alias('color_att')
     msr_att = spark.read.parquet('data/parquet/measures_attribution/').alias('msr_att')
 
-    except_att_tagt = b.where(F.length(F.col('token')) > 2)\
-        .join(color_att, F.col('token') == F.col('color'), 'leftanti')\
-        .join(msr_att, F.col('shp_nm_token') == F.col('token'), 'leftanti')\
-        .select(F.col('prod_nm'), F.col('token'), get_triple_token(F.col('token'), F.col('prod_nm_tkns')).alias('triple_tkn'))\
-        .withColumn("prod_nm_hash", F.hash("prod_nm"))\
-        .withColumn('tp', get_word_type(F.col("token"))).where(F.col('tp') == 'kor')\
+    except_att_tagt = basic_tkn.where(F.length(F.col('token')) > 2) \
+        .join(color_att, F.col('token') == F.col('color'), 'leftanti') \
+        .join(msr_att, F.col('shp_nm_token') == F.col('token'), 'leftanti') \
+        .select(F.col('prod_nm'), F.col('token'),
+                get_triple_token(F.col('token'), F.col('prod_nm_tkns')).alias('triple_tkn')) \
+        .withColumn("prod_nm_hash", F.hash("prod_nm")) \
+        .withColumn('tp', get_word_type(F.col("token"))).where(F.col('tp') == 'kor') \
         # .where(F.col('token') =='운동화')
 
-        # .where((F.size(F.col('triple_tkn')) < 10) & (F.size(F.col('triple_tkn')) > 2)).sample(0.5)\
+    # .where((F.size(F.col('triple_tkn')) < 10) & (F.size(F.col('triple_tkn')) > 2)).sample(0.5)\
 
     # except_att_tagt.select(F.col('triple_tkn')).show(10, False)
 
-    agg_contain_token = except_att_tagt\
-        .select(F.col('token'), F.explode(F.col('triple_tkn')[0]).alias('vertex'))\
-        .withColumn('tp', get_word_type(F.col("token")))\
-        .groupby(F.col('token'), F.col('vertex'))\
-        .agg(F.count(F.col('vertex')).alias('cnt'))\
+    agg_contain_token = except_att_tagt \
+        .select(F.col('token'), F.explode(F.col('triple_tkn')[0]).alias('vertex')) \
+        .withColumn('tp', get_word_type(F.col("token"))) \
+        .groupby(F.col('token'), F.col('vertex')) \
+        .agg(F.count(F.col('vertex')).alias('cnt')) \
         .alias('agg_contain_token')
 
     agg_not_contain_token = except_att_tagt \
@@ -251,7 +286,6 @@ if __name__ == "__main__":
          (F.col('agg_contain_token.vertex')[1] == F.col('agg_not_contain_token.vertex')[0]) |
          (F.col('agg_contain_token.vertex')[2] == F.col('agg_not_contain_token.vertex')[0]))
     )
-    # res.show()
 
     # """
     #     step1 - 토큰이 포함된 데이터셋 vs  미포함된 데이터셋
