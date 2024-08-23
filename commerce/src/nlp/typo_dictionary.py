@@ -245,9 +245,3 @@ if __name__ == "__main__":
      .mode("overwrite")
      .save()
      ) 
-
-    # cnt.select(F.col('prod_nm'), F.col('cate')).coalesce(1).write.mode('overwrite').save(
-    #     'data/parquet/custom_synonym/')
-    # cnt.select(
-    #         F.concat(F.col('prod_nm'), F.lit(','), F.col('cate'))
-    #     ).coalesce(1).write.text('data/parquet/customsynonym')

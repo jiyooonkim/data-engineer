@@ -1,6 +1,8 @@
 ### Couputer Network 
 #### Date : 2023-08-01 ~    
 
++ **Layer4 vs Layer7**
+  + 
 
 + **http vs https**       
   + **Http**   
@@ -107,3 +109,6 @@
   + 키 생성 명령어 : ssh-keygen -t rsa
   + SCP(Secure Copy) : ssh 원격 접속 프로토콜을 기반, 원격지에 있는 파일과 
   + 디렉터리를  보내거나 가져올 때 사용하는 파일 전송 프로토콜, 22port 
+
+
+

@@ -4,16 +4,643 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Study Elasticsearch">
-      <change afterPath="$PROJECT_DIR$/commerce/spark_connect/conn_hive.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commerce/spark_connect/conn_ncp.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commerce/spark_connect/conn_s3.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document/doc/img.png" afterDir="false" />
+    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="NONE">
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/-hzW6YlwRIuGqx1PT1KK3w/0/_state/retention-leases-63.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/-hzW6YlwRIuGqx1PT1KK3w/0/_state/state-2.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/-hzW6YlwRIuGqx1PT1KK3w/_state/state-7.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/04KX1xT5RsKjOxgGkgxjLA/0/_state/retention-leases-546.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/04KX1xT5RsKjOxgGkgxjLA/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/04KX1xT5RsKjOxgGkgxjLA/_state/state-20.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/0BqOr8xrQC-UqCKyncVpTA/0/_state/retention-leases-157.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/0BqOr8xrQC-UqCKyncVpTA/0/_state/state-5.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/0BqOr8xrQC-UqCKyncVpTA/_state/state-9.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/2NuizzgARCiy_xylzusXDQ/0/_state/retention-leases-363.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/2NuizzgARCiy_xylzusXDQ/0/_state/state-13.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/2NuizzgARCiy_xylzusXDQ/_state/state-14.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/2icH8pdETVyis4i9gPtxDw/0/_state/retention-leases-131.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/2icH8pdETVyis4i9gPtxDw/0/_state/state-5.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/2icH8pdETVyis4i9gPtxDw/_state/state-16.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/2joBIk1jQ7CM_SkGy6Xzsw/0/_state/retention-leases-178.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/2joBIk1jQ7CM_SkGy6Xzsw/0/_state/state-6.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/2joBIk1jQ7CM_SkGy6Xzsw/_state/state-8.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/3umJzHHSTkOCTYQiA3Fnlw/0/_state/retention-leases-550.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/3umJzHHSTkOCTYQiA3Fnlw/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/3umJzHHSTkOCTYQiA3Fnlw/_state/state-19.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/56TIx3OeRY2tvI9iGE_Kiw/0/_state/retention-leases-546.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/56TIx3OeRY2tvI9iGE_Kiw/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/56TIx3OeRY2tvI9iGE_Kiw/_state/state-19.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/5LwN-8X-RJmVPkAXt_HktA/0/_state/retention-leases-577.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/5LwN-8X-RJmVPkAXt_HktA/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/5LwN-8X-RJmVPkAXt_HktA/_state/state-20.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/5YGwnla1RISE82WV6lB2xg/0/_state/retention-leases-64.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/5YGwnla1RISE82WV6lB2xg/0/_state/state-2.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/5YGwnla1RISE82WV6lB2xg/_state/state-3.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/7Q-b3rmdQa2qcsxFQ139iA/0/_state/retention-leases-66.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/7Q-b3rmdQa2qcsxFQ139iA/0/_state/state-2.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/7Q-b3rmdQa2qcsxFQ139iA/_state/state-3.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/7c6c1RWuTqqTLR3VoHzSWA/0/_state/retention-leases-173.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/7c6c1RWuTqqTLR3VoHzSWA/0/_state/state-6.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/7c6c1RWuTqqTLR3VoHzSWA/_state/state-8.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/7fBrD5P0Tl2ESKSr30HB6w/0/_state/retention-leases-548.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/7fBrD5P0Tl2ESKSr30HB6w/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/7fBrD5P0Tl2ESKSr30HB6w/_state/state-23.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/7jOxHqAfSkuf5_fnFIhbKQ/0/_state/retention-leases-566.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/7jOxHqAfSkuf5_fnFIhbKQ/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/7jOxHqAfSkuf5_fnFIhbKQ/_state/state-19.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/9ZoICWaTQZaNOIZPUjAo0w/0/_state/retention-leases-102.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/9ZoICWaTQZaNOIZPUjAo0w/0/_state/state-4.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/9ZoICWaTQZaNOIZPUjAo0w/_state/state-5.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/9ybN-0NaQvCVa9gBa4ucsw/0/_state/retention-leases-245.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/9ybN-0NaQvCVa9gBa4ucsw/0/_state/state-6.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/9ybN-0NaQvCVa9gBa4ucsw/_state/state-10.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/BeRXLuMqTOq8IoBa_32CCw/0/_state/retention-leases-100.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/BeRXLuMqTOq8IoBa_32CCw/0/_state/state-3.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/BeRXLuMqTOq8IoBa_32CCw/_state/state-6.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/BwDq9DjyRUKjmnjXFG7r1g/0/_state/retention-leases-443.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/BwDq9DjyRUKjmnjXFG7r1g/0/_state/state-16.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/BwDq9DjyRUKjmnjXFG7r1g/_state/state-17.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/Bz_DrSLPQZisqM-1xA1ZoA/0/_state/retention-leases-309.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/Bz_DrSLPQZisqM-1xA1ZoA/0/_state/state-10.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/Bz_DrSLPQZisqM-1xA1ZoA/_state/state-11.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/CHlEUG2PS16lntIPGCRCdw/0/_state/retention-leases-105.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/CHlEUG2PS16lntIPGCRCdw/0/_state/state-4.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/CHlEUG2PS16lntIPGCRCdw/_state/state-5.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/DhHlP93VSwO5tZM-Xza8Dg/0/_state/retention-leases-205.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/DhHlP93VSwO5tZM-Xza8Dg/0/_state/state-6.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/DhHlP93VSwO5tZM-Xza8Dg/_state/state-9.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/EKlt-sLVQbeiu9PrXcoJ6w/0/_state/retention-leases-312.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/EKlt-sLVQbeiu9PrXcoJ6w/0/_state/state-10.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/EKlt-sLVQbeiu9PrXcoJ6w/_state/state-11.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/EPIctGtOTZSbpnevjHDgbg/0/_state/retention-leases-545.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/EPIctGtOTZSbpnevjHDgbg/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/EPIctGtOTZSbpnevjHDgbg/_state/state-23.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/ETVtFah8Re6A0aOmobTR_Q/0/_state/retention-leases-103.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/ETVtFah8Re6A0aOmobTR_Q/0/_state/state-4.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/ETVtFah8Re6A0aOmobTR_Q/_state/state-6.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/FB0XRV2MTWeVL9eIxVILiw/0/_state/retention-leases-174.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/FB0XRV2MTWeVL9eIxVILiw/0/_state/state-6.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/FB0XRV2MTWeVL9eIxVILiw/_state/state-8.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/FlQQ00ycSqiiUI3oVsbYwg/0/_state/retention-leases-525.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/FlQQ00ycSqiiUI3oVsbYwg/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/FlQQ00ycSqiiUI3oVsbYwg/_state/state-21.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/H7boFNRqQEyWtr3SPlkaSw/0/_state/retention-leases-596.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/H7boFNRqQEyWtr3SPlkaSw/0/_state/state-28.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/H7boFNRqQEyWtr3SPlkaSw/_state/state-29.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/I-uGpJVnQdq4CDCT0mdf9g/0/_state/retention-leases-86.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/I-uGpJVnQdq4CDCT0mdf9g/0/_state/state-4.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/I-uGpJVnQdq4CDCT0mdf9g/_state/state-5.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/IRw1ifb7Ty-8eJ7dgDE9Cg/0/_state/retention-leases-319.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/IRw1ifb7Ty-8eJ7dgDE9Cg/0/_state/state-10.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/IRw1ifb7Ty-8eJ7dgDE9Cg/_state/state-14.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/IbJqJr-tScqHelTkn_U_cw/0/_state/retention-leases-173.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/IbJqJr-tScqHelTkn_U_cw/0/_state/state-6.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/IbJqJr-tScqHelTkn_U_cw/_state/state-8.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/JYdFiv63QN-lSoCHpBcyrQ/0/_state/retention-leases-546.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/JYdFiv63QN-lSoCHpBcyrQ/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/JYdFiv63QN-lSoCHpBcyrQ/_state/state-20.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/JZaLca2lRlKfcxbpZRUEdw/0/_state/retention-leases-77.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/JZaLca2lRlKfcxbpZRUEdw/0/_state/state-3.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/JZaLca2lRlKfcxbpZRUEdw/_state/state-7.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/K7yUYKsfQv25fgg6EE0DXw/0/_state/retention-leases-163.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/K7yUYKsfQv25fgg6EE0DXw/0/_state/state-6.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/K7yUYKsfQv25fgg6EE0DXw/_state/state-7.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/KmLgkFlpQj2eD4rJtTYAsA/0/_state/retention-leases-153.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/KmLgkFlpQj2eD4rJtTYAsA/0/_state/state-5.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/KmLgkFlpQj2eD4rJtTYAsA/_state/state-6.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/KrKTSkydSUSTZy1ic7W4CQ/0/_state/retention-leases-269.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/KrKTSkydSUSTZy1ic7W4CQ/0/_state/state-10.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/KrKTSkydSUSTZy1ic7W4CQ/_state/state-12.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/Ltu40CAOT8OFmuDF8-4cBA/0/_state/retention-leases-175.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/Ltu40CAOT8OFmuDF8-4cBA/0/_state/state-6.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/Ltu40CAOT8OFmuDF8-4cBA/_state/state-8.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/MSmUA9MfRJ6w26ZBWsdYYw/0/_state/retention-leases-50.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/MSmUA9MfRJ6w26ZBWsdYYw/0/_state/state-2.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/MSmUA9MfRJ6w26ZBWsdYYw/_state/state-6.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/NJMwXgWNQQmVRN4E21W6vQ/0/_state/retention-leases-545.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/NJMwXgWNQQmVRN4E21W6vQ/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/NJMwXgWNQQmVRN4E21W6vQ/_state/state-23.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/NV8lFiKtSpOEyLQePstBRw/0/_state/retention-leases-590.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/NV8lFiKtSpOEyLQePstBRw/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/NV8lFiKtSpOEyLQePstBRw/_state/state-20.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/NhJr-otKTNGiaIWv2yIqCA/0/_state/retention-leases-550.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/NhJr-otKTNGiaIWv2yIqCA/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/NhJr-otKTNGiaIWv2yIqCA/_state/state-19.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/OdX8zuMCThuDiekS_8LDaQ/0/_state/retention-leases-494.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/OdX8zuMCThuDiekS_8LDaQ/0/_state/state-17.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/OdX8zuMCThuDiekS_8LDaQ/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/PioZyNLjRSSDEcHMjQHqTQ/0/_state/retention-leases-173.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/PioZyNLjRSSDEcHMjQHqTQ/0/_state/state-6.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/PioZyNLjRSSDEcHMjQHqTQ/_state/state-8.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/PxCaYL86QeqU0j38D5bwvw/0/_state/retention-leases-64.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/PxCaYL86QeqU0j38D5bwvw/0/_state/state-2.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/PxCaYL86QeqU0j38D5bwvw/_state/state-3.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/QWbTzCVjQ3igPc9IGs97YA/0/_state/retention-leases-546.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/QWbTzCVjQ3igPc9IGs97YA/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/QWbTzCVjQ3igPc9IGs97YA/_state/state-19.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/QqrUEJH8T3GcGHwFeAwFKA/0/_state/retention-leases-175.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/QqrUEJH8T3GcGHwFeAwFKA/0/_state/state-6.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/QqrUEJH8T3GcGHwFeAwFKA/_state/state-8.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/SY7OHbC_S-qQ-IMbo084ww/0/_state/retention-leases-351.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/SY7OHbC_S-qQ-IMbo084ww/0/_state/state-13.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/SY7OHbC_S-qQ-IMbo084ww/_state/state-14.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/Ss9iz_wnSq2MiEXt9ZsiEg/0/_state/retention-leases-123328.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/Ss9iz_wnSq2MiEXt9ZsiEg/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/Ss9iz_wnSq2MiEXt9ZsiEg/_state/state-20.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/T-MJiVOZQ4u3kRhfvQsGdw/0/_state/retention-leases-443.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/T-MJiVOZQ4u3kRhfvQsGdw/0/_state/state-16.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/T-MJiVOZQ4u3kRhfvQsGdw/_state/state-17.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/TyCAiWZ_Sri8IpiADoul_w/0/_state/retention-leases-547.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/TyCAiWZ_Sri8IpiADoul_w/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/TyCAiWZ_Sri8IpiADoul_w/_state/state-23.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/Tz0LFagZTcScPwCMlVYT3Q/0/_state/retention-leases-545.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/Tz0LFagZTcScPwCMlVYT3Q/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/Tz0LFagZTcScPwCMlVYT3Q/_state/state-23.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/U9tZHSXPQySww3cxxjqp3Q/0/_state/retention-leases-64.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/U9tZHSXPQySww3cxxjqp3Q/0/_state/state-2.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/U9tZHSXPQySww3cxxjqp3Q/_state/state-3.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/UuvzAsDmQ6SboxH6iFgpMw/0/_state/retention-leases-173.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/UuvzAsDmQ6SboxH6iFgpMw/0/_state/state-6.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/UuvzAsDmQ6SboxH6iFgpMw/_state/state-8.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/VFq7gtLoS-ewEVK8vyjNmA/0/_state/retention-leases-346.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/VFq7gtLoS-ewEVK8vyjNmA/0/_state/state-13.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/VFq7gtLoS-ewEVK8vyjNmA/_state/state-14.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/VetgMZq_Som0MyiNpLUw2g/0/_state/retention-leases-545.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/VetgMZq_Som0MyiNpLUw2g/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/VetgMZq_Som0MyiNpLUw2g/_state/state-23.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/XSu-3kTbSUywSwH0VF-fzA/0/_state/retention-leases-25183.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/XSu-3kTbSUywSwH0VF-fzA/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/XSu-3kTbSUywSwH0VF-fzA/_state/state-20.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/Z6PoZMkqQY2Ju5bmdJoRPw/0/_state/retention-leases-175.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/Z6PoZMkqQY2Ju5bmdJoRPw/0/_state/state-6.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/Z6PoZMkqQY2Ju5bmdJoRPw/_state/state-8.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/aHJhOrw1ToqrlWQsOnTxPA/0/_state/retention-leases-175.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/aHJhOrw1ToqrlWQsOnTxPA/0/_state/state-6.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/aHJhOrw1ToqrlWQsOnTxPA/_state/state-8.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/aNEEKTjaT3yc13MP9kkehA/0/_state/retention-leases-107.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/aNEEKTjaT3yc13MP9kkehA/0/_state/state-4.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/aNEEKTjaT3yc13MP9kkehA/_state/state-8.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/aX5P0Pj9S0aghnPNnF-1Uw/0/_state/retention-leases-495.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/aX5P0Pj9S0aghnPNnF-1Uw/0/_state/state-17.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/aX5P0Pj9S0aghnPNnF-1Uw/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/aj_AcJg9TM-GAeMwGB5YwQ/0/_state/retention-leases-559.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/aj_AcJg9TM-GAeMwGB5YwQ/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/aj_AcJg9TM-GAeMwGB5YwQ/_state/state-20.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/bVmSelM6SJ6vdGi_bGmmyA/0/_state/retention-leases-571.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/bVmSelM6SJ6vdGi_bGmmyA/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/bVmSelM6SJ6vdGi_bGmmyA/_state/state-20.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/enG7puiOQHCt2yEAHG3SLQ/0/_state/retention-leases-548.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/enG7puiOQHCt2yEAHG3SLQ/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/enG7puiOQHCt2yEAHG3SLQ/_state/state-19.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/hGfsGm9LRrWkOV84YUf4Zg/0/_state/retention-leases-559.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/hGfsGm9LRrWkOV84YUf4Zg/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/hGfsGm9LRrWkOV84YUf4Zg/_state/state-20.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/hYWC_XurSMi_44VnpZiT2g/0/_state/retention-leases-23.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/hYWC_XurSMi_44VnpZiT2g/0/_state/state-1.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/hYWC_XurSMi_44VnpZiT2g/_state/state-5.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/jNkKv1nlR-6vzV_M7P7AYA/0/_state/retention-leases-253.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/jNkKv1nlR-6vzV_M7P7AYA/0/_state/state-9.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/jNkKv1nlR-6vzV_M7P7AYA/_state/state-13.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/jQhyDtw9R6SBUGkyosSxng/0/_state/retention-leases-547.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/jQhyDtw9R6SBUGkyosSxng/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/jQhyDtw9R6SBUGkyosSxng/_state/state-23.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/kAeq5r94TrCZFCr15yXk3A/0/_state/retention-leases-545.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/kAeq5r94TrCZFCr15yXk3A/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/kAeq5r94TrCZFCr15yXk3A/_state/state-23.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/lgxWL5cOQgaOpf_LSFj-XA/0/_state/retention-leases-325.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/lgxWL5cOQgaOpf_LSFj-XA/0/_state/state-10.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/lgxWL5cOQgaOpf_LSFj-XA/_state/state-11.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/mIoTvjeZTWGXFQZjy_eylA/0/_state/retention-leases-64.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/mIoTvjeZTWGXFQZjy_eylA/0/_state/state-2.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/mIoTvjeZTWGXFQZjy_eylA/_state/state-3.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/menMO0C-SIa3P4niHsVOXg/0/_state/retention-leases-275.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/menMO0C-SIa3P4niHsVOXg/0/_state/state-12.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/menMO0C-SIa3P4niHsVOXg/_state/state-16.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/mftYtOH-RNSMKzDyGnuOIQ/0/_state/retention-leases-78.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/mftYtOH-RNSMKzDyGnuOIQ/0/_state/state-2.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/mftYtOH-RNSMKzDyGnuOIQ/_state/state-3.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/oM9YEu6KTVKi3KEp0_JCow/0/_state/retention-leases-189.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/oM9YEu6KTVKi3KEp0_JCow/0/_state/state-6.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/oM9YEu6KTVKi3KEp0_JCow/_state/state-8.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/oRW23cwJTICFlpJzSfBZ6A/0/_state/retention-leases-300.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/oRW23cwJTICFlpJzSfBZ6A/0/_state/state-10.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/oRW23cwJTICFlpJzSfBZ6A/_state/state-13.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/pQRX_vb4RDCZ7-X4oz-rxQ/0/_state/retention-leases-355.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/pQRX_vb4RDCZ7-X4oz-rxQ/0/_state/state-13.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/pQRX_vb4RDCZ7-X4oz-rxQ/_state/state-25.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/rSqMzumBQ165UEpdLvosnQ/0/_state/retention-leases-546.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/rSqMzumBQ165UEpdLvosnQ/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/rSqMzumBQ165UEpdLvosnQ/_state/state-19.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/sM0hJ9AGRjShGwG2da3DuQ/0/_state/retention-leases-173.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/sM0hJ9AGRjShGwG2da3DuQ/0/_state/state-6.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/sM0hJ9AGRjShGwG2da3DuQ/_state/state-8.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/sVQEDm7aSOSJwfvGQKd3tg/0/_state/retention-leases-317.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/sVQEDm7aSOSJwfvGQKd3tg/0/_state/state-10.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/sVQEDm7aSOSJwfvGQKd3tg/_state/state-12.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/tag4C3p6TGuLusWL59MX3Q/0/_state/retention-leases-443.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/tag4C3p6TGuLusWL59MX3Q/0/_state/state-16.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/tag4C3p6TGuLusWL59MX3Q/_state/state-17.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/vWf4g5ebS8aBTiJvhta9mg/0/_state/retention-leases-548.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/vWf4g5ebS8aBTiJvhta9mg/0/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/vWf4g5ebS8aBTiJvhta9mg/_state/state-23.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/w-h0OJlKR_izIsyX4WZzhA/0/_state/retention-leases-205.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/w-h0OJlKR_izIsyX4WZzhA/0/_state/state-6.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/w-h0OJlKR_izIsyX4WZzhA/_state/state-8.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/xJjslIvDTt-6pD_AIM5b1Q/0/_state/retention-leases-104.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/xJjslIvDTt-6pD_AIM5b1Q/0/_state/state-4.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/xJjslIvDTt-6pD_AIM5b1Q/_state/state-5.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/y4u6Tp9_TvO6n_yd_nAO9Q/0/_state/retention-leases-242.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/y4u6Tp9_TvO6n_yd_nAO9Q/0/_state/state-7.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/y4u6Tp9_TvO6n_yd_nAO9Q/_state/state-18.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/ynt63yczQv-GtXcob_7vFQ/0/_state/retention-leases-272.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/ynt63yczQv-GtXcob_7vFQ/0/_state/state-16.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/ynt63yczQv-GtXcob_7vFQ/_state/state-27.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/zK1HXR8xTJ6p54P1nYNzqw/0/_state/retention-leases-342.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/zK1HXR8xTJ6p54P1nYNzqw/0/_state/state-11.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/zK1HXR8xTJ6p54P1nYNzqw/_state/state-12.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/zNXkKojVSr2KKG3vG08ZKQ/0/_state/retention-leases-224.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/zNXkKojVSr2KKG3vG08ZKQ/0/_state/state-6.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/zNXkKojVSr2KKG3vG08ZKQ/_state/state-10.st" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/logs/elasticsearch-2024-07-30-1.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/logs/elasticsearch-2024-07-30-1.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/logs/elasticsearch-2024-07-31-1.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/logs/elasticsearch-2024-07-31-1.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/logs/elasticsearch-2024-08-01-1.json.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/logs/elasticsearch-2024-08-01-1.log.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commerce/src/etc/conn_hive.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commerce/src/etc/conn_hive2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commerce/src/nlp/linked_prediction.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commerce/src/nlp/synonym.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/non_stopword/.part-00000-ef1208f3-8212-463c-8ee9-d3b2561e2422-c000.csv.crc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/parquet/non_stopword/part-00000-ef1208f3-8212-463c-8ee9-d3b2561e2422-c000.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/derby.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/doc/img/kafka_img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/README_DO_NOT_TOUCH_FILES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/db.lck" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/dbex.lck" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/log/README_DO_NOT_TOUCH_FILES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/log/log.ctrl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/log/log1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/log/logmirror.ctrl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/README_DO_NOT_TOUCH_FILES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c10.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c101.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c111.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c121.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c130.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c141.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c150.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c161.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c171.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c180.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c191.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c1a1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c1b1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c1c0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c1d1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c1e0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c1f1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c20.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c200.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c211.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c221.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c230.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c241.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c251.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c260.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c271.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c281.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c290.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c2a1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c2b1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c2c1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c2d0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c2e1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c2f0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c300.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c31.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c311.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c321.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c331.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c340.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c351.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c361.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c371.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c380.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c391.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c3a1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c3b1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c3c0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c3d1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c3e1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c3f1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c400.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c41.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c411.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c421.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c430.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c441.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c451.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c461.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c470.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c481.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c490.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c4a1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c4b0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c4c1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c4d1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c4e1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c4f0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c501.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c51.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c510.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c521.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c530.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c541.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c550.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c561.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c570.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c581.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c590.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c5a1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c5b0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c5c1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c5d0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c5e1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c5f0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c60.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c601.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c610.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c621.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c630.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c641.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c650.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c661.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c670.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c681.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c690.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c6a1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c6b0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c6c1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c6d0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c6e1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c6f0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c701.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c71.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c711.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c721.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c731.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c741.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c751.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c761.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c771.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c781.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c791.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c7a1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c7b1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c7c1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c7d1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c7e1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c7f1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c801.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c81.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c811.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c821.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c831.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c840.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c851.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c860.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c871.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c880.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c891.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c8a0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c8b1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c8c1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c8d1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c8e1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c8f1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c90.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c901.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c911.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c920.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c931.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c941.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c951.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c961.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c971.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c980.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c991.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c9a0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c9b1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c9c0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c9d1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c9e1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/c9f0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/ca01.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/ca1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/ca11.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/cb1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/cc0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/cd1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/ce1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/seg0/cf0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/metastore_db/service.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/conf/spark-env.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/jars/HiveJDBC41.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/jars/HiveJDBC42.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/jars/hive-jdbc-2.3.9.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/jars/kyuubi-extension-spark-jdbc-dialect_2.12-1.9.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/jars/mysql-connector-j-9.0.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/logs/spark-jy_kim-org.apache.spark.sql.hive.thriftserver.HiveThriftServer2-1-jy-kimui-MacBookPro.local.out" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/derby.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/README_DO_NOT_TOUCH_FILES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/db.lck" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/dbex.lck" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/log/README_DO_NOT_TOUCH_FILES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/log/log.ctrl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/log/log1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/log/logmirror.ctrl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/README_DO_NOT_TOUCH_FILES.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c10.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c101.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c111.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c121.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c130.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c141.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c150.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c161.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c171.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c180.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c191.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c1a1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c1b1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c1c0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c1d1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c1e0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c1f1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c20.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c200.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c211.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c221.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c230.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c241.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c251.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c260.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c271.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c281.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c290.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c2a1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c2b1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c2c1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c2d0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c2e1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c2f0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c300.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c31.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c311.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c321.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c331.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c340.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c351.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c361.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c371.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c380.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c391.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c3a1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c3b1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c3c0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c3d1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c3e1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c3f1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c400.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c41.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c411.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c421.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c430.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c441.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c451.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c461.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c470.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c481.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c490.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c4a1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c4b0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c4c1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c4d1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c4e1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c4f0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c501.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c51.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c510.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c521.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c530.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c541.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c550.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c561.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c570.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c581.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c590.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c5a1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c5b0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c5c1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c5d0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c5e1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c5f0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c60.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c601.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c610.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c621.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c630.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c641.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c650.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c661.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c670.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c681.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c690.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c6a1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c6b0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c6c1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c6d0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c6e1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c6f0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c701.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c71.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c711.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c721.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c731.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c741.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c751.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c761.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c771.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c781.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c791.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c7a1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c7b1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c7c1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c7d1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c7e1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c7f1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c801.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c81.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c811.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c821.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c831.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c840.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c851.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c860.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c871.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c880.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c891.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c8a0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c8b1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c8c1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c8d1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c8e1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c8f1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c90.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c901.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c911.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c920.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c931.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c941.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c951.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c961.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c971.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c980.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c991.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c9a0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c9b1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c9c0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c9d1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c9e1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c9f0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/ca01.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/ca1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/ca11.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/cb1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/cc0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/cd1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/ce1.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/cf0.dat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/service.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../WMP/w-etl-data-plaza" beforeDir="false" afterPath="$PROJECT_DIR$/../../WMP/w-etl-data-plaza" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../cj/Airflow_DAGs" beforeDir="false" afterPath="$PROJECT_DIR$/../../cj/Airflow_DAGs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker_compose/db/mysql/data/ib_buffer_pool" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker_compose/db/mysql/data/ib_buffer_pool" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker_compose/db/mysql/data/ib_logfile0" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker_compose/db/mysql/data/ib_logfile0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../docker_compose/db/mysql/data/ibdata1" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker_compose/db/mysql/data/ibdata1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Search-API" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../commerce/.idea/test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../commerce/.idea/test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$" beforeDir="false" afterPath="$PROJECT_DIR$" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/doc/hive.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/hive.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/src/nlp/ngram.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/ngram.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/src/nlp/typo_dictionary.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/typo_dictionary.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/non_stopword/.part-00000-21843d25-bc8a-4249-9141-aa8105bd6abe-c000.csv.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/non_stopword/part-00000-21843d25-bc8a-4249-9141-aa8105bd6abe-c000.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/doc/kafka.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/kafka.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/doc/network.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/network.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/document/doc/question.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/question.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/document/doc/tez.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/tez.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/platform/install_spark.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_spark.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +656,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;history&quot;: [
@@ -77,11 +705,14 @@
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;Python.aa.executor&quot;: &quot;Run&quot;,
     &quot;Python.compound_word.executor&quot;: &quot;Run&quot;,
+    &quot;Python.conn_hive.executor&quot;: &quot;Run&quot;,
+    &quot;Python.conn_hive2.executor&quot;: &quot;Run&quot;,
     &quot;Python.cosine_similarity.executor&quot;: &quot;Run&quot;,
     &quot;Python.create_df.executor&quot;: &quot;Run&quot;,
     &quot;Python.export_es_spark_ver.executor&quot;: &quot;Run&quot;,
     &quot;Python.get_attribute.executor&quot;: &quot;Run&quot;,
     &quot;Python.integer_encoding.executor&quot;: &quot;Run&quot;,
+    &quot;Python.linked_prediction.executor&quot;: &quot;Run&quot;,
     &quot;Python.ngram.executor&quot;: &quot;Run&quot;,
     &quot;Python.nive_bayes.executor&quot;: &quot;Run&quot;,
     &quot;Python.noise_data.executor&quot;: &quot;Run&quot;,
@@ -89,6 +720,7 @@
     &quot;Python.one_hot_encoding.executor&quot;: &quot;Run&quot;,
     &quot;Python.stemming.executor&quot;: &quot;Run&quot;,
     &quot;Python.stopword.executor&quot;: &quot;Run&quot;,
+    &quot;Python.synonym.executor&quot;: &quot;Run&quot;,
     &quot;Python.test (1).executor&quot;: &quot;Run&quot;,
     &quot;Python.test.executor&quot;: &quot;Run&quot;,
     &quot;Python.tf-idf.executor&quot;: &quot;Run&quot;,
@@ -99,8 +731,8 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jy_kim/Documents/private/data-engineer/document/doc/img&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;GitLink.ProjectSettings&quot;
+    &quot;last_opened_file_path&quot;: &quot;/Users/jy_kim/Documents/private/data-engineer/commerce/src/etc&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PythonContentEntriesConfigurable&quot;
   }
 }</component>
   <component name="Push.Settings">
@@ -119,11 +751,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/commerce/src/etc" />
       <recent name="$PROJECT_DIR$/document/doc/img" />
       <recent name="$PROJECT_DIR$/document/platform/img" />
       <recent name="$PROJECT_DIR$/document/doc" />
       <recent name="$PROJECT_DIR$/jar" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/document/doc/img" />
@@ -145,8 +777,8 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Python.typo_dictionary">
-    <configuration name="export_es_spark_ver" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.linked_prediction">
+    <configuration name="conn_hive" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -159,7 +791,51 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/etc/export_es_spark_ver.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/etc/conn_hive.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="conn_hive2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/etc" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/etc/conn_hive2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="linked_prediction" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/nlp" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/linked_prediction.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -212,7 +888,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -234,57 +910,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="test" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/nlp" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="typo_dictionary" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="test" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/nlp" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/typo_dictionary.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.typo_dictionary" />
-        <item itemvalue="Python.ngram" />
-        <item itemvalue="Python.test (1)" />
+        <item itemvalue="Python.linked_prediction" />
         <item itemvalue="Python.test" />
-        <item itemvalue="Python.export_es_spark_ver" />
+        <item itemvalue="Python.ngram" />
+        <item itemvalue="Python.conn_hive" />
+        <item itemvalue="Python.conn_hive2" />
       </list>
     </recent_temporary>
   </component>
@@ -432,14 +1064,6 @@
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
       <updated>1687013639343</updated>
-    </task>
-    <task id="LOCAL-00081" summary="Change relative path">
-      <option name="closed" value="true" />
-      <created>1702339963913</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1702339963913</updated>
     </task>
     <task id="LOCAL-00082" summary="Change relative path">
       <option name="closed" value="true" />
@@ -681,7 +1305,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718640104508</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="NONE">
+      <option name="closed" value="true" />
+      <created>1724233692581</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1724233692581</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -697,7 +1329,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Study CICD" />
     <MESSAGE value="Develop load word" />
     <MESSAGE value="Develop Linked prediction with Ngram" />
     <MESSAGE value="Add Os location" />
@@ -722,7 +1353,8 @@
     <MESSAGE value="export Es index" />
     <MESSAGE value="Study Hive ACID" />
     <MESSAGE value="Study Elasticsearch" />
-    <option name="LAST_COMMIT_MESSAGE" value="Study Elasticsearch" />
+    <MESSAGE value="NONE" />
+    <option name="LAST_COMMIT_MESSAGE" value="NONE" />
   </component>
   <component name="WfRunsListSearchHistory"><![CDATA[{
   "history": [
@@ -744,6 +1376,90 @@
     },
     {
       "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "master",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "master",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "master",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "master",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "master",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "master",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "master",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "master",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "master",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "master",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "master",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "master",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "master",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "master",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "master",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "master",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "master",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "master",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "master",
       "currentBranchFilter": true
     },
     {
@@ -788,6 +1504,11 @@
           <url>file://$PROJECT_DIR$/commerce/src/nlp/typo_dictionary.py</url>
           <line>243</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/commerce/src/nlp/synonym.py</url>
+          <line>14</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
