@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="NONE">
+    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="study kafka">
       <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/-hzW6YlwRIuGqx1PT1KK3w/0/_state/retention-leases-63.st" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/5YGwnla1RISE82WV6lB2xg/0/_state/retention-leases-64.st" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/EPIctGtOTZSbpnevjHDgbg/0/_state/retention-leases-545.st" afterDir="false" />
@@ -18,18 +18,33 @@
       <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/logs/elasticsearch-2024-07-31-1.log.gz" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/logs/elasticsearch-2024-08-01-1.json.gz" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/logs/elasticsearch-2024-08-01-1.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commerce/src/etc/conn_hive.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commerce/src/etc/conn_hive2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commerce/src/nlp/linked_prediction.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commerce/src/nlp/synonym.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../kibana-8.12.1/node_modules/clone/clone.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../kibana-8.12.1/node_modules/node-cache/node_modules/clone/clone.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../kibana-8.12.1/node_modules/tinygradient/tinygradient.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/private.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Transaction/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Transaction/src/main/java/org/example/KafkaConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Transaction/src/main/java/org/example/Register.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Transaction/src/main/java/org/example/Transfer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Transaction/src/main/java/org/example/observer/PollutionSubject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Transaction/src/main/java/org/example/observer/Subject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commerce/scraping/test.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/data/parquet/non_stopword/.part-00000-ef1208f3-8212-463c-8ee9-d3b2561e2422-c000.csv.crc" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/data/parquet/non_stopword/part-00000-ef1208f3-8212-463c-8ee9-d3b2561e2422-c000.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/docker-compose.admin.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/doc/img/kafkamessage.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/doc/img/port_forwarding.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/platform/img/kafkadirectory.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/platform/img/start_zkp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/platform/img/startkafka.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/platform/install_kafka.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../projects/krihs-asso/.idea/krihs-asso.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/.idea/spark-3.5.1-bin-hadoop3.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/conf/spark-env.conf" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/jars/HiveJDBC41.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/jars/HiveJDBC42.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/jars/hive-jdbc-2.3.9.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/jars/kyuubi-extension-spark-jdbc-dialect_2.12-1.9.2.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/jars/mysql-connector-j-9.0.0.jar" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/logs/spark-jy_kim-org.apache.spark.sql.hive.thriftserver.HiveThriftServer2-1-jy-kimui-MacBookPro.local.out" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/derby.log" afterDir="false" />
@@ -213,11 +228,16 @@
       <change beforePath="$PROJECT_DIR$" beforeDir="false" afterPath="$PROJECT_DIR$" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commerce/src/nlp/ngram.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/ngram.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/parquet/non_stopword/.part-00000-21843d25-bc8a-4249-9141-aa8105bd6abe-c000.csv.crc" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/data/parquet/non_stopword/part-00000-21843d25-bc8a-4249-9141-aa8105bd6abe-c000.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/document/doc/kafka.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/kafka.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/doc/question.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/question.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/doc/kubernetes.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/kubernetes.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/doc/network.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/network.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/platform/img/img_48.png" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/img/udp_tcp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/platform/img/img_49.png" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/img/img_49.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/platform/img/img_50.png" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/img/img_50.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/platform/install_docker.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_docker.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/platform/install_mysql.txt" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_mysql.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,41 +297,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Python.aa.executor": "Run",
-    "Python.compound_word.executor": "Run",
-    "Python.conn_hive.executor": "Run",
-    "Python.conn_hive2.executor": "Run",
-    "Python.cosine_similarity.executor": "Run",
-    "Python.create_df.executor": "Run",
-    "Python.export_es_spark_ver.executor": "Run",
-    "Python.get_attribute.executor": "Run",
-    "Python.integer_encoding.executor": "Run",
-    "Python.linked_prediction.executor": "Run",
-    "Python.ngram.executor": "Run",
-    "Python.nive_bayes.executor": "Run",
-    "Python.noise_data.executor": "Run",
-    "Python.nvr_prod_cate_match.executor": "Run",
-    "Python.one_hot_encoding.executor": "Run",
-    "Python.stemming.executor": "Run",
-    "Python.stopword.executor": "Run",
-    "Python.synonym.executor": "Run",
-    "Python.test (1).executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.tf-idf.executor": "Run",
-    "Python.tf-idf_func.executor": "Run",
-    "Python.typo_dictionary.executor": "Run",
-    "Python.word2vec.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/jy_kim/Documents/private/data-engineer/commerce/src/etc",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.aa.executor&quot;: &quot;Run&quot;,
+    &quot;Python.compound_word.executor&quot;: &quot;Run&quot;,
+    &quot;Python.conn_hive.executor&quot;: &quot;Run&quot;,
+    &quot;Python.conn_hive2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.cosine_similarity.executor&quot;: &quot;Run&quot;,
+    &quot;Python.create_df.executor&quot;: &quot;Run&quot;,
+    &quot;Python.export_es_spark_ver.executor&quot;: &quot;Run&quot;,
+    &quot;Python.get_attribute.executor&quot;: &quot;Run&quot;,
+    &quot;Python.integer_encoding.executor&quot;: &quot;Run&quot;,
+    &quot;Python.linked_prediction.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ngram.executor&quot;: &quot;Run&quot;,
+    &quot;Python.nive_bayes.executor&quot;: &quot;Run&quot;,
+    &quot;Python.noise_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python.nvr_prod_cate_match.executor&quot;: &quot;Run&quot;,
+    &quot;Python.one_hot_encoding.executor&quot;: &quot;Run&quot;,
+    &quot;Python.stemming.executor&quot;: &quot;Run&quot;,
+    &quot;Python.stopword.executor&quot;: &quot;Run&quot;,
+    &quot;Python.synonym.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tf-idf.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tf-idf_func.executor&quot;: &quot;Run&quot;,
+    &quot;Python.typo_dictionary.executor&quot;: &quot;Run&quot;,
+    &quot;Python.word2vec.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jy_kim/Documents/private/data-engineer&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="Push.Settings">
     <option name="SHOW_DETAILS_PANEL" value="false" />
   </component>
@@ -328,18 +348,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/document/platform" />
       <recent name="$PROJECT_DIR$/commerce/src/etc" />
       <recent name="$PROJECT_DIR$/document/doc/img" />
       <recent name="$PROJECT_DIR$/document/platform/img" />
       <recent name="$PROJECT_DIR$/document/doc" />
-      <recent name="$PROJECT_DIR$/jar" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/document/doc/img" />
+      <recent name="$PROJECT_DIR$/document/platform/img" />
       <recent name="$PROJECT_DIR$/document/doc/img4" />
       <recent name="$PROJECT_DIR$/commerce/src/nlp" />
       <recent name="$PROJECT_DIR$/data/output" />
-      <recent name="$PROJECT_DIR$/document/platform/img" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -354,7 +374,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Python.linked_prediction">
+  <component name="RunManager" selected="Python.test (1)">
     <configuration name="conn_hive" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="ENV_FILES" value="" />
@@ -369,28 +389,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/etc/conn_hive.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="conn_hive2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="test" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/etc" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/etc/conn_hive2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -465,6 +463,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/scraping" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/scraping/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="ENV_FILES" value="" />
@@ -489,11 +509,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test (1)" />
         <item itemvalue="Python.linked_prediction" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.ngram" />
         <item itemvalue="Python.conn_hive" />
-        <item itemvalue="Python.conn_hive2" />
       </list>
     </recent_temporary>
   </component>
@@ -641,22 +661,6 @@
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
       <updated>1687013639343</updated>
-    </task>
-    <task id="LOCAL-00083" summary="Change relative path">
-      <option name="closed" value="true" />
-      <created>1702472461638</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1702472461639</updated>
-    </task>
-    <task id="LOCAL-00084" summary="Develop one hot encoding">
-      <option name="closed" value="true" />
-      <created>1702738089687</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1702738089687</updated>
     </task>
     <task id="LOCAL-00085" summary="Develop one hot encoding">
       <option name="closed" value="true" />
@@ -890,7 +894,23 @@
       <option name="project" value="LOCAL" />
       <updated>1724391132926</updated>
     </task>
-    <option name="localTasksCounter" value="114" />
+    <task id="LOCAL-00114" summary="NONE">
+      <option name="closed" value="true" />
+      <created>1724392538064</created>
+      <option name="number" value="00114" />
+      <option name="presentableId" value="LOCAL-00114" />
+      <option name="project" value="LOCAL" />
+      <updated>1724392538064</updated>
+    </task>
+    <task id="LOCAL-00115" summary="study kafka">
+      <option name="closed" value="true" />
+      <created>1724392667045</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1724392667046</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -906,7 +926,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Develop Linked prediction with Ngram" />
     <MESSAGE value="Add Os location" />
     <MESSAGE value="Develop nike scraping" />
     <MESSAGE value="Develop Linked prediction" />
@@ -931,7 +950,8 @@
     <MESSAGE value="Study Elasticsearch" />
     <MESSAGE value="NONE&#10;aa" />
     <MESSAGE value="NONE" />
-    <option name="LAST_COMMIT_MESSAGE" value="NONE" />
+    <MESSAGE value="study kafka" />
+    <option name="LAST_COMMIT_MESSAGE" value="study kafka" />
   </component>
   <component name="WfRunsListSearchHistory"><![CDATA[{
   "history": [
@@ -1045,6 +1065,26 @@
     },
     {
       "branch": "master",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "master",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
       "currentBranchFilter": true
     },
     {

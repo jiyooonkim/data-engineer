@@ -30,7 +30,7 @@
 </br></br>  
 
 
-#### Docker != Kubernetes
+#### Docker, Kubernetes
 + Docker
   + 이미지를 컨테이너(생성/실행) 기술 스택(플랫폼)
   + 어플리케이션과 환경을 독립적으로 패키징하고 실행 가능한 도구 

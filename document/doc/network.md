@@ -87,8 +87,26 @@
     + 서버와 클라이언트는 1대1, 1대N, N대M 등으로 연결 가능
     + 핸드셰이크가 없음
     + 사용예시 : 비디오 스트리밍, 실시간 서비스(streaming)에 자주 사용     
-    <img height="300" src="img/img_48.png" width="500"/>    
+    <img height="300" src="img/udp_tcp.png" width="500"/>    
 </br></br>
+
+
++ **포트 포워딩(port forwarding)**
+  + 외부에서 서버 접근시 해당 서비스로 전달해주는 것 
+    + db, web, ssh 기본 포트가 존재함 , 외부 접근시 기본 포트로 전달해주는 것 
+  + 기본 포트 예시
+    + HTTP : 80
+    + HTTPS : 443
+    + postgresql : 5432
+    + django : 8000
+    + ssh : 22 
+  + 예시 >         
+    80:8000  의미 : 외부에서 80으로 접근시 8000포트로 접속하겠다
+    <img height="300" src="img/port_forwarding.png" width="500"/>         
+  
+  
+</br></br>
+
 
 + **Cookie&Session**
   +

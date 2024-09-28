@@ -37,11 +37,21 @@
   + kafka message broker 랑 동일한 개수로 구성      예시) Node Message Broker 3대일때, Node Zookeeper도 3대 
 + Producer
   + 데이터를 브로커에 Push 역할
-  + 
+  + Zookeeper를 통해 Multi Node Message Broker의 ID를 전달 받음
+  + 전달 받은 Message Broker로 Message를 전송
 <img src = "img/kafka_img.png" width = "350" height = "140"/></br>    
 
 #### Kafka 대용량 데이터 전송 방법 & 환경설절
 + 
+
+#### Kafka Message 구조
++ key 
++ value
++ offset : Consumer가 메시지 읽을때 관리, Producer에서 직접 설정 안함 
++ Timestamp
++ Headers 
+<img src = "img/kafkamessage.png" width = "350" height = "140"/></br>    
+ 
 
 ##### 용어정리
 + 큐(QUEUE) : FIFO(선입선출, First In First Out) 구조, 

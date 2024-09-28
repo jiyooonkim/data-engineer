@@ -1,12 +1,12 @@
 ### 도커설치 
 #### Env : macbook pro14 m2(silicon), Spark version 3.4.0, Python 3.9.16, Jdk(Zulu11.64)
 #### Date : 2023-03-04 
-#### Desc : brew cask 이용하여 설치, myssql 설치
+#### Desc : Docker 설치
 ##### (** home homebrew 설치방법 : /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" )
 <br/>
 
 ## Install Flow
-1. 도커 설치 명령  
+1. 도커 설치 명령     
 ``` brew install --cask docker```  
 2. Local에서 Docker Desktop 확인 하기
 <br/>
@@ -23,9 +23,20 @@
 - 컨테이너 삭제 : docker rm [컨테이너 id]    
 <img src = "img/img_26.png" width = "450" height = "180"/>        
 
-## docker compose
-- 위치 : docker-compose.yaml 파일의 위치와 docker-compose up -d 커맨드 위치와 동일    
-- <img src = "img/img_33.png" width = "450" height = "180"/>   
+## docker-compose
++ 컨테이너 관리
++ 앱을 구성하는 서비스를 .yml file 로 정의하여 "docker-compose up"로 실행    
++ 위치 : docker-compose.yaml 파일의 위치와 docker-compose up -d 커맨드 위치와 동일        
+    <img src = "img/img_33.png" width = "450" height = "180"/>   
+
+## dockerfile
+- 이미지 빌드(띄우는 역할)  
+- 여러개의 이미지를 하나의 파일로 만들어 둔 것(이미지 모음 같은....)
+- 이미지 기능 파악 쉬움
+- 배포 용이    
+- 명령     
+  - docker build -t {image이름:tag명} .      
++ dockerfile < docker-compose
 
 
 ## Image 생성/실행
@@ -54,10 +65,11 @@
 - image : 컨테이너를 실행할 수 있는 실행파일, 설정값 가지고 있음  
 - docker-container : 도커 이미지를 실행한 상태, 단일 컴퓨터 호스트를 리소스를 가상으로 여러개 사용할 수 있도록 하는 sw  
      <img src = "img/img_25.png" width = "450" height = "180"/>  
-** 도커 이미지를 변경해도 이미 실행 중인 도커 컨테이너에는 영향 없음    
-- -하이퍼바이저(hypervisor) : 여러 os를 동시에 실행하기 위한 논리적 플랫폼, 다수의 가상 머신을 분산 시키는 역할  
+- ** 도커 이미지를 변경해도 이미 실행 중인 도커 컨테이너에는 영향 없음    
+- 하이퍼바이저(hypervisor) : 여러 os를 동시에 실행하기 위한 논리적 플랫폼, 다수의 가상 머신을 분산 시키는 역할  
 - 커널(kernel) : hw 와 sw를 연결해주는 역할 ,shell 을 통해 응용 application과 소통
-- docker-compose :
+- docker-compose : 컨테이너 관리
+- dockerfile : 이미지 빌드
 - docker-machine :
 - on premise : 온 프레미스
 - off premise : 
