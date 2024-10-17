@@ -3,16 +3,16 @@
 	  + 하둡은 정형, 반정형, 비정형 데이터   
 	  + RDBMS는 정형 데이터    
 + 스키마   
-  : 하둡 - Schema on Read   
-  : RDBMS - Schema on Write   
-  : 데이터를 읽을 때 스키마를 적용하느냐, 데이터를 적재할 때 스키마를 적용하느냐    
-  : https://goo.gl/images/dQiQCJ   
-+ 좋은 사용법    
-  : 하둡은 대용량 데이터 처리   
-  : RDBMS는 OLTP 데이터 처리나 복잡한 ACID 트랜잭션에 적용    
-+ 속도   
-  : 하둡은 쓸 때 빠르고    
-  : RDBMS는 읽을 때 빠름            
+  + 하둡 - Schema on Read   
+  + RDBMS - Schema on Write   
+  + 데이터를 읽을 때 스키마를 적용하느냐, 데이터를 적재할 때 스키마를 적용하느냐    
+  + https://goo.gl/images/dQiQCJ       
++ 좋은 사용법      
+  + 하둡은 대용량 데이터 처리     
+  + RDBMS는 OLTP 데이터 처리나 복잡한 ACID 트랜잭션에 적용      
++ 속도     
+  + 하둡은 쓸 때 빠르고    
+  + RDBMS는 읽을 때 빠름            
   </br></br>     
 
 2. 빅데이터에서 4V는 무엇을 말하나요?
