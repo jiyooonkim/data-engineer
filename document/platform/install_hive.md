@@ -117,10 +117,10 @@
         check int 
    );
     ``` 
-   2. dbeaver 접속 확인, 데이터 조회     
-    <img src = "img/hive_data.png" width = "240" height = "190"/>     
-    <img src = "img/hive_conn_info.png" width = "240" height = "200"/>   
-   3. 데이터 삽입 및 조회 
+   2. dbeaver 접속 확인, 데이터 조회         
+    <img src = "img/hive_data.png" width = "240" height = "190"/>        
+    <img src = "img/hive_conn_info.png" width = "240" height = "200"/>        
+   3. 데이터 삽입 및 조회        
         ```
         # 생성    
             INSERT INTO TABLE test_check VALUES (35, 1), (34, 2); 
