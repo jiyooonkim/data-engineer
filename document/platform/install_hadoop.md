@@ -6,19 +6,16 @@
 <br/><br/>
 
 ## Hadoop
-- 동작방식  
-- 메커니즘  
-- 사용이유  
 <br/><br/>
 
-## Hadoop Install Flow
+## Hadoop Install  
 1. hadoop 설치 : brew install hadoop    
     ** homebrew install 명령어 : /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"  
 2. 버전 및 경로확인 : brew info hadoop      
      <img src = "img/img_9.png" width = "350" height = "140"/>  
 3. jdk 설치  
 4. 환경 변수 설정      
-   4-1. 환경변수 디렉토리 이동 : cd /opt/homebrew/Cellar/hadoop/3.3.6/libexec/etc/hadoop  
+   4-1. 환경변수 디렉토리 이동 : cd /opt/homebrew/Cellar/hadoop/3.4.0/libexec/etc/hadoop  
     <img src = "img/img_10.png" width = "350" height = "140"/>    
    4-2. JAVA_HOME 추가 : vi hadoop-env.sh  >  export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home"    
    4-3. 파일설정    
@@ -72,26 +69,26 @@
      ```    
 5. ssh 확인 및 실행  
     5-1.   
-        <img src = "img/img_11.png" width = "350" height = "40"/>    
+        <img src = "img/img_11.png" width = "350" height = "40"/>      
     5-2. mac 에서 5-1 이 실행안된다면 : 환경설정 > 공유 > 원격로그인 활성   
     5-3. ssh keygen 발급  
     ```   
     ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
     cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-    chmod 0600 ~/.ssh/authorized_keys
+    chmod 0600 ~/.ssh/authorized_keys  
     ```  
 6. hadoop 실행 명령  
-   - cd /opt/homebrew/Cellar/hadoop/3.3.6/libexec/sbin    
+   - cd /opt/homebrew/Cellar/hadoop/3.4.0/libexec/sbin    
    - 실행 : ./start-all.sh  
    - 실행 확인   
      - jps     
-        <img src = "img/img_12.png" width = "350" height = "140"/>    
+        <img src = "img/img_12.png" width = "350" height = "140"/>      
      - namenode 확인 : http://localhost:9870/dfshealth.html#tab-overview    
-        <img src = "img/img_13.png" width = "350" height = "140"/>  
+        <img src = "img/img_13.png" width = "350" height = "140"/>     
      - Secondary NameNode 확인 : http://localhost:9868/status.html  
-        <img src = "img/img_15.png" width = "350" height = "140"/>  
+        <img src = "img/img_15.png" width = "350" height = "140"/>     
      - 리소스 매니저 확인 : http://localhost:8088/cluster  
-        <img src = "img/img_14.png" width = "350" height = "140"/>  
+        <img src = "img/img_14.png" width = "350" height = "140"/>     
 <br/><br/> 
 
 ## Hadoop 제어 명령어  
@@ -99,12 +96,30 @@
 - jdk 경로 확인 : cd /Library/Java/JavaVirtualMachines  
 <br/>
 
+## Hadoop with Hive
++ java8, hive3.1.3, hadoop3.4.0 버전 기준 (2024.10 기준)       
+
 
 ## NameNode(NN) 이중화    
 - NameNode 비정상 종료, 데이터노드 포멧, 서버가 내려갈 때 등 대비하고자    
   2대의 서버를 이용해 이중화로 데이터 노드 구성 [Active-Standby]   
 - Active node 에서 Stanby node 로 상태 전이  
 <br/><br/>
+
+## Hadoop 정합성 확보 전략
++ Hadoop Snapshot 생성 : Stage Area, Data wearhouse load 직전/후, data Source 등 스냅샷 생성/관리
+  + hdfs snapshot은 파일은 시스템 읽기 전용 복사본   
+  + 데이터가 복사되는 것 아님, 파일 블록 목록과 크기를 기록 
++ Count 나 집계 쿼리 사용 : 특정 컬럼의 데이터 개수, 전체 개수, 합산 집계 등을 통한 비교
++ Hdfs size check : 디렉터리 크기, 파일 사이즈, 유무 체크, checksum(체크섬)    
+<img src = "img/checksum.png" width = "350" height = "40"/>     
++ Hdfs 상태 확인 : fsck 명령 ```hdfs fsck /user/hive/warehouse/test_check```  또는 ```hdfs fsck /directory_name/```      
+<img src = "img/hadoop_fsck.png" width = "350" height = "240" alt="checksum 예시"/>        
++ hadoop replication(복제) : 복제 노드 개수 확장
+
+
+
+
 
 
 ### 용어 정리  

@@ -10,21 +10,21 @@
 3. mysql_secure_installation # setting
 4. mysql -u root -p
 5. root    # password
-6. brew services start mysql   # always running setting, 최초 설치시에는 실행 동시에 되기 때문에 안해줘도 됨
+6. brew services start mysql   # always running setting, 최초 설치시에는 실행 동시에 되기 때문에 안해줘도 됨          
 ** mysql 경로         
 ```   /opt/homebrew/Cellar/mysql/ ```     
 
 ### Mysql 명령어
 + Mysql 접속(password : root )    
- ```  mysql -u root ```    
+ ```  mysql -u root -p root ```    
 + Mysql server 종료     
  ``` brew services stop mysql ```   
 + 특정버전 설치    
  ``` brew install mysql@8.4 ```    
 + 특정버전 시작/종료     
-```brew services start mysql@8.4```    
-``` brew services stop mysql@8.4```    
-+ ```brew services start mysql ```
+```brew services start mysql@8.4```       
+``` brew services stop mysql@8.4```      
+```brew services start mysql ```     
 
 
 
