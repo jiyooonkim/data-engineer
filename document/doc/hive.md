@@ -74,7 +74,7 @@
     + 전부 null value 로만 된 컬럼 찾아 "case when"으로 공백 처리   
     ![img_37.png](..%2Fplatform%2Fimg%2Fimg_37.png)
 
-  + 문제 : hive external table에는 partitionby 존재, hivewarehouse에는 파티션단위 파일이 아닐경우 데이터가 dbeaver에서 보이지 않는다.
++ 문제 : hive external table에는 partitionby 존재, hivewarehouse에는 파티션단위 파일이 아닐경우 데이터가 dbeaver에서 보이지 않는다.
   + 환경 : apache tez, apache hdfs, apache hive   
   + 해결방법 
     1. DDL에 partitionby를 제외
@@ -86,7 +86,7 @@
   + 해결방법
     + "Analyze table temp_table;", 메타데이터가 갱신되지 않아 통계정보를 못 읽는 현상으로 Analyze 명령 통해 수동으로 통계 정보 업데이트 필요      
 
-+ 문제 :  select ccount(*) ... 개수 != select * from .. 의 전체 개수, 단순 select 시 전체 Row 개수와 count(*) 쿼리 실행시 개수가 다름    
++ 문제 :  select count(*) ... 개수 != select * from .. 의 전체 개수, 단순 select 시 전체 Row 개수와 count(*) 쿼리 실행시 개수가 다름    
   + 환경 : apache tez, apache hdfs, apache hive      
   + 해결방법
     + "ANALYZE TABLE  table_name  PARTITION(partition_name) COMPUTE STATISTICS;" 
@@ -118,16 +118,16 @@
     + 테이블 수정작업 늘수록 delta 파일 계속 쌓임, NameNode부하 (해결방안: HDFS 성능 위해 압축)
 + 트랜잭션
   + 데이터베이스 연산
-+ ACID
-  ┗ Atomicity(원자성) : 성공적인 트랜잭션 처리, 아닐 경우 미처리 
-  ┗ Consistency(일관성) : (분산된) 데이터를 일관된 상태로 전환해주는지 여부
-  ┗ Isolation(독립성) : 한꺼번에 동시에 운영되는 다른 트랜젝션과 무관하게 실행 가능한지 여부
-  ┗ Durability(지속성) : 트랜젝션 처리 후에도 결과가 그대로 유지되는지 여부
-+ Hive 트랜잭션 처리 순서
-  ① 테이블 및 파티션 데이터 기본 파일 세트에 저장
-  ② insert/update/delete 결과 델타 파일로 저장
-  ③ read 시점에 기본파일과 델타 파일 합쳐 최신 데이터 반환 
-+ 트랜잭션 가능한 Hive DDL 생성 옵션
++ ACID    
+  ┗ Atomicity(원자성) : 성공적인 트랜잭션 처리, 아닐 경우 미처리     
+  ┗ Consistency(일관성) : (분산된) 데이터를 일관된 상태로 전환해주는지 여부     
+  ┗ Isolation(독립성) : 한꺼번에 동시에 운영되는 다른 트랜젝션과 무관하게 실행 가능한지 여부     
+  ┗ Durability(지속성) : 트랜젝션 처리 후에도 결과가 그대로 유지되는지 여부     
++ Hive 트랜잭션 처리 순서    
+  ① 테이블 및 파티션 데이터 기본 파일 세트에 저장    
+  ② insert/update/delete 결과 델타 파일로 저장    
+  ③ read 시점에 기본파일과 델타 파일 합쳐 최신 데이터 반환       
++ 트랜잭션 가능한 Hive DDL 생성 옵션   
   + 예시)    
   ``` 
     CREATE TABLE test_hive_table 
@@ -168,7 +168,21 @@
   + Thrift server : Hive server, client 요청 받아 Hive Driver에 제공하는 역할 
   + JDBC Driver : Hive 와 Java 연결 역할 
   + ODBC Driver : Hive 와 ODBC 프로토콜 지원하는 역할  
-    <img height="440" src="img/img_46.png" width="350"/>    
++ Hive Services   
+  + Hive Web UI(HWI) : 인터페이스 기반 작업, Hive2.2.0 이전만 사용가능 
+  + Hive Server : 원격 클라이언트가 Hive에 연결하여 쿼리 사용 방식, 최신 버전 사용가능        
+               HiveServer1, HiveServer2 있음 
+               Beeline
+      + HiveServer1 VS HiveServer2
+        + HiveServer1
+          + Hive CLI를 사용
+          + Thrift API 사용
+        + HiveServer2
+          + Beeline 클라이언트를 사용
+          + Thrift API 외에도 JDBC와 ODBC를 통해 클라이언트와 통신 
+  + CLI : HiveServer1 하고만 통신      
+  + Hive Driver : HiveQL 파싱, 컴파일, 최적화, 실행, 관리    
+        <img height="440" src="img/img_46.png" width="350"/>    
 + Ranger : 하둡 플랫폼 전반에서 포괄적인 데이터 보안을 지원, 모니터링 및 관리하는 프레임워크     
 + Log4j : 자바 기반 로깅 유틸리티, 로깅 활성화하면 문제의 위치를 정확히 파악할 수 있음, 5단계의 로그 레벨 제공 
   + DEBUG < INFO < WARN < ERROR <  FATAL

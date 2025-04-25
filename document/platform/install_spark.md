@@ -45,18 +45,10 @@
   + 파일의 크기 : 128MB (128MB 클경우, 이 수치 만큼 쪼개서 읽음)
 + join, union, groupBy, sort, coalesce, repartition, aggregate 
 + reduce()에 해당하는 operation을 실행하기전에 물리적인 데이터의 이동이 있어야 하기 때문에 발생
-+ 
-#### <파티션의 개념 및 차이점>       
-+ partition() : 코어수에 따라 할당, 1 Core = 1 Task = 1 Partition   
-+ paritionby(column) : 디스크 데이터를 분산 할 때, 속도 향상 , write 함수      
-+ repartition(partition count, column)  : 메모리에서 데이터 분산할 때  
-+ coalesce: 디폴트는 파티션 수 감소할 때만 사용, numofpartition = true 시에는 파티는 증가도 가능  
-           데이터 개수에 따라 다르지만, 분할보다 병합 비용이 더 큼
-
-#### <coalesce() vs repartition()>
-+ coalesce는 파티션을 줄일 때 사용하고, repartition()은 파티션 수를 늘리거나 줄일 때 사용(셔플의 유/무)
-+ coalesce 는 파티션 별도 셜정필요, repartition은 파티션 디폴트 
-+ 파티션 수를 줄일 땐 coalesce(), 파티션 수를 늘릴 땐 repartition()
++ Executor : task 들이 수행, 디스크/메모리에 동작하는 곳
++ In-Memory(인메모리) : 메모리 내에서 데이터 저장, 연산 병렬 처리 하는 것, 전력 소모 낮은편
++ REPL : Read Eval Print Loop 
++ master 인스턴스
 
 #### Skew
 + 데이터 편향 현상, 고르게 파티션 별로 분배 되지 못할 떄 발생 
@@ -116,8 +108,16 @@
   - Array String : 그냥 list 형태 인듯...
   - Array Type : 동일한 타입의 데이터로만 이루어짐   
 
+#### <파티션의 개념 및 차이점>       
++ partition() : 코어수에 따라 할당, 1 Core = 1 Task = 1 Partition   
++ paritionby(column) : 디스크 데이터를 분산 할 때, 속도 향상 , write 함수      
++ repartition(partition count, column)  : 메모리에서 데이터 분산할 때  
++ coalesce: 디폴트는 파티션 수 감소할 때만 사용, numofpartition = true 시에는 파티는 증가도 가능  
+           데이터 개수에 따라 다르지만, 분할보다 병합 비용이 더 큼
 
-- Executor : task 들이 수행, 디스크/메모리에 동작하는 곳
-- In-Memory(인메모리) : 메모리 내에서 데이터 저장, 연산 병렬 처리 하는 것, 전력 소모 낮은편
-- REPL : Read Eval Print Loop 
-- master 인스턴스
+#### <coalesce() vs repartition()>
++ coalesce는 파티션을 줄일 때 사용하고, repartition()은 파티션 수를 늘리거나 줄일 때 사용(셔플의 유/무)
++ coalesce 는 파티션 별도 셜정필요, repartition은 파티션 디폴트 
++ 파티션 수를 줄일 땐 coalesce(), 파티션 수를 늘릴 땐 repartition()
+
+

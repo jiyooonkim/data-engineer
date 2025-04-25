@@ -55,6 +55,7 @@ if __name__ == "__main__":
                 F.col('prod_nm_token') != ""
             ).repartition(500, F.col('prod_nm_token'))\
         .alias('ori_df')
+    ori_df.coalesce(20).write.format("parquet").mode("overwrite").save("hdfs://localhost:9000/ori_df/")
 
     # ori_df = ori_df.withColumn(
     #                                 "morpheme",

@@ -137,6 +137,10 @@ airflow scheduler -D
 - docker-compose stop [특정 서비스이름] : 특정 서비스 컨테이너를 종료하기 위해 
 
 
+#### Airflow tunning
+https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html
+
+
 #### 용어 정리  
 - webserver : 웹 UI 제공 역할
 - schedule : excutor 에게 task 제공 역할

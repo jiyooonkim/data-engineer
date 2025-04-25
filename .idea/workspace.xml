@@ -5,239 +5,58 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="study kafka">
-      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/-hzW6YlwRIuGqx1PT1KK3w/0/_state/retention-leases-63.st" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/5YGwnla1RISE82WV6lB2xg/0/_state/retention-leases-64.st" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/EPIctGtOTZSbpnevjHDgbg/0/_state/retention-leases-545.st" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/MSmUA9MfRJ6w26ZBWsdYYw/0/_state/retention-leases-50.st" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/NJMwXgWNQQmVRN4E21W6vQ/0/_state/retention-leases-545.st" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/hYWC_XurSMi_44VnpZiT2g/0/_state/retention-leases-23.st" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/data/indices/kAeq5r94TrCZFCr15yXk3A/0/_state/retention-leases-545.st" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/logs/elasticsearch-2024-07-30-1.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/logs/elasticsearch-2024-07-30-1.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/logs/elasticsearch-2024-07-31-1.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/logs/elasticsearch-2024-07-31-1.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/logs/elasticsearch-2024-08-01-1.json.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../elasticsearch-8.12.1/logs/elasticsearch-2024-08-01-1.log.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../kibana-8.12.1/node_modules/clone/clone.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../kibana-8.12.1/node_modules/node-cache/node_modules/clone/clone.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../kibana-8.12.1/node_modules/tinygradient/tinygradient.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/private.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Transaction/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Transaction/src/main/java/org/example/KafkaConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Transaction/src/main/java/org/example/Register.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Transaction/src/main/java/org/example/Transfer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Transaction/src/main/java/org/example/observer/PollutionSubject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Transaction/src/main/java/org/example/observer/Subject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/commerce/scraping/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/non_stopword/.part-00000-ef1208f3-8212-463c-8ee9-d3b2561e2422-c000.csv.crc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/parquet/non_stopword/part-00000-ef1208f3-8212-463c-8ee9-d3b2561e2422-c000.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose.admin.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document/doc/img/kafkamessage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document/doc/img/port_forwarding.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document/platform/img/kafkadirectory.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document/platform/img/start_zkp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document/platform/img/startkafka.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document/platform/install_kafka.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../projects/krihs-asso/.idea/krihs-asso.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/.idea/spark-3.5.1-bin-hadoop3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/conf/spark-env.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/jars/HiveJDBC41.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/jars/HiveJDBC42.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/jars/mysql-connector-j-9.0.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/logs/spark-jy_kim-org.apache.spark.sql.hive.thriftserver.HiveThriftServer2-1-jy-kimui-MacBookPro.local.out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/derby.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/README_DO_NOT_TOUCH_FILES.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/db.lck" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/dbex.lck" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/log/README_DO_NOT_TOUCH_FILES.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/log/log.ctrl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/log/log1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/log/logmirror.ctrl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/README_DO_NOT_TOUCH_FILES.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c10.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c101.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c111.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c121.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c130.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c141.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c150.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c161.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c171.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c180.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c191.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c1a1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c1b1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c1c0.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c1d1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c1e0.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c1f1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c20.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c200.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c211.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c221.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c230.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c241.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c251.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c260.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c271.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c281.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c290.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c2a1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c2b1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c2c1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c2d0.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c2e1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c2f0.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c300.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c31.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c311.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c321.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c331.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c340.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c351.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c361.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c371.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c380.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c391.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c3a1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c3b1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c3c0.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c3d1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c3e1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c3f1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c400.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c41.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c411.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c421.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c430.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c441.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c451.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c461.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c470.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c481.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c490.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c4a1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c4b0.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c4c1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c4d1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c4e1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c4f0.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c501.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c51.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c510.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c521.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c530.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c541.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c550.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c561.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c570.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c581.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c590.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c5a1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c5b0.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c5c1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c5d0.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c5e1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c5f0.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c60.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c601.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c610.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c621.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c630.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c641.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c650.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c661.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c670.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c681.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c690.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c6a1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c6b0.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c6c1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c6d0.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c6e1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c6f0.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c701.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c71.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c711.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c721.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c731.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c741.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c751.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c761.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c771.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c781.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c791.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c7a1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c7b1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c7c1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c7d1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c7e1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c7f1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c801.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c81.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c811.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c821.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c831.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c840.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c851.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c860.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c871.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c880.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c891.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c8a0.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c8b1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c8c1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c8d1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c8e1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c8f1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c90.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c901.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c911.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c920.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c931.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c941.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c951.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c961.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c971.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c980.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c991.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c9a0.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c9b1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c9c0.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c9d1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c9e1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/c9f0.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/ca01.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/ca1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/ca11.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/cb1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/cc0.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/cd1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/ce1.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/seg0/cf0.dat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../spark-3.5.1-bin-hadoop3/sbin/metastore_db/service.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../WMP/w-etl-data-plaza" beforeDir="false" afterPath="$PROJECT_DIR$/../../WMP/w-etl-data-plaza" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../cj/Airflow_DAGs" beforeDir="false" afterPath="$PROJECT_DIR$/../../cj/Airflow_DAGs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docker_compose/db/mysql/data/ib_buffer_pool" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker_compose/db/mysql/data/ib_buffer_pool" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docker_compose/db/mysql/data/ib_logfile0" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker_compose/db/mysql/data/ib_logfile0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../docker_compose/db/mysql/data/ibdata1" beforeDir="false" afterPath="$PROJECT_DIR$/../../docker_compose/db/mysql/data/ibdata1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Search-API" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../commerce/.idea/test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../commerce/.idea/test.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$" beforeDir="false" afterPath="$PROJECT_DIR$" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/commerce/src/etc/spark_sample.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/doc/delta.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/platform/img/docker_superset.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/platform/img/superset_main.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/non_stopword/.part-00000-21843d25-bc8a-4249-9141-aa8105bd6abe-c000.csv.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/parquet/non_stopword/part-00000-21843d25-bc8a-4249-9141-aa8105bd6abe-c000.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/doc/kafka.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/kafka.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/doc/kubernetes.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/kubernetes.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/doc/network.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/network.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/platform/img/img_48.png" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/img/udp_tcp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/platform/img/img_49.png" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/img/img_49.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/platform/img/img_50.png" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/img/img_50.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/platform/install_docker.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_docker.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/platform/install_mysql.txt" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_mysql.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/src/product/nvr_prod_cate_match.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/product/nvr_prod_cate_match.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/.part-00000-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/.part-00001-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/.part-00002-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/.part-00003-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/.part-00004-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/.part-00005-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/.part-00006-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/.part-00007-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/.part-00008-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/.part-00009-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/.part-00010-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/.part-00011-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/.part-00012-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/.part-00013-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/.part-00014-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/.part-00015-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/.part-00016-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/.part-00017-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/.part-00018-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/.part-00019-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/part-00000-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/part-00001-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/part-00002-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/part-00003-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/part-00004-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/part-00005-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/part-00006-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/part-00007-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/part-00008-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/part-00009-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/part-00010-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/part-00011-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/part-00012-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/part-00013-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/part-00014-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/part-00015-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/part-00016-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/part-00017-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/part-00018-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/parquet/prod2/part-00019-ac4d244c-7228-427b-a49e-ad21ae03260d-c000.snappy.parquet" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/Q&amp;A.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/Q&amp;A.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/doc/hive.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/hive.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/platform/install_airflow.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_airflow.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/platform/install_hive.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_hive.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/platform/install_spark.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_spark.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/platform/install_superset.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_superset.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -309,12 +128,14 @@
     &quot;Python.export_es_spark_ver.executor&quot;: &quot;Run&quot;,
     &quot;Python.get_attribute.executor&quot;: &quot;Run&quot;,
     &quot;Python.integer_encoding.executor&quot;: &quot;Run&quot;,
+    &quot;Python.jaccard_similarity.executor&quot;: &quot;Run&quot;,
     &quot;Python.linked_prediction.executor&quot;: &quot;Run&quot;,
     &quot;Python.ngram.executor&quot;: &quot;Run&quot;,
     &quot;Python.nive_bayes.executor&quot;: &quot;Run&quot;,
     &quot;Python.noise_data.executor&quot;: &quot;Run&quot;,
     &quot;Python.nvr_prod_cate_match.executor&quot;: &quot;Run&quot;,
     &quot;Python.one_hot_encoding.executor&quot;: &quot;Run&quot;,
+    &quot;Python.spark_sample.executor&quot;: &quot;Run&quot;,
     &quot;Python.stemming.executor&quot;: &quot;Run&quot;,
     &quot;Python.stopword.executor&quot;: &quot;Run&quot;,
     &quot;Python.synonym.executor&quot;: &quot;Run&quot;,
@@ -328,7 +149,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jy_kim/Documents/private/data-engineer&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jy_kim/Documents/private/jiyooonkim/data-engineer/commerce/src/etc&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
 }</component>
@@ -348,8 +169,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/document/platform" />
       <recent name="$PROJECT_DIR$/commerce/src/etc" />
+      <recent name="$PROJECT_DIR$/document/platform" />
       <recent name="$PROJECT_DIR$/document/doc/img" />
       <recent name="$PROJECT_DIR$/document/platform/img" />
       <recent name="$PROJECT_DIR$/document/doc" />
@@ -374,8 +195,8 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test (1)">
-    <configuration name="conn_hive" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.spark_sample">
+    <configuration name="jaccard_similarity" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -384,11 +205,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/etc" />
+      <option name="SDK_NAME" value="$USER_HOME$/anaconda3 (2)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/nlp" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/etc/conn_hive.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/jaccard_similarity.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -428,6 +250,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.9 (airflow-dags)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -441,7 +264,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ngram" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="nvr_prod_cate_match" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -450,11 +273,33 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/nlp" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/product" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/ngram.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/product/nvr_prod_cate_match.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="spark_sample" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/etc" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/etc/spark_sample.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -485,42 +330,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="test" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/etc" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/etc/test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.spark_sample" />
+      <item itemvalue="Python.nvr_prod_cate_match" />
+      <item itemvalue="Python.jaccard_similarity" />
+      <item itemvalue="Python.linked_prediction" />
+      <item itemvalue="Python.test (1)" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.spark_sample" />
+        <item itemvalue="Python.nvr_prod_cate_match" />
+        <item itemvalue="Python.jaccard_similarity" />
         <item itemvalue="Python.test (1)" />
         <item itemvalue="Python.linked_prediction" />
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.ngram" />
-        <item itemvalue="Python.conn_hive" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-7a29c1521ef0-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.11799.298" />
+        <option value="bundled-python-sdk-c69650fc56ca-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.15619.17" />
       </set>
     </attachedChunks>
   </component>
@@ -953,150 +784,246 @@
     <MESSAGE value="study kafka" />
     <option name="LAST_COMMIT_MESSAGE" value="study kafka" />
   </component>
-  <component name="WfRunsListSearchHistory">{
-  &quot;history&quot;: [
+  <component name="WfRunsListSearchHistory"><![CDATA[{
+  "history": [
     {
-      &quot;branch&quot;: &quot;main&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "main",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;main&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "main",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;main&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "main",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;main&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "main",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;main&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "main",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;main&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "main",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;main&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "main",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "master",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "master",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "master",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "master",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "master",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "master",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "master",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "master",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "master",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "master",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "master",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "master",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "master",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "master",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "master",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "master",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "master",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "master",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "master",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;main&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "main",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "master",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;main&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "main",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "master",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;main&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "main",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;main&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "main",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;main&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "main",
+      "currentBranchFilter": true
     },
     {
-      &quot;branch&quot;: &quot;main&quot;,
-      &quot;currentBranchFilter&quot;: true
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
     }
   ],
-  &quot;lastFilter&quot;: {
-    &quot;branch&quot;: &quot;main&quot;,
-    &quot;currentBranchFilter&quot;: true
+  "lastFilter": {
+    "branch": "main",
+    "currentBranchFilter": true
   }
-}</component>
+}]]></component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>

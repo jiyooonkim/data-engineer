@@ -101,8 +101,8 @@
         cd /Users/jy_kim/Documents/apache-hive-3.1.3
         ./bin/schematool -dbType mysql -initSchema
     ``` 
-   <img src = "img/hive_mysql_conn.png" width = "140" height = "340"/>                    
-   hive 연결           
+   <img src = "img/hive_mysql_conn.png" width = "140" height = "340"/>
++ hive 연결              
     ```
         cd /Users/jy_kim/Documents/apache-hive-3.1.3
         ./bin/hive --service hiveserver2        # hive 조회 
@@ -112,14 +112,14 @@
    1. 테이블 생성    
    ```
     # 생성
-   create table test_check(
+   create table test_check3(
         test int,
         check int 
    );
     ``` 
    2. dbeaver 접속 확인, 데이터 조회         
-    <img src = "img/hive_data.png" width = "240" height = "190"/>        
-    <img src = "img/hive_conn_info.png" width = "240" height = "200"/>        
+    <img src = "img/hive_data.png" width = "400" height = "400"/>        
+    <img src = "img/hive_conn_info.png" width = "400" height = "400"/>        
    3. 데이터 삽입 및 조회        
         ```
         # 생성    
@@ -134,7 +134,7 @@
  
 
 ## Hadoop 제어 명령어  
-- 네임노드 포멧 : hadoop namenode -format ([hadoop java.net.connectexception:연결이 거부됨] 에러 발생시 해결방법)
+- 네임노드 포멧 : hadoop namenode -format ([hadoop java.net.co./bin/schematool -dbType mysql -initSchemannectexception:연결이 거부됨] 에러 발생시 해결방법)
 - jdk 경로 확인 : cd /Library/Java/JavaVirtualMachines  
 <br/>
 
@@ -158,8 +158,29 @@
     + 발생 현상 : hadoop 3.4.0 과 hive3.1.3 문제 
     + 해결방안 :  hadoop Downgrade 3.3.4
     + 출처 : https://lygon55555.medium.com/hive-%EC%8B%A4%ED%96%89%EC%9D%B4-%EC%95%88-%EB%90%A0-%EB%95%8C-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95-6e4bfbb3dcd9
-<br/><br/>
 
++ 문제 : spark 으로 partitionby().write().parquet() 이 hive external table 에서 데이터 조회 안되는 현상    
+  + 해결방안 : 기본적으로 Spark는 하위 디렉토리가 포함된 경우 테이블 데이터 못 읽음
+    +  ```hive> set mapred.input.dir.recursive=true; hive> set hive.mapred.supports.subdirectories=true; ```
+    +  ``` 
+        # java spark 경우, 옵션 활성화 
+        builder.config("hive.mapred.supports.subdirectories", "TRUE");
+        builder.config("mapred.input.dir.recursive", "TRUE"); 
+       ```
+    + ``` 
+        # pyspark 경우, 옵션 활성화 
+        .config("hive.mapred.supports.subdirectories", "TRUE")
+        .config("mapred.input.dir.recursive", "TRUE")
+       ```
+    + ```hive-site.xml``` 에서 매개변수 활성화 방법 
+  + 출처 
+    + https://community.cloudera.com/t5/Community-Articles/Spark-to-read-the-Hive-table-sub-directory-data/ta-p/350844
+    + https://stackoverflow.com/questions/51497816/hive-external-tables-not-able-to-see-partitioned-parquet-files
 
+<br/><br/> 
 
 ### 용어 정리
+
+
+
+
