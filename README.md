@@ -14,7 +14,7 @@ Developers with the ability to create good data in big databases.
   + Explore stable platform construction and operation (Hadoop, Python, Spark, Hive, etc.)
   + Develop data for search purposes (including recommendations)
 
-### Technical Skills
+### Technical Skills & Analysis Experience
 + Natural Language Processing (NLP)
   + Build attribute dictionaries (e.g., for units and measurements)
   + Extract internal keywords for search (inner keywords)
