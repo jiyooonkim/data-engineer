@@ -4,7 +4,7 @@
 Developers with the ability to create good data in big databases.
 
 - main skill : hadoop, pyspark, python, shell, hive, ElasticSearch
-- version : python3.9, pyspark3.3.2, hadoop3.3.4, (airflow, jenkins)
+- version : python3.9, pyspark3.5.1, hadoop3.3.4, (airflow, jenkins)
 
 ### Purpose and Direction
 + Generate high-quality foundational (training) data (by Data Engineering)
