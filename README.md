@@ -1,4 +1,4 @@
-## Build shopping dictionary and data engineering Project
+## Build search dictionary and data engineering Project
 
 ### Good basic data brings good results!!
 Developers with the ability to create good data in big databases.
