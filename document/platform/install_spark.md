@@ -1,9 +1,9 @@
-### spark (설치)
+### Apache Spark (설치)
 #### Env : macbook pro14 m2(silicon)
-#### Date : 2023-02-04
+#### 2023-02-04
 #### Desc : Spark version 3.4.0, Python 3.9.16, Jdk(Zulu11.64)  
-
-## spark
+#### Collateral : [Spark](/../doc/spark.md)
+### spark
 - 대규모 데이터 처리 통합 분산 엔진  
 - 다양한 언어와 함께 사용가능
 - 인메모리 아키텍처
@@ -74,7 +74,7 @@
   + disk : spill 이후 디스크에서 직렬화될 때
 
 
-#### <transformation vs action>  
+#### <transformation vs action>
   - transformation : query plan만 만들고 실제로 메모리에 올리지는 않음   
     ex) map, filter, distinct, union, reprtition, group by, intersection
   - action : 메모리 올려서 동작, Transformation을 실행, action의 return타입은 RDD에서 다른 타입   

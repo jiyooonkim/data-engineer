@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Create eng read me">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Fix kor readme">
+      <change afterPath="$PROJECT_DIR$/document/doc/img/hive_qry_working.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/doc/img/img_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/document/doc/spark.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jar/mysql-connector-j-9.3.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/csv-editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README_KOR.md" beforeDir="false" afterPath="$PROJECT_DIR$/README_KOR.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/spark_connect/conn_mysql.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/spark_connect/conn_mysql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/spark_connect/conn_ncp.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/spark_connect/conn_ncp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/commerce/src/nlp/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/commerce/src/nlp/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/Q&amp;A.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/Q&amp;A.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/doc/hive.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/hive.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/doc/question.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/question.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/platform/install_spark.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/platform/install_spark.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +84,7 @@
     "Python.compound_word.executor": "Run",
     "Python.conn_hive.executor": "Run",
     "Python.conn_hive2.executor": "Run",
+    "Python.conn_mysql.executor": "Run",
     "Python.cosine_similarity.executor": "Run",
     "Python.create_df.executor": "Run",
     "Python.export_es_spark_ver.executor": "Run",
@@ -101,8 +111,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/jy_kim/Documents/private/jiyooonkim/data-engineer",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+    "last_opened_file_path": "/Users/jy_kim/Documents/private/jiyooonkim/data-engineer/jar",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
   }
 }]]></component>
   <component name="Push.Settings">
@@ -121,18 +131,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/jar" />
       <recent name="$PROJECT_DIR$/commerce/src/etc" />
       <recent name="$PROJECT_DIR$/document/platform" />
       <recent name="$PROJECT_DIR$/document/doc/img" />
       <recent name="$PROJECT_DIR$/document/platform/img" />
-      <recent name="$PROJECT_DIR$/document/doc" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/document/doc" />
       <recent name="$PROJECT_DIR$/document/doc/img" />
       <recent name="$PROJECT_DIR$/document/platform/img" />
       <recent name="$PROJECT_DIR$/document/doc/img4" />
       <recent name="$PROJECT_DIR$/commerce/src/nlp" />
-      <recent name="$PROJECT_DIR$/data/output" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -147,7 +157,29 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Python.spark_sample">
+  <component name="RunManager" selected="Python.conn_mysql">
+    <configuration name="conn_mysql" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/spark_connect" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/spark_connect/conn_mysql.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="jaccard_similarity" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="ENV_FILES" value="" />
@@ -163,28 +195,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/jaccard_similarity.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="linked_prediction" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="test" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/nlp" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/linked_prediction.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -260,7 +270,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -269,11 +279,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/scraping" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/nlp" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/scraping/test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -284,19 +294,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.main" />
+      <item itemvalue="Python.conn_mysql" />
+      <item itemvalue="Python.test" />
       <item itemvalue="Python.jaccard_similarity" />
-      <item itemvalue="Python.linked_prediction" />
       <item itemvalue="Python.nvr_prod_cate_match" />
       <item itemvalue="Python.spark_sample" />
-      <item itemvalue="Python.test (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.conn_mysql" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.spark_sample" />
         <item itemvalue="Python.nvr_prod_cate_match" />
         <item itemvalue="Python.jaccard_similarity" />
-        <item itemvalue="Python.test (1)" />
-        <item itemvalue="Python.linked_prediction" />
       </list>
     </recent_temporary>
   </component>
@@ -444,22 +454,6 @@
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
       <updated>1687013639343</updated>
-    </task>
-    <task id="LOCAL-00087" summary="Develop one hot encoding">
-      <option name="closed" value="true" />
-      <created>1702738411370</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1702738411370</updated>
-    </task>
-    <task id="LOCAL-00088" summary="get measure data">
-      <option name="closed" value="true" />
-      <created>1702738918373</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1702738918373</updated>
     </task>
     <task id="LOCAL-00089" summary="get attribute data">
       <option name="closed" value="true" />
@@ -693,7 +687,23 @@
       <option name="project" value="LOCAL" />
       <updated>1746425019541</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="Fix kor readme">
+      <option name="closed" value="true" />
+      <created>1746425856740</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1746425856740</updated>
+    </task>
+    <task id="LOCAL-00119" summary="Fix kor readme">
+      <option name="closed" value="true" />
+      <created>1746426138046</created>
+      <option name="number" value="00119" />
+      <option name="presentableId" value="LOCAL-00119" />
+      <option name="project" value="LOCAL" />
+      <updated>1746426138046</updated>
+    </task>
+    <option name="localTasksCounter" value="120" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -712,7 +722,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/../.." />
     </ignored-roots>
-    <MESSAGE value="Develop Linked prediction" />
     <MESSAGE value="Develop ML" />
     <MESSAGE value="Develop Stopword" />
     <MESSAGE value="Develop stemming, running spark" />
@@ -737,7 +746,8 @@
     <MESSAGE value="study kafka" />
     <MESSAGE value="study hive" />
     <MESSAGE value="Create eng read me" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create eng read me" />
+    <MESSAGE value="Fix kor readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix kor readme" />
   </component>
   <component name="WfRunsListSearchHistory"><![CDATA[{
   "history": [
@@ -859,6 +869,26 @@
     },
     {
       "branch": "master",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
+      "currentBranchFilter": true
+    },
+    {
+      "branch": "main",
       "currentBranchFilter": true
     },
     {

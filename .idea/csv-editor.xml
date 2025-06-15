@@ -52,6 +52,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/data/txt/similarity/part-00000-3bdbea0d-650d-4673-ae6a-61a61e127c92-c000.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>

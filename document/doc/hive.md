@@ -149,7 +149,26 @@
     hive.exec.dynamic.partition.mode = nonstrict (for hive-server2, client)  
   ``` 
 
-
+##### hive 쿼리 동작과정
+![../img/hive_qry_working.png](../img/hive_qry_working.png)    
+1. Execute Query 
+- 사용자가 Hive web이나 커맨드라인을 통해 하이브 데이터베이스로 쿼리를 날린다. (데이터베이스와의 연결은 JDBC같은 아무런 드라이버나 사용해도 된다.)
+2. Get Plan
+-  드라이버는 컴파일러에게 쿼리 플랜을 요청한다. 쿼리 컴파일러는 쿼리를 받아서 쿼리를 어떻게 처리할 것인지 쿼리 플랜을 작성한다. 
+3.4. Get Metadata
+- 쿼리 컴파일러는 Metastore로부터 쿼리를 처리하는데 필요한 메타정보를 받는다. 
+5. Send Plan
+- 컴파일러는 쿼리 플랜을 작성해서 드라이버에게 전달한다. 
+6. Execute Plan
+- 드라이버는 Execution Engine에게 쿼리 플랜을 전달한다. 
+7. Execute Job
+- 이제부터는 쿼리가 내부적으로 맵리듀스 잡으로 변환되어 실행된다. Execution Engine은 네임노드에 있는 JobTracker에게 잡을 전달한다. 그리고 JobTracker는 데이터 노드에 있는 TaskTracker에게 잡을 임명한다. 
+8. Fetch Result
+- Execution Engine은 맵 리듀스 처리 결과를 데이터노드로부터 받는다. 
+9. Send Results
+- Execution Engine은 드라이버에게 데이터노드로 부터 받은 결과들을 전달한다.
+10. Send Results
+- 드라이버는 하이브 인터페이스에게 결과들을 전달한다.
 
 
 ##### 용어정리
