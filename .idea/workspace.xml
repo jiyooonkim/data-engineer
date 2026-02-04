@@ -4,17 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Fix kor readme">
-      <change afterPath="$PROJECT_DIR$/document/doc/iceberg.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/document/doc/img/img_4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="9efd5dd2-7416-4a9a-bcb0-40dc26f62434" name="Changes" comment="Add Iceberg doc">
+      <change afterPath="$PROJECT_DIR$/commerce/src/etc/test2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/document/doc/delta.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/delta.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/document/doc/iceberg.md" beforeDir="false" afterPath="$PROJECT_DIR$/document/doc/iceberg.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="1406" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -52,6 +53,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="ProjectErrors" />
     <option name="showPreview" value="true" />
@@ -60,52 +65,54 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2LwfIxfcPrRMYXeiGUYmzvTT17c" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Python.aa.executor&quot;: &quot;Run&quot;,
-    &quot;Python.compound_word.executor&quot;: &quot;Run&quot;,
-    &quot;Python.conn_hive.executor&quot;: &quot;Run&quot;,
-    &quot;Python.conn_hive2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.conn_mysql.executor&quot;: &quot;Run&quot;,
-    &quot;Python.cosine_similarity.executor&quot;: &quot;Run&quot;,
-    &quot;Python.create_df.executor&quot;: &quot;Run&quot;,
-    &quot;Python.export_es_spark_ver.executor&quot;: &quot;Run&quot;,
-    &quot;Python.get_attribute.executor&quot;: &quot;Run&quot;,
-    &quot;Python.integer_encoding.executor&quot;: &quot;Run&quot;,
-    &quot;Python.jaccard_similarity.executor&quot;: &quot;Run&quot;,
-    &quot;Python.linked_prediction.executor&quot;: &quot;Run&quot;,
-    &quot;Python.ngram.executor&quot;: &quot;Run&quot;,
-    &quot;Python.nive_bayes.executor&quot;: &quot;Run&quot;,
-    &quot;Python.noise_data.executor&quot;: &quot;Run&quot;,
-    &quot;Python.nvr_prod_cate_match.executor&quot;: &quot;Run&quot;,
-    &quot;Python.one_hot_encoding.executor&quot;: &quot;Run&quot;,
-    &quot;Python.spark_sample.executor&quot;: &quot;Run&quot;,
-    &quot;Python.stemming.executor&quot;: &quot;Run&quot;,
-    &quot;Python.stopword.executor&quot;: &quot;Run&quot;,
-    &quot;Python.synonym.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tf-idf.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tf-idf_func.executor&quot;: &quot;Run&quot;,
-    &quot;Python.typo_dictionary.executor&quot;: &quot;Run&quot;,
-    &quot;Python.word2vec.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/jykim/Documents/private/data-engineer&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.aa.executor": "Run",
+    "Python.compound_word.executor": "Run",
+    "Python.conn_hive.executor": "Run",
+    "Python.conn_hive2.executor": "Run",
+    "Python.conn_mysql.executor": "Run",
+    "Python.cosine_similarity.executor": "Run",
+    "Python.create_df.executor": "Run",
+    "Python.export_es_spark_ver.executor": "Run",
+    "Python.get_attribute.executor": "Run",
+    "Python.integer_encoding.executor": "Run",
+    "Python.jaccard_similarity.executor": "Run",
+    "Python.linked_prediction.executor": "Run",
+    "Python.ngram.executor": "Run",
+    "Python.nive_bayes.executor": "Run",
+    "Python.noise_data.executor": "Run",
+    "Python.nvr_prod_cate_match.executor": "Run",
+    "Python.one_hot_encoding.executor": "Run",
+    "Python.spark_sample.executor": "Run",
+    "Python.stemming.executor": "Run",
+    "Python.stopword.executor": "Run",
+    "Python.synonym.executor": "Run",
+    "Python.test (1).executor": "Run",
+    "Python.test.executor": "Run",
+    "Python.test2.executor": "Run",
+    "Python.tf-idf.executor": "Run",
+    "Python.tf-idf_func.executor": "Run",
+    "Python.typo_dictionary.executor": "Run",
+    "Python.word2vec.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/jykim/Documents/private/data-engineer",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
-}</component>
+}]]></component>
   <component name="Push.Settings">
     <option name="SHOW_DETAILS_PANEL" value="false" />
   </component>
@@ -148,7 +155,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Python.conn_mysql">
+  <component name="RunManager" selected="Python.test2">
     <configuration name="conn_mysql" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="test" />
       <option name="ENV_FILES" value="" />
@@ -162,29 +169,8 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/spark_connect/conn_mysql.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="jaccard_similarity" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="test" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/nlp" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/jaccard_similarity.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -206,6 +192,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -228,6 +215,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/product/nvr_prod_cate_match.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -250,6 +238,7 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/etc/spark_sample.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
@@ -272,7 +261,31 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/nlp/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="test" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/commerce/src/etc" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/commerce/src/etc/test2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -283,26 +296,26 @@
     </configuration>
     <list>
       <item itemvalue="Python.main" />
+      <item itemvalue="Python.test2" />
       <item itemvalue="Python.conn_mysql" />
       <item itemvalue="Python.test" />
-      <item itemvalue="Python.jaccard_similarity" />
       <item itemvalue="Python.nvr_prod_cate_match" />
       <item itemvalue="Python.spark_sample" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test2" />
         <item itemvalue="Python.conn_mysql" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.spark_sample" />
         <item itemvalue="Python.nvr_prod_cate_match" />
-        <item itemvalue="Python.jaccard_similarity" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-f78a9d071105-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.26574.90" />
+        <option value="bundled-python-sdk-4762d8aabb82-6d6dccd035ac-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-253.30387.173" />
       </set>
     </attachedChunks>
   </component>
@@ -443,14 +456,6 @@
       <option name="presentableId" value="LOCAL-00018" />
       <option name="project" value="LOCAL" />
       <updated>1687013639343</updated>
-    </task>
-    <task id="LOCAL-00089" summary="get attribute data">
-      <option name="closed" value="true" />
-      <created>1702739226039</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1702739226039</updated>
     </task>
     <task id="LOCAL-00090" summary="develop one hot encoding">
       <option name="closed" value="true" />
@@ -692,7 +697,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746426138046</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="Add Iceberg doc">
+      <option name="closed" value="true" />
+      <created>1759916686353</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1759916686353</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -711,7 +724,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/../.." />
     </ignored-roots>
-    <MESSAGE value="Develop ML" />
     <MESSAGE value="Develop Stopword" />
     <MESSAGE value="Develop stemming, running spark" />
     <MESSAGE value="studying spark" />
@@ -736,7 +748,8 @@
     <MESSAGE value="study hive" />
     <MESSAGE value="Create eng read me" />
     <MESSAGE value="Fix kor readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix kor readme" />
+    <MESSAGE value="Add Iceberg doc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Iceberg doc" />
   </component>
   <component name="WfRunsListSearchHistory">{
   &quot;history&quot;: [

@@ -152,7 +152,6 @@ Iceberg는 field "id" 기준으로 추적하고 메타데이터 관리함
 
 
 
-
 **Q. snapshot 관리는 어떻게 하셨나요?**     
 A. 
 
