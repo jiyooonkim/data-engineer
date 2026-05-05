@@ -1,72 +1,73 @@
-###  CI/CD 구축
-#### env : macbook pro14 m2(silicon)
-#### date : 2023-05-31 ~ 2023-06-04
-#### desc : jenkins 설치 github repository 와 연동, jenkins 이용하여 git (add, commit ,push) build 기능
-#### reference : https://medium.com/eum-tech-lab/github-webhooks%EC%97%90%EC%84%9C-localhost%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%A0-%EC%88%98-%EC%97%86%EB%8A%94-%EC%9D%B4%EC%9C%A0-9c0d2aecf118
-<img src = "img/img_2.png" width = "450" height = "280"/>  
+# Jenkins 설치와 CI/CD 구성
 
-## CI/CD
-- 소스 배포 통합하기 위한 오픈소스 자동화 도구 
-- 기능 : 빌드, 문서화, 테스트, 패키지, 배포
-- master, slave로 구성 가능
-  - master : 
-  - slave : 
-- #### CI/CD Flow
-- <img src = "img/img_36.png" width = "450" height = "180"/>
+> 로컬 Jenkins 설치, GitHub 연동, ngrok 기반 webhook 테스트 흐름 정리
 
+## 문서 정보
 
-## Install Jenkins 
- 1. brew install jenkins         # 설치 명령어  
- 2. brew services start jenkins  # 시작  
- 3. http://localhost:8080/       # UI 접속  
- 4. cat /Users/jy_kim/.jenkins/secrets/initialAdminPassword  # password 초기화  
- 5. select plugin                # plugin 설치  
- 6. 계정 정보 입력 후 완료  
- 7. http://jenkins:8084/ 접속 하여 확인    
+- 작성일: 2023-05-31 ~ 2023-06-04
+- 환경: macbook pro14 m2 (silicon)
+- 참고 자료: [GitHub webhook localhost 이슈](https://medium.com/eum-tech-lab/github-webhooks%EC%97%90%EC%84%9C-localhost%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%A0-%EC%88%98-%EC%97%86%EB%8A%94-%EC%9D%B4%EC%9C%A0-9c0d2aecf118)
 
+## 핵심 포인트
 
-## Install ngrok  
- - 문제 : GitHub 에 jenkins address( localhost 사용 시) 발생하는 에러  
-"There was an error updating your hook: Sorry, the URL host localhost is not supported because it isn't reachable over the public Internet"  발생
-&nbsp; 원인 : gitHub는 나의 private location을  알 수 없음, Jenkins를 로컬에서 실행시, 로컬환경을 인터넷으로 노출
- - ngrok 실행 방법
-   - a. ngrok 계정 생성 및 토큰 발행
-   - b. 터미널 실행 후 "ngrok http 8084"(jenkins 포트번호) 입력
-   - c. Forwarding 주소 가져와 git repository > setting > webhooks > payloadURL( ex> https://3e9c-121-167-202-158.ngrok-free.app/github-webhook/) 입력
+- Jenkins는 빌드, 테스트, 배포 자동화 도구임
+- 로컬 Jenkins를 GitHub와 연결하려면 외부에서 접근 가능한 webhook 주소가 필요함
+- 간단한 실습은 ngrok 조합이 가장 편함
 
+## Jenkins 설치
 
-## Jenkins & github 연동
-1. github 설정  
-   a. gitbub repository > setting > webhooks > add webhook (ngrok 에서 발급받은 payload URL(https://eb00-106-101-2-252.ngrok-free.app/github-webhook/) 입력)  
-        <img src = "img/img_3.png" width = "450" height = "280"/>    
-   b. github > settings > persional access tokens(classic) > generate new token  
-        <img src = "img/img_4.png" width = "450" height = "280"/>  
-   c. check repo, admin:org ...   
-        <img src = "img/img_5.png" width = "450" height = "280"/>
-2. Jenkins 설정  
-   a. jenkins dashboad 화면 > jenkins 관리 탭 > system  github 정보 입력
-       <img src = "img/img_6.png" width = "450" height = "280"/>   
-   b. Credentials > Add > Jenkins > Username(github ID), Password(github token), ID
-   c. +새로운 Item > Enter an item name 입력 > Freestyle project 
-       <img src = "img/img_7.png" width = "450" height = "280"/>   
-       <img src = "img/img_8.png" width = "450" height = "280"/>     
+```bash
+brew install jenkins
+brew services start jenkins
+```
 
+## 초기 접속
 
-## Jenkins에서 Github 배포 파이프라인 구성  
-refer : https://itnext.io/jenkins-tutorial-part-10-work-with-git-in-pipeline-b5e42f6d124b
-1. +새로운 Item > Enter an item name 입력 > Pipeline       
-2. GitHub project 에 git url 입력 > Pipeline script 입력           
-    <img src = "img/img_1.png" width = "450" height = "280"/>    
+- UI: `http://localhost:8080`
+- 초기 비밀번호 확인
 
+```bash
+cat /Users/jy_kim/.jenkins/secrets/initialAdminPassword
+```
 
-## Jenkins 제어 명령어  
-- 시작 : brew services start jenkins
-- 종료 : brew services stop jenkins
-- 재시작 : brew services restart jenkins
-- port 변경 : vi /opt/homebrew/Cellar/jenkins/2.407/homebrew.mxcl.jenkins.plist
+## ngrok 사용 이유
 
+- GitHub webhook은 `localhost`를 직접 호출할 수 없음
+- 로컬 Jenkins를 외부에 잠시 노출하려면 ngrok 같은 터널링이 필요함
 
+```bash
+ngrok http 8080
+```
 
-###  용어 정리
-- CI : 지속적인 통합(Continuous Integration)
-- CD : 지속적인 배포Continuous Delivery
+## GitHub 연동
+
+### GitHub 설정
+
+1. Repository > Settings > Webhooks
+2. ngrok URL 기반 payload URL 입력
+3. Personal Access Token 발급
+
+### Jenkins 설정
+
+1. 시스템 설정에 GitHub 정보 입력
+2. Credentials 등록
+3. Freestyle project 또는 Pipeline 생성
+
+## Pipeline 메모
+
+- GitHub project URL 등록
+- Pipeline script 작성
+- webhook으로 자동 트리거 확인
+
+## 제어 명령
+
+```bash
+brew services start jenkins
+brew services stop jenkins
+brew services restart jenkins
+```
+
+## 용어 메모
+
+- CI: Continuous Integration
+- CD: Continuous Delivery / Deployment

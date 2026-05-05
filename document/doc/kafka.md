@@ -1,68 +1,71 @@
-## Kafka
-##### Date : 2024-08-21   
+# Kafka
 
+> 분산 메시징 시스템의 핵심 개념과 운영 시 자주 보는 용어를 정리한 문서
 
-#### Kafka    
-- 메시지 브로커 
-- 메시지 Queue(큐) 지원
-  - 읽혀진 메시지 queue에서 제거
-- PUB/SUB 모델
-  - 프로듀서가 메세지를 컨슈머에게 직접 전달하지 않고 중간의 메시징 시스템에 전달
-  - 메시징 시스템만 동작한다면 프로듀서에게 전달된 메세지 유실되지 않음
-  - 확장성이 용이
-  - 단점
-    - 직접 통신을 하지 않아 메시지가 정확하게 전달 여부 확인 로직 필요
-    - 중간에 메시징 시스템이 이있기 때문에 메시지 전달 속도가 빠르지 않음
-    - 
+## 문서 정보
 
+- 작성일: 2024-08-21
 
-    
-</br></br>  
+## 핵심 포인트
 
+- Kafka는 Pub/Sub 기반 분산 메시지 브로커임
+- Topic과 Partition을 통해 대용량 병렬 처리를 수행함
+- Consumer는 offset으로 읽기 위치를 관리함
 
-#### Kafka Architecture 
-+ Kafka(Message Broker)
-  + 메시지를 TCP로 전송하기 위한 브로커를 제공하는 메시지 브로커
-  + Kafka 클러스터는 일반적으로 로드밸런싱과 가용성을 유지하기 위해 3 Node Message Broker로 구성 (ES 와 비슷한듯..) 
-  + Producer 및 Consumer에게 정보를 전달
-  + TCP 전송방식   
-+ Topic
-  + Kafka에서 메시지를 주고 받기 위해 사용되는 Key
-  + 대용량 처리, 여러개의 Partition 지정, 병렬처리 
-  + Partition의 메시지의 정보를 offset(현재 위치)과 비교하여 메시지 수진 여부를 결정
-  + Message Max size : 1MB 
-  + Topic / Partition / Message 단위
-+ Zookeeper
-  + 메시지 큐의 데이터 관리
-  + kafka message broker 랑 동일한 개수로 구성      예시) Node Message Broker 3대일때, Node Zookeeper도 3대 
-+ Producer
-  + 데이터를 브로커에 Push 역할
-  + Zookeeper를 통해 Multi Node Message Broker의 ID를 전달 받음
-  + 전달 받은 Message Broker로 Message를 전송
-<img src = "img/kafka_img.png" width = "350" height = "140"/></br>    
+## Kafka란
 
-#### Kafka 대용량 데이터 전송 방법 & 환경설절
-+ 
+- Producer와 Consumer 사이에서 메시지를 저장하고 전달하는 시스템임
+- 높은 처리량과 확장성이 필요한 로그, 이벤트, 스트리밍 파이프라인에서 자주 사용됨
+- 읽은 메시지를 즉시 제거하지 않고 보관 정책에 따라 유지할 수 있음
 
-#### Kafka Message 구조
-+ key 
-+ value
-+ offset : Consumer가 메시지 읽을때 관리, Producer에서 직접 설정 안함 
-+ Timestamp
-+ Headers 
-<img src = "img/kafkamessage.png" width = "350" height = "140"/></br>    
- 
+## 아키텍처
 
-##### 용어정리
-+ 큐(QUEUE) : FIFO(선입선출, First In First Out) 구조, 
-+ 스택(STACK) : LIFO(후입선출, Last In First Out) 구조, 가장 마지막에 삽입된 자료 먼저 삭제됨
-+ 스택오버플로우 : 스택이 넘치는 경우(유명한 사이트의 이름 유래 된거 맞음)
-+ 스택언더플로우 : 빈 스택에서 원소 추출하려고 할때
-+ RabbitMQ : 
-+ 비트(bit) < 바이트(byte) < 킬로바이트(KB) < 메가바이트(MB) < 기가바이트(GB) < 테라바이트(TB)
+![Kafka architecture](img/kafka_img.png)
 
+### Broker
 
+- 메시지를 저장하고 전달하는 서버임
 
+### Topic
 
+- 메시지를 구분하는 논리 단위임
 
+### Partition
 
+- Topic 내부의 병렬 처리 단위임
+- Consumer Group은 Partition 단위로 메시지를 나눠 처리함
+
+### Producer
+
+- 메시지를 생성해 Broker로 전송함
+
+### Consumer
+
+- Topic을 구독하고 메시지를 읽음
+
+### ZooKeeper / KRaft
+
+- 구버전 Kafka는 ZooKeeper를 사용했음
+- 최신 Kafka는 KRaft 모드로 ZooKeeper 의존성을 줄이고 있음
+
+## 메시지 구조
+
+![Kafka message](img/kafkamessage.png)
+
+- `key`
+- `value`
+- `offset`
+- `timestamp`
+- `headers`
+
+## 운영 관점 메모
+
+- Partition 수는 병렬성과 운영 복잡도의 균형으로 결정함
+- 메시지 순서는 Partition 단위로 보장됨
+- 장애 대응 시 replication factor와 ack 정책이 중요함
+
+## 용어 정리
+
+- Queue: FIFO 구조
+- Stack: LIFO 구조
+- RabbitMQ: 대표적인 메시지 브로커

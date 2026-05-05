@@ -1,90 +1,88 @@
-### Kubeflow 설치
-#### env
-    + Sonoma 14.3.1 (M2 pro)
-    + kubeflow
-    + minikube 1.32.0      (minikube version)
-    + kubernetes 1.24.1  (kubectl version)
-    + Docker 4.24.0        (docker --version) 
-#### reference : https://otzslayer.github.io/mlops/2023/07/13/install-kubeflow-in-apple-silicon.html   
-<br/><br/> 
+# Kubeflow 설치
 
-#### Install 
-1. Docker 설치      
-   ```  https://docs.docker.com/desktop/install/mac-install/   ```
-2. kustomize 설치
-    ```
-        wget https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.0.0/kustomize_v5.0.0_darwin_arm64.tar.gz
-        tar -zxvf kustomize_v5.0.0_darwin_arm64.tar.gz
-        chmod +x kustomize
-        sudo mv kustomize /usr/local/bin
-        kustomize version     # Check kustomize version
-    ```
-3. minikube 설치     
-    ```brew install minikube ```      
-4. minikube로 Kubernetes 띄우기     
-    ```  minikube start --driver=docker --kubernetes-version=1.24.1 --disk-size 60g --memory 10240 --cpus 8 --profile kubeflow ```        
-5. Kubeflow 설치(branch 1.7 version)               
-    ```
-        git clone https://github.com/kubeflow/manifests.git --branch v1.7.0
-        cd manifests
-        while ! kustomize build example | awk '!/well-defined/' | kubectl apply -f -; do echo "Retrying to apply resources"; sleep 10; done. ()
-    ```         
-   [참고 URL]  https://mlops-for-all.github.io/docs/setup-components/install-components-kf/       
+> Apple Silicon 환경에서 Minikube 기반 Kubeflow를 올리는 절차 정리
 
-6. manifest 변경하기 : https://github.com/hwang9u/manifests/commit/7008414a59ddb251d79ba2f16a87c5acf7d83d12      
-┗ 미반영시 : ImagePullBackOff, PodInitializing, ERRO 발생 함      
-Mac silicon (ARM CPU)에서 주로 발생하는 걸로 유명함, vinaychandran 변경 반영하기      
+## 문서 정보
 
-7. 설치 확인       
- ```kubectl get pods --all-namespaces```      
-8. KubeFlow UI 접속 및 확인       
- ```kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80```     
-초기 계정정보     
-Email Address: user@example.com     
-Password: 12341234     
-9. Kubernets Dashborad 띄우기         
- ``` Kubernetes dashboard 띄우기 : minikube dashboard -p kubeflow(or profile name)```        
+- 환경
+  - Sonoma 14.3.1 (M2 Pro)
+  - Minikube 1.32.0
+  - Kubernetes 1.24.1
+  - Docker 4.24.0
+- 참고 자료: [Apple Silicon Kubeflow 설치 참고](https://otzslayer.github.io/mlops/2023/07/13/install-kubeflow-in-apple-silicon.html)
 
+## 핵심 포인트
 
+- Kubeflow는 Kubernetes 위에 올라가는 ML 워크플로우 플랫폼임
+- Apple Silicon에서는 이미지 호환성 이슈를 먼저 의심해야 함
+- 설치보다도 `ImagePullBackOff`, `PodInitializing` 대응이 더 중요함
 
+## 설치 순서
 
+### 1. Docker 설치
 
-### Docker 명령어
-+ 정상 작동 확인     
- ```  docker ps	 ```     
-+ 이미지 이름 변경    
- ```  docker tag IMAGE_ID new_image:latest  ``` 
-+ 버전 확인     
- ```   docker --version  ```      
-+ Docker 삭제 명령어        
-``` 
-    /Applications/Docker.app/Contents/MacOS/uninstall
-    rm -rf ~/Library/Group\ Containers/group.com.docker
-    rm -rf ~/Library/Containers/com.docker.docker
-    rm -rf ~/.docker    
-``` 
+- Docker Desktop 준비
 
-### Kubernetes Log 확인 명령     
-``` 
-    kubectl logs -n [] []
-    kubectl logs -n istio-system authservice-0
-    kubectl logs -n kubeflow katib-controller-7ff4749ffb-gbsbp
-``` 
+### 2. `kustomize` 설치
 
-### Kubernetes Profile 지정    
-``` 
-    minikube dashboard  명령 default profile 지정 
-    minikube profile [프로필 명]
-``` 
-+ Ex) minikube profile kf-1.4 -> minikube dashboard       
-[참고 URL] https://velog.io/@baeyuna97/온프레미스로-kubeflow-구축하기
+```bash
+wget https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv5.0.0/kustomize_v5.0.0_darwin_arm64.tar.gz
+tar -zxvf kustomize_v5.0.0_darwin_arm64.tar.gz
+chmod +x kustomize
+sudo mv kustomize /usr/local/bin
+kustomize version
+```
 
-### Docker python과 pycharm 연동      
-``` 
-    vi Dockerfile                   # 도커 파일 생성 (도커 파일은 생성자 없는 파일)
-    vi requirements.txt             # 라이브러리 생성
-    docker build --tag python3.7    # 실행 
-    docker images                   # 확인
-``` 
-+ Pycharm 서 Interpreter 변경            
-<img src = "./img/200.png" width = "850" height = "140" title=" "/> 
+### 3. Minikube 설치
+
+```bash
+brew install minikube
+```
+
+### 4. 클러스터 실행
+
+```bash
+minikube start \
+  --driver=docker \
+  --kubernetes-version=1.24.1 \
+  --disk-size 60g \
+  --memory 10240 \
+  --cpus 8 \
+  --profile kubeflow
+```
+
+### 5. Kubeflow Manifest 적용
+
+```bash
+git clone https://github.com/kubeflow/manifests.git --branch v1.7.0
+cd manifests
+while ! kustomize build example | awk '!/well-defined/' | kubectl apply -f -; do
+  echo "Retrying to apply resources"
+  sleep 10
+done
+```
+
+## ARM 환경 메모
+
+- ARM CPU에서 이미지 호환성 문제로 `ImagePullBackOff`가 자주 남
+- 필요한 경우 ARM 호환 커밋이나 수정된 manifest를 적용해야 함
+
+## 확인과 접속
+
+```bash
+kubectl get pods --all-namespaces
+kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
+```
+
+- 기본 계정
+  - Email: `user@example.com`
+  - Password: `12341234`
+
+## 자주 쓰는 명령
+
+```bash
+kubectl logs -n istio-system authservice-0
+minikube dashboard -p kubeflow
+minikube profile kubeflow
+docker ps
+```

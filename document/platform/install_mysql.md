@@ -1,37 +1,46 @@
-## mysql 설치
-### env : macbook pro14 m2(silicon)
-### date : 2023-03-04, 2024-09-20
-### desc :  homebrew 이용한 Mysql 설치 방법
+# MySQL 설치
 
+> Homebrew 기반으로 MySQL을 설치하고 기본 명령을 정리한 문서
 
-### Install
-1. brew install mysql     
-2. mysql.server start
-3. mysql_secure_installation # setting
-4. mysql -u root -p
-5. root    # password
-6. brew services start mysql   # always running setting, 최초 설치시에는 실행 동시에 되기 때문에 안해줘도 됨          
-** mysql 경로         
-```   /opt/homebrew/Cellar/mysql/ ```     
+## 문서 정보
 
-### Mysql 명령어
-+ Mysql 접속(password : root )    
- ```  mysql -u root -p root ```    
-+ Mysql server 종료     
- ``` brew services stop mysql ```   
-+ 특정버전 설치    
- ``` brew install mysql@8.4 ```    
-+ 특정버전 시작/종료     
-```brew services start mysql@8.4```       
-``` brew services stop mysql@8.4```      
-```brew services start mysql ```     
+- 작성일: 2023-03-04, 2024-09-20
+- 환경: macbook pro14 m2 (silicon)
 
+## 핵심 포인트
 
+- macOS에서는 Homebrew 설치가 가장 단순함
+- 설치 직후 `mysql_secure_installation`으로 초기 보안 설정을 맞추는 편이 좋음
+- 버전별 서비스 시작 명령을 구분해서 기억해두면 편함
 
+## 설치
 
+```bash
+brew install mysql
+mysql.server start
+mysql_secure_installation
+mysql -u root -p
+brew services start mysql
+```
 
-#### 옹어정리
-+ idex(인덱스) : 주로 검색(SELECT) 쿼리의 수행 속도를 높이기 위해 데이터베이스의 데이터 위치 (조건 검색, Order by 속도향상)
-인덱스를 남발하면 되려 역효과가 생기기 때문에 인덱스는 조건문에 자주 사용되는 컬럼에 생성하고 최대한 중복이 사용 할 것,  변경이 빈번하게 발생하는 테이블 자제
+## 자주 쓰는 명령
 
+```bash
+mysql -u root -p
+brew services stop mysql
+brew install mysql@8.4
+brew services start mysql@8.4
+brew services stop mysql@8.4
+```
 
+## 경로 메모
+
+```text
+/opt/homebrew/Cellar/mysql/
+```
+
+## 인덱스 메모
+
+- 인덱스는 조회 성능 향상에 유리함
+- 조건절과 정렬에 자주 쓰는 컬럼에 우선 적용하는 편이 좋음
+- 변경이 잦은 테이블에 과도하게 두면 역효과가 날 수 있음

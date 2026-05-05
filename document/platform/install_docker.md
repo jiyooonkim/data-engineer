@@ -1,75 +1,69 @@
-### 도커설치 
-#### Env : macbook pro14 m2(silicon), Spark version 3.4.0, Python 3.9.16, Jdk(Zulu11.64)
-#### Date : 2023-03-04 
-#### Desc : Docker 설치
-##### (** home homebrew 설치방법 : /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" )
-<br/>
+# Docker 설치
 
-## Install Flow
-1. 도커 설치 명령     
-``` brew install --cask docker```  
-2. Local에서 Docker Desktop 확인 하기
-<br/>
+> macOS 환경에서 Docker Desktop을 설치하고 기본 개념을 정리한 문서
 
+## 문서 정보
 
-## Docker 명령어  
-- 버전 확인 : docker -v   
-- Image 가져오기 : docker pull [이미지이름]     ex> docker pull hello-world
-- Image 실행 : docker run [이미지이름]     ex> docker run hello-world
-- Image/Containor 삭제 : docker rmi [이미지 이름 or id]
-- 이미지 목록 : docker image list   
-- 컨테이너 목록 : docker ps -a     
-- 컨테이너 종료 : docker stop [컨테이너 이름]         
-- 컨테이너 삭제 : docker rm [컨테이너 id]    
-<img src = "img/img_26.png" width = "450" height = "180"/>        
+- 작성일: 2023-03-04
+- 환경: macbook pro14 m2 (silicon)
 
-## docker-compose
-+ 컨테이너 관리
-+ 앱을 구성하는 서비스를 .yml file 로 정의하여 "docker-compose up"로 실행    
-+ 위치 : docker-compose.yaml 파일의 위치와 docker-compose up -d 커맨드 위치와 동일        
-    <img src = "img/img_33.png" width = "450" height = "180"/>   
+## 핵심 포인트
 
-## dockerfile
-- 이미지 빌드(띄우는 역할)  
-- 여러개의 이미지를 하나의 파일로 만들어 둔 것(이미지 모음 같은....)
-- 이미지 기능 파악 쉬움
-- 배포 용이    
-- 명령     
-  - docker build -t {image이름:tag명} .      
-+ dockerfile < docker-compose
+- macOS에서는 보통 Docker Desktop 설치가 가장 단순함
+- Docker는 컨테이너 기반 실행 환경임
+- `Dockerfile`과 `docker-compose` 역할을 분리해서 이해해야 함
 
+## 설치
 
-## Image 생성/실행
-1. Image 가져오기 : docker pull [이미지이름]     ex> docker pull hello-world
-2. Image 실행 : docker run [이미지이름]     ex> docker run hello-world  
-     <img src = "img/img_23.png" width = "450" height = "180"/>       
-     <img src = "img/img_24.png" width = "450" height = "180"/>      
+```bash
+brew install --cask docker
+```
 
+- 설치 후 Docker Desktop 실행
+- 로컬에서 `docker ps`로 정상 동작 확인
 
-<br/><br/>
-### 개념정리
--  Docker 와 VM(virtual machine)의 차이 및 개념    
-     -  VM: 하이퍼바이저 기반, 논리적으로 구분된 가상환경(게스트 os)이 별도로 존재
-     -  Docker : 커널 기반, 단일 os위에 다수 응용프로그램 실행 방식, 다양한 응용프로그램을 컨테이너로 실행/관리하는 오픈소스 프로젝트, 
-     -  차이점 : 게스트 os의 유무(다양한 os 요구될땐 =>VM    단일 os => docker)  
-     <img src = "img/img_22.png" width = "450" height = "180"/>
--  Host OS vs Guest OS       
-     - Host OS : 기존에 설치 되어있는 os (default)  
-     - Guest OS : 기존이외 os , vm에서 존재  ex> 한 리눅스 서버에 window, 우분투 두개 올려서 사용 할 때  
--  brew 와 brew cask 설치 차이점  
-     - brew로 설치는 가상머신 위에 도커를 띄우는 작업이 필요 => 가상머신 설치 별도 요구  
-     - brew cask 설치는, desktop에 직접 설치, 맥 os 위에 바로 설치하기 때문에 가상머신 불필요
- <br/><br/>
+## 자주 쓰는 명령
 
-### 용어 정리
-- image : 컨테이너를 실행할 수 있는 실행파일, 설정값 가지고 있음  
-- docker-container : 도커 이미지를 실행한 상태, 단일 컴퓨터 호스트를 리소스를 가상으로 여러개 사용할 수 있도록 하는 sw  
-     <img src = "img/img_25.png" width = "450" height = "180"/>  
-- ** 도커 이미지를 변경해도 이미 실행 중인 도커 컨테이너에는 영향 없음    
-- 하이퍼바이저(hypervisor) : 여러 os를 동시에 실행하기 위한 논리적 플랫폼, 다수의 가상 머신을 분산 시키는 역할  
-- 커널(kernel) : hw 와 sw를 연결해주는 역할 ,shell 을 통해 응용 application과 소통
-- docker-compose : 컨테이너 관리
-- dockerfile : 이미지 빌드
-- docker-machine :
-- on premise : 온 프레미스
-- off premise : 
+```bash
+docker -v
+docker pull hello-world
+docker run hello-world
+docker image list
+docker ps -a
+docker stop <container>
+docker rm <container>
+docker rmi <image>
+```
+
+## Docker Compose
+
+- 여러 컨테이너 서비스를 YAML로 묶어 관리하는 도구임
+- 보통 `docker-compose.yaml` 또는 `compose.yaml` 파일을 기준으로 실행함
+
+```bash
+docker compose up -d
+docker compose down
+```
+
+## Dockerfile
+
+- 이미지를 빌드하기 위한 정의 파일임
+- 앱 실행 환경을 코드처럼 관리할 수 있음
+
+```bash
+docker build -t my-image:latest .
+```
+
+## Docker vs VM
+
+- VM: Guest OS 포함
+- Docker: Host OS 커널 공유
+- 다양한 OS까지 완전히 분리해야 하면 VM이 유리함
+- 빠른 배포와 가벼운 실행은 Docker가 유리함
+
+## 용어 메모
+
+- Image: 컨테이너 실행 원본
+- Container: 실행 중인 이미지
+- Hypervisor: VM 실행 계층
+- Kernel: 하드웨어와 소프트웨어 사이 핵심 계층

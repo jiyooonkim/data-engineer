@@ -1,26 +1,48 @@
-### Shell
-#### Date : 2023-07-15  
+# Shell
 
+> 터미널 환경을 이해하기 위해 자주 나오는 셸 개념을 간단히 정리한 문서
 
-## Shell 이란?
-- OS 에서 사용자 명령을 읽고/해석 하여 실행해주는 프로그램
-- 사용자와 OS 인터페이스 역할
+## 문서 정보
 
-## Bash Shell 이란?
-- 유닉스에서 사용하는 커맨드 쉘
-- bourne-again-shell 이라고 하나 줄여서 bash 라고..
+- 작성일: 2023-07-15
 
-#### 개념 정리
-* Q. .bashrc 와 .bash_profile 의 차이   
-A.  .bashrc : 이미 로그인 한 상태에서 새터미널 실행시킬 때 로드     
-     .bash_profile : 로그인 할 때마다 로드       
-   .profile : 로그인할 때 로드,  Mac에서 새 터미널 창을 열 때마다 .bashrc를 로드하고 싶다면 .bash_profile에서 .bashrc를 로드 
-    ```  
-    # Source bashrc
-    if [ -f ~/.bashrc ]; then
-        . ~/.bashrc
-    fi
-    ```      
-* Q. Login Shell 과 Non-Login Shell          
-A. Login Shell : ID/Pasword 입력통해 shell 실행 또는 로컬에서 GUI를 통해 접속시, .profile과 .bash_profile 모두 Login할 때 로드되는 파일                   
-  Non-Login Shell : 로그인 없이 실행하는 Shell        
+## 핵심 포인트
+
+- Shell은 사용자와 운영체제 사이의 인터페이스임
+- Bash는 가장 널리 쓰이는 유닉스 계열 셸 중 하나임
+- 로그인 셸과 비로그인 셸의 설정 파일 로드 방식은 다름
+
+## Shell이란
+
+- 운영체제에서 사용자 명령을 읽고 해석해 실행하는 프로그램임
+- CLI 환경에서 가장 직접적으로 다루는 인터페이스임
+
+## Bash Shell이란
+
+- Bourne Again Shell의 약자임
+- 유닉스 계열 환경에서 많이 사용됨
+
+## 자주 보는 설정 파일
+
+### `.bashrc`
+
+- 로그인 이후 새 터미널 세션에서 주로 로드됨
+
+### `.bash_profile`
+
+- 로그인 셸 시작 시 로드됨
+
+### `.profile`
+
+- 공통 초기화 파일로 사용되기도 함
+
+```bash
+if [ -f ~/.bashrc ]; then
+  . ~/.bashrc
+fi
+```
+
+## Login Shell vs Non-Login Shell
+
+- Login Shell: 로그인 과정과 함께 시작되는 셸
+- Non-Login Shell: 로그인 없이 실행되는 셸
